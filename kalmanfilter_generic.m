@@ -3,9 +3,9 @@ function [P,K,Om,numiter] = kalmanfilter_generic(hx,gx, X0, P0, R, Q, tol)
 % General variable names:
 % X  = vector of states
 % Y  = vector of jumps
-% Sx = selector matrix: which of the states is being formed beliefs upon
+% Sx = selector matrix: which of the states is being formed beliefs upon (input here as Sx*hx already)
 % Sy = selector matrix: which of the jumps is being seen and used for
-% inference on noisy state
+% inference on noisy state (input here as Sy*gx already)
 % Inputs:
 % hx = state transition matrix
 % gx = jump dependence matrix on states
