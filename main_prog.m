@@ -9,23 +9,12 @@ clear all
 close all
 
 %Parameterization
-beta = 0.98; %discount factor
-delta = 0.025; %Depreciation rate of capital - set equal to 1 to check if the model is correct: I = K!
-alpha = 1/3; %capital share - Cobb-Douglass production function
-sigma = 0.01; %standard deviation of the TFP shock
-phi = 0.9; %rate of survival of the old technology - obsolescense parameter
-rhog = 0.8; %persistence of the exogenous TFP shock
-theta = 0.5; %share between standard production and technology 
-fit = 0.7; %Efficiency of the R&D sector <--- LG: this guy should become a variable for incomplete info case.
-
-ss = 0.1*ones(1,11); %vector of all the steady state variables <--- LG: Need to calculate steady state properly
-xx = ones(3);
-yy = ones(8);
+param
 
 %% 1.) Model with full information
 
 % Compute [fyn, fxn, fypn, fxpn] 
-model_fullinfo;
+model_1; % model_fullinfo;
 
 [gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
 
@@ -35,6 +24,7 @@ save('gxhx.mat', 'gx', 'hx')
 disp('Computing eigenvalues of hx');
 disp(eig(hx))
 
+return
 %% 2.) Model with incomplete information
 
 tol = 1.0e-06;
