@@ -14,7 +14,8 @@ param
 %% 1.) Model with full information
 
 % Compute [fyn, fxn, fypn, fxpn] 
-model_1; % model_fullinfo;
+check_steadystate = 1; % 1 if we want to verify that our steady state is analytically correct
+[fyn,fxn,fypn,fxpn] =model_1(check_steadystate); % model_fullinfo;
 
 [gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
 

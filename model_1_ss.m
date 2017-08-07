@@ -24,6 +24,7 @@ function [ss] = model_1_ss()
     m = y*gamm/nu;
     k = y/y_k;
     pi = (nu-1)*m;
+    a = 1;
     
     
     
