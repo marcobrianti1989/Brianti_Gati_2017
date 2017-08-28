@@ -1,3 +1,4 @@
+function [fyn,fxn,fypn,fxpn] = model_1()
 % ====================SIMPLIFIED VERSION OF COMIN AND GERTLER (2006)=======================
 
 % =================== 3 of August, 2017. Brianti and Gati - Attempt Number 1 ==================
@@ -37,7 +38,7 @@ f(end+1) = -V + PI + phi*bet*C/C_p*V_p;
 f(end+1) = -Z_p + LAMB*S + phi*Z;
 f(end+1) = -1/LAMB + phi*bet*C/C_p*V_p;
 f(end+1) = -Q + K^(alph*(1-gamm)) *L^((1-alph)*(1-gamm)) *Z^(nu*gamm) * M^gamm;
-f(end+1) = -LAMB + lambx * K^(-rho) *S^(rho-1);
+f(end+1) = -LAMB + lambx * K^(-rho) *S^(rho-1)*Z;
 
 
 %Verify if the computation of Steady-State is correct
@@ -49,11 +50,11 @@ disp('Checking steady-state equations:'); %It reminds me that it is checking if 
 %correct or not
 disp(fnum); %it displays me the vector f() to show me if the steady states we evaluated above are...
 %correct or nor
-if sum(fnum) > 10^(-10)
+if sum(abs(fnum)) > 10^(-10)
     warning('The steady state solution derived analytically is wrong')
 end
 
-return
+
 %Log-linear approx
 log_var = [X Y XP YP];
 f = subs(f, log_var, exp(log_var)); 
@@ -77,84 +78,82 @@ fyn =  double(subs(fy , [Y X YP XP], [ss, ss]));
 fxpn = double(subs(fxp, [Y X YP XP], [ss, ss]));
 fypn = double(subs(fyp, [Y X YP XP], [ss, ss]));
 
-%Compute the transition and policy functions, using code by
-%Stephanie Schmitt-Grohé and Martín Uribe (and available on their wedsite.)
-[gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
-%Remember that x_t+1 = hx*x_t and y_t+1 = gx*x_t
-
-%Compute the IRF to a positive technology shock
-j=20; %Defining the prefered time horizon
-%Defining matrices for the IRFs to a technology shock
-irx = zeros(length(xx),j); %Notice that we are doing it for all states (gamma and k)
-iry = zeros(length(yy),j); %Notice thet we are doing it for all variables. 
-irf_y = zeros(1,j); %We add one vector to add also output which we want to see its IRF
-%Evaluating the IRFs. We use hx to evaluate first the effect on the states
-for i=1:j
-    irx(:,i) = hx^(i-1)*[0; 0; -sigma]; %[sigma; 0] is the vector of shocks. We have just one shock...
-    %the first element which is gamma. No shock to capital, it does not
-    %make sense in this setting
-    iry(:,i) = gx*irx(:,i); %Use gx to transform the IRF on the states into the jumps
 end
 
-% %Plot the IRF - complete IRF
-% subplot(5,2,1)
-% plot(iry(5,:))
-% title('Output')
-% grid on
-% subplot(5,2,2)
-% plot(iry(1,:))
-% title('Consumption')
-% grid on
-% subplot(5,2,3)
+% %% Commented out - to be deleted or incorporated later
+% %Compute the IRF to a positive technology shock
+% j=20; %Defining the prefered time horizon
+% %Defining matrices for the IRFs to a technology shock
+% irx = zeros(length(xx),j); %Notice that we are doing it for all states (gamma and k)
+% iry = zeros(length(yy),j); %Notice thet we are doing it for all variables. 
+% irf_y = zeros(1,j); %We add one vector to add also output which we want to see its IRF
+% %Evaluating the IRFs. We use hx to evaluate first the effect on the states
+% for i=1:j
+%     irx(:,i) = hx^(i-1)*[0; 0; -sigma]; %[sigma; 0] is the vector of shocks. We have just one shock...
+%     %the first element which is gamma. No shock to capital, it does not
+%     %make sense in this setting
+%     iry(:,i) = gx*irx(:,i); %Use gx to transform the IRF on the states into the jumps
+% end
+% 
+% % %Plot the IRF - complete IRF
+% % subplot(5,2,1)
+% % plot(iry(5,:))
+% % title('Output')
+% % grid on
+% % subplot(5,2,2)
+% % plot(iry(1,:))
+% % title('Consumption')
+% % grid on
+% % subplot(5,2,3)
+% % plot(iry(3,:))
+% % title('Investment')
+% % grid on
+% % subplot(5,2,4)
+% % plot(iry(7,:))
+% % title('R&D Effort')
+% % grid on
+% % subplot(5,2,5)
+% % plot(irx(1,:))
+% % title('Capital')
+% % grid on
+% % subplot(5,2,6)
+% % plot(irx(2,:))
+% % title('Endogenous TFP')
+% % grid on
+% % subplot(5,2,7)
+% % plot(iry(4,:))
+% % title('Intermediate Profits')
+% % grid on
+% % subplot(5,2,8)
+% % plot(iry(8,:))
+% % title('PDV Invention')
+% % grid on
+% % subplot(5,2,9)
+% % plot(iry(6,:))
+% % title('Intermediate Good')
+% % grid on
+% % subplot(5,2,10)
+% % plot(irx(3,:))
+% % title('Wealth Shock')
+% % grid on
+% 
+% 
+% 
+% 
+% %Plot the IRF
+% subplot(2,2,1)
 % plot(iry(3,:))
 % title('Investment')
 % grid on
-% subplot(5,2,4)
+% subplot(2,2,2)
 % plot(iry(7,:))
 % title('R&D Effort')
 % grid on
-% subplot(5,2,5)
+% subplot(2,2,3)
 % plot(irx(1,:))
 % title('Capital')
 % grid on
-% subplot(5,2,6)
+% subplot(2,2,4)
 % plot(irx(2,:))
 % title('Endogenous TFP')
 % grid on
-% subplot(5,2,7)
-% plot(iry(4,:))
-% title('Intermediate Profits')
-% grid on
-% subplot(5,2,8)
-% plot(iry(8,:))
-% title('PDV Invention')
-% grid on
-% subplot(5,2,9)
-% plot(iry(6,:))
-% title('Intermediate Good')
-% grid on
-% subplot(5,2,10)
-% plot(irx(3,:))
-% title('Wealth Shock')
-% grid on
-
-
-
-
-%Plot the IRF
-subplot(2,2,1)
-plot(iry(3,:))
-title('Investment')
-grid on
-subplot(2,2,2)
-plot(iry(7,:))
-title('R&D Effort')
-grid on
-subplot(2,2,3)
-plot(irx(1,:))
-title('Capital')
-grid on
-subplot(2,2,4)
-plot(irx(2,:))
-title('Endogenous TFP')
-grid on

@@ -14,11 +14,12 @@ param
 %% 1.) Model with full information
 
 % Compute [fyn, fxn, fypn, fxpn] 
-model_1; % model_fullinfo;
+[fyn,fxn,fypn,fxpn] = model_1; % model_fullinfo;
 
 [gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
 
 save('gxhx.mat', 'gx', 'hx')
+%Remember that x_t+1 = hx*x_t and y_t+1 = gx*x_t
 
 %Eigenvalues of hx
 disp('Computing eigenvalues of hx');
