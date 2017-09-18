@@ -1,4 +1,4 @@
-function [A, mshock, A99, A1, A95, A5, A86, A16] = ...
+function [A, B, B_boot, B_boot_Kilian, mean_B_boot_check, shock_vec, A99, A1, A95, A5, A86, A16] = ...
       cholboot(dataset,lag_number,which_shock,total_extractions)
 
 if lag_number == 0
@@ -38,8 +38,8 @@ if zero2 > 10^(-16)
 end
 
 %Shock we want to focus on
-mshock = zeros(1,size(dataset,2));
-mshock(1,which_shock) = 1;
+shock_vec = zeros(1,size(dataset,2));
+shock_vec(1,which_shock) = 1;
 
 for i_repeat = 1:total_extractions
       %Random extraction of the residuals
@@ -66,7 +66,7 @@ end
 %Kilian Correction
 for i_repeat = 1:total_extractions
       adjmeanB = mean(B_boot,3);
-      B_boot(:,:,i_repeat) = 2*B_boot(:,:,i_repeat) - adjmeanB;
+      B_boot_Kilian(:,:,i_repeat) = 2*B_boot(:,:,i_repeat) - adjmeanB;
 end
 mean_B_boot_check = mean(B_boot,3);
 for i_repeat = 1:total_extractions
