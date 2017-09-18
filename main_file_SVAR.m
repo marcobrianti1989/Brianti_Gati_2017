@@ -9,7 +9,7 @@ m2 = [zeros(1,1);  m2];
 dataset02 = [dataset001 dataset000(:,7) dataset002(:,1) m2]; % whole dataset
 dataset = dataset02(71:end,1:end); %260
 lag_number = 4;
-total_extractions = 10000;
+total_extractions = 100;
 which_shock = 7;
 
 tic

@@ -44,11 +44,14 @@ shock_vec(1,which_shock) = 1;
 for i_repeat = 1:total_extractions
       %Random extraction of the residuals
       rand_sorter = randsample(size(res,1),size(res,1));
+%       rand_sorter = randsample(size(res,1),size(res,1), true); % true = with replacement
+
       for i_s = 1:size(rand_sorter,1)
-            res_boot(i_s,:,i_repeat) = res(rand_sorter(i_s),:);
+            res_boot(i_s,:,i_repeat) = res(rand_sorter(i_s),:); % <---
       end
       %Building many bootstrapped datasets
-      dataset_boot(:,:,i_repeat) = reg*B + res_boot(:,:,i_repeat);
+%       dataset_boot(:,:,i_repeat) = reg*B + res_boot(:,:,i_repeat);
+      dataset_boot(:,:,i_repeat) = reg*B + res_boot(:,:,i_repeat)*A;
       for ilag = 1:lag_number+1
             eval(['data_boot', num2str(ilag),'(:,:,i_repeat) = dataset_boot(2+lag_number-ilag:end+1-ilag,:,i_repeat);'])
       end
