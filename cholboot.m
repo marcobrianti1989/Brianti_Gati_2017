@@ -1,4 +1,4 @@
-function [A, mshock, A99, A1, A95, A5, A86, A16] = ...
+function [A, B, B_boot, B_boot_Kilian, mean_B_boot_check, shock_vec, A99, A1, A95, A5, A86, A16] = ...
       cholboot(dataset,lag_number,which_shock,total_extractions)
 
 if lag_number == 0
@@ -38,12 +38,13 @@ if zero2 > 10^(-16)
 end
 
 %Shock we want to focus on
-mshock = zeros(1,size(dataset,2));
-mshock(1,which_shock) = 1;
+shock_vec = zeros(1,size(dataset,2));
+shock_vec(1,which_shock) = 1;
 
 reg_boot = zeros(length(dataset)-2*lag_number,lag_number*size(dataset,2),total_extractions);
 for i_repeat = 1:total_extractions
       %Random extraction of the residuals
+<<<<<<< HEAD
       res_boot = res(randsample(size(res,1),1),:);      
       %Building many bootstrapped datasets
       reg_new = reg(1,:);
@@ -54,6 +55,17 @@ for i_repeat = 1:total_extractions
       reg_new = [ystar reg(i_boot,size(dataset,2)+1:end)]
       dataset_boot(i_boot,:,i_repeat) = ystar;
       end
+=======
+      rand_sorter = randsample(size(res,1),size(res,1));
+%       rand_sorter = randsample(size(res,1),size(res,1), true); % true = with replacement
+
+      for i_s = 1:size(rand_sorter,1)
+            res_boot(i_s,:,i_repeat) = res(rand_sorter(i_s),:); % <---
+      end
+      %Building many bootstrapped datasets
+%       dataset_boot(:,:,i_repeat) = reg*B + res_boot(:,:,i_repeat);
+      dataset_boot(:,:,i_repeat) = reg*B + res_boot(:,:,i_repeat)*A;
+>>>>>>> b4e741ad45a0017dc35b52ee9d08497a4bc9748e
       for ilag = 1:lag_number+1
             eval(['data_boot', num2str(ilag),'(:,:,i_repeat) = dataset_boot(2+lag_number-ilag:end+1-ilag,:,i_repeat);'])
       end
@@ -68,8 +80,15 @@ for i_repeat = 1:total_extractions
       
       %Kilian Correction
       adjmeanB = mean(B_boot,3);
+<<<<<<< HEAD
       B_boot(:,:,i_repeat) = 2*B_boot(:,:,i_repeat) - adjmeanB;
 
+=======
+      B_boot_Kilian(:,:,i_repeat) = 2*B_boot(:,:,i_repeat) - adjmeanB;
+end
+mean_B_boot_check = mean(B_boot,3);
+for i_repeat = 1:total_extractions
+>>>>>>> b4e741ad45a0017dc35b52ee9d08497a4bc9748e
       %Evaluate the residuals (res = yhat - y)
       res_boottwo(:,:,i_repeat) = ...
             data_boot1(:,:,i_repeat) - reg_boot(:,:,i_repeat)*B_boot(:,:,i_repeat);
