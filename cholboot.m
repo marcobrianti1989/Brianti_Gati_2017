@@ -41,14 +41,19 @@ end
 mshock = zeros(1,size(dataset,2));
 mshock(1,which_shock) = 1;
 
+reg_boot = zeros(length(dataset)-2*lag_number,lag_number*size(dataset,2),total_extractions);
 for i_repeat = 1:total_extractions
       %Random extraction of the residuals
-      rand_sorter = randsample(size(res,1),size(res,1));
-      for i_s = 1:size(rand_sorter,1)
-            res_boot(i_s,:,i_repeat) = res(rand_sorter(i_s),:);
-      end
+      res_boot = res(randsample(size(res,1),1),:);      
       %Building many bootstrapped datasets
-      dataset_boot(:,:,i_repeat) = reg*B + res_boot(:,:,i_repeat);
+      reg_new = reg(1,:);
+      for i_boot = 1:size(res,1)
+      res_boot = res(randperm(size(res,1),1),:)
+      yhat = reg_new*B;
+      ystar = yhat + res_boot
+      reg_new = [ystar reg(i_boot,size(dataset,2)+1:end)]
+      dataset_boot(i_boot,:,i_repeat) = ystar;
+      end
       for ilag = 1:lag_number+1
             eval(['data_boot', num2str(ilag),'(:,:,i_repeat) = dataset_boot(2+lag_number-ilag:end+1-ilag,:,i_repeat);'])
       end
@@ -57,19 +62,14 @@ for i_repeat = 1:total_extractions
                   eval(['reg_boot(:,ivar+size(dataset_boot,2)*(ilag-2),i_repeat) = data_boot',num2str(ilag),'(:,ivar,i_repeat);'])
             end
       end
-end
-for i_repeat = 1:total_extractions
       %OLS in the Reduced Form Vector Autoregression for each boot_dataset
       B_boot(:,:,i_repeat) = (reg_boot(:,:,i_repeat)'*reg_boot(:,:,i_repeat))^(-1)*...
             ((reg_boot(:,:,i_repeat))'*data_boot1(:,:,i_repeat));
-end
-%Kilian Correction
-for i_repeat = 1:total_extractions
+      
+      %Kilian Correction
       adjmeanB = mean(B_boot,3);
       B_boot(:,:,i_repeat) = 2*B_boot(:,:,i_repeat) - adjmeanB;
-end
-mean_B_boot_check = mean(B_boot,3);
-for i_repeat = 1:total_extractions
+
       %Evaluate the residuals (res = yhat - y)
       res_boottwo(:,:,i_repeat) = ...
             data_boot1(:,:,i_repeat) - reg_boot(:,:,i_repeat)*B_boot(:,:,i_repeat);
@@ -93,6 +93,12 @@ A95 = sort_A_boot(:,:,ceil(total_extractions*0.95));
 A5 = sort_A_boot(:,:,ceil(total_extractions*0.05));
 A86 = sort_A_boot(:,:,ceil(total_extractions*0.86));
 A16 = sort_A_boot(:,:,ceil(total_extractions*0.16));
+
+B(1,:)
+mean_B_boot_check = mean(B_boot,3);
+mean_B_boot_check(1,:)
+res_boot(1,:,1)
+res
 
 end
 
