@@ -3,27 +3,38 @@
 clear all
 
 %% Load data and arrange
-data = xlsread('dataset_23_sept_2017','Sheet1','B182:D283');
+data = xlsread('dataset_23_sept_2017','Sheet1','B126:F283');
 % 1st column: TFP (annual growth rates, quarterly)
 % 2nd column: R&D (levels, quarterly)
-% 3rd column: SPF long run productivity annual growth expectation (growth rates, annual)
+% 3rd column: SPF long run productivity annual growth expectation (growth
+% rates, annual) (DON'T USE RIGHT NOW!)
+% 4th column: Michigan index of business conditions 5-years ahead (levels, quarterly)
+% 5th column: nonresidential fixed investment in various IT stuff (levels, quarterly)
 
 % Extrapolate annual variables (to make them quarterly)
-for i=1:4:length(data)-4
-    extrap = linspace(data(i,3),data(i+4,3),5);
-    data(i+1:i+3,3) = extrap(2:4); 
+do_extrap = 0;
+if do_extrap == 1
+    for i=1:4:length(data)-4
+        extrap = linspace(data(i,3),data(i+4,3),5);
+        data(i+1:i+3,3) = extrap(2:4);
+    end
+else % Turn quarterly variables into annual
+    % NOT DOING THAT EITHER
 end
+
 
 % Cumulate growth variables to levels (log levels to be precise, b/c growth
 % rates are calculated as log diffs)
 data_levels(:,1) = cumsum(data(:,1));
-data_levels(:,2) = log(data(:,2)); % this series was levels to start out with so we take logs
-data_levels(:,3) = cumsum(data(:,3));
+data_levels(:,2) = log(data(:,5)); % this series was levels to start out with so we take logs
+% 5 means we take IT investment instead of R&D
+% data_levels(:,3) = cumsum(data(:,3)); %ignore this since it's SPF
+data_levels(:,3) = log(data(:,4)); % the Mich index take the third column in data_levels.
 
-% Cut out the last line where we have no SPF value
-data_levels = data_levels(1:end-1,:);
+% % Cut out the last line where we have no SPF value
+% data_levels = data_levels(1:end-1,:);
 
-%Wrong order in the dataset! RD is the last! TFP first and SPF second!
+%Wrong order in the dataset! Rearrange to have: RD is the last! TFP first and SPF second!
 y      = zeros(size(data_levels,1),size(data_levels,2));
 y(:,1) = data_levels(:,1);
 y(:,2) = data_levels(:,3);
@@ -35,12 +46,13 @@ figure(1)
 hold on
 plot(data_levels(:,1),'LineWidth',2)
 plot(data_levels(:,2),'LineWidth',2)
-% plot(data_levels(:,3),'LineWidth',2)
+plot(data_levels(:,3),'LineWidth',2)
 grid on
 hold off
 
+
 %% Run a simple VAR
-nlag = 1;
+nlag = 2;
 nt = 80;
 [beta, c, mu] = quick_var(data_levels,nlag);
 news_shock = c*[0 1 0]';
@@ -86,7 +98,7 @@ figure
 %News shock on TFP
 subplot(3,2,1)
 hold on
-plot(periods, IR_news(:,1),'Color','r') 
+plot(periods, IR_news(:,1),'Color','r')
 plot(periods, ub_news(:,1),'Color','k')
 plot(periods, lb_news(:,1),'Color','k')
 title('News shock on TFP')
@@ -96,7 +108,7 @@ hold off
 %News shock on SPF
 subplot(3,2,3)
 hold on
-plot(periods, IR_news(:,2),'Color','r') 
+plot(periods, IR_news(:,2),'Color','r')
 plot(periods, ub_news(:,2),'Color','k')
 plot(periods, lb_news(:,2),'Color','k')
 title('News shock on SPF')
@@ -106,7 +118,7 @@ hold off
 %News shock on RD
 subplot(3,2,5)
 hold on
-plot(periods, IR_news(:,3),'Color','r') 
+plot(periods, IR_news(:,3),'Color','r')
 plot(periods, ub_news(:,3),'Color','k')
 plot(periods, lb_news(:,3),'Color','k')
 title('News shock on RD')
@@ -116,7 +128,7 @@ hold off
 %RD shock on TFP
 subplot(3,2,2)
 hold on
-plot(periods, IR_rd(:,1),'Color','r') 
+plot(periods, IR_rd(:,1),'Color','r')
 plot(periods, ub_rd(:,1),'Color','k')
 plot(periods, lb_rd(:,1),'Color','k')
 title('RD shock on TFP')
@@ -126,7 +138,7 @@ hold off
 %RD shock on SPF
 subplot(3,2,4)
 hold on
-plot(periods, IR_rd(:,2),'Color','r') 
+plot(periods, IR_rd(:,2),'Color','r')
 plot(periods, ub_rd(:,2),'Color','k')
 plot(periods, lb_rd(:,2),'Color','k')
 title('RD shock on SPF')
@@ -136,7 +148,7 @@ hold off
 %RD shock on RD
 subplot(3,2,6)
 hold on
-plot(periods, IR_rd(:,3),'Color','r') 
+plot(periods, IR_rd(:,3),'Color','r')
 plot(periods, ub_rd(:,3),'Color','k')
 plot(periods, lb_rd(:,3),'Color','k')
 title('RD shock on RD')
