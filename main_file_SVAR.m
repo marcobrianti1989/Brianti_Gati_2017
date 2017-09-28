@@ -1,20 +1,9 @@
+%% Run a SVAR and identify news shocks and R&D shocks
+
+% Marco Brianti, Laura Gáti, Sep 28 2017
+
 clear all
 close all
-
-% dataset000 = xlsread('Data_CEE','quarterly','b5:j283'); % reading data
-% dataset001 = log(dataset000(:,1:6)); % taking log
-% dataset002 = log(dataset000(:,8:9)); % taking log
-% m2 = diff(dataset002(:,2)); % construct m2 growth
-% m2 = [zeros(1,1);  m2];
-% dataset02 = [dataset001 dataset000(:,7) dataset002(:,1) m2]; % whole dataset
-% <<<<<<< HEAD
-% dataset = dataset02(71:end,1:end);
-% =======
-% dataset = dataset02(71:end,1:end); %260
-% >>>>>>> b4e741ad45a0017dc35b52ee9d08497a4bc9748e
-% lag_number = 4;
-% total_extractions = 1;
-% which_shock = 7;
 
 data = xlsread('dataset_23_sept_2017','Sheet1','B126:F283');
 % Cumulate growth variables to levels (log levels to be precise, b/c growth
@@ -55,7 +44,7 @@ nvar = size(data_levels,2);
 [A2,B2,res] = sr_var(data_levels, nlags);
 
 % Generate bootstrapped data samples
-dataset_boot = data_boot(B2, nburn, res, nsimul);
+dataset_boot = data_boot(B2, nburn, res, nsimul); % <--- TO DO: draw shocks in blocks
 
 % Redo VAR nsimul times on the bootstrapped datasets
 A_boot = zeros(nvar,nvar,nsimul);
@@ -66,6 +55,7 @@ end
 
 average_B_boot = mean(B_boot,3);
 average_A_boot = mean(A_boot,3);
+% TO DO: Kilian correction
 
 
 % Calculate IRFs, bootstrapped CI and plot them
@@ -73,4 +63,5 @@ h=80;
 which_shock = [2 3];
 names = {'News shock', 'R&D shock'}; % shock names in order of appearance
 varnames = {'TFP','Mich index', 'R&D'} ; % variable names in order of appearance
-plotIRFs(A2,A_boot,B,B_boot,h,which_shock, names, varnames);
+sig = 0.9; % significance level
+plotIRFs(A2,A_boot,B,B_boot,h,which_shock, names, varnames,sig);
