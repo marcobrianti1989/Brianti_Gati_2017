@@ -1,5 +1,5 @@
-function [A, B, B_boot, B_boot_Kilian, mean_B_boot_check, shock_vec, A99, A1, A95, A5, A86, A16] = ...
-      cholboot(dataset,lag_number,which_shock,total_extractions)
+function [A, B, B_boot, B_boot_Kilian, shock_vec, A99, A1, A95, A5, A86, A16] = ...
+    cholboot(dataset,lag_number,which_shock,total_extractions)
 
 if lag_number == 0
       error('Number of lags cannot be zero')
@@ -18,6 +18,9 @@ for ilag = 2:lag_number+1
       end
 end
 
+% Add constant
+reg = [ones(size(reg,1),1) reg];
+
 %OLS in the Reduced Form Vector Autoregression
 B = (reg'*reg)^(-1)*(reg'*data_1);
 
@@ -25,10 +28,10 @@ B = (reg'*reg)^(-1)*(reg'*data_1);
 res = data_1 - reg*B;
 
 %Compute the variance-covariance matrix
-sigma = res'*res;
+sigma = res'*res/size(reg,1);
 
 %Static rotation matrix
-A = chol(sigma,'lower');
+A = chol(sigma)';
 
 % Proving that A is what we are looking for A'u'uA = res*res where u'u = I
 zero1 = A*A' - sigma;
@@ -44,28 +47,19 @@ shock_vec(1,which_shock) = 1;
 reg_boot = zeros(length(dataset)-2*lag_number,lag_number*size(dataset,2),total_extractions);
 for i_repeat = 1:total_extractions
       %Random extraction of the residuals
-<<<<<<< HEAD
-      res_boot = res(randsample(size(res,1),1),:);      
+%<<<<<<< HEAD
+      %res_boot = res(randsample(size(res,1),1),:);      
       %Building many bootstrapped datasets
-      reg_new = reg(1,:);
+      reg_new = zeros(1,lag_number*size(dataset,2));
       for i_boot = 1:size(res,1)
-      res_boot = res(randperm(size(res,1),1),:)
-      yhat = reg_new*B;
-      ystar = yhat + res_boot
-      reg_new = [ystar reg(i_boot,size(dataset,2)+1:end)]
+      res_boot = res(randperm(size(res,1),1),:);
+      yhat = [1, reg_new]*B;
+      ystar = yhat + res_boot;
+      reg_new = [ystar reg_new(1:end-size(dataset,2))];
       dataset_boot(i_boot,:,i_repeat) = ystar;
       end
-=======
-      rand_sorter = randsample(size(res,1),size(res,1));
-%       rand_sorter = randsample(size(res,1),size(res,1), true); % true = with replacement
-
-      for i_s = 1:size(rand_sorter,1)
-            res_boot(i_s,:,i_repeat) = res(rand_sorter(i_s),:); % <---
-      end
-      %Building many bootstrapped datasets
-%       dataset_boot(:,:,i_repeat) = reg*B + res_boot(:,:,i_repeat);
-      dataset_boot(:,:,i_repeat) = reg*B + res_boot(:,:,i_repeat)*A;
->>>>>>> b4e741ad45a0017dc35b52ee9d08497a4bc9748e
+      
+     % Rearrange dataset for VAR
       for ilag = 1:lag_number+1
             eval(['data_boot', num2str(ilag),'(:,:,i_repeat) = dataset_boot(2+lag_number-ilag:end+1-ilag,:,i_repeat);'])
       end
@@ -80,15 +74,16 @@ for i_repeat = 1:total_extractions
       
       %Kilian Correction
       adjmeanB = mean(B_boot,3);
-<<<<<<< HEAD
+%<<<<<<< HEAD
       B_boot(:,:,i_repeat) = 2*B_boot(:,:,i_repeat) - adjmeanB;
 
-=======
+%=======
       B_boot_Kilian(:,:,i_repeat) = 2*B_boot(:,:,i_repeat) - adjmeanB;
 end
+%This is just for checking
 mean_B_boot_check = mean(B_boot,3);
+
 for i_repeat = 1:total_extractions
->>>>>>> b4e741ad45a0017dc35b52ee9d08497a4bc9748e
       %Evaluate the residuals (res = yhat - y)
       res_boottwo(:,:,i_repeat) = ...
             data_boot1(:,:,i_repeat) - reg_boot(:,:,i_repeat)*B_boot(:,:,i_repeat);
@@ -113,11 +108,8 @@ A5 = sort_A_boot(:,:,ceil(total_extractions*0.05));
 A86 = sort_A_boot(:,:,ceil(total_extractions*0.86));
 A16 = sort_A_boot(:,:,ceil(total_extractions*0.16));
 
-B(1,:)
-mean_B_boot_check = mean(B_boot,3);
-mean_B_boot_check(1,:)
-res_boot(1,:,1)
-res
+%Just for check
+avg_A_boot = mean(A_boot,3);
 
 end
 
