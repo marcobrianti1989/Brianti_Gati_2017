@@ -9,7 +9,7 @@
 
 %% Read in a series
 clear all
-clc
+
 
 lessors = 'data_trendbreaks.xlsx';
 lessors_sheet ='Sheet1';
