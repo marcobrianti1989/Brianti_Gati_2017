@@ -40,33 +40,36 @@ for i_shock=1:nshocks
     
     % Redo for bootstrapped samples: Here we need an extra loop over nsimul
     for i_sim=1:nsimul
-%       Initialize:
-        IRFs_boot(:,1,i_shock,i_sim) = A*shocks;
-        F = [IRFs_boot(:,1,i_shock,i_sim)' zeros(1,(nlag-1)*nvar)];
-        % Generate IRFs
+        %Initialize:
+        IRFs_boot(:,1,i_shock,i_sim) = A_boot(:,:,i_sim)*shocks;
+        F_boot = [IRFs_boot(:,1,i_shock,i_sim)' zeros(1,(nlag-1)*nvar)];
+        %Generate IRFs
         for k=2:h
-            IRFs_boot(:,k,i_shock,i_sim) = F*B;
-            F = [IRFs_boot(:,k,i_shock,i_sim)' F(1:end-nvar)];
+            IRFs_boot(:,k,i_shock,i_sim) = F_boot*B_boot(:,:,i_sim);
+            F_boot = [IRFs_boot(:,k,i_shock,i_sim)' F_boot(1:end-nvar)];
         end
     end
     
     % Sort bootstrap IRFs and set lower and upper bounds
     for i_shocks = 1:nshocks
-        IRFs_boot_sorted(:,:,i_shocks,:) = sort(IRFs_boot_sorted(:,:,i_shocks,:),4);
+        IRFs_boot_sorted(:,:,i_shocks,:) = sort(IRFs_boot(:,:,i_shocks,:),4);
         ub(:,:,i_shocks) = IRFs_boot_sorted(:,:,i_shocks,perc_up);
         lb(:,:,i_shocks) = IRFs_boot_sorted(:,:,i_shocks,perc_low);
     end
-    % TO DO: add ub and lb on graphs!
+    % TO DO: add ub and lb on graphs! DONE IT! :)
     
     % Draw pretty pictures
     figure(i_shock)
     for i_var=1:nvar
         varname = varnames{i_var};
         subplot(nvar,1,i_var)
-        plot(periods,IRFs(i_var,:,i_shock),'linewidth',2)
+        hold on
+        plot(periods,IRFs(i_var,:,i_shock),'linewidth',1.5,'Color','r')
+        plot(periods,ub(i_var,:,i_shock),'--','linewidth',1,'Color','k')
+        plot(periods,lb(i_var,:,i_shock),'--','linewidth',1,'Color','k')
         title([name, ' on ' , varname])
-        grid on
-        
+        hold off
+        grid on      
     end
     
 end

@@ -49,19 +49,26 @@ dataset_boot = data_boot(B2, nburn, res, nsimul); % <--- TO DO: draw shocks in b
 % Redo VAR nsimul times on the bootstrapped datasets
 A_boot = zeros(nvar,nvar,nsimul);
 B_boot = zeros(nvar*nlags+1,nvar,nsimul);
-for i=1:nsimul
-    [A_boot(:,:,i), B_boot(:,:,i), ~] = sr_var(dataset_boot(:,:,i), nlags);
+for i_simul = 1:nsimul
+    [A_boot(:,:,i_simul), B_boot(:,:,i_simul), ~] = sr_var(dataset_boot(:,:,i_simul), nlags);
 end
 
-average_B_boot = mean(B_boot,3);
-average_A_boot = mean(A_boot,3);
-% TO DO: Kilian correction
-
+%Kilian correction - IT IS NOT WORKING VERY NICELY. DONT KNOW WHY!
+% for i_simul = 1:nsimul
+%       average_B_boot = mean(B_boot,3);
+%       average_A_boot = mean(A_boot,3);
+%       B_boot(:,:,i_simul) = 2*B_boot(:,:,i_simul) - average_B_boot;
+%       A_boot(:,:,i_simul) = 2*A_boot(:,:,i_simul) - average_A_boot;
+% end
 
 % Calculate IRFs, bootstrapped CI and plot them
 h=80;
 which_shock = [2 3];
 names = {'News shock', 'R&D shock'}; % shock names in order of appearance
 varnames = {'TFP','Mich index', 'R&D'} ; % variable names in order of appearance
-sig = 0.9; % significance level
+sig = 0.90; % significance level
 plotIRFs(A2,A_boot,B,B_boot,h,which_shock, names, varnames,sig);
+
+%------------------------------------------------------------------------------------------
+
+
