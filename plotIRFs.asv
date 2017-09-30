@@ -38,6 +38,9 @@ for i_shock=1:nshocks
         F = [IRFs(:,k,i_shock)' F(1:end-nvar)];
     end
     
+    %Normalization
+    IRFs = IRFs/IRF(i)
+    
     % Redo for bootstrapped samples: Here we need an extra loop over nsimul
     for i_sim=1:nsimul
         %Initialize:
@@ -56,11 +59,7 @@ for i_shock=1:nshocks
         ub(:,:,i_shocks) = IRFs_boot_sorted(:,:,i_shocks,perc_up);
         lb(:,:,i_shocks) = IRFs_boot_sorted(:,:,i_shocks,perc_low);
     end
-    
-    %Normalization
-    ub   = ub/IRFs(which_shock(i_shock),1,i_shock);
-    lb   = lb/IRFs(which_shock(i_shock),1,i_shock);
-    IRFs = IRFs/IRFs(which_shock(i_shock),1,i_shock);
+    % TO DO: add ub and lb on graphs! DONE IT! :)
     
     % Draw pretty pictures
     figure(i_shock)
