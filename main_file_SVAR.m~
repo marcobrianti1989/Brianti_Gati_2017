@@ -5,17 +5,16 @@
 clear all
 close all
 
-data = xlsread('dataset_23_sept_2017','Sheet1','B126:H283');
+data = xlsread('dataset_23_sept_2017','Sheet1','B126:G283');
 % Cumulate growth variables to levels (log levels to be precise, b/c growth
 % rates are calculated as log diffs)
 data_levels(:,1) = cumsum(data(:,1)); % TFP
-% data_levels(:,1) = data(:,1); % TFP % I tried TFP grt.
+% data_levels(:,1) = data(:,1); % TFP
 
 data_levels(:,3) = log(data(:,5)); % this series was levels to start out with so don't cumsum <-- taking logs here induces stationarity of VAR - DISCUSS! If VAR nonstat and not cointegrated, estimation not possible.
 % 5 means we take IT investment instead of R&D
 data_levels(:,2) = data(:,4); % the Mich index 
-data_levels(:,4) = data(:,6); % real GDP % whether this guy's in logs or not doesn't seem to make a diff
-data_levels(:,5) = data(:,7); % real cons % whether this guy's in logs or not doesn't seem to make a diff
+data_levels(:,4) = log(data(:,6)); % real GDP
 
 % Have an initial look at data
 figure
@@ -61,10 +60,7 @@ end
 h=80;
 which_shock = [2 3];
 names = {'News shock','R&D shock'}; % shock names in order of appearance
-% varnames = {'TFP','Mich index','R&D'} ; % variable names in order of appearance
-% varnames = {'TFP','Mich index','R&D', 'GDP'} ; % alternative specs 1
-varnames = {'TFP','Mich index','R&D', 'GDP', 'C'} ; % alternative specs 2
-
+varnames = {'TFP','Mich index','R&D'} ; % variable names in order of appearance
 sig = 0.90; % significance level
 plotIRFs(A,A_boot,B,B_boot,h,which_shock, names, varnames,sig);
 
