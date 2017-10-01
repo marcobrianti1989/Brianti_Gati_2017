@@ -49,15 +49,5 @@ title('MA smoothed trend')
 t = (1:T)';
 X = [ones(T,1) t t.^2];
 
-b = X\data;
-tH = X*b; % quadratic trend estimate
-
-figure(2)
-plot(datenumbers, data,'b', 'linewidth', 2), hold on
-plot(datenumbers, tH, 'r', 'linewidth', 2)
-datetick('x', 'yyyy-mm', 'keepticks')
-grid on
-legend('Original data', 'Trend')
-title('Quadratic trend')
-
-%% TO DO: tests for structural breaks
+b = X\y;
+tH = X*b;
