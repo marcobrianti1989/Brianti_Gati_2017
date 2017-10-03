@@ -19,7 +19,7 @@ comp_matrix(nvar+1:end,1:nvar*(nlags-1))  = eye(nvar*(nlags-1));
 eigens = eig(comp_matrix);
 
 %Test if it exists one eigenvalues outside the unit circle
-%zplane(eigens) %hahahahah this is cool!
+% zplane(eigens) %hahahahah this is cool!
 distance = abs(eigens);
 loc = distance > 1 ;
 test = sum(loc);

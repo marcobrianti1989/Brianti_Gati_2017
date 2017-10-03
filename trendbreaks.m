@@ -30,7 +30,8 @@ T = length(data);
 plot(data)
 
 % Create a moving average smoothed trend
-weigths = [1/24;repmat(1/12,11,1);1/24]; % choosing 1/24 weights for end terms, 1/12 weight for interior ones b/c data is monthly
+weigths = [1/24;repmat(1/12,11,1);1/24];% choosing 1/24 weights for end terms, 1/12 weight for interior ones b/c data is monthly
+weights2 = [1/60; repmat(1/30,28,1); 1/60 ];
 trend = conv(data,weigths,'valid'); % 'valid'  leaves out the end observations as those cannot be smoothed and would thus distort things
 trend = vertcat([nan nan nan nan nan nan]', trend, [nan nan nan nan nan nan]');
 
@@ -50,11 +51,14 @@ t = (1:T)';
 X = [ones(T,1) t t.^2];
 
 b = X\data;
+beta_ols = (X'*X)\(X'*data);
 tH = X*b; % quadratic trend estimate
+tH_ols = X*beta_ols;
 
 figure(2)
 plot(datenumbers, data,'b', 'linewidth', 2), hold on
-plot(datenumbers, tH, 'r', 'linewidth', 2)
+% plot(datenumbers, tH, 'r', 'linewidth', 2)
+plot(datenumbers, tH_ols, 'g', 'linewidth', 2)
 datetick('x', 'yyyy-mm', 'keepticks')
 grid on
 legend('Original data', 'Trend')
