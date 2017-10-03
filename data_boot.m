@@ -1,4 +1,4 @@
-function [dataset_boot] = data_boot(B, nburn, res, nsimul, which_correction, q)
+function [dataset_boot] = data_boot(B,nburn,res,nsimul,which_correction,q)
 % Inputs:
 % B: Beta coefficient matrix from VAR (nvar*nlags + 1 x nvar)
 % nburn = number of burn-in periods
@@ -43,8 +43,6 @@ switch which_correction
         error('Correction needs to be either "none", or "blocks".')
         
 end
-
-
 
 dataset_boot = dataset_boot(nburn+1:end,:,:);
 
