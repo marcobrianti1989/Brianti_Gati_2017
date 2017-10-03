@@ -27,7 +27,7 @@ plot(data_levels(:,4), 'g')
 grid on 
 hold off
 
-
+%Inputs
 nlags = 4;
 nburn = 200;
 nsimul = 5000;
@@ -38,6 +38,8 @@ nvar = size(data_levels,2);
 
 %Checking if the VAR is stationary
 test_stationarity(B');
+
+asdfgh
 
 % Generate bootstrapped data samples
 dataset_boot = data_boot(B, nburn, res, nsimul); % <--- TO DO: draw shocks in blocks
