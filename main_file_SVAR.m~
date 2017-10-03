@@ -33,7 +33,7 @@ nburn = 200;
 nsimul = 5000;
 nvar = size(data_levels,2);
 
-% TO DO: implement lag selection (AIC, BIC) (see 'Lecture2M' in our folder)
+% TO DO: implement lag s
 
 % Run VAR imposing Cholesky
 [A,B,res] = sr_var(data_levels, nlags);
