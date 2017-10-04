@@ -73,7 +73,7 @@ names = {'News shock','R&D shock'}; % shock names in order of appearance
 % varnames = {'TFP','Mich index','R&D'} ; % variable names in order of appearance
 % varnames = {'TFP','Mich index','R&D', 'GDP'} ; % alternative specs 1
 % varnames = {'TFP','Mich index','R&D', 'GDP', 'C'} ; % alternative specs 2
-varnames = {'TFP','Mich index','R&D', 'GDP', 'C', 'H'} ; % alternative specs 3
+varnames = {'TFP','Mich index','R&D', 'GDP', 'C', 'H'}; % alternative specs 3
 
 sig = 0.90; % significance level
 H = 100; % horizon for generation of IRFs

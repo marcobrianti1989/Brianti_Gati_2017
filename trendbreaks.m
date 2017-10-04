@@ -10,24 +10,29 @@
 %% Read in a series
 clear all
 
-
-lessors = 'data_trendbreaks.xlsx';
-lessors_sheet ='Sheet1';
-lessors_range = 'B2:B333';
+%Technical name
+file = 'data_trendbreaks.xlsx';
+sheet ='Sheet1';
+range = 'B2:E333';
 time_range = 'A2:A333';
 
-file = lessors;
-sheet = lessors_sheet;
-range = lessors_range;
-data = xlsread(lessors,sheet,range);
-date_numbers_excel = xlsread(lessors,sheet,time_range);
+%Downloading Data
+dataset = xlsread(file,sheet,range);
+nvar = size(dataset,2);
+varnames = {'Lessors of Nonfinancial Intangible Assets','Value of Manufacturers New Orders for IT Industries','Value of Manufacturers Total Inventories for IT Industries', 'San Francisco Tech Pulse'};
 
-datenumbers = x2mdate(date_numbers_excel,0);
-periods = datestr(datenumbers, 'yyyy-mm');
+for i_var = 1:nvar
+data = dataset(:,1);
+varname = varnames{i_var};
 
-T = length(data);
+%Defining the variable time to label the x-axis
+T = size(data,1);
+time = datetime(1990,1,1) + calmonths(0:T-1); %ALWAYS CHECK IF THE INITIAL PERIOD IS THE SAME
 
-plot(data)
+% %Alternative way to define time to label x-axis
+% date_numbers_excel = xlsread(file,sheet,time_range);
+% datenumbers = x2mdate(date_numbers_excel,0);
+% periods = datestr(datenumbers, 'yyyy-mm');
 
 % Create a moving average smoothed trend
 weigths = [1/24;repmat(1/12,11,1);1/24];% choosing 1/24 weights for end terms, 1/12 weight for interior ones b/c data is monthly
@@ -35,33 +40,40 @@ weights2 = [1/60; repmat(1/30,28,1); 1/60 ];
 trend = conv(data,weigths,'valid'); % 'valid'  leaves out the end observations as those cannot be smoothed and would thus distort things
 trend = vertcat([nan nan nan nan nan nan]', trend, [nan nan nan nan nan nan]');
 
-figure(1)
-% hold on
-plot(datenumbers, data,'b', 'linewidth', 2), hold on
-plot(datenumbers, trend, 'r', 'linewidth', 2)
-datetick('x', 'yyyy-mm', 'keepticks')
+%Plot moving average
+figure(i_var*2 - 1)
+hold on
+plot(time, data,'b', 'linewidth', 2)
+plot(time, trend, 'r', 'linewidth', 1.5)
 grid on
 legend('Original data', 'Trend')
-title('MA smoothed trend')
-% hold off
+x1 = time(133);
+y1=get(gca,'ylim');
+plot([x1 x1],y1)
+title([varname])
+hold off
+
 
 % Fit a quadratic trend from OLS reg
-
 t = (1:T)';
 X = [ones(T,1) t t.^2];
-
 b = X\data;
-beta_ols = (X'*X)\(X'*data);
 tH = X*b; % quadratic trend estimate
-tH_ols = X*beta_ols;
 
-figure(2)
-plot(datenumbers, data,'b', 'linewidth', 2), hold on
+%Plot Fit quadratic trend
+figure(i_var*2)
+hold on
+plot(time, data,'b', 'linewidth', 2)
 % plot(datenumbers, tH, 'r', 'linewidth', 2)
-plot(datenumbers, tH_ols, 'g', 'linewidth', 2)
-datetick('x', 'yyyy-mm', 'keepticks')
+plot(time, tH, 'r', 'linewidth', 1.5)
 grid on
 legend('Original data', 'Trend')
-title('Quadratic trend')
+x1 = time(133);
+y1=get(gca,'ylim');
+plot([x1 x1],y1)
+title([varname])
+hold off
+
+end
 
 %% TO DO: tests for structural breaks
