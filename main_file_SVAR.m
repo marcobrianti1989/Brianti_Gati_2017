@@ -14,8 +14,8 @@ data_levels(:,1) = cumsum(data(:,1)); % TFP
 data_levels(:,3) = log(data(:,5)); % this series was levels to start out with so don't cumsum <-- taking logs here induces stationarity of VAR - DISCUSS! If VAR nonstat and not cointegrated, estimation not possible.
 % 2 is R&D, 5 means we take IT investment instead of R&D
 data_levels(:,2) = data(:,4); % the Mich index
-data_levels(:,4) = data(:,6); % real GDP % whether this guy's in logs or not doesn't seem to make a diff
-data_levels(:,5) = data(:,7); % real cons % whether this guy's in logs or not doesn't seem to make a diff
+% data_levels(:,4) = data(:,6); % real GDP % whether this guy's in logs or not doesn't seem to make a diff
+% data_levels(:,5) = data(:,7); % real cons % whether this guy's in logs or not doesn't seem to make a diff
 data_levels(:,4) = log(data(:,6)); % real GDP % whether this guy's in logs or not doesn't seem to make a diff
 data_levels(:,5) = log(data(:,7)); % real cons % whether this guy's in logs or not doesn't seem to make a diff
 data_levels(:,6) = data(:,8); %hours worked
