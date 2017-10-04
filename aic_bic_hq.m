@@ -1,6 +1,4 @@
-function [AIC,BIC,HQ] = aic_bic_hq(dataset,max_lags) 
-
- TO BE FINISHED
+function [AIC,BIC,HQ] = aic_bic_hq(dataset,max_lags)
 
 %These criteria minimize the following objective functions:
 %AIC(p) = T ln|Omega_hat| + 2(n^2*p)
@@ -11,11 +9,15 @@ function [AIC,BIC,HQ] = aic_bic_hq(dataset,max_lags)
 
 T = size(dataset,1);
 nvar = size(dataset,2);
-res_test = zeros(T,nvar,max_lags);
 for nlags = 1:max_lags
-      [A,B,res] = sr_var(dataset,nlags);
-      AIC(nlags) = sum(sum(res));
+      [A,B,res,sigma] = sr_var(dataset,nlags);
+      
+      AIC(nlags)      = T*log(det(sigma)) + 2*(nvar^2*nlags);
+      BIC(nlags)      = T*log(det(sigma)) + (nvar^2*nlags)*log(T);
+      HQ(nlags)       = T*log(det(sigma)) + 2*(nvar^2*nlags)*log(log(T));
 end
-BIC = 0;
-HQ = 0;
+
+[AIC_minvalue AIC]    = min(AIC);
+[BIC_minvalue BIC]    = min(BIC);
+[HQ_minvalue HQ]      = min(HQ);
 end

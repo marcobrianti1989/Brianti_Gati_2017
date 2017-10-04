@@ -1,4 +1,4 @@
-function [A,B,res] = sr_var(dataset, nlags)
+function [A,B,res,sigma] = sr_var(dataset, nlags)
 
 % Rearrange data to run a VAR, outputting A, the impact matrix identified using Cholesky SR restriction.
 % res = residuals from VAR estimation

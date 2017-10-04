@@ -40,8 +40,8 @@ nvar       = size(data_levels,2);
 [AIC,BIC,HQ] = aic_bic_hq(data_levels,max_lags);
 
 %Run VAR imposing Cholesky
-nlags = 4;
-[A,B,res] = sr_var(data_levels, nlags);
+nlags = AIC;
+[A,B,res,~] = sr_var(data_levels, nlags);
 
 %Checking if the VAR is stationary
 test_stationarity(B');
@@ -55,7 +55,7 @@ dataset_boot = data_boot(B, nburn, res, nsimul, which_correction,5);
 A_boot = zeros(nvar,nvar,nsimul);
 B_boot = zeros(nvar*nlags+1,nvar,nsimul);
 for i_simul = 1:nsimul
-      [A_boot(:,:,i_simul), B_boot(:,:,i_simul), ~] = sr_var(dataset_boot(:,:,i_simul), nlags);
+      [A_boot(:,:,i_simul), B_boot(:,:,i_simul), ~, ~] = sr_var(dataset_boot(:,:,i_simul), nlags);
 end
 
 % %Kilian correction - IT IS NOT WORKING VERY NICELY. DONT KNOW WHY!
