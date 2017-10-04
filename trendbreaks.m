@@ -9,6 +9,7 @@
 
 %% Read in a series
 clear all
+close all
 
 %Technical name
 file = 'data_trendbreaks.xlsx';
@@ -20,9 +21,14 @@ time_range = 'A2:A333';
 dataset = xlsread(file,sheet,range);
 nvar = size(dataset,2);
 varnames = {'Lessors of Nonfinancial Intangible Assets','Value of Manufacturers New Orders for IT Industries','Value of Manufacturers Total Inventories for IT Industries', 'San Francisco Tech Pulse'};
+% dataset(:,1) = no. of lessors of intangibles
+% dataset(:,2) = manufacturer's new orders of IT (million dollars)
+% dataset(:,3) = manufacturer's inventories of IT (million dollars)
+% dataset(:,4) = SF Tech pulse
 
 for i_var = 1:nvar
-data = dataset(:,1);
+data = dataset(:,i_var);
+data = data(~isnan(data));
 varname = varnames{i_var};
 
 %Defining the variable time to label the x-axis
@@ -76,4 +82,21 @@ hold off
 
 end
 
-%% TO DO: tests for structural breaks
+
+%%  Test for structural breaks
+do_tests= 0;
+if do_tests == 1
+clc
+series = dataset(:,4); 
+max_lags = 6;
+tau = 133;
+[reject, pval] = chow(series, tau, max_lags, time);
+
+% Check July 2008
+tau2 = 223;
+[reject, pval] = chow(series, tau2, max_lags, time);
+
+[reject, pval] = chow(data, 90, max_lags, time);
+end
+
+% TO DO: use different test?

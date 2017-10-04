@@ -31,14 +31,18 @@ res = data_1 - reg*B;
 %Compute the variance-covariance matrix
 sigma = res'*res/(T-nlags);
 
-%Static rotation matrix
-A = chol(sigma)';
-
-% Proving that A is what we are looking for A'u'uA = res*res where u'u = I
-zero1 = A*A' - sigma;
-zero2 = sum(sum(zero1.^2));
-if zero2 > 10^(-16)
-      error('The rotation matrix is not correct. Check the code')
+if nvar ==1
+      A= 0;
+else
+      %Static rotation matrix
+      A = chol(sigma)';
+      
+      % Proving that A is what we are looking for A'u'uA = res*res where u'u = I
+      zero1 = A*A' - sigma;
+      zero2 = sum(sum(zero1.^2));
+      if zero2 > 10^(-16)
+            error('The rotation matrix is not correct. Check the code')
+      end
 end
 
 %---------------------------------------------------------------------------------------

@@ -11,7 +11,7 @@ data = xlsread('dataset_23_sept_2017','Sheet1','B126:I283');
 % rates are calculated as log diffs)
 data_levels(:,1) = cumsum(data(:,1)); % TFP
 % data_levels(:,1) = data(:,1); % TFP % I tried TFP grt.
-data_levels(:,3) = log(data(:,2)); % this series was levels to start out with so don't cumsum <-- taking logs here induces stationarity of VAR - DISCUSS! If VAR nonstat and not cointegrated, estimation not possible.
+data_levels(:,3) = log(data(:,5)); % this series was levels to start out with so don't cumsum <-- taking logs here induces stationarity of VAR - DISCUSS! If VAR nonstat and not cointegrated, estimation not possible.
 % 2 is R&D, 5 means we take IT investment instead of R&D
 data_levels(:,2) = data(:,4); % the Mich index
 data_levels(:,4) = data(:,6); % real GDP % whether this guy's in logs or not doesn't seem to make a diff
@@ -20,15 +20,15 @@ data_levels(:,4) = log(data(:,6)); % real GDP % whether this guy's in logs or no
 data_levels(:,5) = log(data(:,7)); % real cons % whether this guy's in logs or not doesn't seem to make a diff
 data_levels(:,6) = data(:,8); %hours worked
 
-% % Have an initial look at data
-% figure
-% hold on
+% Have an initial look at data
+figure
+hold on
 % plot(data_levels(:,1),'k')
 % plot(data_levels(:,2), 'b')
-% plot(data_levels(:,3), 'r')
+plot(data_levels(:,3), 'r')
 % plot(data_levels(:,4), 'g')
-% grid on
-% hold off
+grid on
+hold off
 
 % TO DO: implement lag selection (AIC, BIC) (see 'Lecture2M' in our folder)
 max_lags   = 10;
@@ -69,11 +69,11 @@ end
 %Calculate IRFs, bootstrapped CI and plot them
 h=40;
 which_shock = [2 3];
-names = {'News shock','R&D shock'}; % shock names in order of appearance
+names = {'News shock','IT shock'}; % shock names in order of appearance
 % varnames = {'TFP','Mich index','R&D'} ; % variable names in order of appearance
 % varnames = {'TFP','Mich index','R&D', 'GDP'} ; % alternative specs 1
 % varnames = {'TFP','Mich index','R&D', 'GDP', 'C'} ; % alternative specs 2
-varnames = {'TFP','Mich index','R&D', 'GDP', 'C', 'H'}; % alternative specs 3
+varnames = {'TFP','Mich index','IT Investment', 'GDP', 'C', 'H'}; % alternative specs 3
 
 sig = 0.90; % significance level
 H = 100; % horizon for generation of IRFs
@@ -82,7 +82,7 @@ H = 100; % horizon for generation of IRFs
 plotIRFs(IRFs,ub,lb,h,which_shock, names, varnames)
 
 % Variance decomposition
- m = 24; %Horizon of the variance decomposition explained by the shocks
+ m = 40; %Horizon of the variance decomposition explained by the shocks
 [vardec] = gen_vardecomp(IRFs,m,H);
 [vardec_table] = vardecomp_table(vardec,which_shock,varnames,names);
 
