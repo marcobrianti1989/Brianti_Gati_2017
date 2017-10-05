@@ -12,10 +12,11 @@ T = size(res,1); % time periods
 nvar = size(B,2);
 nlag = (size(B,1)-1)/nvar;
 const = 1;
-dataset_boot = zeros(T+nburn,nvar,nsimul);
 
 switch which_correction
     case 'none'
+        dataset_boot = zeros(T+nburn,nvar,nsimul);
+        
         for i_repeat = 1:nsimul
             reg_new = zeros(1,nlag*nvar);
             for i_boot = 1:T+nburn
@@ -27,16 +28,21 @@ switch which_correction
             end
         end
     case 'blocks'
+        block_starts = 1:q:T-mod(T,q); % vector of initial indexes of each block
+        k = (T+nburn - mod(T+nburn,q)) ; % how long the sample will be once you discard the leftover
+        dataset_boot = zeros(k,nvar,nsimul);
+
         for i_repeat = 1:nsimul
             reg_new = zeros(1,nlag*nvar);
-            nburn = 0; % to check later, ask Ryan!
-            for i_boot = 1:T+nburn-q-1
-                res_block = res(i_boot:i_boot+q-1); % define blocks of length q
-                res_boot = res_block(:,randperm(q,1));
-                yhat = [const, reg_new]*B;
-                ystar = yhat + res_boot;
-                reg_new = [ystar reg_new(1:end-nvar)];
-                dataset_boot(i_boot,:,i_repeat) = ystar;
+            for i_boot = 1:q:k % cycles thru T in steps of q
+                draw = datasample(block_starts,1); % draw one index from the vector of initial indices...
+                for j=1:q % ... and for that index, go thru all shocks in that block
+                    res_boot = res(draw+j-1,:); 
+                    yhat = [const, reg_new]*B;
+                    ystar = yhat + res_boot;
+                    reg_new = [ystar reg_new(1:end-nvar)];
+                    dataset_boot(i_boot+j-1,:,i_repeat) = ystar;
+                end
             end
         end
     otherwise

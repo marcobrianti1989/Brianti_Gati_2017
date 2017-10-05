@@ -21,14 +21,14 @@ data_levels(:,5) = log(data(:,7)); % real cons % whether this guy's in logs or n
 data_levels(:,6) = data(:,8); %hours worked
 
 % Have an initial look at data
-figure
-hold on
-% plot(data_levels(:,1),'k')
-% plot(data_levels(:,2), 'b')
-plot(data_levels(:,3), 'r')
-% plot(data_levels(:,4), 'g')
-grid on
-hold off
+% figure
+% hold on
+% % plot(data_levels(:,1),'k')
+% % plot(data_levels(:,2), 'b')
+% % plot(data_levels(:,3), 'r')
+% % plot(data_levels(:,4), 'g')
+% grid on
+% hold off
 
 % TO DO: implement lag selection (AIC, BIC) (see 'Lecture2M' in our folder)
 max_lags   = 10;
@@ -36,7 +36,7 @@ nburn      = 200;
 nsimul     = 500; %5000
 nvar       = size(data_levels,2);
 
-%%Checking the number of lags over BIC, AIC, and HQ - TO BE FINISHED
+%%Checking the number of lags over BIC, AIC, and HQ
 [AIC,BIC,HQ] = aic_bic_hq(data_levels,max_lags);
 
 %Run VAR imposing Cholesky
@@ -47,9 +47,9 @@ nlags = AIC;
 test_stationarity(B');
 
 % Generate bootstrapped data samples
-which_correction = 'none'; % [none, blocks] --> how to improve on the Bootstrap
-dataset_boot = data_boot(B, nburn, res, nsimul, which_correction,5);
-% TO DO: draw shocks in blocks
+which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residuals in blocks or not.
+q =5;
+dataset_boot = data_boot(B, nburn, res, nsimul, which_correction,q);
 
 % Redo VAR nsimul times on the bootstrapped datasets
 A_boot = zeros(nvar,nvar,nsimul);
