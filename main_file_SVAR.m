@@ -54,9 +54,6 @@ for i = 1:size(data_levels,2)
     end
 end
 
-% % which_shock = [2 3];
-% which_shock = [3 4]; % goes with spec 4
-% names = {'News shock','IT shock'}; % shock names in order of appearance
 
 % Have an initial look at data
 % figure
