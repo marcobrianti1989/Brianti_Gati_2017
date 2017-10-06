@@ -67,7 +67,7 @@ end
 
 max_lags   = 10;
 nburn      = 200;
-nsimul     = 500; %5000
+nsimul     = 1000; %5000
 nvar       = size(data_levels,2);
 
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
@@ -82,23 +82,28 @@ test_stationarity(B');
 
 % Generate bootstrapped data samples
 which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residuals in blocks or not.
-q =5;
-dataset_boot = data_boot(B, nburn, res, nsimul, which_correction,q);
+q = 5;
+dataset_boot = data_boot(B, nburn, res, nsimul, which_correction, q);
 
 % Redo VAR nsimul times on the bootstrapped datasets
 A_boot = zeros(nvar,nvar,nsimul);
 B_boot = zeros(nvar*nlags+1,nvar,nsimul);
 for i_simul = 1:nsimul
-    [A_boot(:,:,i_simul), B_boot(:,:,i_simul), ~, ~] = sr_var(dataset_boot(:,:,i_simul), nlags);
+    [A_boot(:,:,i_simul), B_boot(:,:,i_simul), ~, ~] = ...
+          sr_var(dataset_boot(:,:,i_simul), nlags);
 end
 
-% %Kilian correction - IT IS NOT WORKING VERY NICELY. DONT KNOW WHY!
+% Kilian correction - IT IS NOT WORKING VERY NICELY. DONT KNOW WHY!
+% B_corrected = kilian_corretion(B,B_boot);
+% dataset_boot_corrected = data_boot(B_corrected, nburn, res, nsimul, which_correction, q);
+% A_boot_corrected = zeros(nvar,nvar,nsimul);
+% B_boot_corrected = zeros(nvar*nlags+1,nvar,nsimul);
 % for i_simul = 1:nsimul
-%       average_B_boot = mean(B_boot,3);
-%       average_A_boot = mean(A_boot,3);
-%       B_boot(:,:,i_simul) = 2*B_boot(:,:,i_simul) - average_B_boot;
-%       A_boot(:,:,i_simul) = 2*A_boot(:,:,i_simul) - average_A_boot;
+%     [A_boot_corrected(:,:,i_simul), B_boot_corrected(:,:,i_simul), ~, ~] = ...
+%           sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
 % end
+% B_boot_test = mean(B_boot_corrected,3); %It should be very close to B
+
 
 %Calculate IRFs, bootstrapped CI and plot them
 h=40; % horizon for IRF plots
