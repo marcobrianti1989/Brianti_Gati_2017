@@ -28,7 +28,6 @@ varnames = {'Lessors of Nonfinancial Intangible Assets','Value of Manufacturers 
 
 for i_var = 1:nvar
 data = dataset(:,i_var);
-data = data(~isnan(data));
 varname = varnames{i_var};
 
 %Defining the variable time to label the x-axis

@@ -23,7 +23,7 @@ end
 reg = [ones(T-nlags,1) reg];
 
 %OLS in the Reduced Form Vector Autoregression
-B = (reg'*reg)^(-1)*(reg'*data_1);
+B = (reg'*reg)\(reg'*data_1);
 
 %Evaluate the residuals (res = yhat - y)
 res = data_1 - reg*B;

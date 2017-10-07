@@ -1,6 +1,6 @@
-%Run a SVAR and identify news shocks and R&D shocks
+%Run a SVAR and identify news shocks and R&D shocks using Cholesky
 
-% Marco Brianti, Laura Gáti, Sep 28 2017
+% Marco Brianti, Laura Gáti, Oct 7 2017
 
 clear all
 close all
@@ -54,20 +54,10 @@ for i = 1:size(data_levels,2)
     end
 end
 
-
-% Have an initial look at data
-% figure
-% hold on
-% % plot(data_levels(:,1),'k')
-% % plot(data_levels(:,2), 'b')
-% % plot(data_levels(:,3), 'r')
-% % plot(data_levels(:,4), 'g')
-% grid on
-% hold off
-
+%Technical Parameters
 max_lags   = 10;
-nburn      = 200;
-nsimul     = 1000; %5000
+nburn      = 0; %with the Kilian correction better not burning!!!
+nsimul     = 5000; %5000
 nvar       = size(data_levels,2);
 
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
@@ -93,17 +83,20 @@ for i_simul = 1:nsimul
           sr_var(dataset_boot(:,:,i_simul), nlags);
 end
 
-% Kilian correction - IT IS NOT WORKING VERY NICELY. DONT KNOW WHY!
-% B_corrected = kilian_corretion(B,B_boot);
-% dataset_boot_corrected = data_boot(B_corrected, nburn, res, nsimul, which_correction, q);
-% A_boot_corrected = zeros(nvar,nvar,nsimul);
-% B_boot_corrected = zeros(nvar*nlags+1,nvar,nsimul);
-% for i_simul = 1:nsimul
-%     [A_boot_corrected(:,:,i_simul), B_boot_corrected(:,:,i_simul), ~, ~] = ...
-%           sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
-% end
-% B_boot_test = mean(B_boot_corrected,3); %It should be very close to B
+% Kilian correction 
+[B_corrected,  bias] = kilian_corretion(B, B_boot);
+dataset_boot_corrected = data_boot(B_corrected, nburn, res, nsimul, which_correction, q);
+A_boot_corrected = zeros(nvar,nvar,nsimul);
+B_boot_corrected = zeros(nvar*nlags+1,nvar,nsimul);
+for i_simul = 1:nsimul
+    [A_boot_corrected(:,:,i_simul), B_boot_corrected(:,:,i_simul), ~, ~] = ...
+          sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
+end
+B_boot_test = mean(B_boot_corrected,3); %It should be very close to B
+bias_test = sum(sum(abs(B - B_boot_test)));
 
+A_boot = A_boot_corrected;
+B_boot = B_boot_corrected;
 
 %Calculate IRFs, bootstrapped CI and plot them
 h=40; % horizon for IRF plots

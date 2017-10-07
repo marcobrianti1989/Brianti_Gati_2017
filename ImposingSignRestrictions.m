@@ -1,8 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear
-path(path,'C:\EmpiricalMacro')
+% path(path,'C:\EmpiricalMacro')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-[X,B]=xlsread('C:\EmpiricalMacro\ZLB.xls','UnitedStates','A95:J793');
+% [X,B]=xlsread('C:\EmpiricalMacro\ZLB.xls','UnitedStates','A95:J793');
+[X,B]=xlsread('C:\Users\th3\Documents\Brianti_Gati_2017\ZLB.xls','UnitedStates','A95:J793');
+
 [T,N]=size(X);
 Time=X(2:T,1);
 LogCPI=log(X(:,2));
@@ -44,7 +46,7 @@ if Intercept=='Y'
 end
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                        The matrices where we store the results we are interested in:
+%        The matrices where we store the results we are interested in:
 %
 % These are the signs we want to impose: 
 % 1  means 'non-negative'
@@ -84,7 +86,7 @@ PermutationsIndices=perms(V);
 %
 MaxNumberTry=2000; % You'll see later on what this is ...
 % Variables to be saved:
-DFILE=['C:\EmpiricalMacro\USSpreadShockMonthlyData'];
+DFILE=['C:\Users\th3\Documents\Brianti_Gati_2017\USSpreadShockMonthlyData'];
 varname(1,:)=['LRIM'];
 varname(2,:)=['BBBB'];
 varname(3,:)=['SSSS'];
@@ -140,6 +142,7 @@ while ss<=NumberOfDraws
         for i=1:N;
             if R(i,i)<0
                 Q(:,i)=-Q(:,i);
+                R(i,:)=-R(i,:);
             end
         end
         % This is our candidate impact matrix A0:
