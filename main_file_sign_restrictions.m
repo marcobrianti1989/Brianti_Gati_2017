@@ -1,4 +1,4 @@
-%Run a SVAR and identify news shocks and R&D shocks using sign restrictions
+% Run a SVAR and identify news shocks and R&D shocks using sign restrictions
 
 % Marco Brianti, Laura Gáti, Oct 7 2017
 
@@ -21,12 +21,12 @@ P(isnan(P)) = -999;
 
 % Ordering in VAR
 data_levels(:,1) = TFP;
-data_levels(:,2) = H;
-data_levels(:,3) = Mich;
-data_levels(:,4) = IT;
-data_levels(:,5) = GDP;
-data_levels(:,6) = C;
-data_levels(:,7) = P;
+% data_levels(:,2) = H;
+data_levels(:,2) = Mich;
+data_levels(:,3) = IT;
+% data_levels(:,5) = GDP;
+data_levels(:,4) = C;
+data_levels(:,5) = P;
 
 % Generate automatically cell matrix of variable names for figures as well
 % as define automatically which shocks to impose
@@ -72,12 +72,12 @@ nvar       = size(data_levels,2);
 
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
 [AIC,BIC,HQ] = aic_bic_hq(data_levels,max_lags);
-nlags = AIC;
+nlags = 2;
 
 % Build sign restriction matrix
 sign_res = zeros(nvar,nvar);
-sign_res(end,3) = 1; % posiive sign restriction 
-sign_res(end,4) = -1; % negative sign restriction
+sign_res(end,2) = 1; % posiive sign restriction 
+sign_res(end,3) = -1; % negative sign restriction
 
 % Now impose sign restrictions
 [A, B] = sr_sign_var(data_levels, nlags,sign_res);

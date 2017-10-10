@@ -6,7 +6,7 @@ clear all
 close all
 
 %Data Reading and Transformation
-data = xlsread('dataset_23_sept_2017','Sheet1','B126:I283');
+data = xlsread('dataset_23_sept_2017','Sheet1','B126:K283');
 % Cumulate growth variables to levels (log levels to be precise, b/c growth
 % rates are calculated as log diffs)
 TFP  = cumsum(data(:,1)); % TFP (levels in log)
@@ -16,20 +16,37 @@ Mich = data(:,4); % the Mich index
 GDP = log(data(:,6)); % real GDP % whether this guy's in logs or not doesn't seem to make a diff
 C   = log(data(:,7)); % real cons % whether this guy's in logs or not doesn't seem to make a diff
 H   = data(:,8); %hours worked
+P   = vertcat(nan, diff(log(data(:,9)))); %price of IT goods
+P(isnan(P)) = -999;
+Pi = vertcat(nan, diff(log(data(:,10)))); % CPI inflation
+Pi(isnan(Pi)) = -99;
+
+[rho, instrIT, ~] = quick_ols(IT(1:end-1,:), IT(2:end,:));
+instrIT = vertcat(nan, instrIT);
+% instrIT = vertcat(nan, IT(1:end-1,:));
+instrIT(isnan(instrIT)) = -999;
+
 
 % Ordering in VAR
 data_levels(:,1) = TFP;
 data_levels(:,2) = H;
 data_levels(:,3) = Mich;
-data_levels(:,4) = IT;
+% data_levels(:,4) = IT;
+data_levels(:,4) = instrIT;
 data_levels(:,5) = GDP;
 data_levels(:,6) = C;
+% data_levels(:,7) = P;
+
+% warning off
 
 % Generate automatically cell matrix of variable names for figures as well
 % as define automatically which shocks to impose
 which_shock = zeros(1,2);
 varnames = cell(size(data_levels,2),1);
 names = cell(1,2);
+do_truncation  = 'no';
+do_truncation2 = 'no';
+do_truncation3 = 'no';
 for i = 1:size(data_levels,2)
     if data_levels(:,i) == TFP
         varnames{i} = 'TFP';
@@ -39,7 +56,7 @@ for i = 1:size(data_levels,2)
         varnames{i} = 'Mich index';
         which_shock(1,1) = i;
         names{1} = 'News shock';
-    elseif data_levels(:,i) == IT
+    elseif data_levels(:,i) == IT 
         varnames{i} = 'IT investment';
         which_shock(1,2) = i;
         names{2} = 'IT shock';
@@ -51,7 +68,37 @@ for i = 1:size(data_levels,2)
         varnames{i} = 'GDP';
     elseif data_levels(:,i) == C
         varnames{i} = 'C';
+    elseif data_levels(:,i) == P
+        varnames{i} = 'Price IT';
+        do_truncation = 'yes';
+    elseif data_levels(:,i) == Pi
+        varnames{i} = 'CPI Inflation';
+        do_truncation2 = 'yes';
+    elseif data_levels(:,i) == instrIT
+        varnames{i} = 'IT investment (IV)';
+        names{2} = 'IT shock';
+        which_shock(1,2) = i;
+        do_truncation3 = 'yes';          
     end
+end
+
+if strcmp(do_truncation, 'yes')
+% Truncate dataset to the shortest variable
+P(P==-999) = nan;
+start = find(isnan(P) < 1,1,'first');
+data_levels = data_levels(start:end,:);
+
+elseif strcmp(do_truncation2, 'yes')
+% Truncate dataset to the shortest variable
+Pi(Pi==-99) = nan;
+start = find(isnan(Pi) < 1,1,'first');
+data_levels = data_levels(start:end,:);
+
+elseif strcmp(do_truncation3, 'yes')
+% Truncate dataset to the shortest variable
+instrIT(instrIT==-999) = nan;
+start = find(isnan(instrIT) < 1,1,'first');
+data_levels = data_levels(start:end,:);
 end
 
 %Technical Parameters
@@ -80,17 +127,17 @@ A_boot = zeros(nvar,nvar,nsimul);
 B_boot = zeros(nvar*nlags+1,nvar,nsimul);
 for i_simul = 1:nsimul
     [A_boot(:,:,i_simul), B_boot(:,:,i_simul), ~, ~] = ...
-          sr_var(dataset_boot(:,:,i_simul), nlags);
+        sr_var(dataset_boot(:,:,i_simul), nlags);
 end
 
-% Kilian correction 
+% Kilian correction
 [B_corrected,  bias] = kilian_corretion(B, B_boot);
 dataset_boot_corrected = data_boot(B_corrected, nburn, res, nsimul, which_correction, q);
 A_boot_corrected = zeros(nvar,nvar,nsimul);
 B_boot_corrected = zeros(nvar*nlags+1,nvar,nsimul);
 for i_simul = 1:nsimul
     [A_boot_corrected(:,:,i_simul), B_boot_corrected(:,:,i_simul), ~, ~] = ...
-          sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
+        sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
 end
 B_boot_test = mean(B_boot_corrected,3); %It should be very close to B
 bias_test = sum(sum(abs(B - B_boot_test)));
