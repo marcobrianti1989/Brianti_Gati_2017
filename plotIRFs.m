@@ -25,4 +25,7 @@ for i_shock=1:nshocks
         grid on      
     end
     
+    % if you want to print just remove the '%'
+    print(['figure(' num2str(i_shock) ')_RD'] ,'-dpdf','-fillpage')
+    
 end
