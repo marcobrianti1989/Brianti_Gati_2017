@@ -56,7 +56,7 @@ for i = 1:size(data_levels,2)
         varnames{i} = 'Mich index';
         which_shock(1,1) = i;
         names{1} = 'News shock';
-    elseif data_levels(:,i) == IT 
+    elseif data_levels(:,i) == IT
         varnames{i} = 'IT investment';
         which_shock(1,2) = i;
         names{2} = 'IT shock';
@@ -78,27 +78,27 @@ for i = 1:size(data_levels,2)
         varnames{i} = 'IT investment (IV)';
         names{2} = 'IT shock';
         which_shock(1,2) = i;
-        do_truncation3 = 'yes';          
+        do_truncation3 = 'yes';
     end
 end
 
 if strcmp(do_truncation, 'yes')
-% Truncate dataset to the shortest variable
-P(P==-999) = nan;
-start = find(isnan(P) < 1,1,'first');
-data_levels = data_levels(start:end,:);
-
+    % Truncate dataset to the shortest variable
+    P(P==-999) = nan;
+    start = find(isnan(P) < 1,1,'first');
+    data_levels = data_levels(start:end,:);
+    
 elseif strcmp(do_truncation2, 'yes')
-% Truncate dataset to the shortest variable
-Pi(Pi==-99) = nan;
-start = find(isnan(Pi) < 1,1,'first');
-data_levels = data_levels(start:end,:);
-
+    % Truncate dataset to the shortest variable
+    Pi(Pi==-99) = nan;
+    start = find(isnan(Pi) < 1,1,'first');
+    data_levels = data_levels(start:end,:);
+    
 elseif strcmp(do_truncation3, 'yes')
-% Truncate dataset to the shortest variable
-instrIT(instrIT==-999) = nan;
-start = find(isnan(instrIT) < 1,1,'first');
-data_levels = data_levels(start:end,:);
+    % Truncate dataset to the shortest variable
+    instrIT(instrIT==-999) = nan;
+    start = find(isnan(instrIT) < 1,1,'first');
+    data_levels = data_levels(start:end,:);
 end
 
 %Technical Parameters
@@ -112,7 +112,18 @@ nvar       = size(data_levels,2);
 
 %Run VAR imposing Cholesky
 nlags = AIC;
-[A,B,res,~] = sr_var(data_levels, nlags);
+[A,B,res,sigma] = sr_var(data_levels, nlags);
+
+run_LR = 1;
+if run_LR == 1
+    % Run VAR doing LR restrictions (this is just a check at this point)
+    [A2,B2,~,~] = lr_var(data_levels, nlags);
+    [beta, c, mu] = quick_var(data_levels,nlags);
+    [B0] = long_run_restriction(beta, sigma);
+    disp('Differences to what Ryan gets:')
+    A2 - B0 % check that you get the same as Ryan.
+    return
+end
 
 %Checking if the VAR is stationary
 test_stationarity(B');
