@@ -31,7 +31,7 @@ instrIT(isnan(instrIT)) = -999;
 data_levels(:,1) = TFP;
 data_levels(:,2) = H;
 data_levels(:,3) = Mich;
-data_levels(:,4) = RD; %IT;
+data_levels(:,4) = IT; %RD;
 % data_levels(:,4) = instrIT;
 data_levels(:,5) = GDP;
 data_levels(:,6) = C;
@@ -114,7 +114,7 @@ nvar       = size(data_levels,2);
 nlags = AIC;
 [A,B,res,sigma] = sr_var(data_levels, nlags);
 
-run_LR = 1;
+run_LR = 0;
 if run_LR == 1
     % Run VAR doing LR restrictions (this is just a check at this point)
     [A2,B2,~,~] = lr_var(data_levels, nlags);
