@@ -19,6 +19,7 @@ time_range = 'A2:A333';
 
 %Downloading Data
 dataset = xlsread(file,sheet,range);
+ITorders = dataset(:,2); 
 nvar = size(dataset,2);
 varnames = {'Lessors of Nonfinancial Intangible Assets','Value of Manufacturers New Orders for IT Industries','Value of Manufacturers Total Inventories for IT Industries', 'San Francisco Tech Pulse'};
 % dataset(:,1) = no. of lessors of intangibles
@@ -26,6 +27,8 @@ varnames = {'Lessors of Nonfinancial Intangible Assets','Value of Manufacturers 
 % dataset(:,3) = manufacturer's inventories of IT (million dollars)
 % dataset(:,4) = SF Tech pulse
 oldstuff = 0;
+
+
 for i_var = 1:nvar
 data = dataset(:,i_var);
 varname = varnames{i_var};
@@ -102,12 +105,12 @@ hold off
 subplot(2,1,2)
 hold on
 %plot(time,dataset(:,1),'LineWidth',1.5)
-plot(time,dataset(:,2),'LineWidth',1.5)
+plot(time,log(ITorders),'LineWidth',1.5)
 x1 = time(133);
 y1=get(gca,'ylim');
 plot([x1 x1],y1)
 title('Value of Manufacturers New Orders for IT Industries')
-legend('Levels','2001','Location','NorthWest')
+legend('Logs','2001','Location','NorthWest')
 grid on
 hold off
 
