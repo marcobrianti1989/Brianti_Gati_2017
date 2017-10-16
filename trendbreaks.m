@@ -25,7 +25,7 @@ varnames = {'Lessors of Nonfinancial Intangible Assets','Value of Manufacturers 
 % dataset(:,2) = manufacturer's new orders of IT (million dollars)
 % dataset(:,3) = manufacturer's inventories of IT (million dollars)
 % dataset(:,4) = SF Tech pulse
-
+oldstuff = 0;
 for i_var = 1:nvar
 data = dataset(:,i_var);
 varname = varnames{i_var};
@@ -44,7 +44,7 @@ weigths = [1/24;repmat(1/12,11,1);1/24];% choosing 1/24 weights for end terms, 1
 weights2 = [1/60; repmat(1/30,28,1); 1/60 ];
 trend = conv(data,weigths,'valid'); % 'valid'  leaves out the end observations as those cannot be smoothed and would thus distort things
 trend = vertcat([nan nan nan nan nan nan]', trend, [nan nan nan nan nan nan]');
-
+if oldstuff == 1
 %Plot moving average
 figure(i_var*2 - 1)
 hold on
@@ -78,9 +78,38 @@ y1=get(gca,'ylim');
 plot([x1 x1],y1)
 title([varname])
 hold off
-
+end
 end
 
+
+%Alternative Data - IT investment
+data2 = xlsread('dataset_23_sept_2017','Sheet1','B174:K283');
+IT   = log(data2(:,5)); % IT investment; similar to RD
+%Defining the variable time to label the x-axis
+T2 = size(data2,1);
+time2 = datetime(1990,1,1) + calquarters(0:T2-1); %ALWAYS CHECK IF THE INITIAL PERIOD IS THE SAME
+figure(20)
+subplot(2,1,1)
+hold on
+plot(time2,IT,'LineWidth',1.5)
+x1 = time2(45);
+y1=get(gca,'ylim');
+plot([x1 x1],y1)
+title('Information and Communication Technology Investment')
+legend('Logs','2001','Location','NorthWest')
+grid on
+hold off
+subplot(2,1,2)
+hold on
+%plot(time,dataset(:,1),'LineWidth',1.5)
+plot(time,dataset(:,2),'LineWidth',1.5)
+x1 = time(133);
+y1=get(gca,'ylim');
+plot([x1 x1],y1)
+title('Value of Manufacturers New Orders for IT Industries')
+legend('Levels','2001','Location','NorthWest')
+grid on
+hold off
 
 %%  Test for structural breaks
 do_tests= 0;
