@@ -104,7 +104,7 @@ end
 %Technical Parameters
 max_lags   = 10;
 nburn      = 0; %with the Kilian correction better not burning!!!
-nsimul     = 5000; %5000
+nsimul     = 500; %5000
 nvar       = size(data_levels,2);
 
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
@@ -112,17 +112,16 @@ nvar       = size(data_levels,2);
 
 %Run VAR imposing Cholesky
 nlags = AIC;
-[A,B,res,sigma] = sr_var(data_levels, nlags);
+[A,B,res,sigma] = lr_var(data_levels, nlags);
 
-run_LR = 0;
+run_LR = 1;
 if run_LR == 1
     % Run VAR doing LR restrictions (this is just a check at this point)
     [A2,B2,~,~] = lr_var(data_levels, nlags);
     [beta, c, mu] = quick_var(data_levels,nlags);
     [B0] = long_run_restriction(beta, sigma);
     disp('Differences to what Ryan gets:')
-    A2 - B0 % check that you get the same as Ryan.
-    return
+    test_ryan = sum(sum(abs(A2 - B0))) % check that you get the same as Ryan
 end
 
 %Checking if the VAR is stationary
@@ -138,7 +137,7 @@ A_boot = zeros(nvar,nvar,nsimul);
 B_boot = zeros(nvar*nlags+1,nvar,nsimul);
 for i_simul = 1:nsimul
     [A_boot(:,:,i_simul), B_boot(:,:,i_simul), ~, ~] = ...
-        sr_var(dataset_boot(:,:,i_simul), nlags);
+        lr_var(dataset_boot(:,:,i_simul), nlags);
 end
 
 % Kilian correction
@@ -148,10 +147,13 @@ A_boot_corrected = zeros(nvar,nvar,nsimul);
 B_boot_corrected = zeros(nvar*nlags+1,nvar,nsimul);
 for i_simul = 1:nsimul
     [A_boot_corrected(:,:,i_simul), B_boot_corrected(:,:,i_simul), ~, ~] = ...
-        sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
+        lr_var(dataset_boot_corrected(:,:,i_simul), nlags);
 end
 B_boot_test = mean(B_boot_corrected,3); %It should be very close to B
 bias_test = sum(sum(abs(B - B_boot_test)));
+if bias < bias_test
+      error('Kilian correction should decrease the bias of beta and mean(beta_boot).')
+end
 
 A_boot = A_boot_corrected;
 B_boot = B_boot_corrected;

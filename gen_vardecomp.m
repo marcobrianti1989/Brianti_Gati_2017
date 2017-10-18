@@ -29,6 +29,6 @@ for i_var = 1:nvar
 end
 
 % check if they sum up to 1
-if sum(vardec,2) ~= ones(nvar,1)
+if sum(abs(sum(vardec,2) - ones(nvar,1))) > 10^(-14)
     error('Variance decomposition doesn''t sum to 1')
 end

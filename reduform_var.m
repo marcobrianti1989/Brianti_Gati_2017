@@ -1,4 +1,4 @@
-function [B,res,sigma] = rf_var(dataset, nlags)
+function [B,res,sigma] = reduform_var(dataset, nlags)
 
 % Rearrange data to run a reduced-form VAR, outputting B, the reduced fprm
 % betas.
