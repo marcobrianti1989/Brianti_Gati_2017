@@ -22,9 +22,8 @@ else
         G = G - B(:,(i-1)*nvar+1:i*nvar); 
     end
     
-    C1 = inv(G);
-    
-    A  = inv(C1)*(chol(C1*sigma*C1'))';
-    [B,res,sigma] = reduform_var(dataset, nlags);
+    C1          = inv(G);
+    A           = inv(C1)*(chol(C1*sigma*C1'))';
+    [B,~,~]     = reduform_var(dataset, nlags); %to get back B in the reduced form
     
 end
