@@ -112,9 +112,9 @@ nvar       = size(data_levels,2);
 
 %Run VAR imposing Cholesky
 nlags = AIC;
-[A,B,res,sigma] = lr_var(data_levels, nlags);
+[A,B,res,sigma] = sr_var(data_levels, nlags);
 
-run_LR = 1;
+run_LR = 0;
 if run_LR == 1
     % Run VAR doing LR restrictions (this is just a check at this point)
     [A2,B2,~,~] = lr_var(data_levels, nlags);
@@ -137,7 +137,7 @@ A_boot = zeros(nvar,nvar,nsimul);
 B_boot = zeros(nvar*nlags+1,nvar,nsimul);
 for i_simul = 1:nsimul
     [A_boot(:,:,i_simul), B_boot(:,:,i_simul), ~, ~] = ...
-        lr_var(dataset_boot(:,:,i_simul), nlags);
+        sr_var(dataset_boot(:,:,i_simul), nlags);
 end
 
 % Kilian correction
@@ -147,7 +147,7 @@ A_boot_corrected = zeros(nvar,nvar,nsimul);
 B_boot_corrected = zeros(nvar*nlags+1,nvar,nsimul);
 for i_simul = 1:nsimul
     [A_boot_corrected(:,:,i_simul), B_boot_corrected(:,:,i_simul), ~, ~] = ...
-        lr_var(dataset_boot_corrected(:,:,i_simul), nlags);
+        sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
 end
 B_boot_test = mean(B_boot_corrected,3); %It should be very close to B
 bias_test = sum(sum(abs(B - B_boot_test)));
@@ -171,6 +171,45 @@ m = 40; %Horizon of the variance decomposition explained by the shocks
 [vardec] = gen_vardecomp(IRFs,m,H);
 [vardec_table] = vardecomp_table(vardec,which_shock,varnames,names);
 
-%------------------------------------------------------------------------------------------
+%% ------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% BARSKY AND SIMS (2011) %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+which_variable  = 1;
+which_shock     = 3;
+H               = 40;
+[A,B,res,sigma] = sr_var(data_levels, nlags);
+
+A_BS = barskysims(which_variable,which_shock,H,B,A);
+
+%Calculate IRFs, no boot_strap for now
+H = 100;
+[IRFs_BS, ub, lb] = genIRFs(A_BS,0,B,B_boot,H, sig);
+
+close all
+
+plotIRFs(IRFs_BS,ub,lb,h,[3 4], names, varnames)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
