@@ -1,4 +1,4 @@
-function A = barskysims(which_variable,which_shock,H,B,A)
+function [A, FEV_opt] = barskysims(which_variable,which_shock,H,B,A)
 %which_variable: variable we want to max the response for a specific shock
 %which_shock: the shock is maximizing the FEV of which_variable
 %H: horizon of the maximization
@@ -20,7 +20,7 @@ obj = @(gam) objective_barskysims(which_variable,H,B,A,gam);
 
 %Optimization Parameters
 options  = optimset('fmincon');
-options  = optimset(options, 'TolFun', 1e-9, 'display', 'iter');
+options  = optimset(options, 'TolFun', 1e-9, 'display', 'none');
 
 %Constraint 10 from Barsky and Sims, News have no contemporaneous effect on TFP
 Beq      = zeros(nvar,1);

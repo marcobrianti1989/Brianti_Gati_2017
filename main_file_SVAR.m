@@ -5,6 +5,7 @@
 clear all
 close all
 
+tic
 %Data Reading and Transformation
 data = xlsread('dataset_23_sept_2017','Sheet1','B126:K283');
 % Cumulate growth variables to levels (log levels to be precise, b/c growth
@@ -127,50 +128,54 @@ end
 %Checking if the VAR is stationary
 test_stationarity(B');
 
+
 % Generate bootstrapped data samples
 which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residuals in blocks or not.
 q = 5;
 dataset_boot = data_boot(B, nburn, res, nsimul, which_correction, q);
 
-% Redo VAR nsimul times on the bootstrapped datasets
-A_boot = zeros(nvar,nvar,nsimul);
-B_boot = zeros(nvar*nlags+1,nvar,nsimul);
-for i_simul = 1:nsimul
-    [A_boot(:,:,i_simul), B_boot(:,:,i_simul), ~, ~] = ...
-        sr_var(dataset_boot(:,:,i_simul), nlags);
+do_bootstrap_irfs_vd_SR =0;
+if do_bootstrap_irfs_vd_SR == 1
+    disp('Doing Bootstrap, IRFs and var decomp for SR ID')
+    % Redo VAR nsimul times on the bootstrapped datasets
+    A_boot = zeros(nvar,nvar,nsimul);
+    B_boot = zeros(nvar*nlags+1,nvar,nsimul);
+    for i_simul = 1:nsimul
+        [A_boot(:,:,i_simul), B_boot(:,:,i_simul), ~, ~] = ...
+            sr_var(dataset_boot(:,:,i_simul), nlags);
+    end
+    
+    % Kilian correction
+    [B_corrected,  bias] = kilian_corretion(B, B_boot);
+    dataset_boot_corrected = data_boot(B_corrected, nburn, res, nsimul, which_correction, q);
+    A_boot_corrected = zeros(nvar,nvar,nsimul);
+    B_boot_corrected = zeros(nvar*nlags+1,nvar,nsimul);
+    for i_simul = 1:nsimul
+        [A_boot_corrected(:,:,i_simul), B_boot_corrected(:,:,i_simul), ~, ~] = ...
+            sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
+    end
+    B_boot_test = mean(B_boot_corrected,3); %It should be very close to B
+    bias_test = sum(sum(abs(B - B_boot_test)));
+    if bias < bias_test
+        error('Kilian correction should decrease the bias of beta and mean(beta_boot).')
+    end
+    
+    A_boot = A_boot_corrected;
+    B_boot = B_boot_corrected;
+    
+    %Calculate IRFs, bootstrapped CI and plot them
+    h=40; % horizon for IRF plots
+    sig = 0.90; % significance level
+    H = 100; % horizon for generation of IRFs
+    [IRFs, ub, lb] = genIRFs(A,A_boot,B,B_boot,H, sig);
+    
+    plotIRFs(IRFs,ub,lb,h,which_shock, names, varnames)
+    
+    % Variance decomposition
+    m = 40; %Horizon of the variance decomposition explained by the shocks
+    [vardec] = gen_vardecomp(IRFs,m,H);
+    [vardec_table] = vardecomp_table(vardec,which_shock,varnames,names);
 end
-
-% Kilian correction
-[B_corrected,  bias] = kilian_corretion(B, B_boot);
-dataset_boot_corrected = data_boot(B_corrected, nburn, res, nsimul, which_correction, q);
-A_boot_corrected = zeros(nvar,nvar,nsimul);
-B_boot_corrected = zeros(nvar*nlags+1,nvar,nsimul);
-for i_simul = 1:nsimul
-    [A_boot_corrected(:,:,i_simul), B_boot_corrected(:,:,i_simul), ~, ~] = ...
-        sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
-end
-B_boot_test = mean(B_boot_corrected,3); %It should be very close to B
-bias_test = sum(sum(abs(B - B_boot_test)));
-if bias < bias_test
-      error('Kilian correction should decrease the bias of beta and mean(beta_boot).')
-end
-
-A_boot = A_boot_corrected;
-B_boot = B_boot_corrected;
-
-%Calculate IRFs, bootstrapped CI and plot them
-h=40; % horizon for IRF plots
-sig = 0.90; % significance level
-H = 100; % horizon for generation of IRFs
-[IRFs, ub, lb] = genIRFs(A,A_boot,B,B_boot,H, sig);
-
-plotIRFs(IRFs,ub,lb,h,which_shock, names, varnames)
-
-% Variance decomposition
-m = 40; %Horizon of the variance decomposition explained by the shocks
-[vardec] = gen_vardecomp(IRFs,m,H);
-[vardec_table] = vardecomp_table(vardec,which_shock,varnames,names);
-
 %% ------------------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -178,20 +183,61 @@ m = 40; %Horizon of the variance decomposition explained by the shocks
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 which_variable  = 1;
-which_shock     = 3;
+which_shock_max = 3;
 H               = 40;
 [A,B,res,sigma] = sr_var(data_levels, nlags);
 
-A_BS = barskysims(which_variable,which_shock,H,B,A);
+[A_BS,FEV_opt] = barskysims(which_variable,which_shock_max,H,B,A);
 
-%Calculate IRFs, no boot_strap for now
+% Generate bootstrapped data samples
+% Don't redo the generation of the bootstrapped samples because that's
+% the same for every ID strategy
+
+% Redo VAR nsimul times on the bootstrapped datasets
+A_boot_BS = zeros(nvar,nvar,nsimul);
+B_boot_BS = zeros(nvar*nlags+1,nvar,nsimul);
+for i_simul = 1:nsimul
+    [A, B_boot_BS(:,:,i_simul), ~, ~] = sr_var(dataset_boot(:,:,i_simul), nlags);
+    [A_boot_BS(:,:,i_simul),~] = barskysims(which_variable,which_shock_max,H,B_boot_BS(:,:,i_simul),A);
+end
+
+% Kilian correction
+[B_corrected,  bias] = kilian_corretion(B, B_boot_BS);
+dataset_boot_corrected = data_boot(B_corrected, nburn, res, nsimul, which_correction, q);
+A_boot_corrected_BS = zeros(nvar,nvar,nsimul);
+B_boot_corrected_BS = zeros(nvar*nlags+1,nvar,nsimul);
+for i_simul = 1:nsimul
+    [A_boot_corrected_step1, B_boot_corrected_BS(:,:,i_simul), ~, ~] = ...
+        sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
+    [A_boot_corrected_BS(:,:,i_simul),~] = ...
+        barskysims(which_variable,which_shock_max,H,B_boot_corrected_BS(:,:,i_simul),A_boot_corrected_step1);
+end
+B_boot_test_BS = mean(B_boot_corrected_BS,3); %It should be very close to B
+bias_test = sum(sum(abs(B - B_boot_test_BS)));
+if bias < bias_test
+    error('Kilian correction should decrease the bias of beta and mean(beta_boot).')
+end
+
+A_boot_BS = A_boot_corrected_BS;
+B_boot_BS = B_boot_corrected_BS;
+
+%Calculate IRFs
+h=40; % horizon for IRF plots
 H = 100;
-[IRFs_BS, ub, lb] = genIRFs(A_BS,0,B,B_boot,H, sig);
+sig = 0.90; % significance level
+[IRFs_BS, ub, lb] = genIRFs(A_BS,0,B,0,H, sig);
 
 close all
 
 plotIRFs(IRFs_BS,ub,lb,h,[3 4], names, varnames)
 
+
+% Variance decomposition
+m = 40; %Horizon of the variance decomposition explained by the shocks
+[vardec] = gen_vardecomp(IRFs_BS,m,H);
+[vardec_table] = vardecomp_table(vardec,which_shock,varnames,names);
+
+toc
 
 
 
