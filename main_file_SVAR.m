@@ -186,8 +186,7 @@ which_variable  = 1;
 which_shock_max = 3;
 H               = 40;
 [A,B,res,sigma] = sr_var(data_levels, nlags);
-
-[A_BS,FEV_opt] = barskysims(which_variable,which_shock_max,H,B,A);
+[A_BS,FEV_opt,IRFs, obj_IRFs,gamma_opt] = barskysims(which_variable,which_shock_max,H,B,A);
 
 % Generate bootstrapped data samples
 % Don't redo the generation of the bootstrapped samples because that's
@@ -197,8 +196,8 @@ H               = 40;
 A_boot_BS = zeros(nvar,nvar,nsimul);
 B_boot_BS = zeros(nvar*nlags+1,nvar,nsimul);
 for i_simul = 1:nsimul
-    [A, B_boot_BS(:,:,i_simul), ~, ~] = sr_var(dataset_boot(:,:,i_simul), nlags);
-    [A_boot_BS(:,:,i_simul),~] = barskysims(which_variable,which_shock_max,H,B_boot_BS(:,:,i_simul),A);
+    [A_step1, B_boot_BS(:,:,i_simul), ~, ~] = sr_var(dataset_boot(:,:,i_simul), nlags);
+    [A_boot_BS(:,:,i_simul),~] = barskysims(which_variable,which_shock_max,H,B_boot_BS(:,:,i_simul),A_step1);
 end
 
 % Kilian correction
@@ -223,25 +222,19 @@ B_boot_BS = B_boot_corrected_BS;
 
 %Calculate IRFs
 h=40; % horizon for IRF plots
-H = 100;
+H = 40;
 sig = 0.90; % significance level
-[IRFs_BS, ub, lb] = genIRFs(A_BS,0,B,0,H, sig);
 
 close all
-
+[IRFs_BS, ub, lb] = genIRFs(A_BS,0,B,0,H, sig);
 plotIRFs(IRFs_BS,ub,lb,h,[3 4], names, varnames)
 
 
-% Variance decomposition
-m = 40; %Horizon of the variance decomposition explained by the shocks
-[vardec] = gen_vardecomp(IRFs_BS,m,H);
-[vardec_table] = vardecomp_table(vardec,which_shock,varnames,names);
-
-toc
-
-
-
-
+% Variance decomposition: we don't do it because Barsky and Sims is a
+% partial identification strategy, i.e. it only suffices to identify and
+% generate the IRFs to a news shock. So those are correct, but we don't
+% have a full impact matrix with which to generate IRFs for the other
+% shocks, and thus to do vardecomps.
 
 
 

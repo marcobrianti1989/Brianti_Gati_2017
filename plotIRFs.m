@@ -20,6 +20,7 @@ for i_shock=1:nshocks
         plot(periods,IRFs(i_var,1:h,which_shock(i_shock)),'linewidth',1.5,'Color','r')
         plot(periods,ub(i_var,1:h,which_shock(i_shock)),'--','linewidth',1,'Color','k')
         plot(periods,lb(i_var,1:h,which_shock(i_shock)),'--','linewidth',1,'Color','k')
+        plot(zeros(1,h), 'Color','b')
         title([name, ' on ' , varname])
         hold off
         grid on      

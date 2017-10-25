@@ -1,10 +1,10 @@
-function [IRFs, ub, lb] = genIRFs(A,A_boot,B,B_boot,H, sig)
+function [IRFs, ub, lb] = genIRFs(A_IRF,A_boot,B,B_boot,H, sig)
 % Generate IRFs and bootstrapped IRF confidence intervals for ALL shocks
 % H = IR horizon for the generation of IRFs (to be used in variance decomposition)
 % sig = CI significance level (enter as 0.9 for example)
 % Can choose not to do bootstrapping by setting A_boot to 0.
 
-nvar = size(A,1);
+nvar = size(A_IRF,1);
 nlag = (size(B,1)-1)/nvar;
 nshocks = nvar;
 nsimul = size(A_boot,3);
@@ -27,7 +27,7 @@ for i_shock=1:nshocks
       shocks(i_shock,1) = 1;
       
       % Initialize:
-      IRFs(:,1,i_shock) = A*shocks;
+      IRFs(:,1,i_shock) = A_IRF*shocks;
       F = [IRFs(:,1,i_shock)' zeros(1,(nlag-1)*nvar)];
       % Generate IRFs
       for k=2:H

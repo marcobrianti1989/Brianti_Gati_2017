@@ -1,4 +1,4 @@
-function obj_FEV = objective_barskysims(which_variable,H,bet,A,gam) 
+function [obj_FEV, IRFs_all, obj_IRFs] = objective_barskysims(which_variable,H,bet,A,gam) 
 % Equation 7 from Barsky and Sims (2011)
 % which_shock: It select the shock whose effect wants to be maximized
 % which_variable: It select the variable that the shock is maximizing
@@ -14,7 +14,7 @@ function obj_FEV = objective_barskysims(which_variable,H,bet,A,gam)
 
 [nvarlags, nvar]     = size(bet);
 nlags                = nvarlags/nvar;
-IRFs                 = zeros(nvar,H);
+IRFs_all                 = zeros(nvar,H);
 nshocks              = nvar;
 
 for i_shock = 1:nshocks
@@ -22,21 +22,21 @@ for i_shock = 1:nshocks
       shocks              = zeros(nvar,1);
       shocks(i_shock,1)   = 1;      
       % Initialize:
-      IRFs(:,1,i_shock)   = A*shocks;
-      F                   = [IRFs(:,1,i_shock)' zeros(1,(nlags-1)*nvar)];
+      IRFs_all(:,1,i_shock)   = A*shocks;
+      F                   = [IRFs_all(:,1,i_shock)' zeros(1,(nlags-1)*nvar)];
       % Generate IRFs
       for k=2:H
-            IRFs(:,k,i_shock)    = F*bet;
-            F                    = [IRFs(:,k,i_shock)' F(1:end-nvar)];
+            IRFs_all(:,k,i_shock)    = F*bet;
+            F                    = [IRFs_all(:,k,i_shock)' F(1:end-nvar)];
       end
 end
 
-% den = sum(sum(IRFs.^2,3),2); % one value for each variable, so (nvar x 1)
-DEN = sum(sum(IRFs(which_variable,:,:).^2)); %independent from gamma
+den = sum(sum(IRFs_all.^2,3),2); % one value for each variable, so (nvar x 1)
+DEN = sum(sum(IRFs_all(which_variable,:,:).^2)); %independent from gamma
   
 % Initialize:
-obj_IRFs(:,1)       = A*gam;
-F                   = [obj_IRFs(:,1)' zeros(1,(nlags-1)*nvar)];
+obj_IRFs(:,1)            = A*gam;
+F                        = [obj_IRFs(:,1)' zeros(1,(nlags-1)*nvar)];
 % Generate IRFs
 for k=2:H
     obj_IRFs(:,k)        = F*bet;

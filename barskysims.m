@@ -1,4 +1,4 @@
-function [A, FEV_opt] = barskysims(which_variable,which_shock,H,B,A)
+function [A, FEV_opt, IRFs, obj_IRFs,gamma_opt] = barskysims(which_variable,which_shock,H,B,A)
 %which_variable: variable we want to max the response for a specific shock
 %which_shock: the shock is maximizing the FEV of which_variable
 %H: horizon of the maximization
@@ -14,7 +14,7 @@ D = eye(nvar);
 gamma0 = D(:,which_shock);
 
 % dbstop in objective_barskysims at 21
-[FEV] = objective_barskysims(which_variable,H,B,A,gamma0);
+[FEV, IRFs, obj_IRFs] = objective_barskysims(which_variable,H,B,A,gamma0);
         
 obj = @(gam) objective_barskysims(which_variable,H,B,A,gam);
 
@@ -37,6 +37,7 @@ if FEV_opt > 1 || (gamma_opt'*gamma_opt - 1)^2 > 10^(-14) || gamma_opt(1)^2 > 10
 end
 
 A(:,which_shock) = A*gamma_opt;
+
 
 
 
