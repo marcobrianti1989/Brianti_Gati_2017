@@ -3,7 +3,7 @@ function [obj_FEV, IRFs_all, obj_IRFs] = objective_barskysims(which_variable,H,b
 % which_shock: It select the shock whose effect wants to be maximized
 % which_variable: It select the variable that the shock is maximizing
 % H: cumulated horizon of the mazimization
-% beta is the reduced-form beta and is ((nvar*nlags)+1,nvar) dimension matrix
+% beta is the reduced-form beta and is ((nvar*nlags),nvar) dimension matrix
 % A: random impact matrix coming from whatever identification, here we use
 % one from cholesky is (nvar*nvar). Importantly, using TFP as a first
 % variable with cholesky is automatically imposing constraint (9.5) ->
