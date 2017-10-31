@@ -27,6 +27,11 @@ for i_shock=1:nshocks
     end
     
     % if you want to print just remove the '%'
-    %print(['figure(' num2str(i_shock) ')_RD'] ,'-dpdf','-fillpage')
+    figname = ['figure_' , datestr(now, 'yyyy-mm-dd HH:MM:SS')];
+%     print(figname ,'-dpdf') %,'-fillpage')
+%     pause(2)
+
+%     print(['figure_', names{i_shock}] ,'-dpdf') %,'-fillpage')
+
     
 end

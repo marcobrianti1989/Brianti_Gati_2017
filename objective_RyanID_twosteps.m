@@ -1,4 +1,5 @@
-function [obj_FEV, IRFs_all, FEV_news, FEV_IT] = objective_ryansID(which_variable,H,bet,A,gam)
+function [obj_FEV, IRFs_all, FEV_news, FEV_IT] ...
+        = objective_RyanID_twosteps(which_variable,H,bet,A,gam3,gam4)
 
 % which_variable: It select the variable that the shock is maximizing (TFP)
 % H: cumulated horizon of the mazimization
@@ -15,6 +16,7 @@ function [obj_FEV, IRFs_all, FEV_news, FEV_IT] = objective_ryansID(which_variabl
 nlags                = nvarlags/nvar;
 IRFs_all             = zeros(nvar,H);
 nshocks              = nvar;
+gam                  = [gam3; gam4];
 
 for i_shock = 1:nshocks
     

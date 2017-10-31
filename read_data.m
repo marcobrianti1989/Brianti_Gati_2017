@@ -1,4 +1,4 @@
-function [data_levels, varnames, which_shock, q] = read_data(filename, sheet, range)
+function [data_levels, shocknames, varnames, which_shock, q] = read_data(filename, sheet, range)
 % A file for reading in data specifically for this project. TO DO: Make
 % this general and clean up data reading in general.
 
@@ -37,7 +37,7 @@ data_levels(:,6) = rel_price;
 % as define automatically which shocks to impose
 which_shock = zeros(1,2);
 varnames = cell(size(data_levels,2),1);
-names = cell(1,2);
+shocknames = cell(1,2);
 do_truncation  = 'no';
 do_truncation2 = 'no';
 do_truncation3 = 'no';
@@ -50,15 +50,15 @@ for i = 1:size(data_levels,2)
     elseif data_levels(:,i) == Mich
         varnames{i} = 'Mich index';
         which_shock(1,1) = i;
-        names{1} = 'News shock';
+        shocknames{1} = 'News shock';
     elseif data_levels(:,i) == IT
         varnames{i} = 'IT investment';
         which_shock(1,2) = i;
-        names{2} = 'IT shock';
+        shocknames{2} = 'IT shock';
     elseif data_levels(:,i) == RD
         varnames{i} = 'R&D';
         which_shock(1,2) = i;
-        names{2} = 'R&D shock';
+        shocknames{2} = 'R&D shock';
     elseif data_levels(:,i) == GDP
         varnames{i} = 'GDP';
     elseif data_levels(:,i) == C
@@ -71,7 +71,7 @@ for i = 1:size(data_levels,2)
         do_truncation2 = 'yes';
     elseif data_levels(:,i) == instrIT
         varnames{i} = 'IT investment (IV)';
-        names{2} = 'IT shock';
+        shocknames{2} = 'IT shock';
         which_shock(1,2) = i;
         do_truncation3 = 'yes';
     elseif data_levels(:,i) == rel_price

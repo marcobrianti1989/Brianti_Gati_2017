@@ -35,7 +35,7 @@ for i_shock=1:nshocks
             F = [IRFs(:,k,i_shock)' F(1:end-nvar)];
       end
       
-      if A_boot == 0
+      if sum(sum(A_boot)) == 0
             % don't do bootstrapping
       else
             % Redo for bootstrapped samples: Here we need an extra loop over nsimul

@@ -17,10 +17,15 @@ Mich = data(:,4); % the Mich index
 GDP = log(data(:,6)); % real GDP % whether this guy's in logs or not doesn't seem to make a diff
 C   = log(data(:,7)); % real cons % whether this guy's in logs or not doesn't seem to make a diff
 H   = data(:,8); %hours worked
-P   = vertcat(nan, diff(log(data(:,9)))); %price of IT goods
-P(isnan(P)) = -999;
+% P   = vertcat(nan, diff(log(data(:,9)))); %price of IT goods
+% P(isnan(P)) = -999;
+% Pi = vertcat(nan, diff(log(data(:,10)))); % CPI inflation
+% Pi(isnan(Pi)) = -99;
+
+P_IT   = vertcat(nan, diff(log(data(:,9)))); %price of IT goods (to be correct, this is inflation in price index of IT gods)
 Pi = vertcat(nan, diff(log(data(:,10)))); % CPI inflation
-Pi(isnan(Pi)) = -99;
+rel_price = P_IT - Pi; % this is the ratio of IT price inflation over CPI inflation
+rel_price(isnan(rel_price)) = -999;
 
 [rho, instrIT, ~] = quick_ols(IT(1:end-1,:), IT(2:end,:));
 instrIT = vertcat(nan, instrIT);
@@ -36,6 +41,7 @@ data_levels(:,4) = IT; %RD;
 % data_levels(:,4) = instrIT;
 data_levels(:,5) = GDP;
 data_levels(:,6) = C;
+% data_levels(:,6) = rel_price;
 % data_levels(:,7) = P;
 
 % warning off
@@ -48,6 +54,8 @@ names = cell(1,2);
 do_truncation  = 'no';
 do_truncation2 = 'no';
 do_truncation3 = 'no';
+do_truncation4 = 'no';
+
 for i = 1:size(data_levels,2)
     if data_levels(:,i) == TFP
         varnames{i} = 'TFP';
@@ -69,7 +77,7 @@ for i = 1:size(data_levels,2)
         varnames{i} = 'GDP';
     elseif data_levels(:,i) == C
         varnames{i} = 'C';
-    elseif data_levels(:,i) == P
+    elseif data_levels(:,i) == P_IT
         varnames{i} = 'Price IT';
         do_truncation = 'yes';
     elseif data_levels(:,i) == Pi
@@ -80,6 +88,10 @@ for i = 1:size(data_levels,2)
         names{2} = 'IT shock';
         which_shock(1,2) = i;
         do_truncation3 = 'yes';
+    elseif data_levels(:,i) == rel_price
+        varnames{i} = 'Relative price of IT';
+        do_truncation4 = 'yes';
+        q = i; % position of rel. price of IT
     end
 end
 
@@ -99,6 +111,12 @@ elseif strcmp(do_truncation3, 'yes')
     % Truncate dataset to the shortest variable
     instrIT(instrIT==-999) = nan;
     start = find(isnan(instrIT) < 1,1,'first');
+    data_levels = data_levels(start:end,:);
+    
+elseif strcmp(do_truncation4, 'yes')
+    % Truncate dataset to the shortest variable
+    rel_price(rel_price==-999) = nan;
+    start = find(isnan(rel_price) < 1,1,'first');
     data_levels = data_levels(start:end,:);
 end
 
@@ -122,7 +140,7 @@ if run_LR == 1
     [beta, c, mu] = quick_var(data_levels,nlags);
     [B0] = long_run_restriction(beta, sigma);
     disp('Differences to what Ryan gets:')
-    test_ryan = sum(sum(abs(A2 - B0))) % check that you get the same as Ryan
+    test_ryan = sum(sum(abs(A2 - B0))); % check that you get the same as Ryan
 end
 
 %Checking if the VAR is stationary
@@ -221,14 +239,15 @@ A_boot_BS = A_boot_corrected_BS;
 B_boot_BS = B_boot_corrected_BS;
 
 %Calculate IRFs
-h=40; % horizon for IRF plots
+h = 40; % horizon for IRF plots
 H = 40;
 sig = 0.90; % significance level
 
 close all
-[IRFs_BS, ub, lb] = genIRFs(A_BS,0,B,0,H, sig);
-plotIRFs(IRFs_BS,ub,lb,h,[3 4], names, varnames)
+[IRFs_BS, ub, lb] = genIRFs(A_BS,A_boot_BS,B,B_boot_BS,H,sig);
+plotIRFs(IRFs_BS,ub,lb,h,3, names, varnames)
 
+toc
 
 % Variance decomposition: we don't do it because Barsky and Sims is a
 % partial identification strategy, i.e. it only suffices to identify and

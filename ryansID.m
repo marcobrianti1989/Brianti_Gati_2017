@@ -36,10 +36,9 @@ P = inv(G); % LR effect overall
 Me = 3; %  Me = no. of equality constraints
 Beq      = zeros(Me,1); % Beq is (Me x 1) where
 Aeq      = zeros(Me,nshocks*nvar); % Aeq is (Me x (nshocks*nvar))
-Aeq(1,1) = 1;
-Aeq(2,7) = 1;
+Aeq(1,1) = 1; %zero-impact restrictions of news on TFP
+Aeq(2,7) = 1; %zero-impact restrictions of IT on TFP
 Aeq(3,q) = P(q,3)*A(q,3); % LR restriction
-% Aeq(3,end) = 1; % zero impact restriction of IT on rel. prices
 
 [gamma_opt] = fmincon(obj, gamma0,[],[],Aeq,Beq,[],[],@(gam) constraint_orthogonality_ryan(gam),options);
 %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)

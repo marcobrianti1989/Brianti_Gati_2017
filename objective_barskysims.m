@@ -12,10 +12,10 @@ function [obj_FEV, IRFs_all, obj_IRFs] = objective_barskysims(which_variable,H,b
 % interested in. In the main file you need gamma = D(which_shock) where D =
 % eye(nvar). gamma is a selection vector: it is basically doing the "which_shock"
 
-[nvarlags, nvar]     = size(bet);
-nlags                = nvarlags/nvar;
+[nvarlags, nvar]         = size(bet);
+nlags                    = nvarlags/nvar;
 IRFs_all                 = zeros(nvar,H);
-nshocks              = nvar;
+nshocks                  = nvar;
 
 for i_shock = 1:nshocks
     
@@ -23,15 +23,15 @@ for i_shock = 1:nshocks
       shocks(i_shock,1)   = 1;      
       % Initialize:
       IRFs_all(:,1,i_shock)   = A*shocks;
-      F                   = [IRFs_all(:,1,i_shock)' zeros(1,(nlags-1)*nvar)];
+      F                       = [IRFs_all(:,1,i_shock)' zeros(1,(nlags-1)*nvar)];
       % Generate IRFs
       for k=2:H
             IRFs_all(:,k,i_shock)    = F*bet;
-            F                    = [IRFs_all(:,k,i_shock)' F(1:end-nvar)];
+            F                        = [IRFs_all(:,k,i_shock)' F(1:end-nvar)];
       end
 end
 
-den = sum(sum(IRFs_all.^2,3),2); % one value for each variable, so (nvar x 1)
+%den = sum(sum(IRFs_all.^2,3),2); % one value for each variable, so (nvar x 1)
 DEN = sum(sum(IRFs_all(which_variable,:,:).^2)); %independent from gamma
   
 % Initialize:
@@ -47,14 +47,6 @@ obj_FEV = sum(obj_IRFs(which_variable,:).^2);
 obj_FEV = obj_FEV/DEN; %normalization
 
 obj_FEV = - obj_FEV; %BE CAREFUL! IT IS ALREADY NEGATIVE FOR FMINCON!!!
-
-
-
-
-
-
-
-
 
 
 end
