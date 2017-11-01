@@ -17,7 +17,7 @@ range    = 'B126:K283';
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 500; %5000
+nsimul          = 20; %5000
 nvar            = size(data,2);
 h               = 40; % horizon for IRF plots
 sig             = 0.90; % significance level
@@ -41,7 +41,7 @@ test_stationarity(B');
 
 % TO DO: check info sufficiency
 
-% dbstop in Ryan_two_stepsID at 71
+% dbstop in Ryan_two_stepsID at 51
 % Implement Ryan's ID strategy
 % [impact, FEV_opt, IRFs, gamma_opt, FEV_news, FEV_IT] = ryansID(which_variable,which_shocks,H,B,A,q);
 [impact, FEV_opt, ~, gam3_opt, FEV_news, FEV_IT] ...

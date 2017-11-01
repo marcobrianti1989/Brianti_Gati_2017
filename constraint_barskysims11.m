@@ -1,6 +1,5 @@
-   function [c,ceq] = constraint_barskysims11(gam)
-       
+   function [c,ceq] = constraint_barskysims11(gam) 
          c = [];
-         ceq = gam'*gam-1;
+         ceq = gam'*gam - 1;   
          
    end

@@ -12,8 +12,10 @@ Mich = data(:,4); % the Mich index
 GDP = log(data(:,6)); % real GDP % whether this guy's in logs or not doesn't seem to make a diff
 C   = log(data(:,7)); % real cons % whether this guy's in logs or not doesn't seem to make a diff
 H   = data(:,8); %hours worked
-P_IT   = vertcat(nan, diff(log(data(:,9)))); %price of IT goods (to be correct, this is inflation in price index of IT gods)
-Pi = vertcat(nan, diff(log(data(:,10)))); % CPI inflation
+P_IT  = log(data(:,9)); %price of IT goods 
+% P_IT   = vertcat(nan, diff(log(data(:,9)))); %price of IT goods (to be correct, this is inflation in price index of IT gods)
+Pi    = log(data(:,10)); % log CPI
+% Pi = vertcat(nan, diff(log(data(:,10)))); % CPI inflation
 rel_price = P_IT - Pi; % this is the ratio of IT price inflation over CPI inflation
 rel_price(isnan(rel_price)) = -999;
 

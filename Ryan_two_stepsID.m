@@ -35,15 +35,18 @@ for i = 1:nlags
     G = G - B((i-1)*nvar+1:i*nvar,:);
 end
 P = inv(G); % LR effect overall
+R = P*A; %Long-run IR matrix a la Blanchard and Quah
 
 %Constraint that News and IT have no contemporaneous effect on TFP
-Me3       = 2; %  Me = no. of equality constraints
+Me3       = 1; %  Me = no. of equality constraints
 Beq3      = zeros(Me3,1); % Beq is (Me x 1) where
 Aeq3      = zeros(Me3,1*nvar); % Aeq is (Me x (nshock*nvar)) - nshock is 1 at this step
 Aeq3(1,1) = 1; %zero-impact of news on TFP
-Aeq3(2,q) = P(q,3)*A(q,3); % LR restriction
+% Aeq3(2,q) = R(q,3); % LR restriction - wrong!
 
-[gam3_opt] = fmincon(obj, gam3_zero,[],[],Aeq3,Beq3,[],[],@(gam3) constraint_barskysims11(gam3),options);
+% [gam3_opt] = fmincon(obj, gam3_zero,[],[],Aeq3,Beq3,[],[],@(gam3) constraint_barskysims11(gam3),options);
+[gam3_opt] = fmincon(obj, gam3_zero,[],[],Aeq3,Beq3,[],[],@(gam3) constraint_ryan(gam3,R,q),options);
+
 %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
 [FEV3_opt, ~, ~]     = objective_barskysims(which_variable,H,B,A,gam3_opt);
 FEV3_opt     = - FEV3_opt;
@@ -58,7 +61,7 @@ end
 obj = @(gam4) objective_RyanID_twosteps(which_variable,H,B,A,gam3_opt,gam4);
 
 %Constraint that News and IT have no contemporaneous effect on TFP
-Me4 = 1; %  Me = no. of equality constraints
+Me4       = 1; %  Me = no. of equality constraints
 Beq4      = zeros(Me4,1); % Beq is (Me x 1) where
 Aeq4      = zeros(Me4,1*nvar); % Aeq is (Me x (nshock*nvar)) - nshock is 1 at this step
 Aeq4(1,1) = 1; %zero-impact restrictions of news on TFP
