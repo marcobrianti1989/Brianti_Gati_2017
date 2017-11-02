@@ -1,6 +1,6 @@
-   function [c,ceq] = constraint_ryan(gam,R,q) 
+   function [c,ceq] = constraint_finite_horizon(gam,R,q) 
        % gam is for this exercise gam3, 6x1
-       % R = PA, the LR effect before multiplying with gam3. (6x6)
+       % R = the effect at some long horizon before multiplying with gam3. (6x6)
        % q = position of relative prices
          c = [];
          ceq = zeros(2,1); % 2 is the number of constraints

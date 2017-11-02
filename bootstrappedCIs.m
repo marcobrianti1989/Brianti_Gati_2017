@@ -35,6 +35,7 @@ B_boot_corrected        = zeros(nvar*nlags+1,nvar,nsimul);
 
 disp('Going into the 2nd bootstrap loop...')
 for i_simul = 1:nsimul
+    disp(['Simulation ', num2str(i_simul), ' out of ', n2str(nsimul)])
     [A_corrected, B_boot_corrected(:,:,i_simul), ~, ~] = sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
     [impact_boot_corrected(:,:,i_simul),~,~,~,~,~] = Ryan_two_stepsID(which_variable,which_shocks,H, ...
         B_boot_corrected(:,:,i_simul),A_corrected, pos_rel_prices);
@@ -46,7 +47,7 @@ disp('Finishing the bootstrap...')
 B_boot_test = mean(B_boot_corrected,3); %It should be very close to B
 bias_test = sum(sum(abs(B - B_boot_test)));
 if bias < bias_test
-    error('Kilian correction should decrease the bias of beta and mean(beta_boot).')
+    warning('Kilian correction should decrease the bias of beta and mean(beta_boot).')
 end
 
 A_boot = impact_boot_corrected;

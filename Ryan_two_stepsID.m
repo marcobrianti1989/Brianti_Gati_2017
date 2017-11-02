@@ -19,23 +19,33 @@ gamma0 = D(:,which_shocks);
 gam3_zero = gamma0(:,1);
 gam4_zero = gamma0(:,2);
 
-%First Step - Identifying gam3 - Similar to B&S(2012) with long-restriction
+%% First Step - Identifying gam3 - Similar to B&S(2012) with long-restriction
 %over relative price
 
 % Setting the objective function of Step1
-obj = @(gam3) objective_barskysims(which_variable,H,B,A,gam3);
+% obj = @(gam3) objective_barskysims(which_variable,H,B,A,gam3); % usual is BS
+obj = @(gam3) objective_IRmax(which_variable,H,B,A,gam3); % try Forni-style IR-max
+
 
 %Optimization Parameters
 options  = optimset('fmincon');
 options  = optimset(options, 'TolFun', 1e-9, 'display', 'none');
 
-% LR constraint that news has no effect on P(IT)/P in the LR.
-G = eye(nvar);
-for i = 1:nlags
-    G = G - B((i-1)*nvar+1:i*nvar,:);
-end
-P = inv(G); % LR effect overall
-R = P*A; %Long-run IR matrix a la Blanchard and Quah
+% % LR constraint that news has no effect on P(IT)/P in the LR.
+% G = eye(nvar);
+% for i = 1:nlags
+%     G = G - B((i-1)*nvar+1:i*nvar,:);
+% end
+% P = inv(G); % LR effect overall
+% R = P*A; %Long-run IR matrix a la Blanchard and Quah
+
+% % Instead of Blanchard Quah, impose that FEV(rel_prices, news) = 0 at some
+% finite long horizon.
+LR_hor = 200;
+sig = 0.9; % not used, but we need to input something not to get error
+[IR, ~, ~] = genIRFs(A,0,vertcat(ones(1,size(B,2)), B),0,LR_hor, sig);
+R = squeeze(IR(:,end,:));
+
 
 %Constraint that News and IT have no contemporaneous effect on TFP
 Me3       = 1; %  Me = no. of equality constraints
@@ -51,11 +61,11 @@ Aeq3(1,1) = 1; %zero-impact of news on TFP
 [FEV3_opt, ~, ~]     = objective_barskysims(which_variable,H,B,A,gam3_opt);
 FEV3_opt     = - FEV3_opt;
 
-if FEV3_opt > 1 || (gam3_opt'*gam3_opt - 1)^2 > 10^(-14) || gam3_opt(1)^2 > 10^(-14)
-    error('The problem is not consistent with the constraints.')
+if FEV3_opt > 1 || (gam3_opt'*gam3_opt - 1)^2 > 10^(-10) || gam3_opt(1)^2 > 10^(-12)
+    warning('The problem is not consistent with the constraints.')
 end
 
-%Second Step - Identifying gam4 - Max remaining FEV_TFP using IT shock
+%% Second Step - Identifying gam4 - Max remaining FEV_TFP using IT shock
 
 % Setting the objective function of Step2
 obj = @(gam4) objective_RyanID_twosteps(which_variable,H,B,A,gam3_opt,gam4);
@@ -71,8 +81,8 @@ Aeq4(1,1) = 1; %zero-impact restrictions of news on TFP
 [FEV_opt,IRFs,FEV_news,FEV_IT] = objective_RyanID_twosteps(which_variable,H,B,A,gam3_opt,gam4_opt);
 FEV_opt     = - FEV_opt;
 
-if FEV_opt > 1 || (gam4_opt'*gam4_opt - 1)^2 > 10^(-14) || gam4_opt(1)^2 > 10^(-14)
-    error('The problem is not consistent with the constraints.')
+if FEV_opt > 1 || (gam4_opt'*gam4_opt - 1)^2 > 10^(-10) || gam4_opt(1)^2 > 10^(-12)
+    warning('The problem is not consistent with the constraints.')
 end
 
 gam = [gam3_opt gam4_opt];

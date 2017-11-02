@@ -3,6 +3,8 @@
 
 % Marco Brianti, Laura Gáti, Oct 28 2017
 
+% TOOK 46.8612 MIN TO RUN!!
+
 clear all
 close all
 
@@ -17,18 +19,18 @@ range    = 'B126:K283';
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 20; %5000
+nsimul          = 500; %5000
 nvar            = size(data,2);
-h               = 40; % horizon for IRF plots
 sig             = 0.90; % significance level
-H               = 40; % horizon for generation of IRFs
+H               = 100; %40; % horizon for generation of IRFs
+h               = H; %40; % horizon for IRF plots
 which_variable  = 1; % select TFP as the variable whose FEV we wanna max
 
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
 [AIC,BIC,HQ] = aic_bic_hq(data,max_lags);
 if AIC >= 4
     nlags = 1;
-    warning(['AIC > 4, setting nlags to', num2str(nlags) ])
+    warning(['AIC > 4, setting nlags to ', num2str(nlags) ])
 else
     nlags = AIC;
 end
