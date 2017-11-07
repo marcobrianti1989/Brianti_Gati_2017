@@ -15,49 +15,40 @@ nshocks              = length(which_shocks);
 %Barsky and Sims identification strategy
 D = eye(nvar);
 gamma0 = D(:,which_shocks);
-% gamma0 = gamma0(:);
-gam3_zero = gamma0(:,1);
-gam4_zero = gamma0(:,2);
+gam3_zero = gamma0(:,1); %news shock impact vector (initial value)
+gam4_zero = gamma0(:,2); %IT shock impact vector (initial value)
 
 %% First Step - Identifying gam3 - Similar to B&S(2012) with long-restriction
 %over relative price
 
 % Setting the objective function of Step1
-% obj = @(gam3) objective_barskysims(which_variable,H,B,A,gam3); % usual is BS
-obj = @(gam3) objective_IRmax(which_variable,H,B,A,gam3); % try Forni-style IR-max
-
+obj = @(gam3) objective_barskysims(which_variable,H,B,A,gam3); % usual is BS
+% obj = @(gam3) objective_IRmax(which_variable,H,B,A,gam3); % try Forni-style IR-max
 
 %Optimization Parameters
 options  = optimset('fmincon');
 options  = optimset(options, 'TolFun', 1e-9, 'display', 'none');
 
-% % LR constraint that news has no effect on P(IT)/P in the LR.
-% G = eye(nvar);
-% for i = 1:nlags
-%     G = G - B((i-1)*nvar+1:i*nvar,:);
-% end
-% P = inv(G); % LR effect overall
-% R = P*A; %Long-run IR matrix a la Blanchard and Quah
-
-% % Instead of Blanchard Quah, impose that FEV(rel_prices, news) = 0 at some
+% Instead of Blanchard Quah, impose that IR(rel_prices, news) = 0 at some
 % finite long horizon.
-LR_hor = 200;
+LR_hor = 100;
 sig = 0.9; % not used, but we need to input something not to get error
 [IR, ~, ~] = genIRFs(A,0,vertcat(ones(1,size(B,2)), B),0,LR_hor, sig);
-R = squeeze(IR(:,end,:));
-
+% R = zeros(nvar,nvar); 
+R = squeeze(IR(:,end,:)); % comment this out if you wanna not impose the LR-restriction
 
 %Constraint that News and IT have no contemporaneous effect on TFP
 Me3       = 1; %  Me = no. of equality constraints
 Beq3      = zeros(Me3,1); % Beq is (Me x 1) where
 Aeq3      = zeros(Me3,1*nvar); % Aeq is (Me x (nshock*nvar)) - nshock is 1 at this step
 Aeq3(1,1) = 1; %zero-impact of news on TFP
-% Aeq3(2,q) = R(q,3); % LR restriction - wrong!
 
+% dbstop constraint_ryan at 12
 % [gam3_opt] = fmincon(obj, gam3_zero,[],[],Aeq3,Beq3,[],[],@(gam3) constraint_barskysims11(gam3),options);
 [gam3_opt] = fmincon(obj, gam3_zero,[],[],Aeq3,Beq3,[],[],@(gam3) constraint_ryan(gam3,R,q),options);
-
 %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
+
+% Recover FEV from the step 1 minimization
 [FEV3_opt, ~, ~]     = objective_barskysims(which_variable,H,B,A,gam3_opt);
 FEV3_opt     = - FEV3_opt;
 
@@ -74,7 +65,7 @@ obj = @(gam4) objective_RyanID_twosteps(which_variable,H,B,A,gam3_opt,gam4);
 Me4       = 1; %  Me = no. of equality constraints
 Beq4      = zeros(Me4,1); % Beq is (Me x 1) where
 Aeq4      = zeros(Me4,1*nvar); % Aeq is (Me x (nshock*nvar)) - nshock is 1 at this step
-Aeq4(1,1) = 1; %zero-impact restrictions of news on TFP
+Aeq4(1,1) = 1; %zero-impact restrictions of IT on TFP
 
 [gam4_opt] = fmincon(obj, gam4_zero,[],[],Aeq4,Beq4,[],[],@(gam4) constraint_orthogonality_ryan([gam3_opt gam4]),options);
 %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)

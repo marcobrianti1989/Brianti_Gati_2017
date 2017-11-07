@@ -35,7 +35,7 @@ B_boot_corrected        = zeros(nvar*nlags+1,nvar,nsimul);
 
 disp('Going into the 2nd bootstrap loop...')
 for i_simul = 1:nsimul
-    disp(['Simulation ', num2str(i_simul), ' out of ', n2str(nsimul)])
+    disp(['Simulation ', num2str(i_simul), ' out of ', num2str(nsimul)])
     [A_corrected, B_boot_corrected(:,:,i_simul), ~, ~] = sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
     [impact_boot_corrected(:,:,i_simul),~,~,~,~,~] = Ryan_two_stepsID(which_variable,which_shocks,H, ...
         B_boot_corrected(:,:,i_simul),A_corrected, pos_rel_prices);

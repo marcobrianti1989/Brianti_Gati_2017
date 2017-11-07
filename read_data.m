@@ -32,8 +32,8 @@ data_levels(:,3) = Mich;
 data_levels(:,4) = IT; %RD;
 % data_levels(:,4) = instrIT;
 data_levels(:,5) = GDP;
-% data_levels(:,6) = C;
-data_levels(:,6) = rel_price;
+data_levels(:,6) = C;
+% data_levels(:,6) = rel_price;
 
 % Generate automatically cell matrix of variable names for figures as well
 % as define automatically which shocks to impose
@@ -44,6 +44,7 @@ do_truncation  = 'no';
 do_truncation2 = 'no';
 do_truncation3 = 'no';
 do_truncation4 = 'no';
+q = NaN;
 for i = 1:size(data_levels,2)
     if data_levels(:,i) == TFP
         varnames{i} = 'TFP';

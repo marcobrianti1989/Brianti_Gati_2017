@@ -2,7 +2,7 @@ function [obj_FEV, IRFs_all, FEV_news, FEV_IT] ...
         = objective_RyanID_twosteps(which_variable,H,bet,A,gam3,gam4)
 
 % which_variable: It select the variable that the shock is maximizing (TFP)
-% H: cumulated horizon of the mazimization
+% H: cumulated horizon of the maximization
 % beta is the reduced-form beta and is ((nvar*nlags),nvar) dimension matrix
 % A: random impact matrix coming from whatever identification, here we use
 % one from cholesky is (nvar*nvar). Importantly, using TFP as a first

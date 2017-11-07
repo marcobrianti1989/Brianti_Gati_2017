@@ -31,7 +31,7 @@ for i_shock=1:nshocks
 %     print(figname ,'-dpdf') %,'-fillpage')
 %     pause(2)
 
-%     print(['figure_', names{i_shock}] ,'-dpdf') %,'-fillpage')
+%     print(['figure_Nov7_', names{i_shock}] ,'-dpdf') %,'-fillpage')
 
     
 end

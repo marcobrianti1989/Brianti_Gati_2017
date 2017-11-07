@@ -152,7 +152,7 @@ which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residu
 q = 5;
 dataset_boot = data_boot(B, nburn, res, nsimul, which_correction, q);
 
-do_bootstrap_irfs_vd_SR =0;
+do_bootstrap_irfs_vd_SR = 1;
 if do_bootstrap_irfs_vd_SR == 1
     disp('Doing Bootstrap, IRFs and var decomp for SR ID')
     % Redo VAR nsimul times on the bootstrapped datasets
@@ -194,6 +194,8 @@ if do_bootstrap_irfs_vd_SR == 1
     [vardec] = gen_vardecomp(IRFs,m,H);
     [vardec_table] = vardecomp_table(vardec,which_shock,varnames,names);
 end
+
+asdfghj
 %% ------------------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

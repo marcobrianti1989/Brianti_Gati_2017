@@ -1,11 +1,11 @@
-function [obj_FEV, IRFs_all, obj_IRFs] = objective_IRmax(which_variable,H,bet,A,gam) 
+function [obj_cumIRF, IRFs_all, obj_IRFs] = objective_IRmax(which_variable,H,bet,A,gam) 
 % Equation 7 from Barsky and Sims (2011), EXCEPT
 % now we take not the FEV, so we don't square the IRFs, but we just sum
 % them. (a la Forni)
 
 % which_shock: It select the shock whose effect wants to be maximized
 % which_variable: It select the variable that the shock is maximizing
-% H: cumulated horizon of the mazimization
+% H: cumulated horizon of the maximization
 % beta is the reduced-form beta and is ((nvar*nlags),nvar) dimension matrix
 % A: random impact matrix coming from whatever identification, here we use
 % one from cholesky is (nvar*nvar). Importantly, using TFP as a first
@@ -45,10 +45,10 @@ for k=2:H
     F                    = [obj_IRFs(:,k)' F(1:end-nvar)];
 end
 
-obj_FEV = sum(obj_IRFs(which_variable,:));
-obj_FEV = obj_FEV/DEN; %normalization
+obj_cumIRF = sum(obj_IRFs(which_variable,:));
+obj_cumIRF = obj_cumIRF/DEN; %normalization
 
-obj_FEV = - obj_FEV; %BE CAREFUL! IT IS ALREADY NEGATIVE FOR FMINCON!!!
+obj_cumIRF = - obj_cumIRF; %BE CAREFUL! IT IS ALREADY NEGATIVE FOR FMINCON!!!
 
 
 end
