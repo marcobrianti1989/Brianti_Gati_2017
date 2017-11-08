@@ -31,7 +31,7 @@ Me                = 2; %  Me = no. of equality constraints
 Beq               = zeros(Me,1); % Beq is (Me x 1) where
 Aeq               = zeros(Me,nshocks*nvar); % Aeq is (Me x (nshocks*nvar))
 Aeq(1,1)          = 1; %zero-impact restrictions of news on TFP
-Aeq(2,7)          = 1; %zero-impact restrictions of IT on TFP
+Aeq(2,nvar+1)     = 1; %zero-impact restrictions of IT on TFP
 
 % dbstop in constraint_FEVmax_sr at 6
 [gamma_opt] = fmincon(obj, gamma0,[],[],Aeq,Beq,[],[],@(gam) constraint_FEVmax_sr(gam,A,q),options);
