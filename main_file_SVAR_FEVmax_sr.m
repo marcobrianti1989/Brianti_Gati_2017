@@ -19,7 +19,7 @@ range    = 'B126:K283';
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 500; %5000
+nsimul          = 50; %5000
 nvar            = size(data,2);
 sig             = 0.95; % significance level
 H               = 40; %40; % horizon for generation of IRFs
@@ -61,6 +61,11 @@ blocksize           = 5; % size of block for drawing in blocks
 
 [IRFs, ub, lb] = genIRFs(fake_impact,A_boot,B,B_boot,H,sig);
 plotIRFs(IRFs,ub,lb,h,which_shocks,shocknames,varnames)
+
+figHandles = findobj('Type', 'figure');
+graphics_path = pwd;
+save_fig(graphics_path, figHandles(1), 'News_shock_')
+save_fig(graphics_path, figHandles(2), 'IT_shock_')
 
 % Show the variance decomposition share
 disp(['FEV share of News Shock on TFP is ' num2str(FEV_news)])
