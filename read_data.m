@@ -34,7 +34,7 @@ data_levels(:,4) = IT; %RD;
 data_levels(:,5) = GDP;
 data_levels(:,6) = C;
 %data_levels(:,7) = RD;
-%data_levels(:,7) = rel_price;
+data_levels(:,7) = rel_price;
 
 % Generate automatically cell matrix of variable names for figures as well
 % as define automatically which shocks to impose

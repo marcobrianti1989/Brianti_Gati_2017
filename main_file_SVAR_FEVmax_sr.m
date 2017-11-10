@@ -16,6 +16,8 @@ range    = 'B126:K283';
 [data, shocknames,varnames, which_shocks, pos_rel_prices] = ...
     read_data(filename, sheet, range); %q (pos_rel_prices) position for relative prices
 
+return
+
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
