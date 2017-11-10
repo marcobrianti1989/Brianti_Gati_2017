@@ -25,6 +25,7 @@ sig             = 0.95; % significance level
 H               = 40; %40; % horizon for generation of IRFs
 h               = H; %40; % horizon for IRF plots
 which_variable  = 1; % select TFP as the variable whose FEV we wanna max
+T               = size(data,1); % time periods
 
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
 [AIC,BIC,HQ] = aic_bic_hq(data,max_lags);
@@ -74,3 +75,6 @@ disp(['FEV share of IT Shock on TFP is ' num2str(FEV_IT)])
 
 toc
 
+
+[s, obj_opt] = get_structural_shocks(A,gamma_opt,res);
+s*s'./T % off-diagonals close to 0, but not close enough
