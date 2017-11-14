@@ -13,6 +13,7 @@ function plotIRFs(IRFs,ub,lb,h,which_shock, names, varnames)
         
         % Draw pretty pictures
         figure(i_shock)
+        set(gcf,'color','w');
         for i_var=1:nvar
             varname = varnames{i_var};
             subplot(nvar,1,i_var)
