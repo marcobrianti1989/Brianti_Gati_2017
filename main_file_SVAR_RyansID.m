@@ -3,7 +3,7 @@
 
 % Marco Brianti, Laura Gáti, Oct 28 2017
 
-% TOOK 46.8612 MIN TO RUN!!
+% TOOK 72.1348 MIN TO RUN!!
 
 clear all
 close all
@@ -13,11 +13,12 @@ tic
 filename = 'dataset_23_sept_2017';
 sheet    = 'Sheet1';
 range    = 'B126:K283';
-dbstop in read_data at 38
 [data, shocknames,varnames, which_shocks, pos_rel_prices] = ...
     read_data(filename, sheet, range); %q (pos_rel_prices) position for relative prices
 
-fghjkl
+
+[~, data(:,7)] = hpfilter(data(:,7),1600);
+
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
@@ -67,10 +68,10 @@ fake_impact = zeros(nvar,nvar);
 fake_impact(:,which_shocks) = impact;
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-fake_impact(:,4) = - fake_impact(:,4);
-warning('I am crazily imposing a crazy minus somewhere! WATCHO OUT!')
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fake_impact(:,4) = - fake_impact(:,4);
+% warning('I am crazily imposing a crazy minus somewhere! WATCHO OUT!')
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 [IRFs, ub, lb] = genIRFs(fake_impact,A_boot,B,B_boot,H,sig);
 plotIRFs(IRFs,ub,lb,h,which_shocks,shocknames,varnames)

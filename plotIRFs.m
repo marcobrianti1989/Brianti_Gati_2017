@@ -31,7 +31,7 @@ function plotIRFs(IRFs,ub,lb,h,which_shock, names, varnames)
         %     print(figname ,'-dpdf') %,'-fillpage')
         %     pause(2)
         
-        % print(['figure_Nov14_', names{i_shock}] ,'-dpdf') %,'-fillpage')
+        %print(['figure_Nov14_HP_detrended', names{i_shock}] ,'-dpdf') %,'-fillpage')
         
         
     end
