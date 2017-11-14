@@ -13,13 +13,15 @@ tic
 filename = 'dataset_23_sept_2017';
 sheet    = 'Sheet1';
 range    = 'B126:K283';
+dbstop in read_data at 38
 [data, shocknames,varnames, which_shocks, pos_rel_prices] = ...
     read_data(filename, sheet, range); %q (pos_rel_prices) position for relative prices
 
+fghjkl
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 20; %5000
+nsimul          = 500; %5000
 nvar            = size(data,2);
 sig             = 0.90; % significance level
 H               = 100; %40; % horizon for generation of IRFs
@@ -42,7 +44,7 @@ end
 test_stationarity(B');
 
 % TO DO: check info sufficiency
-
+pos_rel_prices = 7;
 % dbstop in Ryan_two_stepsID at 74
 % Implement Ryan's ID strategy
 % [impact, FEV_opt, IRFs, gamma_opt, FEV_news, FEV_IT] = ryansID(which_variable,which_shocks,H,B,A,q);
@@ -54,16 +56,23 @@ test_stationarity(B');
 
 % TO DO: correct bootstrappedCIs function to...
 % 1.) Be general.
+which_ID = 'Ryan_two_stepsID';
 which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residuals in blocks or not.
 blocksize = 5; % size of block for drawing in blocks
-[A_boot, B_boot, fake_impact_boot] = ...
+[A_boot, B_boot] = ...
     bootstrappedCIs(B, nburn, res, nsimul, which_correction, blocksize, nvar, ...
-    nlags,pos_rel_prices, which_shocks,which_variable,H); % automatically does Kilian correction
+    nlags,pos_rel_prices, which_shocks,which_variable,H,which_ID); % automatically does Kilian correction
 
 fake_impact = zeros(nvar,nvar);
 fake_impact(:,which_shocks) = impact;
 
-[IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,B,B_boot,H,sig);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fake_impact(:,4) = - fake_impact(:,4);
+warning('I am crazily imposing a crazy minus somewhere! WATCHO OUT!')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[IRFs, ub, lb] = genIRFs(fake_impact,A_boot,B,B_boot,H,sig);
 plotIRFs(IRFs,ub,lb,h,which_shocks,shocknames,varnames)
 
 toc

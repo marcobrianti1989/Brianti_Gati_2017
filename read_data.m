@@ -33,9 +33,10 @@ data_levels(:,4) = IT; %RD;
 % data_levels(:,4) = instrIT;
 data_levels(:,5) = GDP;
 data_levels(:,6) = C;
-%data_levels(:,7) = RD;
+% data_levels(:,7) = RD;
 data_levels(:,7) = rel_price;
-
+[~, data_levels(:,7)] = hpfilter(data_levels(:,7),1600);
+% data_levels(:,9) = P_IT;
 % Generate automatically cell matrix of variable names for figures as well
 % as define automatically which shocks to impose
 which_shock = zeros(1,2);
