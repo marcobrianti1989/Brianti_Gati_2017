@@ -16,6 +16,12 @@ range    = 'B126:K283';
 [data, shocknames,varnames, which_shocks, pos_rel_prices] = ...
     read_data(filename, sheet, range); %q (pos_rel_prices) position for relative prices
 
+[pxx,w] = periodogram(data(:,7));
+mscohere(data(:,7), data(:,1))
+mscohere(data(:,3), data(:,4))
+mscohere(data(:,7), data(:,4))
+
+
 return
 
 %Technical Parameters
