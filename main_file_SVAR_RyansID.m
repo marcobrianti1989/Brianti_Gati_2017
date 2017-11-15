@@ -18,12 +18,12 @@ range    = 'B126:K283';
     read_data(filename, sheet, range); %q (pos_rel_prices) position for relative prices
 
 
-[~, data(:,7)] = hpfilter(data(:,7),1600);
+%[~, data(:,7)] = hpfilter(data(:,7),1600);
 
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 15; %5000
+nsimul          = 50; %5000
 nvar            = size(data,2);
 sig             = 0.90; % significance level
 H               = 100; %40; % horizon for generation of IRFs
@@ -63,16 +63,13 @@ which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residu
 blocksize = 5; % size of block for drawing in blocks
 [A_boot, B_boot] = ...
     bootstrappedCIs(B, nburn, res, nsimul, which_correction, blocksize, nvar, ...
-    nlags,pos_rel_prices, which_shocks,which_variable,H,which_ID); % automatically does Kilian correction
+    nlags,pos_rel_prices, which_shocks,which_variable,H,which_ID,impact); % automatically does Kilian correction
 
+%Creating a fake matrix for the IRF
 fake_impact = zeros(nvar,nvar);
 fake_impact(:,which_shocks) = impact;
 
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% fake_impact(:,4) = - fake_impact(:,4);
-% warning('I am crazily imposing a crazy minus somewhere! WATCHO OUT!')
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Creating and Printing figures
 print_figs = 'yes';
 [IRFs, ub, lb] = genIRFs(fake_impact,A_boot,B,B_boot,H,sig);
 plotIRFs(IRFs,ub,lb,h,which_shocks,shocknames,varnames, which_ID,print_figs)

@@ -1,10 +1,11 @@
 function [fake_A_boot, B_boot] = bootstrappedCIs(B, nburn, res, nsimul, which_correction, ...
-        blocksize, nvar, nlags, pos_rel_prices, which_shocks, which_variable,H,which_ID)
+        blocksize, nvar, nlags, pos_rel_prices, which_shocks, which_variable,H,which_ID,impact)
     % This is a first pass bootstrap that's not quite correct because it needs
     % to use Ryan's ID strategy every time to recover "bootstrapped gammas" and
     % generate IRFs from A*gamma.
     % which_ID chooses between the following identification strategies
     % 'barskysims', 'FEVmax_sr', 'Ryan_two_stepsID', and 'sr'
+    % impact is gam from the point estimation. It is a (nvar,2)
     
     % Generate bootstrapped data samples
     dataset_boot = data_boot(B, nburn, res, nsimul, which_correction, blocksize);
@@ -14,10 +15,20 @@ function [fake_A_boot, B_boot] = bootstrappedCIs(B, nburn, res, nsimul, which_co
     B_boot         = zeros(nvar*nlags+1,nvar,nsimul);
     
     disp('Going into the bootstrap loop...')
+    delt = 10^(-4); %parameter to decrease B_boot to make it stationary
     for i_simul = 1:nsimul
-        [A_step1, B_boot(:,:,i_simul), ~, ~] = sr_var(dataset_boot(:,:,i_simul), nlags);
+        [~, B_boot(:,:,i_simul), ~, ~] ...
+            = sr_var(dataset_boot(:,:,i_simul), nlags);
+        %Checking if the VAR is stationary
+        flag = test_stationarity(B_boot(:,:,i_simul)')
+        while flag == 1
+            B_boot(:,:,i_simul) ...
+                = (1 - delt)*B_boot(:,:,i_simul);
+            flag = test_stationarity(B_boot(:,:,i_simul)');
+            disp('I am doing Vitos stationarization of B_boot')
+        end
     end
-        
+    
     % Kilian correction
     [B_corrected,  bias]    = kilian_corretion(B, B_boot);
     dataset_boot_corrected  = data_boot(B_corrected, nburn, res, nsimul, which_correction, blocksize);
@@ -40,6 +51,21 @@ function [fake_A_boot, B_boot] = bootstrappedCIs(B, nburn, res, nsimul, which_co
                     sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
                 [impact_boot_corrected(:,:,i_simul),~,~,~,~,~] = Ryan_two_stepsID(which_variable,which_shocks,H, ...
                     B_boot_corrected(:,:,i_simul),A_corrected, pos_rel_prices);
+                %Checking if the VAR is stationary
+                flag = test_stationarity(B_boot_corrected(:,:,i_simul)')
+                %when we use B&S the max problem is satisfied for both gam
+                %and -gam then to align the point estimation with the
+                %boostrapped ones we need to do this check
+                %                 if sum(abs(impact_boot_corrected(:,1,i_simul) - impact(:,1))) ...
+                %                         >= sum(abs(impact_boot_corrected(:,1,i_simul) + impact(:,1)))
+                %                     impact_boot_corrected(:,1,i_simul) ...
+                %                         = - impact_boot_corrected(:,1,i_simul);
+                %                 end
+                %                 if sum(abs(impact_boot_corrected(:,2,i_simul) - impact(:,2))) ...
+                %                         >= sum(abs(impact_boot_corrected(:,2,i_simul) + impact(:,2)))
+                %                     impact_boot_corrected(:,2,i_simul) ...
+                %                         = - impact_boot_corrected(:,2,i_simul);
+                %                 end
             end
             
         case 'FEVmax_sr'
@@ -63,10 +89,10 @@ function [fake_A_boot, B_boot] = bootstrappedCIs(B, nburn, res, nsimul, which_co
             end
             
     end
-        
+    
     disp('Finishing the bootstrap...')
-        
-    B_boot_test = mean(B_boot_corrected,3); %It should be very close to B
+    
+    B_boot_test = nanmean(B_boot_corrected,3); %It should be very close to B
     bias_test = sum(sum(abs(B - B_boot_test)));
     if bias < bias_test
         warning('Kilian correction should decrease the bias of beta and mean(beta_boot).')
@@ -75,7 +101,7 @@ function [fake_A_boot, B_boot] = bootstrappedCIs(B, nburn, res, nsimul, which_co
     %If the ID is max something we obtain just gamma which is not the full
     %impact and then we create a fake squared matrix
     if strcmp(which_ID, 'sr')
-        fake_A_boot = impact_boot_corrected;        
+        fake_A_boot = impact_boot_corrected;
     else
         A_boot = impact_boot_corrected;
         B_boot = B_boot_corrected;
@@ -87,6 +113,6 @@ function [fake_A_boot, B_boot] = bootstrappedCIs(B, nburn, res, nsimul, which_co
     end
     
 end
-    
-    
-    
+
+
+
