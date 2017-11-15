@@ -2,8 +2,8 @@ function [data_levels, shocknames, varnames, which_shock, q] = read_data(filenam
 % A file for reading in data specifically for this project. TO DO: Make
 % this general and clean up data reading in general.
 base_path = pwd;
-addpath([base_path '\Data'])
-addpath([base_path '/Data'])
+addpath([base_path '\Data']) %for Microsoft
+addpath([base_path '/Data']) %for Mac
 data = xlsread(filename,sheet,range);
 % Cumulate growth variables to levels (log levels to be precise, b/c growth
 % rates are calculated as log diffs)

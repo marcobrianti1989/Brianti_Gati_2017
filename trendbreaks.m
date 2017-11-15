@@ -12,6 +12,9 @@ clear all
 close all
 
 %Technical name
+base_path = pwd;
+addpath([base_path '\Data']) %for Microsoft
+addpath([base_path '/Data']) %for Mac
 file = 'data_trendbreaks.xlsx';
 sheet ='Sheet1';
 range = 'B2:E333';

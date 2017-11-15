@@ -3,6 +3,9 @@ close all
 
 
 %Data Reading and Transformation
+base_path = pwd;
+addpath([base_path '\Data']) %for Microsoft
+addpath([base_path '/Data']) %for Mac
 filename = 'dataset_IT_prices';
 sheet    = 'Sheet1';
 range    = 'B1:F324';
