@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a4paper,top=3.5cm,bottom=3.5cm,left=3.5cm,right=3.5cm,%
+bindingoffset=0mm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.75em depth0em\fi}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{float}
+\linespread{1.3}
+\raggedbottom
+
+
+
+
+%
+\font\reali=msbm10 at 12pt
+% subsets of real numbers
+\newcommand{\real}{\hbox{\reali R}}
+\newcommand{\realp}{\hbox{\reali R}_{\scriptscriptstyle +}}
+\newcommand{\realpp}{\hbox{\reali R}_{\scriptscriptstyle ++}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+%
+
+\title{Innovation and Productivity Growth Slowdown}
+\author{Moran and Queralto}
+\date{2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Growth in TFP has slowed dramatically in recent years. Weak productivity growth has been widespread across advanced economies. This development has caused concern for policymakers, and at the same time has sparked an intense debate on its possible causes. A recent but growing literature in macroeconomics incorporates endogenous TFP growth mechanism within the modern quantitative frameworks, following the lead of Comin and Gertler (2006). The first goal of this paper is to shed light on the empirical role of innovation in driving productivity growth. To this end, we use SVAR methods to investigate such hypothesis. Our measure of innovation is business-sector R\&D expenditure. Our goal is to develop a baseline macroeconomic model with endogenous innovation and adoption to use the findings from the VAR abalysis to discipline the effects of innovation on TFP in the model.
+
+The VAR analysis suggests that a rise in R\&D induces a gradual, persistent increase in TFP. We also find that in more R\&D-intensive countries, the effect of R\&D on TFP is stronger. Interestingly, we also find that stock prices tend to immediately jump in response to the R\&D shocks we identify. This result reminds the new shock introduced by Beaudry and Portier (2006).
+
+Turning to the model analysis, we find that the endogenous growth mechanism accounts for a significant share of the recent TFP slowdown. We also consider the question of how much of the productivity slowdown is due to the Great Recession, relative to factors that predate it. We find that the sharp decline in R\&D during the crisis likely contributed significantly to the subsequent low TFP growth. Finally, the model suggests large adverse effects due to the ZLB.
+
+\section{Evidence}
+
+The basic approach consists in identifying shocks in private R\&D expenditure, and then tracing out their dynamic effect on TFP.
+
+\subsection*{United States}
+
+They begin with a small-scale empirical model for the US. Our reduced-form empirical specification is a first-order VAR:
+\begin{equation}
+\begin{bmatrix}
+GDP_t^{us} \\
+TFP_t^{us} \\
+R\&D_t^{us} \\
+\end{bmatrix} = c^{us} + B^{us} \begin{bmatrix}
+GDP_{t-1}^{us} \\
+TFP_{t-1}^{us} \\
+R\&D_{t-1}^{us} \\ 
+\end{bmatrix} + u_t^{us}
+\end{equation}
+all the variables are in logs, the frequency is annual, and the observations start in 1953.
+
+To identify structural shocks to R\&D they rely on a Choleski identification procedure. Restrictions are: (1) zero-impact effect of R\&D on TFP, (2) zero-impact effect of R\&D on GDP, and (3) zero-impact effect of TFP on GDP. Results are not affected if GDP is contemporaneously affected by R\&D and TFP.\footnote{In other words, GDP is third in the VAR.}
+
+A rise in R\&D for reasons unrelated to current fundamentals accelerates the development of technological innovations which after some time become implemented in production and eventually improve firms' productivity. There is however the risk of reverse causality. If firms can foresee the future rise in TFP, they could respond by increasing R\&D expenditure because they believe that the new technologies will now be more profitable. One way to test for this possibility is to repeat the analysis reported above, but using aggregate investment in place of R\&D. The idea is that just a R\&D shock should trigger an increase in TFP and not an investment shock. Performing the same analysis using investment, they obtain that an investment shock does not trigger any significant increase in TFP (supporting their causality argument).
+
+\subsection*{Panel of advanced economies}
+
+We next explore if such a result holds in a sample of advanced economies (AE). The data consists of a panel of 21 AEs (not including the US) in the post-1980 period. Data on business-sector R\&D expenditure is from the OECD. We evaluate
+\begin{equation}
+\begin{bmatrix}
+GDP_{i,t}^{us} \\
+TFP_{i,t}^{us} \\
+R\&D_{i,t}^{us} \\
+\end{bmatrix} = c_i^{us} + B^{us} \begin{bmatrix}
+GDP_{i,t-1}^{us} \\
+TFP_{i,t-1}^{us} \\
+R\&D_{i,t-1}^{us} \\ 
+\end{bmatrix} + u_{i,t}^{us}
+\end{equation}
+The system contains a vector of country fixed effects $c_i$, thus allowing estimation of the country-specific intercept term for each country in the sample. The model, however, imposes the matrix B as well as the variance-covariance matrix of the residual $u_{i,t}$ to be common across countries.\footnote{The identification assumption is that the relation of R\&D and TFP is the same across countries.}
+
+As in the case of the US, a rise in R\&D induces a gradual, persistent rise in TFP. The main difference is that the effect seems to be much weaker and the peak happens to be much later. They conclude that R\&D is less powerful in affecting TFP in the AEs. 
+
+Finally, we have found a degree of heterogeneity across countries. The effect of TFP tends to be stronger in countries with higher ratios of private R\&D to GDP.
+
+\subsection*{Spillover from the US R\&D to foreign TFP}
+
+A natural question to ask when analyzing TFP development across countries is whether there are cross-country R\&D spillovers, i.e. if R\&D expenditure in one given country may benefit productivity in other countries. To this end, we next specify a VAR which allows for spillovers from US variables to foreign-economy variables. We suppose that foreign variables cannot affect US variables (neither contemporaneous nor with one lag). Our focus is on whether foreign TFP responds to US R\&D shocks. They do not find spillovers for the full sample but they do find it focusing on high research intensity countries.
+
+\subsection*{A large-scale US VAR}
+
+For robustness, we next estimate a higher-dimensional VAR for the US, including a standard set of macroeconomic variables. The estimated model provides interesting information on the effects of R\&D shocks on a large number of variables. We additionally include the logs of investment, consumption, and stock prices and the levels of federal fund rate and inflation. All these added variables are free to respond contemporaneously to R\&D shocks.
+
+The pattern of responses of R\&D and TFP is largely unchanged relative to the tree-variable VAR. The effect on GDP, consumption, and investment is weak but it mimics the TFP one. Inflation declines significantly as TFP rises.
+
+Interestingly, stock prices immediately jump in response to R\&D shock. This dynamic pattern is reminiscent of the findings by Beaudry and Portier (2006) and related literature of news shocks.
+
+
+\section{Model}
+
+\section{Estimation of the Model}
+
+\section{Experiments}
+
+\section{Conclusions}
+
+
+
+\end{document}
+

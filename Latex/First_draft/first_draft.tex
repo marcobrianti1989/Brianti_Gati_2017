@@ -1,0 +1,504 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a4paper,top=3.5cm,bottom=3.5cm,left=3.5cm,right=3.5cm,%
+bindingoffset=0mm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+	\ifdim\lastskip<1.5em \hskip-\lastskip
+	\hskip1.5em plus0em minus0.5em \fi \nobreak
+	\vrule height0.75em width0.75em depth0em\fi}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{float}
+\linespread{1.3}
+\raggedbottom
+
+
+
+
+%
+\font\reali=msbm10 at 12pt
+% subsets of real numbers
+\newcommand{\real}{\hbox{\reali R}}
+\newcommand{\realp}{\hbox{\reali R}_{\scriptscriptstyle +}}
+\newcommand{\realpp}{\hbox{\reali R}_{\scriptscriptstyle ++}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+%
+
+\title{First Draft}
+\author{Marco Brianti\\Laura Gati}
+\date{August 2017}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Introduction}
+	
+	The basic idea is to rationalize a setting where incorrect information implies fundamental changes in the economy. To this end, we rely on the model proposed by Comin and Gertler (2006) which we enhance with a particular information structure derived from Lorenzoni (2009) in order to show how noisy signals can affect the real structure of the economy. In particular, Comin and Gertler (2006) propose a setting where TFP can be endogenously affected due to R\&D expenditure. After a negative shock, due to lack of resources, agents will decrease (among other variables) R\&D expenditure and thus affect the endogenous component of TFP. As a result, the lower level of TFP will trigger a negative spiral causing a much slower recovery than with a simple negative TFP shock.
+	
+	In order to introduce imperfect information appropriately, we consider the main structure of the model. In this economy, the final good can be either consumed, invested in physical capital, or spent as R\&D. The marginal benefit of allocating the final good into one or another sector will depend on the utility function, the price of investment and the efficiency of research sector, respectively. It is obvious that differently from the first two variables, the efficiency of the R\&D sector is much more difficult to observe. Indeed, this process is related to a huge amount of variables such as the probability of succeeding, the demand for this new technology, the existence of prospective competitors, and so on and so forth. Since many of these factors are unobserved or pertain to the future, we thus assume that R\&D efficiency is not fully observed and the optimal level of research expenditure will be decided as the outcome of agents' inference problem concerning this variable.
+	
+	To understand the main mechanism of the model, consider a simple example. Assume that for some reason, agents wrongly perceive a lower level of R\&D efficiency. The optimal response will be to allocate less resources to R\&D due to its low productivity. However, the choice to invest less in R\&D leads to lower productivity in the future, so that the economy will in fact experience a negative productivity shock. In other words, in this theoretical exercise a shock to beliefs is able to trigger a future fundamental shock, analogously to a self-fulfilling prophecy.
+	
+	The goal of this paper, then, is to exploit a simple but well-accepted model to show how wrong information may affect the structure of the economy beyond the business cycle effects well documented in the literature. In particular, the effects of imperfect information here are starkly different than in Lorenzoni (2009). The account in Lorenzoni (2009) documents how noisy information leads to business cycle fluctuations that resemble demand shocks. Instead our objective is to demonstrate how similar information imperfections can also imply future supply shocks and thus affectively alter the fundamental structure of the economy.
+	
+	\section{Two-Period Model}
+	
+	An agent seeks to maximize her utility,
+	\begin{equation}
+	U(C_0) + \beta^t U(C_1)
+	\end{equation}
+	where $C_i$ represents the level of consumption at period $i$, $\beta \in [0 \ 1]$ is the deterministic discount factor, and the time separable utility function provides the standard property $U'(\cdot)>0$ and  $U''(\cdot) < 0$. 
+	
+	The budget constraints are represented by
+	\begin{equation}
+	C_0 \leq Y_0 - I_0 - S_0
+	\end{equation}
+	and
+	\begin{equation}
+	C_1 \leq Y_1
+	\end{equation}
+	where $Y_0$ is the level of production of consumption good in period $0$ which can be either consumed, invested in physical capital ($I_0$ ), or spent in research and development ($S_0$). While $Y_1$ is the level of output in the second period and will be fully consumed. The level of output is defined by the following production function
+	\begin{equation}
+	Y_i \leq A Z_i F(K_i) \ \ \ \text{for} \ i = 1,2
+	\end{equation}
+	where $A$ represents the exogenous level of technology, $Z_i$ represents the endogenous level of technology which is given in the first period and chosen in the second. Similarly, $K_i$ represents the level of capital which is given in the first period and chosen in the second. $F(\cdot)$ is the production function which uses capital $K_i$ as unique input factor and it displays the standard assumptions $F'(\cdot) > 0$ and $F''(\cdot) < 0$.
+	
+	The level of endogenous technology and capital is defined respectively by the following laws of motion
+	\begin{equation}
+	Z_{1} \leq \lambda S_0 + Z_0
+	\end{equation}
+	\begin{equation}
+	K_{1} \leq I_0 + (1 - \delta)K_0
+	\end{equation}
+	where $\lambda \in [0 \ 1]$ represents the exogenous efficiency of the $R\&D$ sector. It can be interpreted as the probability of producing a new technology by spending a unit of consumption good in the research sector.
+	
+	In compact form the agent seeks to solve the following problem
+	\begin{equation}
+	\begin{split}
+	\max_{\{ C_0,C_1,Y_0,Y_1,I_0,S_0,K_{1},Z_{1} \}} &U(C_0) + \beta U(C_1) \\
+	\text{s.t.} \ \ \ C_0 &\leq Y_0 - I_0 - S_0 \\
+	C_1 &\leq Y_1 \\
+	Y_i &\leq A Z_i F(K_i) \ \ \ \text{for} \ i = 1,2 \\
+	Z_{1} &\leq \lambda S_0 + Z_0 \\
+	K_{1} &\leq I_0 + (1 - \delta)K_0 \\
+	\end{split}
+	\end{equation}
+	
+	Set up the Lagrangian
+	\begin{equation}
+	\begin{split}
+	L =  U(C_0) + \beta U(C_1)  + &\mu_{1}\big[ Y_0 - I_0 - S_0 - C_0   \big]  + \mu_{2}\big[  A Z_0 F(K_0) - Y_0  \big]  \\
+	+ &\mu_{3}\big[ \lambda S_0 + Z_0 -  Z_{1}  \big]   + \mu_{4}\big[ I_0 + (1 - \delta)K_0 -  K_{1}  \big]  \\
+	+ &\beta \mu_5 \big[  AZ_1 K_1^{\alpha} - Y_1  \big] + \beta \mu_6 \big[  Y_1 - C_1   \big]
+	\end{split}
+	\end{equation}
+	and the derive the first order conditions
+	\begin{equation}
+	U'(C_0) = \mu_{1}
+	\end{equation}
+	\begin{equation}
+	U'(C_1) = \mu_{6}
+	\end{equation}
+	\begin{equation}
+	\mu_{1} = \mu_{2}
+	\end{equation}
+	\begin{equation}
+	\mu_{1} = \mu_{4}
+	\end{equation}
+	\begin{equation}
+	\mu_{1} = \lambda \mu_{3}
+	\end{equation}
+	\begin{equation}
+	\mu_{3} = \beta  \mu_{5} A F(K_{1})
+	\end{equation}
+	\begin{equation}
+	\mu_4 = \beta  \mu_{5} A Z_{1} F'(K_{1})
+	\end{equation}
+	\begin{equation}
+	\mu_5 = \mu_{6}
+	\end{equation}
+	\begin{equation}
+	C_0 = Y_0 - I_0 - S_0
+	\end{equation}
+	\begin{equation}
+	C_1 = Y_1
+	\end{equation}
+	\begin{equation}
+	Y_i = A Z_i F(K_i) \ \ \ \text{for} \ i = 1,2
+	\end{equation}
+	\begin{equation}
+	Z_{1} = \lambda S_0 + Z_0
+	\end{equation}
+	\begin{equation}
+	K_{1} = I_0 + (1 - \delta)K_0
+	\end{equation}
+	
+	
+	Combining (9), (10), (12), (15), and (16) yields
+	\begin{equation}
+	1 =  \beta \frac{U'(C_{1})}{U'(C_0)}  A Z_{1} F'(K_{1}) 
+	\end{equation}
+	Moreover, combining (9), (10), and (12)-(15) yields
+	\begin{equation}
+	1 =  \beta \frac{U'(C_{1})}{U'(C_0)} \lambda  A F(K_{1}) 
+	\end{equation}
+	
+	
+	Notice that Equations (17)-(23) form a system of eight Equations in eight unknowns: $C_0$, $C_1$ $Y_0$, $Y_1$ $I_0$, $S_0$, $Z_{1}$, and $K_{1}$.
+	
+	\subsection*{Further Assumptions}
+	
+	Without loss of generality assume that the $U(C_i) = \log(C_i)$ and $F(K_i) = K_i^{\alpha}$ for $i = 1,2$. The model then yields
+	
+	\begin{equation}
+	C_0 = Y_0 - I_0 - S_0
+	\end{equation}
+	\begin{equation}
+	C_1 = Y_1
+	\end{equation}
+	\begin{equation}
+	Y_0 = A Z_0 K_0^{\alpha}
+	\end{equation}
+	\begin{equation}
+	Y_1 = A Z_1 K_1^{\alpha}
+	\end{equation}
+	\begin{equation}
+	Z_{1} = \lambda S_0 + Z_0
+	\end{equation}
+	\begin{equation}
+	K_{1} = I_0 + (1 - \delta)K_0
+	\end{equation}
+	\begin{equation}
+	1 =  \beta \frac{C_{0}}{C_1}  \alpha A Z_{1} K_{1}^{\alpha - 1}
+	\end{equation}
+	\begin{equation}
+	1 =  \beta  \frac{C_{0}}{C_1} \lambda  A K_{1}^{\alpha} 
+	\end{equation}
+	
+	\subsection*{Solution}
+	
+	Substitute (26) into (24) and obtain
+	\begin{equation}
+	C_0 = A Z_0 K_0^{\alpha} - I_0 - S_0
+	\end{equation}
+	Substitute (28) and (29) into (27) and use (25) to obtain
+	\begin{equation}
+	C_1 = A (\lambda S_0 + Z_0) (I_0 + (1 - \delta)K_0)^{\alpha}
+	\end{equation}
+	Substitute (28), (29), (32), and (33) into (30) and (31) and obtain
+	\begin{equation}
+	1 = \alpha \beta \frac{A Z_0 K_0^{\alpha} - I_0 - S_0}{I_0 + (1 - \delta)K_0}
+	\end{equation}
+	and
+	\begin{equation}
+	1 = \lambda \beta \frac{A Z_0 K_0^{\alpha} - I_0 - S_0}{\lambda S_0 + Z_0}
+	\end{equation}
+	
+	This is a system of two equations (34) and (35) in two unknowns $S_0$ and $I_0$ and its solution is
+	\begin{equation}
+	\begin{split}
+	S_0 &= \frac{\beta}{1 + \beta+ \alpha \beta}[AZ_0 K_0^{\alpha} + (1-\delta)K_0] - \Bigg( \frac{1 + \alpha \beta}{1 + \beta + \alpha \beta} \Bigg) \lambda^{-1} Z_0 \\
+	I_0 &= \alpha S_0 - (1-\delta)K_0 + \alpha \lambda^{-1} Z_0  \\
+	\end{split}
+	\end{equation}
+	\begin{prop}
+		$S_0$ is increasing in $\lambda$
+	\end{prop}
+	\begin{proof}
+		\begin{equation}
+		\frac{\partial S_0}{\partial \lambda} = \Bigg( \frac{1 + \alpha \beta}{1 + \beta + \alpha \beta} \Bigg) \lambda^{-2} Z_0 > 0   \qed
+		\end{equation}
+	\end{proof}
+	
+	\subsection*{Imperfect Information}
+	
+	Assume that $\lambda$, the efficiency of the R\&D sector, cannot be directly observable and takes the form
+	\begin{equation}
+	\lambda = \lambda_m + \varepsilon,
+	\end{equation}
+	where $\varepsilon$ is a mean zero and finite variance shock which deviate the value of $\lambda$ from the known expected value $\lambda_m$. The agent is instead able to observe the following signal
+	\begin{equation}
+	\lambda_s = \lambda + \eta
+	\end{equation}
+	where $\eta$ is a second mean zero and finite variance shock fully independent from $\varepsilon$ which prevents the agent to have access to a complete information setup.
+	
+	\subsection*{Inference}
+	
+	Agent seeks to minimize the error between $\lambda$ and $\lambda_s$ using standard Kalman filter techniques.
+	\begin{equation}
+	\begin{split}
+	\beta_k &= \frac{Cov(\lambda,\lambda_s)}{Var(\lambda_s)} \\
+	&= \frac{Cov(\lambda_m + \varepsilon, \lambda_m + \varepsilon + \eta)}{Var(\lambda_m + \varepsilon + \eta)} \\
+	&= \frac{\sigma_{\varepsilon}}{\sigma_{\eta} + \sigma_{\varepsilon}}
+	\end{split}
+	\end{equation}
+	and
+	\begin{equation}
+	\begin{split}
+	\alpha_k &= \E[\lambda] - \beta_k \E[\lambda_s] \\
+	&= (1 - \beta_k) \lambda_m \\
+	&= \frac{\sigma_{\eta}}{\sigma_{\eta} + \sigma_{\varepsilon}} \lambda_m
+	\end{split}
+	\end{equation}
+	which implies that
+	\begin{equation}
+	\begin{split}
+	\E[\lambda|\lambda_s] &= \alpha_k + \beta_k \lambda_s \\
+	&=  \frac{\sigma_{\eta}}{\sigma_{\eta} + \sigma_{\varepsilon}} \lambda_m + \frac{\sigma_{\varepsilon}}{\sigma_{\eta} + \sigma_{\varepsilon}} \lambda_s \\
+	&=  \frac{\sigma_{\eta}}{\sigma_{\eta} + \sigma_{\varepsilon}} \lambda_m + \frac{\sigma_{\varepsilon}}{\sigma_{\eta} + \sigma_{\varepsilon}} (\lambda_m + \lambda_s  - \lambda_m) \\
+	&= \lambda_m + \frac{\sigma_{\varepsilon}}{\sigma_{\eta} + \sigma_{\varepsilon}} (\lambda_s  - \lambda_m) \\
+	\end{split}
+	\end{equation}
+	
+	\subsection*{Noise Shocks}
+	
+	Assume $\varepsilon = 0$ and $\eta = \tilde{\eta} > 0$.  It is clear that even if $\lambda = \lambda_m$, agent is just able to observe $\lambda_s = \lambda_m + \tilde{\eta}$. This implies that the perceived value of $\lambda$ is
+	\begin{equation}
+	\E[\lambda | \lambda_s] = \lambda_p = \lambda_m + \frac{\sigma_{\varepsilon}}{\sigma_{\eta} + \sigma_{\varepsilon}} \tilde{\eta}
+	\end{equation}
+	This implies that the R\&D expenditure will be strictly higher even if the level of $\lambda$ is completely unaffected which entails a greater level of technology due to a noise shock.
+	
+	\section{The Analytical Model - To be completed}
+	
+	An agent seeks to maximize her life-time utility,
+	\begin{equation}
+	\sum_{t=0}^{\infty} \beta^t U(C_t)
+	\end{equation}
+	where $C_t$ represents the level of consumption at period $t$, $\beta \in [0 \ 1]$ is the deterministic discount factor, and the time separable utility function provides the standard property $U'(\cdot)>0$ and  $U''(\cdot) < 0$. 
+	
+	The budget constraint is represented by
+	\begin{equation}
+	C_t \leq Y_t - I_t - S_t
+	\end{equation}
+	where $Y_t$ is the level of production of consumption good which can be either consumed, invested in physical capital ($I_t$ ), or spent in research and development ($S_t$). The level of output is endogenously defined by the following production function
+	\begin{equation}
+	Y_t \leq A_t Z_t F(K_t)
+	\end{equation}
+	where $A_t$ and $Z_t$ represent respectively the exogenous and endogenous level of technology in the economy. $F(\cdot)$ is the production function which uses capital $K_t$ as unique input factor and it displays the standard assumptions $F'(\cdot) > 0$ and $F'(\cdot) < 0$.
+	
+	The level of endogenous technology and capital is defined respectively by the following laws of motion
+	\begin{equation}
+	Z_{t+1} \leq \lambda_t S_t + Z_t
+	\end{equation}
+	\begin{equation}
+	K_{t+1} \leq I_t + (1 - \delta)K_t
+	\end{equation}
+	where $\lambda_t \in [0 \ 1]$ represents the exogenous efficiency of the $R\&D$ sector. It can be interpreted as the probability of producing a new technology by spending a unit of consumption good in the research sector.
+	
+	In compact form the agent seeks to solve the following problem
+	\begin{equation}
+	\begin{split}
+	\max_{\{ C_t,Y_t,I_t,S_t,K_{t+1},Z_{t+1} \}_{t=0}^{\infty}} &\sum_{t=0}^{\infty} \beta^t U(C_t) \\
+	\text{s.t.} \ \ \ C_t &\leq Y_t - I_t - S_t \\
+	Y_t &\leq A_t Z_t F(K_t) \\
+	Z_{t+1} &\leq \lambda_t S_t + Z_t \\
+	K_{t+1} &\leq I_t + (1 - \delta)K_t \\
+	\end{split}
+	\end{equation}
+	
+	Set up the Lagrangian
+	\begin{equation}
+	\begin{split}
+	L = \sum_{t=0}^{\infty} \beta^t \Big\{ U(C_t)  + &\mu_{1,t}\big[ Y_t - I_t - S_t - C_t   \big]  + \mu_{2,t}\big[  A_t Z_t F(K_t) - Y_t  \big]  \\
+	+ &\mu_{3,t}\big[ \lambda_t S_t + Z_t -  Z_{t+1}  \big]   + \mu_{4,t}\big[ I_t + (1 - \delta)K_t -  K_{t+1}  \big]  \Big\}
+	\end{split}
+	\end{equation}
+	and the derive the first order conditions
+	\begin{equation}
+	U'(C_t) = \mu_{1,t}
+	\end{equation}
+	\begin{equation}
+	\mu_{1,t} = \mu_{2,t}
+	\end{equation}
+	\begin{equation}
+	\mu_{1,t} = \mu_{4,t}
+	\end{equation}
+	\begin{equation}
+	\mu_{1,t} = \lambda_t \mu_{3,t}
+	\end{equation}
+	\begin{equation}
+	\beta \E_t [ \mu_{2,t+1} A_{t+1} Z_{t+1} F'(K_{t+1}) + \mu_{4,t+1}(1-\delta) ] = \mu_{4,t}
+	\end{equation}
+	\begin{equation}
+	\beta \E_t [ \mu_{2,t+1} A_{t+1} F(K_{t+1}) + \mu_{3,t+1} ] = \mu_{3,t}
+	\end{equation}
+	\begin{equation}
+	C_t = Y_t - I_t - S_t
+	\end{equation}
+	\begin{equation}
+	Y_t = A_t Z_t F(K_t)
+	\end{equation}
+	\begin{equation}
+	Z_{t+1} = \lambda_t S_t + Z_t
+	\end{equation}
+	\begin{equation}
+	K_{t+1} = I_t + (1 - \delta)K_t
+	\end{equation}
+	
+	
+	Combining (8)-(10) and (12) yields
+	\begin{equation}
+	1 = \E_t \Bigg\{ \beta \frac{U'(C_{t+1})}{U'(C_t)} \big[   1  + A_{t+1} Z_{t+1} F'(K_{t+1}) - \delta \big]   \Bigg\}
+	\end{equation}
+	Moreover, combining (8), (9), (11), and (13) yields
+	\begin{equation}
+	1 = \E_t \Bigg\{ \beta \frac{U'(C_{t+1})}{U'(C_t)} \frac{\lambda_t}{\lambda_{t+1}} \Bigg[ 1 + \lambda_{t+1}  A_{t+1}F(K_{t+1}) \Bigg]   \Bigg\}
+	\end{equation}
+	
+	
+	Notice that Equations (14)-(19) form a system of six Equations in six unknowns: $C_t$, $Y_t$, $I_t$, $S_t$, $Z_{t+1}$, and $K_{t+1}$.
+	
+	\subsection*{Further Assumption}
+	
+	For simplicity assume the $U(C_t) = \log(C_t)$ and $F(K_t) = K_t^{\alpha}$. The model becomes
+	\begin{equation}
+	C_t = Y_t - I_t - S_t
+	\end{equation}
+	\begin{equation}
+	Y_t = A_t Z_t K_t^{\alpha}
+	\end{equation}
+	\begin{equation}
+	Z_{t+1} = \lambda_t S_t + Z_t
+	\end{equation}
+	\begin{equation}
+	K_{t+1} = I_t + (1 - \delta)K_t
+	\end{equation}
+	\begin{equation}
+	1 = \E_t \Bigg\{ \beta \frac{C_t}{C_{t+1}} \big[   1  + \alpha A_{t+1} Z_{t+1} K_{t+1}^{\alpha - 1} - \delta \big]   \Bigg\}
+	\end{equation}
+	\begin{equation}
+	1 = \E_t \Bigg\{ \beta \frac{C_t}{C_{t+1}} \frac{\lambda_t}{\lambda_{t+1}} \big[ 1 + \lambda_{t+1}  A_{t+1} K_{t+1}^{\alpha} \big]   \Bigg\}
+	\end{equation}
+	
+\section{Dynamic Model}
+
+\subsection{Household}
+
+A representative household seeks to maximize her life-time utility,
+\begin{equation}
+\sum_{t=0}^{\infty} \beta^t [ log(C_t) - \chi L_t^{\theta}]
+\end{equation}
+The budget constraint is represented by
+\begin{equation}
+C_t + K_{t+1} + S_t = W_tL_t + (1- \delta + R_{t})K_t + \Pi_t
+\end{equation}
+where $S_t$ is the investment in R\&D and $\Pi_t$ is a lump-sum transfer from the profits of the intermediate-good sector.
+
+First order conditions over $C_t$, $L_t$, and $K_{t+1}$ yield
+\begin{equation}
+\frac{1}{C_t} = \chi \frac{L_t^{\theta - 1} }{W_t}
+\end{equation}
+\begin{equation}
+1 = \beta \E_t \bigg[\frac{C_t}{C_{t+1}} (1 - \delta + R_{t+1})  \bigg]
+\end{equation}
+
+\subsection{Final-good producer}
+
+A representative final-good producer maximizes its own profits using the following production function
+\begin{equation}
+\begin{aligned}
+Y_t &= A_t[K_t^{\alpha}L_t^{1 - \alpha}]^{1 - \gamma} \bigg[ \bigg( \int_0^{Z_t} M_{j,t}^{\frac{1}{\nu}} dj \bigg)^{\nu} \bigg]^{\gamma} \\
+    &= A_t[K_t^{\alpha}L_t^{1 - \alpha}]^{1 - \gamma} M_t^{\gamma} Z_t^{\gamma \nu} \\
+    &= A_t Z_t^{\nu}[K_t^{\alpha}L_t^{1 - \alpha}]^{1 - \gamma} [M_t Z_t]^{\gamma}
+\end{aligned}
+\end{equation}
+where $Z_t^{\nu}$ represents the endogenous component of productivity and $M_{j,t}$ is an intermediate good. It will be shown that all $M_{j,t}$ are equal to each other on the equilibrium path. 
+
+Firm's first order conditions over $K_t$, $L_t$, and $M_{j,t}$ yield
+\begin{equation}
+W_t = (1 - \gamma)(1 - \alpha) \frac{Y_t}{L_t}
+\end{equation}
+\begin{equation}
+R_t = (1 - \gamma)\alpha \frac{Y_t}{K_t}
+\end{equation}
+\begin{equation}
+P^M_t = \gamma \frac{Y_t}{Z_t M_t}
+\end{equation}
+where $W_t$, $R_t$, and $P^M_t$ are the price of each respective factor.
+
+\subsection{Intermediate-good producer}
+
+Intermediate-good producers compete in a imperfect monopolistic market. Due to absence of any frictions, the Dixit–Stiglitz aggregator provides an optimal price equal to
+\begin{equation}
+P_t^M = \nu
+\end{equation}
+For each monopolist, profits will then be
+\begin{equation}
+\Pi_t = (P_t^M - 1)M_t
+\end{equation}
+
+\subsection{R\&D Sector}
+
+The value of being a monopolist is
+\begin{equation}
+V_t = \Pi_t + \phi \beta \E \bigg[ \frac{C_t}{C_{t+1}}  V_{t+1} \bigg]
+\end{equation}
+However, to became a monopolist, innovator needs to meet a free entry condition that implies
+\begin{equation}
+\frac{1}{\lambda_t} = \phi \beta \E \bigg[ \frac{C_t}{C_{t+1}}  V_{t+1} \bigg]
+\end{equation}
+where the law of motion of endogenous TFP is
+\begin{equation}
+Z_{t+1} = \lambda_t S_t + \phi Z_t
+\end{equation}
+and
+\begin{equation}
+\lambda_t = \lambda_x \frac{1}{K_t^{\rho}S_t^{1 - \rho}}
+\end{equation}
+
+\subsection{System of equations}
+
+We have 13 variables: $C_t$, $K_{t+1}$, $L_t$, $W_t$, $R_t$, $P_t$, $Y_t$, $\Pi_t$, $V_t$, $Z_{t+1}$, $S_t$, $\lambda_t$, and $M_t$ in 13 equations:
+
+\begin{equation}
+\frac{1}{C_t} = \chi \frac{L_t^{\theta - 1} }{W_t}
+\end{equation}
+\begin{equation}
+1 = \beta \E_t \bigg[\frac{C_t}{C_{t+1}} (1 - \delta + R_{t+1})  \bigg]
+\end{equation}
+\begin{equation}
+C_t + K_{t+1} + S_t = W_tL_t + (1- \delta + R_{t})K_t + \Pi_t
+\end{equation}
+\begin{equation}
+W_t = (1 - \gamma)(1 - \alpha) \frac{Y_t}{L_t}
+\end{equation}
+\begin{equation}
+R_t = (1 - \gamma)\alpha \frac{Y_t}{K_t}
+\end{equation}
+\begin{equation}
+P^M_t = \gamma \frac{Y_t}{Z_t M_t}
+\end{equation}
+\begin{equation}
+P_t^M = \nu
+\end{equation}
+\begin{equation}
+\Pi_t = (P_t^M - 1)M_t
+\end{equation}
+\begin{equation}
+V_t = \Pi_t + \phi \beta \E \bigg[ \frac{C_t}{C_{t+1}}  V_{t+1} \bigg]
+\end{equation}
+\begin{equation}
+Z_{t+1} = \lambda_t S_t + \phi Z_t
+\end{equation}
+\begin{equation}
+\frac{1}{\lambda_t} = \phi \beta \E \bigg[ \frac{C_t}{C_{t+1}}  V_{t+1} \bigg]
+\end{equation}
+\begin{equation}
+Y_t = A_t[K_t^{\alpha}L_t^{1 - \alpha}]^{1 - \gamma}Z_tM_t^{\gamma}
+\end{equation}
+\begin{equation}
+\lambda_t = \lambda_x \frac{1}{K_t^{\rho}S_t^{1 - \rho}}
+\end{equation}
+	
+\end{document}
+

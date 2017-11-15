@@ -1,0 +1,9 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Empirical Evidence}{3}
+\contentsline {subsection}{\numberline {2.1}First Set of Results}{4}
+\contentsline {subsubsection}{\numberline {2.1.1}Specification and Identification Strategy}{4}
+\contentsline {subsection}{\numberline {2.2}Results}{5}
+\contentsline {subsubsection}{\numberline {2.2.1}Concerns}{7}
+\contentsline {subsection}{\numberline {2.3}A Second Identification Strategy}{8}
+\contentsline {subsection}{\numberline {2.4}Second Set of Results}{9}

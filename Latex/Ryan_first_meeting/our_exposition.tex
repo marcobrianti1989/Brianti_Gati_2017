@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a4paper,top=3.5cm,bottom=3.5cm,left=3.5cm,right=3.5cm,%
+bindingoffset=0mm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.75em depth0em\fi}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{float}
+\linespread{1.3}
+\raggedbottom
+
+
+
+
+%
+\font\reali=msbm10 at 12pt
+% subsets of real numbers
+\newcommand{\real}{\hbox{\reali R}}
+\newcommand{\realp}{\hbox{\reali R}_{\scriptscriptstyle +}}
+\newcommand{\realpp}{\hbox{\reali R}_{\scriptscriptstyle ++}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+%
+
+\title{Presentation}
+\author{Marco Brianti\\Laura Gati}
+\date{Fall 2017}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Related Literature}
+
+\
+
+Comin and Gertler (2006) - Endogenous TFP component
+
+\
+
+Lorenzoni (2009) - Noise shocks
+
+\subsection*{Main Contribution}
+
+\
+
+The basic idea is to rationalize a setting where incorrect information (noise a la Lorenzoni, 2009) implies fundamental changes in the economy. The account in Lorenzoni (2009) documents how noisy information leads to business cycle fluctuations that resemble demand shocks. Instead our objective is to demonstrate how similar information imperfections can also imply future supply shocks and thus affectively alter the fundamental structure of the economy.
+
+\subsection*{Implementation}
+
+\
+
+To this end, we rely on the model proposed by Comin and Gertler (2006) which we enhance with a particular information structure derived from Lorenzoni (2009). To understand the main mechanism of the model, consider a simple example. Assume that for some reason, agents wrongly perceive a lower level of R\&D efficiency. The optimal response will be to allocate less resources to R\&D due to its low productivity. However, the choice to invest less in R\&D leads to lower productivity in the future, so that the economy will in fact experience a negative productivity shock.
+
+\end{document}
+
