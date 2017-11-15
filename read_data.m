@@ -1,7 +1,8 @@
 function [data_levels, shocknames, varnames, which_shock, q] = read_data(filename, sheet, range)
 % A file for reading in data specifically for this project. TO DO: Make
 % this general and clean up data reading in general.
-
+base_path = pwd;
+addpath([base_path '\Data'])
 data = xlsread(filename,sheet,range);
 % Cumulate growth variables to levels (log levels to be precise, b/c growth
 % rates are calculated as log diffs)

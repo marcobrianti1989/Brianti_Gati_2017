@@ -10,6 +10,7 @@ close all
 
 tic
 %Data Reading and Transformation
+
 filename = 'dataset_23_sept_2017';
 sheet    = 'Sheet1';
 range    = 'B126:K283';
