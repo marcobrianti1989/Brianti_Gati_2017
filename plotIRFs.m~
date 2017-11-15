@@ -1,11 +1,8 @@
-function plotIRFs(IRFs,ub,lb,h,which_shock, names, varnames, which_ID_strat, print_figs)
+function plotIRFs(IRFs,ub,lb,h,which_shock, names, varnames, whi)
     % h = IR horizon for figures
     % ub and lb are the bootstrapped CI
     % names = cell vector of shock names
     % varnames = cell vector of variable names
-    % which_ID_strat = a string describing which identification strategy we used
-    % print_figs = 'yes' --> saves the figures; else if 'no' -- > just
-    % shows the figures.
     
     nvar = size(IRFs,1);
     nshocks = size(which_shock,2);
@@ -16,8 +13,7 @@ function plotIRFs(IRFs,ub,lb,h,which_shock, names, varnames, which_ID_strat, pri
         
         % Draw pretty pictures
         figure(i_shock)
-        set(gcf,'color','w'); % sets white background color
-        set(gcf, 'Position', get(0, 'Screensize')); % sets the figure fullscreen (hopefully)
+        set(gcf,'color','w');
         for i_var=1:nvar
             varname = varnames{i_var};
             subplot(nvar,1,i_var)
@@ -32,8 +28,11 @@ function plotIRFs(IRFs,ub,lb,h,which_shock, names, varnames, which_ID_strat, pri
         end
         
         % Save figures if you want to
-        if strcmp(print_figs, 'yes')
-            invoke_export_fig(name, which_ID_strat)
-            close all
-        end
+        if strcmp(print_figs, 'yes)'
+            invoke_export_fig(name,)
+        
+        
+        
+        
+        
     end
