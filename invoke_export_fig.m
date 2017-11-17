@@ -25,8 +25,12 @@ if exist([base_path '\Figures'], 'dir')
 else
     cd([base_path '/Figures']) %for Mac
 end
-addpath([base_path '\Export_Fig']) %for Microsoft
-addpath([base_path '/Export_Fig']) %for Mac
+
+if exist([base_path '\Export_Fig'], 'dir')
+    addpath([base_path '\Export_Fig']) %for Microsoft
+else
+    addpath([base_path '/Export_Fig']) %for Mac
+end
 
 export_fig(final_name)
 

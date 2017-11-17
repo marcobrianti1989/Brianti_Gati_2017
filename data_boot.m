@@ -1,6 +1,6 @@
 function [dataset_boot] = data_boot(B,nburn,res,nsimul,which_correction,q)
 % Inputs:
-% B: Beta coefficient matrix from VAR (nvar*nlags + 1 x nvar)
+% B: Beta coefficient matrix from VAR (nvar*nlags + 1 , nvar)
 % nburn = number of burn-in periods
 % nlag = number of lags in VAR
 % res = residuals from original VAR (Tx1)

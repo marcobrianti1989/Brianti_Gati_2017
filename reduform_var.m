@@ -22,7 +22,7 @@ for ilag = 2:nlags+1
 end
 
 % Add constant
-reg = [ones(T-nlags,1) reg];
+reg = [ones(T-nlags,1) reg]; % (T-nlags, 1+nvar*nlags)
 
 %OLS in the Reduced Form Vector Autoregression
 B = (reg'*reg)\(reg'*data_1);

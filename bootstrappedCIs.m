@@ -19,14 +19,16 @@ function [fake_A_boot, B_boot] = bootstrappedCIs(B, nburn, res, nsimul, which_co
     for i_simul = 1:nsimul
         [~, B_boot(:,:,i_simul), ~, ~] ...
             = sr_var(dataset_boot(:,:,i_simul), nlags);
-        %Checking if the VAR is stationary
-        flag = test_stationarity(B_boot(:,:,i_simul)')
-        while flag == 1
-            B_boot(:,:,i_simul) ...
-                = (1 - delt)*B_boot(:,:,i_simul);
-            flag = test_stationarity(B_boot(:,:,i_simul)');
-            disp('I am doing Vitos stationarization of B_boot')
-        end
+        % don't need to check this b/c we know our VAR point estimate is
+        % stationary
+%         %Checking if the VAR is stationary
+%         flag = test_stationarity(B_boot(:,:,i_simul)')
+%         while flag == 1
+%             B_boot(:,:,i_simul) ...
+%                 = (1 - delt)*B_boot(:,:,i_simul);
+%             flag = test_stationarity(B_boot(:,:,i_simul)');
+%             disp('I am doing Vitos stationarization of B_boot')
+%         end
     end
     
     % Kilian correction
@@ -51,21 +53,9 @@ function [fake_A_boot, B_boot] = bootstrappedCIs(B, nburn, res, nsimul, which_co
                     sr_var(dataset_boot_corrected(:,:,i_simul), nlags);
                 [impact_boot_corrected(:,:,i_simul),~,~,~,~,~] = Ryan_two_stepsID(which_variable,which_shocks,H, ...
                     B_boot_corrected(:,:,i_simul),A_corrected, pos_rel_prices);
-                %Checking if the VAR is stationary
-                flag = test_stationarity(B_boot_corrected(:,:,i_simul)')
-                %when we use B&S the max problem is satisfied for both gam
-                %and -gam then to align the point estimation with the
-                %boostrapped ones we need to do this check
-                %                 if sum(abs(impact_boot_corrected(:,1,i_simul) - impact(:,1))) ...
-                %                         >= sum(abs(impact_boot_corrected(:,1,i_simul) + impact(:,1)))
-                %                     impact_boot_corrected(:,1,i_simul) ...
-                %                         = - impact_boot_corrected(:,1,i_simul);
-                %                 end
-                %                 if sum(abs(impact_boot_corrected(:,2,i_simul) - impact(:,2))) ...
-                %                         >= sum(abs(impact_boot_corrected(:,2,i_simul) + impact(:,2)))
-                %                     impact_boot_corrected(:,2,i_simul) ...
-                %                         = - impact_boot_corrected(:,2,i_simul);
-                %                 end
+               %
+                
+                
             end
             
         case 'FEVmax_sr'

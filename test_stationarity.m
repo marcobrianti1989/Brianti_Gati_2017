@@ -1,7 +1,8 @@
 function [flag] = test_stationarity(beta)
     %the opnly argument is the result of the vector autoregression with the
     %constant. Inside the function we directly remove the constant from beta
-    %Dimension of beta is (nvar times nvar*nlags+1)
+    %Dimension of beta is (nvar , nvar*nlags+1)
+    % Beware: need to input beta' if dim(beta) = (nvar*nlags + 1, nvar)
     
     %Removing the constant
     beta = beta(:,2:end);
@@ -21,7 +22,7 @@ function [flag] = test_stationarity(beta)
     %Test if it exists one eigenvalues outside the unit circle
     %zplane(eigens) %hahahahah this is cool!
     distance = abs(eigens);
-    loc = distance > 1 ;
+    loc = distance >= 1 ;
     test = sum(loc);
     flag = 0;
     if test >= 1
