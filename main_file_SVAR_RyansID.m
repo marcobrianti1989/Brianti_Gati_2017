@@ -20,7 +20,7 @@ range    = 'B126:L283';
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 20; %5000
+nsimul          = 500; %5000
 nvar            = size(data,2);
 sig             = 0.90; % significance level
 H               = 100; %40; % horizon for generation of IRFs
@@ -80,7 +80,7 @@ for i_simul = 1:nsimul
 end
 
 %Creating and Printing figures
-print_figs = 'no';
+print_figs = 'yes';
 [IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,B,beta_tilde_star,H,sig);
 plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, which_ID,print_figs)
 
