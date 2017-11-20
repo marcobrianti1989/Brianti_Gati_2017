@@ -48,6 +48,12 @@ for i_shock=1:nshocks
                         IRFs_boot(:,k,i_shock,i_sim) = F_boot*B_boot(:,:,i_sim);
                         F_boot = [IRFs_boot(:,k,i_shock,i_sim)' F_boot(1:end-nvar)];
                   end
+                  if sum(sum(abs(IRFs_boot(:,:,i_shock,i_sim) - IRFs(:,:,i_shock)))) ...
+                              >= sum(sum(abs(IRFs_boot(:,:,i_shock,i_sim) + IRFs(:,:,i_shock))))
+                        IRFs_boot(:,:,i_shock,i_sim) = - IRFs_boot(:,:,i_shock,i_sim);
+                  else
+                        IRFs_boot(:,:,i_shock,i_sim) = IRFs_boot(:,:,i_shock,i_sim);
+                  end
             end
             
             % Sort bootstrap IRFs and set lower and upper bounds
