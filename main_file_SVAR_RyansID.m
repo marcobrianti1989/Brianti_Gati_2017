@@ -9,13 +9,15 @@ clear
 close all
 
 tic
-%Data Reading and Transformation
 
-filename = 'dataset_23_sept_2017';
-sheet    = 'Sheet1';
-range    = 'B126:L283';
-[data, shocknames,varnames, which_shocks, pos_rel_prices] = ...
-    read_data(filename, sheet, range); %q (pos_rel_prices) position for relative prices
+%Data Reading and Transformation
+filename = 'dataset_main';
+sheet    = 'Data';
+range    = 'B1:M286';
+[data, varnames] = read_data2(filename, sheet, range);
+shocknames = {'News Shock','IT Shock'};
+which_shocks = [3 4];
+pos_rel_prices = 6;
 
 %Technical Parameters
 max_lags        = 10;
@@ -80,10 +82,11 @@ for i_simul = 1:nsimul
 end
 
 %Creating and Printing figures
-print_figs = 'yes';
+print_figs = 'no';
 [IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,B,beta_tilde_star,H,sig);
 plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, which_ID,print_figs)
 
+save('capital_price_workspace')
 
 % %%%%%%% Saved work from before really implementing Kilian, uncomment all
 % %%%%%%% of this if the real Kilian stuff are superbad - although the two
