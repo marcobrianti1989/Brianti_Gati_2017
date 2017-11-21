@@ -44,37 +44,19 @@ end
 %Checking if the VAR is stationary
 test_stationarity(B');
 
+% TO DO: check info sufficiency
+pc = get_principal_components(data);
+[s, obj_opt] = get_structural_shocks(A,gamma,resid)
+[B, yhat, res] = quick_ols(Y,X);
+return
+
 % dbstop in Ryan_two_stepsID at 74
 
 % Implement Ryan's ID strategy
 % [impact, FEV_opt, IRFs, gamma_opt, FEV_news, FEV_IT] = ryansID(which_variable,which_shocks,H,B,A,q);
-[impact, FEV_opt, ~, gam_opt, FEV_news, FEV_IT] ...
+[impact, FEV_opt, ~, gam3_opt, FEV_news, FEV_IT] ...
     = Ryan_two_stepsID(which_variable,which_shocks,H,B,A,pos_rel_prices);
 % impact is the nvar x 2 impact matrix of news and IT.
-
-% TO DO: check info sufficiency (Forni's orthogonality test)
-
-[s, obj_opt] = get_structral_shocks_alternative(A,gam_opt,res);
-s3 = s(3,:)';
-s4 = s(4,:)';
-% [s_old, obj_opt] = get_structural_shocks(A,gam_opt,res); % this old way
-% didn't work well, cancel it completely after a while
-% s1 = s_old(1,:)';
-% s2 = s_old(2,:)';
-
-pc = get_principal_components(data);
-pc = pc(1+nlags:end,:); % adjust because due to the lags, the structural shocks are shorter
-
-[B, yhat, res] = quick_ols(s3,pc);
-[B, yhat, res] = quick_ols(s4,pc);
-
-signi = f_test(s4,res, nvar,156,nvar)
-
-return
-
-
-
-
 
 % Bootstrap
 which_ID = 'Ryan_two_stepsID';

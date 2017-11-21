@@ -28,8 +28,10 @@ function [s, obj_opt] = get_structural_shocks(A,gamma,resid)
             objective_fun = @(unknown) obj_get_structural_shocks(A,gamma,resid_t,unknown);
             
             %Optimization Parameters
-            options  = optimset('fmincon');
-            options  = optimset(options, 'TolFun', 1e-9, 'display', 'none');            
+%             options  = optimset('fmincon');
+%             options  = optimset(options, 'TolFun', 1e-5, 'display', 'none', 'MaxIter', 1000 );    
+            options  = optimoptions('fmincon', 'TolFun', 1e-9, 'display', 'none', 'MaxIter', 1000, ...
+                'StepTolerance',1.0000e-15, 'ConstraintTolerance', 1.0000e-09, 'Algorithm', 'sqp' );    
             s(:,i_t) = fmincon(objective_fun, unknown_zero,[],[],[],[],[],[],[],options);
 %           s(:,i_t) = fsolve(objective_fun,unknown_zero);
             obj_opt(i_t) = obj_get_structural_shocks(A,gamma,resid_t,s(:,i_t));
