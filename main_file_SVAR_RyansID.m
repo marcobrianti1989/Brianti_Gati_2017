@@ -82,11 +82,13 @@ for i_simul = 1:nsimul
 end
 
 %Creating and Printing figures
-print_figs = 'no';
+print_figs = 'yes';
 [IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,B,beta_tilde_star,H,sig);
 plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, which_ID,print_figs)
 
-save('capital_price_workspace')
+
+
+%save('capital_price_workspace')
 
 % %%%%%%% Saved work from before really implementing Kilian, uncomment all
 % %%%%%%% of this if the real Kilian stuff are superbad - although the two
