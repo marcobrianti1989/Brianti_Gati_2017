@@ -34,7 +34,7 @@ end
 
 
 warning off
-xlswrite(series_id,series.Data)
+xlswrite(series_id,series.Data) % apparently, Mac can only write to CSV, so should run this on Windows to get xls-files.
 
 cd(base_path)
 % length_this_series = size(series.Data,1);
