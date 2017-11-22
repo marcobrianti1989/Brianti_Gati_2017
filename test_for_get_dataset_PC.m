@@ -21,12 +21,17 @@ end
 % [num, txt] = xlsread('YAHOO_SP500.csv','YAHOO_SP500.csv'); % xlsread
 % can't read csv apparently... 
 SP500 = csvread('YAHOO_SP500.csv',1,1);
-cd(base_path)
-
 closing_monthly = SP500(:,4);
 closing_quarterly = closing_monthly(3:3:end,1); 
 SP500 = closing_quarterly;
-starting_date_SP500 = '1950-01-01';
+name_SP = 'Quarterly_SP500';
+starting_date_SP500 = '_Starts_1950_q1';
+date_aggregated = datestr(today);
+comment = ['Date aggregated: ', date_aggregated];
+filename = [name_SP, starting_date_SP500];
+xlswrite(filename,SP500)
+
+cd(base_path)
 
 
 
