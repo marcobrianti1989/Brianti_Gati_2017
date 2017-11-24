@@ -15,6 +15,7 @@ perc_low = floor(nsimul*(1-sig)); % the lower percentile of bootstrapped respons
 B = B(2:end,:);
 B_boot = B_boot(2:end,:,:);
 
+
 % Preallocate IRs
 IRFs = zeros(nvar,H,nshocks);
 IRFs_boot = zeros(nvar,H,nshocks,nsimul);
@@ -48,6 +49,7 @@ for i_shock=1:nshocks
                         IRFs_boot(:,k,i_shock,i_sim) = F_boot*B_boot(:,:,i_sim);
                         F_boot = [IRFs_boot(:,k,i_shock,i_sim)' F_boot(1:end-nvar)];
                   end
+                  % If bootstraps go the wrong way, flip them
                   if sum(sum(abs(IRFs_boot(:,:,i_shock,i_sim) - IRFs(:,:,i_shock)))) ...
                               >= sum(sum(abs(IRFs_boot(:,:,i_shock,i_sim) + IRFs(:,:,i_shock))))
                         IRFs_boot(:,:,i_shock,i_sim) = - IRFs_boot(:,:,i_shock,i_sim);

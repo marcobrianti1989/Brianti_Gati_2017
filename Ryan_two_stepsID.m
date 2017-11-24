@@ -1,5 +1,5 @@
 function [impact, FEV_opt, IRFs, gam, FEV_news, FEV_IT] ...
-        = Ryan_two_stepsID(which_variable,which_shocks,H,B,A,q)
+        = Ryan_two_stepsID(which_variable,which_shocks,H,LR_hor,B,A,q)
 %which_variable: variable we want to max the response for a specific shock (TFP)
 %which_shocks: the shock is maximizing the FEV of which_variable (--> news and IT shocks)
 %H: horizon of the maximization
@@ -31,7 +31,7 @@ options  = optimset(options, 'TolFun', 1e-9, 'display', 'none');
 
 % Instead of Blanchard Quah, impose that IR(rel_prices, news) = 0 at some
 % finite long horizon.
-LR_hor = 8; % 100
+% LR_hor = 8; % 100
 sig = 0.9; % not used, but we need to input something not to get error
 [IR, ~, ~] = genIRFs(A,0,vertcat(ones(1,size(B,2)), B),0,LR_hor, sig);
 % R = zeros(nvar,nvar); 
