@@ -54,17 +54,6 @@ LR_hor = 8; % at what horizon to impose the LR restriction
     = Ryan_two_stepsID(which_variable,which_shocks,H,LR_hor,B,A,pos_rel_prices);
 % impact is the nvar x 2 impact matrix of news and IT.
 
-% With Barsky & Sims-type ID, since you do a abs max, there are two
-% solutions: gam and -gam. So choose the one that makes sense. I'm doing
-% that so that news and IT have + effects on TFP.
-if gam_opt(1,1) < 0 % If news have - effects on TFP
-   impact(:,1) = -impact(:,1); 
-end
-if gam_opt(1,2) < 0 % if IT has - effects on TFP
-    impact(:,2) = -impact(:,2);
-end
-
-
 
 % % TO DO: check info sufficiency (Forni's orthogonality test)
 % [s, obj_opt] = get_structral_shocks_alternative(A,gam_opt,res);
@@ -123,11 +112,28 @@ comment = [which_ID '_' char(varnames(6)) '_LR_hor_' num2str(LR_hor)];
 
 print_figs = 'no';
 [IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,B,beta_tilde_star,H,sig);
+
+% % With Barsky & Sims-type ID, since you do a abs max, there are two
+% % solutions: gam and -gam. So choose the one that makes sense. I'm doing
+% % that so that news and IT have + effects on TFP.
+if sum(IRFs(1,:,3)) < 0 % if the majority of TFP response is negative
+    IRFs(:,:,3) = -IRFs(:,:,3);
+    ub(:,:,3) = - ub(:,:,3);
+    lb(:,:,3) = - lb(:,:,3);
+end
+if sum(IRFs(1,:,4)) < 0 % if the majority of TFP response is negative
+    IRFs(:,:,4) = -IRFs(:,:,4);
+    ub(:,:,4) = - ub(:,:,4);
+    lb(:,:,4) = - lb(:,:,4);
+end
+
 plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, which_ID,print_figs)
+
+
+
 
 fev_matrix = {'News', 'IT', 'Total'};
 fev_matrix(2,:) = {num2str(FEV_news), num2str(FEV_IT), num2str(FEV_opt)};
-
 disp('% of FEV of TFP explained:')
 fev_matrix
 
