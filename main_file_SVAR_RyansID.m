@@ -46,23 +46,24 @@ test_stationarity(B');
 LR_hor = 8; % at what horizon to impose the LR restriction
 % [impact, FEV_opt, IRFs, gamma_opt, FEV_news, FEV_IT] = ryansID(which_variable,which_shocks,H,B,A,q);
 [impact, FEV_opt, ~, gam_opt, FEV_news, FEV_IT] ...
-    = Ryan_two_stepsID(which_variable,which_shocks,H,LR_hor,B,A,pos_rel_prices);
+    = Ryan_two_stepsID(which_variable,which_shocks,H,...
+    LR_hor,B,A,pos_rel_prices);
 
 % Bootstrap
 which_ID = 'Ryan_two_stepsID';
 which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residuals in blocks or not.
 blocksize = 5; % size of block for drawing in blocks
-
-[beta_tilde, data_boot2, beta_tilde_star, nonstationarities] = bootstrap_with_kilian( ...
-    B, nburn, res, nsimul, which_correction, blocksize);
+[beta_tilde, data_boot2, beta_tilde_star, nonstationarities] = ...
+      bootstrap_with_kilian(B, nburn, res, ...
+      nsimul, which_correction, blocksize);
 
 % Get "bootstrapped A" nsimul times
 for i_simul=1:nsimul
     [A_boot, ~,~,~] = sr_var(data_boot2(:,:,i_simul), nlags);
     % Get bootstrapped confidence intervals nsimul times
     disp(['Iteration ' num2str(i_simul) ' out of ' num2str(nsimul)])
-    [impact_boot(:,:,i_simul),~,~,~,~,~] = Ryan_two_stepsID(which_variable,which_shocks,H,LR_hor, ...
-        beta_tilde_star(:,:,i_simul),A_boot, pos_rel_prices);
+    [impact_boot(:,:,i_simul),~,~,~,~,~] = Ryan_two_stepsID(which_variable,...
+          which_shocks,H,LR_hor,beta_tilde_star(:,:,i_simul),A_boot, pos_rel_prices);
 end
 
 %Creating a fake matrix for the IRF of the point estimation
@@ -78,7 +79,8 @@ end
 comment = [which_ID '_' char(varnames(6)) '_LR_hor_' num2str(LR_hor)];
 
 print_figs = 'no';
-[IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,B,beta_tilde_star,H,sig);
+[IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,...
+      B,beta_tilde_star,H,sig);
 
 % % With Barsky & Sims-type ID, since you do a abs max, there are two
 % % solutions: gam and -gam. So choose the one that makes sense. I'm doing
@@ -94,25 +96,20 @@ if sum(IRFs(1,:,4)) < 0 % if the majority of TFP response is negative
     lb(:,:,4)     = - lb(:,:,4);
 end
 
-plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, which_ID,print_figs)
-
-return
+%Printing/Showing IRFs
+plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, ...
+      which_ID,print_figs)
 
 %Forni&Gambetti Orthogonality Test
 filename_PC       = 'Dataset_test_PC';
 sheet_PC          = 'Quarterly';
 range_PC          = 'B2:DC287';
 first_n_PCs       = 10;
-gam_news          = gam_opt(:,1);
-gam_IT            = gam_opt(:,2);
-pvalue_news_shock = Forni_Gambetti_orthogonality_test(filename_PC,...
-      sheet_PC,range_PC,first_n_PCs,A,gam_news,res);
-pvalue_IT_shock   = Forni_Gambetti_orthogonality_test(filename_PC,...
-      sheet_PC,range_PC,first_n_PCs,A,gam_IT,res);
+[pvalue_news_shock, pvalue_IT_shock] = ...
+      Forni_Gambetti_orthogonality_test(filename_PC,...
+      sheet_PC,range_PC,first_n_PCs,A,gam_opt,res);
 
-
-
-
+%Saving in Tex format the Variance Decomposition Matrix
 fev_matrix = {'News', 'IT', 'Total'};
 fev_matrix(2,:) = {num2str(FEV_news), num2str(FEV_IT), num2str(FEV_opt)};
 disp('% of FEV of TFP explained:')
@@ -124,7 +121,8 @@ if strcmp(export_FEV_matrix,'yes') ==1
     rowLabels = {'Share of TFP FEV explained'};
     columnLabels = {'News', 'IT', 'Total'};
     matrixname   = 'FEVs';
-    invoke_matrix_outputting(fev_matrix_out,matrixname,rowLabels,columnLabels,comment);
+    invoke_matrix_outputting(fev_matrix_out,matrixname,rowLabels,...
+          columnLabels,comment);
 end
 
 toc
