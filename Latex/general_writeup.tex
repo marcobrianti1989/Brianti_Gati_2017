@@ -124,38 +124,55 @@ bindingoffset=0mm]{geometry}
 \end{figure}
  
 %%%%%%%%
-%two lags instead of one (back to LR hor = 8)
+%two lags instead of one (back to LR hor = 8), adding real stock prices 500, removing GDP, with relative price
+\newpage
+	\subsection{Capital prices LR horizon 8}
+	\noindent one lag, LR hor = 8, adding real stock prices 500, removing GDP, with relative price
+	
+	
+	\input{FEVs_Ryan_two_stepsID_RelPrice_LR_hor_8_25-Nov-2017_11_39_14}
+	
+	\begin{figure}[h!]
+\centering
+\subfigure[News]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_News_Shock_Ryan_two_stepsID_25-Nov-2017_11_30_49}} \hspace{.2in%
+} 
+\subfigure[IT]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_25-Nov-2017_11_30_52}}
+\end{figure}
+
 
 %%%%%%%%
-% adding stock prices
+%one lag (back to LR hor = 8)
+
+%%%%%%%%
+% adding real SP
 
 %%%%%%%%
 % removing consumption
 
 %%%%%%%%
 % and/or adding investment 
-        
+
 %%%%%%%%
 % Capital prices
 \newpage
-	\subsection{Capital prices LR horizon 8}
-	\noindent Time it took, for 500 bootstrap, Mac: 12 min
-	
-	\noindent  Time it took, for 500 bootstrap, server (w/o parpool): 30 min
+\subsection{Capital prices LR horizon 8}
+\noindent Time it took, for 500 bootstrap, Mac: 12 min
 
-	
-	\noindent  'News'       'IT'        'Total' 
-	
-         \noindent  '0.40843'    '0.23982'    '0.64824'
+\noindent  Time it took, for 500 bootstrap, server (w/o parpool): 30 min
 
-	
-	\input{FEVs_Ryan_two_stepsID_P_capital_LR_hor_8_24-Nov-2017_12_26_07}
-	
-	\begin{figure}[h!]
-\centering
-\subfigure[News]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_News_Shock_Ryan_two_stepsID_24-Nov-2017_16_17_15}} \hspace{.2in%
-} 
-\subfigure[IT]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_24-Nov-2017_16_17_19}}
+
+\noindent  'News'       'IT'        'Total' 
+
+\noindent  '0.40843'    '0.23982'    '0.64824'
+
+
+\input{FEVs_Ryan_two_stepsID_P_capital_LR_hor_8_24-Nov-2017_12_26_07}
+
+\begin{figure}[h!]
+	\centering
+	\subfigure[News]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_News_Shock_Ryan_two_stepsID_24-Nov-2017_16_17_15}} \hspace{.2in%
+	} 
+	\subfigure[IT]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_24-Nov-2017_16_17_19}}
 \end{figure}
 	
 	

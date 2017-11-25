@@ -41,16 +41,16 @@ end
 
 %Checking if the VAR is stationary
 test_stationarity(B');
-
-% dbstop in Ryan_two_stepsID at 74
+disp('Line 44')
 
 % Implement Ryan's ID strategy
 LR_hor = 8; % at what horizon to impose the LR restriction
 % [impact, FEV_opt, IRFs, gamma_opt, FEV_news, FEV_IT] = ryansID(which_variable,which_shocks,H,B,A,q);
 [impact, FEV_opt, ~, gam_opt, FEV_news, FEV_IT] ...
     = Ryan_two_stepsID(which_variable,which_shocks,H,LR_hor,B,A,pos_rel_prices);
-% impact is the nvar x 2 impact matrix of news and IT.
 
+disp('Line 52')
+% impact is the nvar x 2 impact matrix of news and IT.
 
 % % TO DO: check info sufficiency (Forni's orthogonality test)
 % [s, obj_opt] = get_structral_shocks_alternative(A,gam_opt,res);
@@ -68,12 +68,6 @@ LR_hor = 8; % at what horizon to impose the LR restriction
 % [B, yhat, res] = quick_ols(s4,pc);
 %
 % signi = f_test(s4,res, nvar,156,nvar)
-%
-% return
-
-
-
-
 
 % Bootstrap
 which_ID = 'Ryan_two_stepsID';
@@ -82,6 +76,8 @@ blocksize = 5; % size of block for drawing in blocks
 
 [beta_tilde, data_boot2, beta_tilde_star, nonstationarities] = bootstrap_with_kilian( ...
     B, nburn, res, nsimul, which_correction, blocksize);
+
+disp('Line 80')
 
 % Get "bootstrapped A" nsimul times
 for i_simul=1:nsimul
@@ -114,20 +110,19 @@ print_figs = 'yes';
 % % solutions: gam and -gam. So choose the one that makes sense. I'm doing
 % % that so that news and IT have + effects on TFP.
 if sum(IRFs(1,:,3)) < 0 % if the majority of TFP response is negative
-    IRFs(:,:,3) = -IRFs(:,:,3);
-    ub(:,:,3) = - ub(:,:,3);
-    lb(:,:,3) = - lb(:,:,3);
+    IRFs(:,:,3)   = -IRFs(:,:,3);
+    ub(:,:,3)     = - ub(:,:,3);
+    lb(:,:,3)     = - lb(:,:,3);
 end
 if sum(IRFs(1,:,4)) < 0 % if the majority of TFP response is negative
-    IRFs(:,:,4) = -IRFs(:,:,4);
-    ub(:,:,4) = - ub(:,:,4);
-    lb(:,:,4) = - lb(:,:,4);
+    IRFs(:,:,4)   = -IRFs(:,:,4);
+    ub(:,:,4)     = - ub(:,:,4);
+    lb(:,:,4)     = - lb(:,:,4);
 end
 
 plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, which_ID,print_figs)
 
-
-
+return
 
 fev_matrix = {'News', 'IT', 'Total'};
 fev_matrix(2,:) = {num2str(FEV_news), num2str(FEV_IT), num2str(FEV_opt)};
