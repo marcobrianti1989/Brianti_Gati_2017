@@ -1,4 +1,4 @@
-function [pc] = get_principal_components(data)
+function pc = get_principal_components(data)
 % Get principal components (see Stock & Watson 2002, eq 6)
 % data is (T, nvar)
 

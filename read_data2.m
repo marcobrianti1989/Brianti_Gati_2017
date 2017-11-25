@@ -41,7 +41,7 @@ for i_var = 1:nvar
       if     transformations(i_var) == 1
             full_data(:,i_var) = cumsum(full_data(:,i_var));
       elseif transformations(i_var) == 2 
-           % full_data(:,i_var) = full_data(:,i_var);
+            full_data(:,i_var) = full_data(:,i_var);
       elseif transformations(i_var) == 3
             full_data(:,i_var) = log(full_data(:,i_var));
       elseif transformations(i_var) == 4 
