@@ -3,9 +3,6 @@
 
 % Marco Brianti, Laura Gáti, Oct 28 2017
 
-% 500 bootstrap: Mac takes ? min
-% 500 bootstrap: Server takes 30 min
-
 clear
 close all
 
@@ -110,7 +107,7 @@ end
 %Creating and Printing figures
 comment = [which_ID '_' char(varnames(6)) '_LR_hor_' num2str(LR_hor)];
 
-print_figs = 'no';
+print_figs = 'yes';
 [IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,B,beta_tilde_star,H,sig);
 
 % % With Barsky & Sims-type ID, since you do a abs max, there are two
