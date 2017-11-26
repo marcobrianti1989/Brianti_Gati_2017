@@ -1,0 +1,12 @@
+#!/bin/tcsh
+#PBS -l mem=6gb,nodes=1:ppn=12,walltime=6:00:00
+#PBS -m abe -M gati@bc.edu
+
+module load matlab
+nohup matlab  -nodisplay  >& /home/gati/BG17/submit.out << EOF
+cd ~/BG17
+
+
+main_file_SVAR_RyansID
+
+EOF

@@ -14,13 +14,14 @@ sheet    = 'Data';
 range    = 'B1:M286';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
-which_shocks = [3 4];
+% which_shocks = [3 4];
+which_shocks = [2 3];
 pos_rel_prices = 6;
 
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 20; %5000
+nsimul          = 30; %5000
 nvar            = size(data,2);
 sig             = 0.90; % significance level
 H               = 100; %40; % horizon for generation of IRFs
@@ -76,9 +77,9 @@ for i_simul = 1:nsimul
 end
 
 %Creating and Printing figures
-comment = [which_ID '_' char(varnames(6)) '_LR_hor_' num2str(LR_hor)];
+comment = [which_ID '_' char(varnames(5)) '_LR_hor_' num2str(LR_hor)];
 
-print_figs = 'no';
+print_figs = 'yes';
 [IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,...
       B,beta_tilde_star,H,sig);
 
@@ -101,6 +102,9 @@ plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, ...
       which_ID,print_figs)
 
 %Forni&Gambetti Orthogonality Test
+do_FG_test = 'no';
+switch do_FG_test
+    case 'yes'
 filename_PC       = 'Dataset_test_PC';
 sheet_PC          = 'Quarterly';
 range_PC          = 'B2:DC287';
@@ -108,6 +112,7 @@ first_n_PCs       = 10;
 [pvalue_news_shock, pvalue_IT_shock] = ...
       Forni_Gambetti_orthogonality_test(filename_PC,...
       sheet_PC,range_PC,first_n_PCs,A,gam_opt,res);
+end
 
 %Saving in Tex format the Variance Decomposition Matrix
 fev_matrix = {'News', 'IT', 'Total'};

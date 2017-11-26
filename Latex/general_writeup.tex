@@ -124,9 +124,9 @@ bindingoffset=0mm]{geometry}
 \end{figure}
  
 %%%%%%%%
-%two lags instead of one (back to LR hor = 8), adding real stock prices 500, removing GDP, with relative price
+%one lag (back to LR hor = 8), adding real stock prices 500, removing GDP, with relative price
 \newpage
-	\subsection{Capital prices LR horizon 8}
+	\subsection{Relative prices LR horizon 8, adding SP 500}
 	\noindent one lag, LR hor = 8, adding real stock prices 500, removing GDP, with relative price
 	
 	
@@ -139,21 +139,119 @@ bindingoffset=0mm]{geometry}
 \subfigure[IT]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_25-Nov-2017_11_30_52}}
 \end{figure}
 
+%%%%%%%%
+% adding real SP500, but with GDP
+\newpage
+	\subsection{Relative prices LR horizon 8, adding SP 500 and leaving in GDP}
+	\noindent one lag, LR hor = 8, adding real stock prices 500, leaving in GDP, with relative price; only 30 bootstrap
+	
+	
+	\input{FEVs_Ryan_two_stepsID_RelPrice_LR_hor_8_26-Nov-2017_09_31_50}
+	
+	\begin{figure}[h!]
+\centering
+\subfigure[News]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_News_Shock_Ryan_two_stepsID_26-Nov-2017_09_36_04}} \hspace{.2in%
+} 
+\subfigure[IT]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_26-Nov-2017_09_36_11}}
+\end{figure}
+
+\
+
+I wanted to do this to see if in the previous spec, it was adding SP500 that made things nicer or if it was removing GDP. Clearly, if you keep GDP in, things aren't so nice anymore, but they're not too bad. Things don't move so much anymore; it seems like we have too many variables for the VAR to contain. At the same time, overall they move in the right directions. 
 
 %%%%%%%%
-%one lag (back to LR hor = 8)
+%SP500 instead of Mich
+\newpage
+	\subsection{Relative prices LR horizon 8, adding SP 500 instead of Mich}
+	\noindent one lag, LR hor = 8, adding real stock prices 500 instead of Mich, leaving in GDP, with relative price; only 30 bootstrap
+	
+	\
+	
+	
+	\input{FEVs_Ryan_two_stepsID_RelPrice_LR_hor_8_26-Nov-2017_10_01_19}
+	
+	\begin{figure}[h!]
+\centering
+\subfigure[News]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_News_Shock_Ryan_two_stepsID_26-Nov-2017_10_02_09}} \hspace{.2in%
+} 
+\subfigure[IT]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_26-Nov-2017_10_02_14}}
+\end{figure}
+
+\
+
+I wanted to do this one to see how well SP500 can replace Mich. Results are fairly in line, that's great, contribution of news and IT is \emph{identical}. VERY nice!
+%%%%%%%%
+%two lags (back to LR hor = 8, back to no SP500 i.e. default setup)
+\newpage
+	\subsection{Default spec, 2 lags}
+	\noindent two lags, LR hor = 8, Mich is back, with relative price; only 30 bootstrap
+	
+	\
+	
+	
+	\input{FEVs_Ryan_two_stepsID_RelPrice_LR_hor_8_26-Nov-2017_10_12_18}
+	
+	\begin{figure}[h!]
+\centering
+\subfigure[News]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_News_Shock_Ryan_two_stepsID_26-Nov-2017_10_12_10}} \hspace{.2in%
+} 
+\subfigure[IT]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_26-Nov-2017_10_12_14}}
+\end{figure}
+
+\
+A little too much uncertainty here on the news shock side. Doing this with a 500 bootstrap might make sense. % Running on server, expected to be ready around 16.00
+
+
 
 %%%%%%%%
-% adding real SP
+% removing consumption 
+\newpage
+	\subsection{Default spec, removing consumption}
+	\noindent one lag, LR hor = 8, no consumption, with relative price; only 30 bootstrap
+	
+	\
+	
+	
+	\input{FEVs_Ryan_two_stepsID_RelPrice_LR_hor_8_26-Nov-2017_10_24_22}
+	
+	\begin{figure}[h!]
+\centering
+\subfigure[News]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_News_Shock_Ryan_two_stepsID_26-Nov-2017_10_24_15}} \hspace{.2in%
+} 
+\subfigure[IT]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_26-Nov-2017_10_24_19}}
+\end{figure}
+
+\
+
+Not too bad, but wiggly - strangely enough, something seems to be missing.
 
 %%%%%%%%
-% removing consumption
+% adding hours 
+\newpage
+	\subsection{Default spec, adding hours}
+	\noindent one lag, LR hor = 8, adding hours, with relative price; only 30 bootstrap
+	
+	\
+	
+	
+	\input{FEVs_Ryan_two_stepsID_RelPrice_LR_hor_8_26-Nov-2017_10_24_22}
+	
+	\begin{figure}[h!]
+\centering
+\subfigure[News]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_News_Shock_Ryan_two_stepsID_26-Nov-2017_10_43_48}} \hspace{.2in%
+} 
+\subfigure[IT]{\includegraphics[width=8.5cm]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_26-Nov-2017_10_43_51}}
+\end{figure}
+
+\
+As usual, it screws up the news shock, leaving the IT shock very nice. 
+
 
 %%%%%%%%
 % and/or adding investment 
 
 %%%%%%%%
-% Capital prices
+% Capital prices instead of relative prices
 \newpage
 \subsection{Capital prices LR horizon 8}
 \noindent Time it took, for 500 bootstrap, Mac: 12 min
