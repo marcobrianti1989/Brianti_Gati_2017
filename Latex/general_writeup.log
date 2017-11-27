@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  27 NOV 2017 13:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  27 NOV 2017 14:45
 entering extended mode
 **./general_writeup.tex
 (general_writeup.tex
@@ -1182,12 +1182,35 @@ Package pdftex.def Info: ../Figures/fig_IT_Shock_Ryan_two_stepsID_24-Nov-2017_1
 
 [10 <../Figures/fig_News_Shock_Ryan_two_stepsID_24-Nov-2017_16_17_15.pdf> <../F
 igures/fig_IT_Shock_Ryan_two_stepsID_24-Nov-2017_16_17_19.pdf>]
+(FEVs_Ryan_two_stepsID_Rel_Price_LR_hor_8_27-Nov-2017_14_42_35.tex)
+<../Figures/fig_News_Shock_Ryan_two_stepsID_27-Nov-2017_14_42_29.pdf, id=223, 1
+156.06906pt x 640.6033pt>
+File: ../Figures/fig_News_Shock_Ryan_two_stepsID_27-Nov-2017_14_42_29.pdf Graph
+ic file (type pdf)
+
+<use ../Figures/fig_News_Shock_Ryan_two_stepsID_27-Nov-2017_14_42_29.pdf>
+Package pdftex.def Info: ../Figures/fig_News_Shock_Ryan_two_stepsID_27-Nov-2017
+_14_42_29.pdf used on input line 286.
+(pdftex.def)             Requested size: 241.84842pt x 134.01259pt.
+
+<../Figures/fig_IT_Shock_Ryan_two_stepsID_27-Nov-2017_14_42_32.pdf, id=224, 115
+6.06906pt x 640.6033pt>
+File: ../Figures/fig_IT_Shock_Ryan_two_stepsID_27-Nov-2017_14_42_32.pdf Graphic
+ file (type pdf)
+
+<use ../Figures/fig_IT_Shock_Ryan_two_stepsID_27-Nov-2017_14_42_32.pdf>
+Package pdftex.def Info: ../Figures/fig_IT_Shock_Ryan_two_stepsID_27-Nov-2017_1
+4_42_32.pdf used on input line 288.
+(pdftex.def)             Requested size: 241.84842pt x 134.01259pt.
+
+[11 <../Figures/fig_News_Shock_Ryan_two_stepsID_27-Nov-2017_14_42_29.pdf> <../F
+igures/fig_IT_Shock_Ryan_two_stepsID_27-Nov-2017_14_42_32.pdf>]
 (general_writeup.aux) ) 
 Here is how much of TeX's memory you used:
- 13944 strings out of 493323
- 271240 string characters out of 3139072
+ 13957 strings out of 493323
+ 272107 string characters out of 3139072
  310022 words of memory out of 3000000
- 17137 multiletter control sequences out of 15000+200000
+ 17145 multiletter control sequences out of 15000+200000
  12032 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,7n,54p,420b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1198,9 +1221,9 @@ Here is how much of TeX's memory you used:
 Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on general_writeup.pdf (10 pages, 329398 bytes).
+Output written on general_writeup.pdf (11 pages, 350715 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
+ 267 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 113 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 123 words of extra memory for PDF output out of 10000 (max. 10000000)
 

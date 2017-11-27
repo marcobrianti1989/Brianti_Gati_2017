@@ -11,12 +11,16 @@ tic
 %Data Reading and Transformation
 filename = 'dataset_main';
 sheet    = 'Data';
-range    = 'B1:M286';
+range    = 'B1:N286';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
 % which_shocks = [3 4];
 which_shocks = [2 3];
-pos_rel_prices = 6;
+pos_rel_prices = 5;
+if pos_rel_prices == 6
+else
+      warning('Position of Relative Price is not anymore 6.')
+end
 
 %Technical Parameters
 max_lags        = 10;
