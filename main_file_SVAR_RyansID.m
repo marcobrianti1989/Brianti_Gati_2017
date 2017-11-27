@@ -21,7 +21,7 @@ pos_rel_prices = 6;
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 30; %5000
+nsimul          = 500; %5000
 nvar            = size(data,2);
 sig             = 0.90; % significance level
 H               = 100; %40; % horizon for generation of IRFs
@@ -31,7 +31,7 @@ which_variable  = 1; % select TFP as the variable whose FEV we wanna max
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
 [AIC,BIC,HQ] = aic_bic_hq(data,max_lags);
 if AIC >= 4
-    nlags = 1; % 1
+    nlags = 1; % 2;
     warning(['AIC > 4, setting nlags to ', num2str(nlags) ])
 else
     nlags = AIC;
