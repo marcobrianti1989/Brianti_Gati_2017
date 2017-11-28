@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{verbatim}
+\usepackage{csquotes}
 
 %
 \font\reali=msbm10 at 12pt
@@ -39,21 +40,271 @@
 
 \end{frame}
 
-
-%% Slide 1 / Comments I
+%%%%%%% Slide %%%%%%
 \begin{frame}
-	\frametitle{A primitive question}
+	\frametitle{A very big question}
 	
-	\
-	
-	\
-	
-	Why has TFP slowed down?
+Broad consensus on secular stagnation.
+
+
+\
+
+The literature has agreed that there are two main factors driving this:
+\begin{itemize}
+\item decreasing labor force participation
+\item decreasing TFP growth
+\end{itemize}
 	
 	
 
 
 \end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{A smaller, but still big question}
+	
+	\
+	
+	\
+	
+	Why has TFP slowed down? % show TFP graph here
+	
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Two possible mechanisms}
+	
+\begin{itemize}
+\item a permanent, or very persistent exogenous shock to TFP
+
+\
+
+\item an endogenous mechanism
+\end{itemize}	
+
+\
+
+\
+
+$\rightarrow$ What we do in a nutshell: test for the endogenous mechanism (main analysis will be a SVAR)
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Related literatures}
+	\label{related_lit}
+\begin{itemize}
+\item One strand of literature: Exogenous TFP and news shocks
+	\begin{itemize}
+	\item Beaudry \& Portier (2006)
+	\item Barsky \& Sims (2011)
+	
+	\end{itemize}
+\item [] \textbf{Our contribution: allow in this setting the existence of an endogenous mechanism that affects future TFP}	
+
+
+\hyperlink{BS_quote}{\beamergotobutton{Barsky \& Sims quote}}
+
+	\
+	
+	\
+	
+\item Another strand of literature: Endogenous TFP with R\&D investment as the key variable
+	\begin{itemize}
+	\item Comin \& Gertler (2006)
+	\item Moran \& Queralto (2017)
+	
+	\end{itemize}	
+
+
+\item []  \textbf{Our contribution: provide what we think is a more convincing test for the endogenous mechanism}
+
+
+\end{itemize}
+
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Why more convincing?}
+	\label{convincing}
+	
+	Because the endogenous TFP literature faces a big problem: The endogenous mechanism is rationalized entirely using R\&D investment. 
+	
+	\
+	
+\begin{enumerate}
+\item  But R\&D in the data is almost acyclical.... $\rightarrow$ hard to rationalize as a driver of business cycle fluctuations % hyperlink to graph: growth rate of RD vs. growth rate of TFP and GDP
+ \hyperlink{growth_rates}{\beamergotobutton{Graph of acyclical R\&D}}
+
+\
+
+\item Timing issue: the TFP slowdown begins around 2006, i.e. \emph{before} the Great Recession and thus \emph{before} the marked drop in R\&D  % hyperlink to graph: level of RD and TFP, so we see that TFP drops in 2006, while RD only during the recession.
+\hyperlink{timing}{\beamergotobutton{Graph of timing}}
+
+\end{enumerate}
+
+\
+
+$\Rightarrow$ Following the suggestion of Fernald, Hall, Stock \& Watson (2009), we propose to use investment in information technology (IT)  % hyperlink to our own graph motivation.pdf: the top graph.
+\hyperlink{it_investment}{\beamergotobutton{Graph of IT investment}}
+
+	
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Empirical analysis}
+
+	We run a SVAR using aggregate, quarterly US data. The data vector is:
+	
+	\begin{equation}
+	\mathbf{X_t} = 
+	\begin{bmatrix}
+    TFP_t      \\
+ 
+   SP_t   \\
+   
+   IT_t \\
+   
+   GDP_t \\
+   
+   C_t \\
+   
+   RP_t
+\end{bmatrix}
+	\end{equation}
+	
+
+
+\
+
+\
+
+\begin{itemize}
+\item $RP = \pi^{IT}/\pi^{CPI}$. 
+\item All variables are in log levels except for RP, which is in growth rates. 
+\item The dataset ranges from 1989:q1 - 2017:q1.
+\end{itemize}	
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{From reduced form to structural form}
+\begin{equation}
+(\mathbf{AD})^{-1}
+    \mathbf{X_{t}}
+= \mathbf{C(L)} 
+\mathbf{X_{t-1}}
++ \mathbf{S_t}
+\end{equation}
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Identification strategy}
+
+\begin{equation}
+TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_{t-k}}_\text{news shock} + \underbrace{IT_{t-k}}_\text{IT shock}  
+\end{equation}
+
+\
+
+    \begin{enumerate}
+    	\item The news shock $V_{t-k}$ maximizes the FEV of future TFP subject to the restriction that it has no effect on the relative price $RP$ in the long run;
+	
+	\
+	
+    \item The IT shock maximizes the remaining FEV of future TFP;
+    
+    \
+    
+    \item The tech shock $\varepsilon_t$ is considered as a residual shock and is left unrestricted.
+   \end{enumerate}
+	
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                     APPENDIX  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Barsky \& Sims say:}
+	\label{BS_quote}
+	
+\blockquote{\emph{A more general objection to our empirical approach would be that a number of structural shocks, which are not really ``news'' in the sense defined by the literature, might affect a measure of TFP in the future without impacting it immediately. Among these shocks might be research and development shocks, investment specific shocks, and reallocative shocks. Our identification (and any other existing VAR identifications) would obviously confound any true news shock with these shocks.}}
+
+\
+
+\hspace{5cm} Barsky \& Sims (2011), p. 278.
+
+\
+
+\
+
+\
+	
+\hyperlink{related_lit}{\beamerreturnbutton{Return}}	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Growth rate of RD vs growth rate of TFP}
+	\label{growth_rates}
+
+	
+\hyperlink{convincing}{\beamerreturnbutton{Return}}	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Timing: RD drop vs TFP drop}
+	\label{timing}
+
+	
+\hyperlink{convincing}{\beamerreturnbutton{Return}}	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{IT investment: a break at the right time}
+	\label{it_investment}
+
+	
+\hyperlink{convincing}{\beamerreturnbutton{Return}}	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+	
+	
+
 
 
 
