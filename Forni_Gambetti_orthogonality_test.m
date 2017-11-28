@@ -1,6 +1,6 @@
 function [pvalue_news, pvalue_IT] = ...
       Forni_Gambetti_orthogonality_test(filename,...
-      sheet,range,first_n_PCs,A,gamma,resid)
+      sheet,range,first_n_PCs,A,gamma,resid,which_shocks)
 % We test if the structural shock of interest is orthogonal to the 
 % the available information in the economy. 
 % filename, sheet, and range are the name, the sheet, and 
@@ -31,7 +31,7 @@ PCs = get_principal_components(data);
 first_PCs = PCs(:,1:first_n_PCs);
 
 %Obtain the structural shock time series
-[structurals, ~] = get_structral_shocks_alternative(A,gamma,resid);
+[structurals, ~] = get_structral_shocks_alternative(A,gamma,resid,which_shocks);
 
 % Regress the structural shock time series on the first ...
 % first_n_PCs principal components
