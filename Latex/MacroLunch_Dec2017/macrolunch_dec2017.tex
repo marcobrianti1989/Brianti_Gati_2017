@@ -7,6 +7,8 @@
 \usepackage{booktabs}
 \usepackage{verbatim}
 \usepackage{csquotes}
+\usepackage{sansmathaccent}
+\pdfmapfile{+sansmathaccent.map}
 
 %
 \font\reali=msbm10 at 12pt
@@ -19,7 +21,7 @@
 \newcommand{\virgolette}[1]{``#1''}
 %
 
-\author[Brianti, Gati]{\\Marco Brianti and Laura Gati}
+\author[Brianti, Gati]{Marco Brianti and Laura Gati}
 
 \institute[Boston College]{Boston College}
 
@@ -207,15 +209,112 @@ $\Rightarrow$ Following the suggestion of Fernald, Hall, Stock \& Watson (2009),
 %%%%%%% Slide %%%%%%
 \begin{frame}
 	\frametitle{From reduced form to structural form}
+	\label{identification}
+	
+Structural Form	
 \begin{equation}
 (\mathbf{AD})^{-1}
     \mathbf{X_{t}}
 = \mathbf{C(L)} 
 \mathbf{X_{t-1}}
-+ \mathbf{S_t}
++ \mathbf{s_t}
 \end{equation}
+
+\
+
+\
+
+Reduced Form
+\begin{equation}
+\mathbf{X_{t}}
+= \underbrace{\mathbf{AD} \mathbf{C(L)}}_\text{$\mathbf{B(L)}$} 
+\mathbf{X_{t-1}}
++ \underbrace{\mathbf{AD} \mathbf{_t}}_\text{$\mathbf{i_t}$}
+\end{equation}
+
+\
+
+\
+
+\begin{itemize}
+	\item $AD$ is the impact matrix
+	\item $A$ is s.t. $As_t s_t' A' = i_t i_t' = \Sigma$ and $s_t s_t' = I$
+	\item $D$ is a rotation matrix s.t. $DD' = I$ $\Rightarrow$ $AD(AD)' = \Sigma$
+\end{itemize}
+
+$D$ will be a tool to impose our identification assumptions \hyperlink{Technicalities}{\beamergotobutton{Technicalities}}
+
 \end{frame}
 %%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+\frametitle{Identified Shocks}
+
+
+\begin{itemize}
+	\item We impose restrictions on $D$ in order to identify two shocks:
+	\begin{enumerate}
+		\item News Shock
+		\item IT Productivity Shock
+	\end{enumerate}
+
+\
+	
+	\item Econometric challenge is to disentangle two shocks with very similar features 
+		\begin{enumerate}
+		\item No impact effect on TFP
+		\item Persistent positive effect over time on TFP
+		\item Most likely both shocks have positive impact effects on forward-looking variables
+	\end{enumerate}
+
+\
+	
+	
+	\item Barsky \& Sims' identification strategy is not sufficient to disentangle the two
+	\begin{itemize}
+		\item We need a further assumption (restriction) to find a dimension of difference between the shocks
+	\end{itemize}
+\end{itemize}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+\frametitle{Additional Restriction}
+
+
+\begin{itemize}
+	\item We rely in simple demand ans supply theory
+	\begin{enumerate}
+		\item 
+		\item 
+	\end{enumerate}
+	
+	\
+	
+	\item 
+	\begin{enumerate}
+		\item 
+		\item 
+	\end{enumerate}
+	
+	\
+	
+	
+	\item 
+	\begin{itemize}
+		\item 
+	\end{itemize}
+\end{itemize}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
@@ -300,6 +399,33 @@ TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_
 
 	
 \hyperlink{convincing}{\beamerreturnbutton{Return}}	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+\frametitle{Identification Strategy}
+\label{Technicalities}
+
+\begin{equation}
+D = \begin{bmatrix}
+d_{11} & \gamma_{12} & \gamma_{13} & d_{14} & \cdots \\
+d_{21} & \gamma_{22} & \gamma_{23} & d_{24} & \cdots \\
+\vdots & \vdots & \vdots & \ddots & \vdots 
+\end{bmatrix}
+\end{equation}
+
+\begin{itemize}
+	\item Indifferent over $d_{ij}$ as long as $D$ is orthogonal
+	\item $A \gamma_{2}$ is the impact response to a news shock
+	\item $A \gamma_{3}$ is the impact response to a IT productivity shock
+	\item First element of both $A \gamma_{2}$ and $A \gamma_{3}$ is zero due to the no-contemporaneous effect of both shocks on TFP
+	\item $A \gamma_2$ is such that the FEV of TFP is maximized subject to zero long-run effect on $RP$
+	\item $A \gamma_3$ is maximizing the remaining FEV of TFP 
+\end{itemize} 
+
+
+\hyperlink{identification}{\beamerreturnbutton{Return}}	
 \end{frame}
 %%%%%%%%%%%%%%%%%
 	

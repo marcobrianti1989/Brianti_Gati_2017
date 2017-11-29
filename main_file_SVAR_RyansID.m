@@ -11,12 +11,12 @@ tic
 %Data Reading and Transformation
 filename = 'dataset_main';
 sheet    = 'Data';
-range    = 'B1:N286';
+range    = 'B1:P286';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
 % which_shocks = [3 4];
 which_shocks = [2 3];
-pos_rel_prices = 5;
+pos_rel_prices = 6;
 if pos_rel_prices == 6
 else
       warning('Position of Relative Price is not anymore 6.')
@@ -25,7 +25,7 @@ end
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 20; %5000
+nsimul          = 500; %5000
 nvar            = size(data,2);
 sig             = 0.90; % significance level
 H               = 100; %40; % horizon for generation of IRFs
