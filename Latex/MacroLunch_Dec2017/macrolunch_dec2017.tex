@@ -9,7 +9,8 @@
 \usepackage{csquotes}
 \usepackage{sansmathaccent}
 \pdfmapfile{+sansmathaccent.map}
-
+\def \ourFigPath {../../} 
+\setbeamersize{text margin left=5mm,text margin right=12mm} 
 %
 \font\reali=msbm10 at 12pt
 % subsets of real numbers
@@ -199,7 +200,7 @@ $\Rightarrow$ Following the suggestion of Fernald, Hall, Stock \& Watson (2009),
 
 \begin{itemize}
 \item $RP = \pi^{IT}/\pi^{CPI}$. 
-\item All variables are in log levels except for RP, which is in growth rates. 
+\item All variables are real (except price indexes) and in log levels (except for RP, which is in growth rates). 
 \item The dataset ranges from 1989:q1 - 2017:q1.
 \end{itemize}	
 	
@@ -310,8 +311,6 @@ $D$ will be a tool to impose our identification assumptions \hyperlink{Technical
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
-
-
 %%%%%%% Slide %%%%%%
 \begin{frame}
 	\frametitle{Identification strategy overall}
@@ -367,9 +366,29 @@ TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
-	\frametitle{Results - Impulse responses to a news shock}
+	\frametitle{Impulse responses to a news shock}
 
-\includegraphics[scale=0.5]{}
+\vspace{-1cm}
+\noindent
+\begin{figure}
+\centering
+\includegraphics[scale=0.4]{\ourFigPath Figures/fig_News_Shock_Ryan_two_stepsID_29-Nov-2017_15_06_45}
+\end{figure}	
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Impulse responses to an IT shock}
+
+\vspace{-1cm}
+\noindent
+\begin{figure}
+\centering
+\includegraphics[scale=0.4]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_29-Nov-2017_15_06_52}
+\end{figure}
+
 	
 	
 \end{frame}
@@ -377,17 +396,7 @@ TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
-	\frametitle{Results - Impulse responses to an IT shock}
-
-
-	
-	
-\end{frame}
-%%%%%%%%%%%%%%%%%
-
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Results - FEV of TFP explained by the two shocks}
+	\frametitle{FEV of TFP explained by the two shocks at 40 periods}
 
     \hspace{2.25cm}
 \begin{large}
@@ -399,9 +408,128 @@ TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_
 		\hline
 	\end{tabular}
 \end{large}
+		 	
+\end{frame}
+%%%%%%%%%%%%%%%%%
 
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Interpretation}
+
+\begin{enumerate}
+ \item Shape and timing of the responses reflect ...
+ 
+ %\ 
+ 
+	\begin{itemize}
+	\item both the Barsky \& Sims result ...
 	
-	 	
+	\
+	
+	\item ... as well as the the conjecture that the IT shock looks similar to news along certain dimensions, 
+	
+	\
+	
+	\item ... but relative prices do indeed introduce a margin of difference between the two shocks.
+	\end{itemize}
+
+\
+
+\item Shares of FEV of TFP explained ...
+	\begin{itemize}
+	\item ... are also in line with the Barsky \& Sims result ...
+	\item [] For BS, news explains around 45\%, compared to 37\% here
+	
+	\
+	
+	\item ... yet suggest that the IT shock plays an important role as well
+	\end{itemize}
+
+\end{enumerate}
+		 	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Robustness checks}
+
+\begin{itemize}
+\item Different variables
+	\begin{itemize}
+	\item Add the Michigan index of consumer confidence (expected business conditions 5 years ahead)
+	
+	
+	\
+	
+	\item Replace IT prices with capital prices (following Comin \& Gertler)
+	\end{itemize}
+	
+	\
+	
+\item Different horizons at which we impose the restriction on relative prices for the news shock
+\item[] $\rightarrow$ ran  6, 8, 10, 12 and 16 quarters.
+
+\
+
+\item Increase the number of lags (2)
+\end{itemize}
+   		 	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Conclusion}
+	
+\begin{itemize}
+\item Provided what we think (and we hope you do too) a careful and more general test for the endogenous mechanism in TFP.
+\begin{itemize}
+\item While the literature focuses exclusively on R\&D, we show that IT is a better variable to focus on.
+\end{itemize}
+
+\ 
+
+\item The results show that by controlling for the presence of news shocks, the endogenous component of TFP is an important driver of TFP fluctuations at long horizons.
+
+\
+
+\item This result does not contrast however with the findings of the news shock literature since we still find that news also play a significant role in explaining TFP.
+
+\end{itemize}
+   		 	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Work ahead}
+	
+\begin{itemize}
+\item Rationalize this setting using a theoretical model
+\item [] $\hookrightarrow$ what we have in mind: an endogenous TFP model (in the vein of Comin \& Gertler) augmented with news shocks 
+
+\
+
+\item Estimate the model (IR-matching)
+
+\
+
+\item Perform a counterfactual for the Great Recession \emph{and} the period prior, shutting down the negative IT shocks around 2000
+% assuming the IT bubble, i.e. the negative shock to IT productivity around 2000, did not happen.
+
+\
+
+\item See if we can find interesting interactions between the two shocks?
+\item [] $\hookrightarrow$ In particular, we're thinking of noise shocks on IT productivity
+	\begin{itemize}
+	\item [] news shock: shock to expected future value
+	\item [] noise shock: shock to expected current value (``perceptions'')
+	\end{itemize}
+\end{itemize}
+
+
+   		 	
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
@@ -430,6 +558,24 @@ TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_
 \
 
 \
+	
+\hyperlink{related_lit}{\beamerreturnbutton{Return}}	
+\hyperlink{BS_FEV}{\beamerbutton{Barsky \& Sims' FEV-table}}	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Barsky \& Sims FEV of TFP explained}
+	\label{BS_FEV}
+	
+
+\vspace{-1cm}
+\noindent
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{fig_BS_fevtable}
+\end{figure}
 	
 \hyperlink{related_lit}{\beamerreturnbutton{Return}}	
 \end{frame}
