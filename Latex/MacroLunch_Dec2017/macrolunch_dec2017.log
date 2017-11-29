@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  29 NOV 2017 17:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  29 NOV 2017 18:34
 entering extended mode
 **./macrolunch_dec2017.tex
 (macrolunch_dec2017.tex
@@ -966,21 +966,35 @@ Dictionary: translator-theorem-dictionary, Language: English
 
 ] [2
 
-] [3
-
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 100.
+<../../Figures/fig_TFP_macrolunch_29-Nov-2017_17_41_17.pdf, id=84, 1170.3725pt 
+x 633.3964pt>
+File: ../../Figures/fig_TFP_macrolunch_29-Nov-2017_17_41_17.pdf Graphic file (t
+ype pdf)
+ <use ../../Figures/fig_TFP_macrolunch_29-Nov-2017_17_41_17.pdf>
+Package pdftex.def Info: ../../Figures/fig_TFP_macrolunch_29-Nov-2017_17_41_17.
+pdf used on input line 86.
+(pdftex.def)             Requested size: 327.70206pt x 177.34978pt.
+
+Overfull \hbox (11.87636pt too wide) in paragraph at lines 86--86
+ [] 
+ []
+
+[3
+
+ <../../Figures/fig_TFP_macrolunch_29-Nov-2017_17_41_17.pdf>]
+LaTeX Font Info:    Try loading font information for U+msa on input line 108.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 100.
+LaTeX Font Info:    Try loading font information for U+msb on input line 108.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 100.
+line 108.
 
 (C:\Users\th3\AppData\Roaming\MiKTeX\2.9\tex\latex\sansmathaccent\ot1mathkerncm
 ss.fd
@@ -1005,34 +1019,34 @@ thkerncmss.
 ] [12
 
 ]
-<../../Figures/fig_News_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_36.pdf, id=374
+<../../Figures/fig_News_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_36.pdf, id=380
 , 848.92157pt x 533.28232pt>
 File: ../../Figures/fig_News_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_36.pdf Gr
 aphic file (type pdf)
 
 <use ../../Figures/fig_News_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_36.pdf>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_Ryan_two_stepsID_29-Nov-2
-017_16_43_36.pdf used on input line 378.
+017_16_43_36.pdf used on input line 386.
 (pdftex.def)             Requested size: 339.56262pt x 213.30914pt.
 
-Overfull \hbox (23.73692pt too wide) in paragraph at lines 378--378
+Overfull \hbox (23.73692pt too wide) in paragraph at lines 386--386
  [] 
  []
 
 [13
 
  <../../Figures/fig_News_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_36.pdf>]
-<../../Figures/fig_IT_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_47.pdf, id=483, 
+<../../Figures/fig_IT_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_47.pdf, id=489, 
 845.91031pt x 532.52951pt>
 File: ../../Figures/fig_IT_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_47.pdf Grap
 hic file (type pdf)
 
 <use ../../Figures/fig_IT_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_47.pdf>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_Ryan_two_stepsID_29-Nov-201
-7_16_43_47.pdf used on input line 394.
+7_16_43_47.pdf used on input line 402.
 (pdftex.def)             Requested size: 338.35812pt x 213.00803pt.
 
-Overfull \hbox (22.53242pt too wide) in paragraph at lines 394--394
+Overfull \hbox (22.53242pt too wide) in paragraph at lines 402--402
  [] 
  []
 
@@ -1052,26 +1066,56 @@ Overfull \hbox (22.53242pt too wide) in paragraph at lines 394--394
 ] [20
 
 ]
-<fig_BS_fevtable.png, id=751, 1100.11pt x 604.2575pt>
+<fig_BS_fevtable.png, id=757, 1100.11pt x 604.2575pt>
 File: fig_BS_fevtable.png Graphic file (type png)
 
 <use fig_BS_fevtable.png>
-Package pdftex.def Info: fig_BS_fevtable.png used on input line 584.
+Package pdftex.def Info: fig_BS_fevtable.png used on input line 592.
 (pdftex.def)             Requested size: 330.03555pt x 181.27864pt.
 
-Overfull \hbox (14.20985pt too wide) in paragraph at lines 584--584
+Overfull \hbox (14.20985pt too wide) in paragraph at lines 592--592
  [] 
  []
 
 [21
 
- <./fig_BS_fevtable.png>] [22
+ <./fig_BS_fevtable.png>]
+<../../Figures/fig_RD_macrolunch_29-Nov-2017_18_12_20.pdf, id=787, 1184.67593pt
+ x 633.3964pt>
+File: ../../Figures/fig_RD_macrolunch_29-Nov-2017_18_12_20.pdf Graphic file (ty
+pe pdf)
+ <use ../../Figures/fig_RD_macrolunch_29-Nov-2017_18_12_20.pdf>
+Package pdftex.def Info: ../../Figures/fig_RD_macrolunch_29-Nov-2017_18_12_20.p
+df used on input line 609.
+(pdftex.def)             Requested size: 331.707pt x 177.34978pt.
 
-] [23
+Overfull \hbox (15.8813pt too wide) in paragraph at lines 609--609
+ [] 
+ []
 
-] [24
+[22
 
-] [25
+ <../../Figures/fig_RD_macrolunch_29-Nov-2017_18_12_20.pdf>]
+<../../Figures/fig_RD_level_macrolunch_29-Nov-2017_18_28_54.pdf, id=820, 1229.8
+4468pt x 633.3964pt>
+File: ../../Figures/fig_RD_level_macrolunch_29-Nov-2017_18_28_54.pdf Graphic fi
+le (type pdf)
+
+<use ../../Figures/fig_RD_level_macrolunch_29-Nov-2017_18_28_54.pdf>
+Package pdftex.def Info: ../../Figures/fig_RD_level_macrolunch_29-Nov-2017_18_2
+8_54.pdf used on input line 626.
+(pdftex.def)             Requested size: 344.35417pt x 177.34978pt.
+
+Overfull \hbox (28.52847pt too wide) in paragraph at lines 626--626
+ [] 
+ []
+
+[23
+
+ <../../Figures/fig_RD_level_macrolunch_29-Nov-2017_18_28_54.pdf>] [24
+
+]
+[25
 
 ]
 \tf@nav=\write6
@@ -1083,19 +1127,19 @@ Overfull \hbox (14.20985pt too wide) in paragraph at lines 584--584
 \tf@snm=\write8
 \openout8 = `macrolunch_dec2017.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 666.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 666.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 688.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 688.
  (macrolunch_dec2017.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 666.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 666.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 688.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 688.
 Package rerunfilecheck Info: File `macrolunch_dec2017.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18554 strings out of 493323
- 351844 string characters out of 3139072
- 438656 words of memory out of 3000000
- 21565 multiletter control sequences out of 15000+200000
+ 18569 strings out of 493323
+ 352734 string characters out of 3139072
+ 439656 words of memory out of 3000000
+ 21577 multiletter control sequences out of 15000+200000
  29489 words of font info for 75 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,15n,57p,814b,648s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1119,9 +1163,9 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmsy8.pfb>
-Output written on macrolunch_dec2017.pdf (25 pages, 1441752 bytes).
+Output written on macrolunch_dec2017.pdf (25 pages, 1461664 bytes).
 PDF statistics:
- 1309 PDF objects out of 1440 (max. 8388607)
+ 1327 PDF objects out of 1440 (max. 8388607)
  60 named destinations out of 1000 (max. 500000)
- 100 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 115 words of extra memory for PDF output out of 10000 (max. 10000000)
 

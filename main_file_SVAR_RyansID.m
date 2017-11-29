@@ -22,6 +22,8 @@ else
       warning('Position of Relative Price is not anymore 6.')
 end
 
+return
+
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
