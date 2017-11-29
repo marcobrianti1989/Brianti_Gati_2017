@@ -22,12 +22,18 @@ function plotIRFs(IRFs,ub,lb,h,which_shock, names, varnames, which_ID_strat, pri
             varname = varnames{i_var};
             subplot(nvar,1,i_var)
             hold on
-            plot(periods,IRFs(i_var,1:h,which_shock(i_shock)),'linewidth',1.5,'Color','r')
-            plot(periods,ub(i_var,1:h,which_shock(i_shock)),'--','linewidth',1,'Color','k')
-            plot(periods,lb(i_var,1:h,which_shock(i_shock)),'--','linewidth',1,'Color','k')
+            x2 = [periods, fliplr(periods)];
+            inBetween = [lb(i_var,1:h,which_shock(i_shock)), fliplr(ub(i_var,1:h,which_shock(i_shock)))];
+            fill(x2, inBetween, [0.75 0.75 0.75],'LineStyle','none');
+            %plot(periods,ub(i_var,1:h,which_shock(i_shock)),'--','linewidth',1.5,'Color','k')
+            %plot(periods,lb(i_var,1:h,which_shock(i_shock)),'--','linewidth',1.5,'Color','k')
             plot(zeros(1,h), 'Color','b')
+            plot(periods,IRFs(i_var,1:h,which_shock(i_shock)),'linewidth',1,'Color','r')            
             %title([name, ' on ' , varname],'fontsize',18)
             title([varname],'fontsize',18)
+            xt = get(gca, 'XTick');
+            set(gca, 'FontSize', 14)
+            
             hold off
             grid on
         end
