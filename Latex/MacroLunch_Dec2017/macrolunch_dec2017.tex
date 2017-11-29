@@ -249,7 +249,7 @@ $D$ will be a tool to impose our identification assumptions \hyperlink{Technical
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
-\frametitle{Identified Shocks}
+\frametitle{Identified shocks}
 
 
 \begin{itemize}
@@ -283,32 +283,28 @@ $D$ will be a tool to impose our identification assumptions \hyperlink{Technical
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
-\frametitle{Additional Restriction}
+\frametitle{Additional restriction}
 
 
 \begin{itemize}
-	\item We rely in simple demand ans supply theory
+	\item We rely on simple demand and supply theory
+	
+	\
+	
 	\begin{enumerate}
-		\item 
-		\item 
+		\item The IT shock is a \emph{sectoral} shock $\rightarrow$ we expect it to move relative prices
+		\item The news shock is \emph{not} a sectoral shock $\rightarrow$ we have no a priori sense of what it should do to relative prices on impact, but after some time relative prices should go back to their initial value
 	\end{enumerate}
 	
 	\
 	
-	\item 
-	\begin{enumerate}
-		\item 
-		\item 
-	\end{enumerate}
-	
-	\
-	
-	
-	\item 
-	\begin{itemize}
-		\item 
-	\end{itemize}
 \end{itemize}
+
+	$\rightarrow$ add the restriction that a news shock should have no effect on relative prices after a reasonable time
+	
+\hspace{4cm} $\hookrightarrow$ enough for prices to adjust, so
+
+\hspace{4cm}   between 6 -12 quarters 
 
 
 \end{frame}
@@ -318,7 +314,7 @@ $D$ will be a tool to impose our identification assumptions \hyperlink{Technical
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
-	\frametitle{Identification strategy}
+	\frametitle{Identification strategy overall}
 
 \begin{equation}
 TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_{t-k}}_\text{news shock} + \underbrace{IT_{t-k}}_\text{IT shock}  
@@ -327,7 +323,7 @@ TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_
 \
 
     \begin{enumerate}
-    	\item The news shock $V_{t-k}$ maximizes the FEV of future TFP subject to the restriction that it has no effect on the relative price $RP$ in the long run;
+    	\item The news shock $V_{t-k}$ maximizes the FEV of future TFP subject to the restriction that it has no effect on the relative price $RP$ at a small number of quarters;
 	
 	\
 	
@@ -335,10 +331,77 @@ TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_
     
     \
     
-    \item The tech shock $\varepsilon_t$ is considered as a residual shock and is left unrestricted.
+    \item The tech shock $\varepsilon_t$ is considered as a residual shock and is left unrestricted (unidentified).
    \end{enumerate}
 	
 	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Our favorite specification}
+	
+	\begin{itemize}
+	\item Recall: dataset is quarterly and covers 1989:q1-2017-q1.
+	
+	\
+	
+	\item One lag (as suggested by BIC and HQ).
+	
+	\
+	
+	\item Horizon of FEV-maximization: 100 quarters.
+	
+	\
+	
+	\item Restriction on relative prices after a news shock is imposed at 8 quarters.
+	
+	\end{itemize}
+
+
+	
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Results - Impulse responses to a news shock}
+
+\includegraphics[scale=0.5]{}
+	
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Results - Impulse responses to an IT shock}
+
+
+	
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Results - FEV of TFP explained by the two shocks}
+
+    \hspace{2.25cm}
+\begin{large}
+	\begin{tabular}{lccc}
+	\hline
+		& News & IT & Total \\
+		\hline
+		 & 0.37195 & 0.43944 & 0.81138 \\
+		\hline
+	\end{tabular}
+\end{large}
+
+	
+	 	
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
