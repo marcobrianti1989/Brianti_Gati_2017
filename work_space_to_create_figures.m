@@ -7,7 +7,6 @@ sheet    = 'Data';
 range    = 'B1:P286';
 [data, varnames] = read_data2(filename, sheet, range);
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%% PLOTTING TFP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,9 +103,45 @@ invoke_export_fig('RD_level','macrolunch')
 %corr(data(80:end,1),data(80:end,2))
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% PLOTTING IT INVESTMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+clear
+close all
+
+filename = 'dataset_main';
+sheet    = 'Data';
+range    = 'B1:P286';
+[data, varnames] = read_data2(filename, sheet, range);
+data3 = log(data); % Marco?
+time_IT = datetime(1989,1,1) + calquarters(0:size(data,1)-1);
+time_IT = time_IT';
+IT = data3(:,3);
+[m, i] = max(IT);
+breaktime = datestr(time_IT(i),'yyyy-qq');
 
 
+gcf = figure(1);
+set(gcf,'color','w');
+set(gcf,'position',[1 41 1920 963])
+hold on
+plot(time_IT,IT,'linewidth',1.5)
+xt = get(gca, 'XTick');
+set(gca, 'FontSize', 24)
+brk = time_IT(i);
+y1 = get(gca,'ylim');
+plot([brk brk],y1, 'r--')
+txt1 = breaktime;
+xtx = brk + 200;
+ytx = 0.58;
+text(xtx,ytx,txt1,'fontsize',24)
+leg = legend('Real IT Investment','Location','East');
+set(leg,'fontsize',28)
+grid on
+hold off
 
+%invoke_export_fig('IT_level','macrolunch')
 
 
 
