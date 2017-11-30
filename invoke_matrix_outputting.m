@@ -10,12 +10,12 @@ some_comment = strrep(some_comment,' ','_');
 
 final_name = [matrixname '_' some_comment '_' ct2 '.tex'];
 
-if exist([base_path '\Latex'], 'dir')
-   addpath([base_path '\Latex']) 
-   path.out = ['Latex\' final_name]; %for Microsoft
+if exist([base_path '\Tables'], 'dir')
+   addpath([base_path '\Tables']) 
+   path.out = ['Tables\' final_name]; %for Microsoft
 else
-    addpath([base_path '/Latex'])
-    path.out = ['Latex/' final_name]; %for Mac    
+    addpath([base_path '/Tables'])
+    path.out = ['Tables/' final_name]; %for Mac    
 end
 
 
