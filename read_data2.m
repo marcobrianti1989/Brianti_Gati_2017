@@ -12,12 +12,12 @@ function [data, var_names] = read_data2(filename, sheet, range)
 % Row 5: Position: the position of the series in the dataset to be used (could play a role for Cholesky VARs for ex.)
 
 
-% Create the correct path 
+% Create the correct path
 base_path = pwd;
 if exist([base_path '\Data'], 'dir')
-    addpath([base_path '\Data']) %for Microsoft
+      addpath([base_path '\Data']) %for Microsoft
 else
-    addpath([base_path '/Data']) %for Mac
+      addpath([base_path '/Data']) %for Mac
 end
 
 % Reading Excel
@@ -36,21 +36,24 @@ nvar = size(variables,2);
 % if 3: take the log
 % if 4: take the difference
 % if 5: take the growth rate (diff after logs)
+% if 6: take the cumulative and then log
 % else: keep the level but warning
 for i_var = 1:nvar
       if     transformations(i_var) == 1
             full_data(:,i_var) = cumsum(full_data(:,i_var));
-      elseif transformations(i_var) == 2 
+      elseif transformations(i_var) == 2
             full_data(:,i_var) = full_data(:,i_var);
       elseif transformations(i_var) == 3
             full_data(:,i_var) = log(full_data(:,i_var));
-      elseif transformations(i_var) == 4 
+      elseif transformations(i_var) == 4
             full_data(:,i_var) = vertcat(nan, diff(full_data(:,i_var)));
       elseif transformations(:,i_var) == 5
             full_data(:,i_var) = vertcat(nan, diff(log(full_data(:,i_var))));
+      elseif transformations(:,i_var) == 6
+            full_data(:,i_var) = log(cumsum(full_data(:,i_var)));
       else
             warning('Some variables may have a mispecified transformation')
-      end     
+      end
 end
 
 % Selecting the VAR system we want to work with
@@ -64,7 +67,7 @@ for i_var = 1:nvar
             % keep variable out of VAR
       else
             warning('The selection procedure of the system may be mispecified')
-      end    
+      end
 end
 
 % Generalized Truncation

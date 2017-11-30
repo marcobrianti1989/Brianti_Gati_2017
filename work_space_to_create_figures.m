@@ -31,37 +31,34 @@ grid on
 hold off
 %invoke_export_fig('TFP','macrolunch')
 
-clear
-close all
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%% PLOTTING R&D GROWTH %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-filename = 'dataset_main';
-sheet    = 'Data';
-range    = 'B1:C286';
-[data, varnames] = read_data2(filename, sheet, range);
-data2 = [NaN NaN ; diff(log(data))];
-time_RD = datetime(1947,4,1) + calquarters(0:size(data,1)-1);
-time_RD = time_RD';
-
-
-figure(1)
-gcf = figure(1);
-set(gcf,'color','w');
-set(gcf,'position',[1 41 1920 963])
-hold on
-plot(time_RD(80:end),data2(80:end,:),'linewidth',1.5)
-leg = legend('Utilization-adjusted TFP','Real R&D expenditure');
-set(leg,'fontsize',28)
-xt = get(gca, 'XTick');
-set(gca, 'FontSize', 24)
-grid on
-hold off
+% filename = 'dataset_main';
+% sheet    = 'Data';
+% range    = 'B1:C286';
+% [data, varnames] = read_data2(filename, sheet, range);
+% data2(:,1) = data(:,1)./4; 
+% data2(:,2) = [NaN ; diff(data(:,2)).*100];
+% time_RD = datetime(1947,4,1) + calquarters(0:size(data,1)-1);
+% time_RD = time_RD';
+% 
+% 
+% figure(1)
+% gcf = figure(1);
+% set(gcf,'color','w');
+% set(gcf,'position',[1 41 1920 963])
+% hold on
+% plot(time_RD(80:end),data2(80:end,:),'linewidth',1.5)
+% leg = legend('Utilization-adjusted TFP','Real R&D expenditure');
+% set(leg,'fontsize',28)
+% xt = get(gca, 'XTick');
+% set(gca, 'FontSize', 24)
+% grid on
+% hold off
 %invoke_export_fig('RD','macrolunch')
 %corr(data(80:end,1),data(80:end,2))
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%% PLOTTING R&D LEVEL %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -74,7 +71,7 @@ filename = 'dataset_main';
 sheet    = 'Data';
 range    = 'B1:C286';
 [data, varnames] = read_data2(filename, sheet, range);
-data2 = log(data);
+data2 = data;
 time_RD = datetime(1947,4,1) + calquarters(0:size(data,1)-1);
 time_RD = time_RD';
 
@@ -114,7 +111,7 @@ filename = 'dataset_main';
 sheet    = 'Data';
 range    = 'B1:P286';
 [data, varnames] = read_data2(filename, sheet, range);
-data3 = log(data); % Marco?
+data3 = data;
 time_IT = datetime(1989,1,1) + calquarters(0:size(data,1)-1);
 time_IT = time_IT';
 IT = data3(:,3);
@@ -134,14 +131,14 @@ y1 = get(gca,'ylim');
 plot([brk brk],y1, 'r--')
 txt1 = breaktime;
 xtx = brk + 200;
-ytx = 0.58;
+ytx = 1.75;
 text(xtx,ytx,txt1,'fontsize',24)
 leg = legend('Real IT Investment','Location','East');
 set(leg,'fontsize',28)
 grid on
 hold off
 
-%invoke_export_fig('IT_level','macrolunch')
+invoke_export_fig('IT_level','macrolunch')
 
 
 
