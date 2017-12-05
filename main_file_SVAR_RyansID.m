@@ -84,8 +84,8 @@ end
 
 %Creating and Printing figures
 comment = [which_ID '_' char(varnames(5)) '_LR_hor_' num2str(LR_hor)];
-
 print_figs = 'yes';
+
 [IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,...
       B,beta_tilde_star,H,sig);
 
@@ -104,8 +104,10 @@ if sum(IRFs(1,:,4)) < 0 % if the majority of TFP response is negative
 end
 
 %Printing/Showing IRFs
-plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, ...
-      which_ID,print_figs)
+h = 40;
+% plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, ...
+%       which_ID,print_figs)
+plot_single_IRFs(IRFs,ub,lb,h,which_shocks,shocknames, varnames, which_ID, print_figs)
 
 %Forni&Gambetti Orthogonality Test
 do_FG_test = 'no';

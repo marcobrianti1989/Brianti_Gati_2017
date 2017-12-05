@@ -17,7 +17,7 @@ figname = strrep(figname,' ','_');
 some_comment = strrep(some_comment,':','_');
 some_comment = strrep(some_comment,' ','_');
 
-final_name = ['fig_' figname '_' some_comment '_' ct2 '.pdf'];
+final_name = ['fig_' figname '_' some_comment '_' ct2 '.png'];
 
 base_path = pwd;
 if exist([base_path '\Figures'], 'dir')
