@@ -1,4 +1,4 @@
-function sig_level = f_test(res_r, res_ur, q, n, k)
+function pvalue = f_test(res_r, res_ur, q, n, k)
 % Inputs
 % res_r  = residuals from restricted regression
 % res_ur = residuals from unrestricted regression
@@ -16,3 +16,6 @@ denominator = SSR_UR / (n-k-1);
 
 F = numerator / denominator;
 sig_level = fcdf(F, q, n-k-1);
+pvalue = 1 - sig_level;
+
+end
