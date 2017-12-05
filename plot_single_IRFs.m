@@ -11,6 +11,10 @@ nvar = size(IRFs,1);
 nshocks = size(which_shock,2);
 periods = 1:h;
 
+%Ylim
+min_y_lim = [-0.5    -0.1     -0.01     0        0        -0.012];
+max_y_lim = [2.5      0.8      0.03     0.012    0.012     0.006];
+
 % Draw pretty pictures
 for i_shock=1:nshocks
       for i_var=1:nvar
@@ -26,10 +30,10 @@ for i_shock=1:nshocks
             fill(x2, inBetween, [0.75 0.75 0.75],'LineStyle','none');
             plot(zeros(1,h), 'Color','b')
             plot(periods,IRFs(i_var,1:h,which_shock(i_shock)),'linewidth',1,'Color','r')
-            %title([varname],'fontsize',18)
             xt = get(gca, 'XTick');
             set(gca, 'FontSize', 14)
-            title([name, ' on ' , varname],'fontsize',60)
+            title([name, ' on ' , varname],'fontsize',72)
+            ylim([min_y_lim(i_var) max_y_lim(i_var)]);
             hold off
             grid on
             
