@@ -10,6 +10,8 @@
 \usepackage{float}
 \usepackage{csquotes}
 \usepackage{sansmathaccent}
+\usepackage{subfigure}
+\usepackage{multicol}
 \pdfmapfile{+sansmathaccent.map}
 \def \ourFigPath {../../} 
 \setbeamersize{text margin left=5mm,text margin right=12mm} 
@@ -37,6 +39,7 @@
 
 
 \begin{document}
+
 
 \begin{frame}
 
@@ -405,80 +408,32 @@ TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Real IT investment response to both shocks}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.15]{\ourFigPath Figures/fig_News_Shock_on_Real_IT_Investment_Ryan_two_stepsID_05-Dec-2017_10_53_07}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.15]{\ourFigPath Figures/fig_IT_Shock_on_Real_IT_Investment_Ryan_two_stepsID_05-Dec-2017_10_53_15}
-\end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Real GDP response to both shocks}
+\frametitle{Other responses to  both shocks}
+
 \begin{figure}
-	\centering
-	\includegraphics[scale=0.15]{\ourFigPath Figures/fig_News_Shock_on_Real_GDP_Ryan_two_stepsID_05-Dec-2017_10_53_09}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.15]{\ourFigPath Figures/fig_IT_Shock_on_Real_GDP_Ryan_two_stepsID_05-Dec-2017_10_53_16}
-\end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Real Consumption response to both shocks}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.15]{\ourFigPath Figures/fig_News_Shock_on_Real_Consumption_Ryan_two_stepsID_05-Dec-2017_10_53_10}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.15]{\ourFigPath Figures/fig_IT_Shock_on_Real_Consumption_Ryan_two_stepsID_05-Dec-2017_10_53_17}
-\end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Impulse responses to a news shock}
-
-\vspace{-1cm}
-\noindent
-\begin{figure}
+\begin{multicols}{2}
 \centering
-\includegraphics[scale=0.4]{\ourFigPath Figures/fig_News_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_36}
-\end{figure}	
-	
-\end{frame}
-%%%%%%%%%%%%%%%%%
+\includegraphics[scale = 0.08]{\ourFigPath Figures/fig_News_Shock_on_Real_IT_Investment_Ryan_two_stepsID_05-Dec-2017_10_53_07}\\  
+\includegraphics[scale = 0.08]{\ourFigPath Figures/fig_News_Shock_on_Real_GDP_Ryan_two_stepsID_05-Dec-2017_10_53_09}\\ 
+\includegraphics[scale = 0.08]{\ourFigPath Figures/fig_News_Shock_on_Real_Consumption_Ryan_two_stepsID_05-Dec-2017_10_53_10}\\ 
+\includegraphics[scale = 0.08]{\ourFigPath Figures/fig_News_Shock_on_Relative_Price_Ryan_two_stepsID_05-Dec-2017_10_53_11}\\ 
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Impulse responses to an IT shock}
 
-\vspace{-1cm}
-\noindent
-\begin{figure}
-\centering
-\includegraphics[scale=0.4]{\ourFigPath Figures/fig_IT_Shock_Ryan_two_stepsID_29-Nov-2017_16_43_47}
+\includegraphics[scale = 0.08]{\ourFigPath Figures/fig_IT_Shock_on_Real_IT_Investment_Ryan_two_stepsID_05-Dec-2017_10_53_15}\\
+\includegraphics[scale = 0.08]{\ourFigPath Figures/fig_IT_Shock_on_Real_GDP_Ryan_two_stepsID_05-Dec-2017_10_53_16}\\
+\includegraphics[scale = 0.08]{\ourFigPath Figures/fig_IT_Shock_on_Real_Consumption_Ryan_two_stepsID_05-Dec-2017_10_53_17}\\ 
+\includegraphics[scale = 0.08]{\ourFigPath Figures/fig_IT_Shock_on_Relative_Price_Ryan_two_stepsID_05-Dec-2017_10_53_19}\\ 
+
+\end{multicols}
 \end{figure}
 
-	
-	
+
 \end{frame}
-%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
@@ -563,7 +518,7 @@ TFP_t =  \underbrace{\varepsilon_t}_\text{surprise tech shock}  + \underbrace{V_
 
 \
 
-\item Check whether VAR is information-sufficient to identify the two shocks (Forni-Gambetti test)
+\item Check whether VAR is information-sufficient to identify the news shock (Forni-Gambetti test) (p-val of 12\%)
 \end{itemize}
    		 	
 \end{frame}
