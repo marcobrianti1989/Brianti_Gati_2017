@@ -1,4 +1,4 @@
-function plot_single_IRFs(IRFs,ub,lb,h,which_shock,names, varnames, which_ID_strat, print_figs)
+function plot_single_IRFs(IRFs,ub1,lb1,ub2,lb2,h,which_shock,names, varnames, which_ID_strat, print_figs)
 % h = IR horizon for figures
 % ub and lb are the bootstrapped CI
 % names = cell vector of shock names
@@ -12,8 +12,8 @@ nshocks = size(which_shock,2);
 periods = 1:h;
 
 %Ylim
-min_y_lim = [-0.5    -0.1     -0.01     0        0        -0.012];
-max_y_lim = [2.5      0.8      0.03     0.012    0.012     0.006];
+min_y_lim = [-0.5      0       -0.015     0        0        -0.012];
+max_y_lim = [4       0.09      0.05     0.025    0.025     0.006];
 
 % Draw pretty pictures
 for i_shock=1:nshocks
@@ -25,9 +25,13 @@ for i_shock=1:nshocks
             name = names{i_shock};
             hold on
             x2 = [periods, fliplr(periods)];
-            inBetween = [lb(i_var,1:h,which_shock(i_shock)), ...
-                  fliplr(ub(i_var,1:h,which_shock(i_shock)))];
+            inBetween = [lb2(i_var,1:h,which_shock(i_shock)), ...
+                  fliplr(ub2(i_var,1:h,which_shock(i_shock)))];
             fill(x2, inBetween, [0.75 0.75 0.75],'LineStyle','none');
+            x1 = [periods, fliplr(periods)];
+            inBetween = [lb1(i_var,1:h,which_shock(i_shock)), ...
+                  fliplr(ub1(i_var,1:h,which_shock(i_shock)))];
+            fill(x1, inBetween, [0.5 0.5 0.5],'LineStyle','none');
             plot(zeros(1,h), 'Color','b')
             plot(periods,IRFs(i_var,1:h,which_shock(i_shock)),'linewidth',1,'Color','r')
             xt = get(gca, 'XTick');
