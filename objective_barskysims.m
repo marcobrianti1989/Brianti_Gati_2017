@@ -1,4 +1,5 @@
-function [obj_FEV, IRFs_all, obj_IRFs] = objective_barskysims(which_variable,H,bet,A,gam) 
+function [obj_FEV, IRFs_all, obj_IRFs] = ...
+        objective_barskysims(which_variable,H,bet,A,gam) 
 % Equation 7 from Barsky and Sims (2011)
 % which_shock: It select the shock whose effect wants to be maximized
 % which_variable: It select the variable that the shock is maximizing
