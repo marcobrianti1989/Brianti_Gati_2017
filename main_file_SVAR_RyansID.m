@@ -14,6 +14,7 @@ sheet    = 'Data';
 range    = 'B1:T286';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
+varnames
 
 % can delete the commented-out stuff below after a while
 % which_shocks = [3 4];
@@ -38,7 +39,6 @@ pos_IT = find(strcmp('Real IT Investment', varnames));
 pos_rel_prices = find(strcmp('Relative Price', varnames));
 which_shocks = [pos_news pos_IT];
 
-return
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
