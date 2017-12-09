@@ -17,8 +17,8 @@ shocknames = {'News Shock','IT Shock'};
 % which_shocks = [3 4];
 which_shocks   = [2 3];
 pos_rel_prices = 6;
-pos_news       = which_shocks(1);
-pos_IT         = which_shocks(2);
+pos_news       = 2;
+pos_IT         = 3;
 if pos_rel_prices == 6
 else
       warning('Position of Relative Price is not anymore 6.')
@@ -38,7 +38,7 @@ max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
 nsimul          = 20; %5000
 nvar            = size(data,2);
-sig1            = 0.80; % significance level
+sig1            = 0.90; % significance level
 sig2            = 0.90; % significance level
 H               = 100; %40; % horizon for generation of IRFs
 h               = H; %40; % horizon for IRF plots
@@ -102,29 +102,28 @@ print_figs = 'no';
 % % With Barsky & Sims-type ID, since you do a abs max, there are two
 % % solutions: gam and -gam. So choose the one that makes sense. I'm doing
 % % that so that news and IT have + effects on TFP.
-% if sum(IRFs(1,:,pos_news)) < 0 % if the majority of TFP response is negative (news)
-%     IRFs(:,:,pos_news)   = -IRFs(:,:,pos_news);
-%     ub1(:,:,pos_news)    = - ub1(:,:,pos_news);
-%     lb1(:,:,pos_news)    = - lb1(:,:,pos_news);
-%     ub2(:,:,pos_news)    = - ub2(:,:,pos_news);
-%     lb2(:,:,pos_news)    = - lb2(:,:,pos_news);
-% end
-% if sum(IRFs(1,:,pos_IT)) < 0 % if the majority of TFP response is negative (IT)
-%     IRFs(:,:,pos_IT)   = -IRFs(:,:,pos_IT);
-%     ub1(:,:,pos_IT)    = - ub1(:,:,pos_IT);
-%     lb1(:,:,pos_IT)    = - lb1(:,:,pos_IT);
-%     ub2(:,:,pos_IT)    = - ub2(:,:,pos_IT);
-%     lb2(:,:,pos_IT)    = - lb2(:,:,pos_IT);
-% end
+if sum(IRFs(1,:,pos_news)) < 0 % if the majority of TFP response is negative (news)
+    IRFs(:,:,pos_news)   = -IRFs(:,:,pos_news);
+    ub1(:,:,pos_news)    = - ub1(:,:,pos_news);
+    lb1(:,:,pos_news)    = - lb1(:,:,pos_news);
+    ub2(:,:,pos_news)    = - ub2(:,:,pos_news);
+    lb2(:,:,pos_news)    = - lb2(:,:,pos_news);
+end
+if sum(IRFs(1,:,pos_IT)) < 0 % if the majority of TFP response is negative (IT)
+    IRFs(:,:,pos_IT)   = -IRFs(:,:,pos_IT);
+    ub1(:,:,pos_IT)    = - ub1(:,:,pos_IT);
+    lb1(:,:,pos_IT)    = - lb1(:,:,pos_IT);
+    ub2(:,:,pos_IT)    = - ub2(:,:,pos_IT);
+    lb2(:,:,pos_IT)    = - lb2(:,:,pos_IT);
+end
 
 % plotIRFs(IRFs,ub1,lb1,40,which_shocks,shocknames,varnames, which_ID,print_figs)
 
 %Printing/Showing IRFs
-h = 100;
-% plotIRFs(IRFs,ub1,lb1,40,which_shocks,shocknames,varnames, ...
+h = 40;
+% plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames, ...
 %       which_ID,print_figs)
-plot_single_IRFs(IRFs,ub1,lb1,ub2,lb2,h,which_shocks,...
-    shocknames, varnames, which_ID, print_figs)
+plot_single_IRFs(IRFs,ub1,lb1,ub2,lb2,h,which_shocks,shocknames, varnames, which_ID, print_figs)
 
 %Forni&Gambetti Orthogonality Test
 do_FG_test = 'no';

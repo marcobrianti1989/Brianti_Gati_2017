@@ -1,6 +1,4 @@
-function [beta_tilde, data_boot2, beta_tilde_star,nonstationarities] = ...
-        bootstrap_with_kilian(beta_hat, nburn, res, ...
-        nsimul, which_correction, blocksize)
+function [beta_tilde, data_boot2, beta_tilde_star,nonstationarities] = bootstrap_with_kilian(beta_hat, nburn, res, nsimul, which_correction, blocksize)
 
 % This function does the entire bootstrap procedure using Kilian's
 % correction, see Kilian 1998, p. 220.
