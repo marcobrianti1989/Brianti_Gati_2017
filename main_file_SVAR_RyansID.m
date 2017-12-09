@@ -15,24 +15,13 @@ range    = 'B1:P286';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
 % which_shocks = [3 4];
-which_shocks   = [2 3];
+which_shocks = [2 3];
 pos_rel_prices = 6;
-pos_news       = 2;
-pos_IT         = 3;
 if pos_rel_prices == 6
 else
       warning('Position of Relative Price is not anymore 6.')
 end
-if strcmp(varnames(pos_news),'Real SP') == 1
-    % good
-else
-    warning('Position of News is not anymore 2.')
-end
-if strcmp(varnames(pos_IT),'Real IT Investment') == 1
-    % good
-else
-    warning('Position of IT is not anymore 3.')
-end
+
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
@@ -60,7 +49,7 @@ end
 test_stationarity(B');
 
 % Implement Ryan's ID strategy
-LR_hor = 8; % at what horizon to impose the LR restriction
+LR_hor = 10; % at what horizon to impose the LR restriction
 % [impact, FEV_opt, IRFs, gamma_opt, FEV_news, FEV_IT] = ryansID(which_variable,which_shocks,H,B,A,q);
 [impact, FEV_opt, ~, gam_opt, FEV_news, FEV_IT] ...
     = Ryan_two_stepsID(which_variable,which_shocks,H,...
@@ -102,22 +91,20 @@ print_figs = 'no';
 % % With Barsky & Sims-type ID, since you do a abs max, there are two
 % % solutions: gam and -gam. So choose the one that makes sense. I'm doing
 % % that so that news and IT have + effects on TFP.
-if sum(IRFs(1,:,pos_news)) < 0 % if the majority of TFP response is negative (news)
-    IRFs(:,:,pos_news)   = -IRFs(:,:,pos_news);
-    ub1(:,:,pos_news)    = - ub1(:,:,pos_news);
-    lb1(:,:,pos_news)    = - lb1(:,:,pos_news);
-    ub2(:,:,pos_news)    = - ub2(:,:,pos_news);
-    lb2(:,:,pos_news)    = - lb2(:,:,pos_news);
+if sum(IRFs(1,:,3)) < 0 % if the majority of TFP response is negative
+    IRFs(:,:,3)   = -IRFs(:,:,3);
+    ub1(:,:,3)     = - ub1(:,:,3);
+    lb1(:,:,3)     = - lb1(:,:,3);
+    ub2(:,:,3)     = - ub2(:,:,3);
+    lb2(:,:,3)     = - lb2(:,:,3);
 end
-if sum(IRFs(1,:,pos_IT)) < 0 % if the majority of TFP response is negative (IT)
-    IRFs(:,:,pos_IT)   = -IRFs(:,:,pos_IT);
-    ub1(:,:,pos_IT)    = - ub1(:,:,pos_IT);
-    lb1(:,:,pos_IT)    = - lb1(:,:,pos_IT);
-    ub2(:,:,pos_IT)    = - ub2(:,:,pos_IT);
-    lb2(:,:,pos_IT)    = - lb2(:,:,pos_IT);
+if sum(IRFs(1,:,4)) < 0 % if the majority of TFP response is negative
+    IRFs(:,:,4)   = -IRFs(:,:,4);
+    ub1(:,:,4)     = - ub1(:,:,4);
+    lb1(:,:,4)     = - lb1(:,:,4);
+    ub2(:,:,4)     = - ub2(:,:,4);
+    lb2(:,:,4)     = - lb2(:,:,4);
 end
-
-% plotIRFs(IRFs,ub1,lb1,40,which_shocks,shocknames,varnames, which_ID,print_figs)
 
 %Printing/Showing IRFs
 h = 40;
@@ -145,7 +132,7 @@ fev_matrix(2,:) = {num2str(FEV_news), num2str(FEV_IT), num2str(FEV_opt)};
 disp('% of FEV of TFP explained:')
 fev_matrix
 
-export_FEV_matrix = 'no';
+export_FEV_matrix = 'yes';
 if strcmp(export_FEV_matrix,'yes') ==1
     fev_matrix_out = [FEV_news, FEV_IT, FEV_opt];
     rowLabels = {'Share of TFP FEV explained'};
