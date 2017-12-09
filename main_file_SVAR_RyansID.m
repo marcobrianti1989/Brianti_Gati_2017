@@ -14,6 +14,8 @@ sheet    = 'Data';
 range    = 'B1:P286';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
+
+% can delete the commented-out stuff below after a while
 % which_shocks = [3 4];
 % which_shocks = [2 3];
 % pos_rel_prices = 6;
@@ -101,15 +103,15 @@ print_figs = 'no';
 % % With Barsky & Sims-type ID, since you do a abs max, there are two
 % % solutions: gam and -gam. So choose the one that makes sense. I'm doing
 % % that so that news and IT have + effects on TFP.
-if sum(IRFs(1,:,3)) < 0 % if the majority of TFP response is negative
-    IRFs(:,:,3)   = -IRFs(:,:,3);
-    ub(:,:,3)     = - ub(:,:,3);
-    lb(:,:,3)     = - lb(:,:,3);
+if sum(IRFs(1,:,pos_IT)) < 0 % if the majority of TFP response is negative
+    IRFs(:,:,pos_IT)   = -IRFs(:,:,pos_IT);
+    ub(:,:,pos_IT)     = - ub(:,:,pos_IT);
+    lb(:,:,pos_IT)     = - lb(:,:,pos_IT);
 end
-if sum(IRFs(1,:,4)) < 0 % if the majority of TFP response is negative
-    IRFs(:,:,4)   = -IRFs(:,:,4);
-    ub(:,:,4)     = - ub(:,:,4);
-    lb(:,:,4)     = - lb(:,:,4);
+if sum(IRFs(1,:,pos_news)) < 0 % if the majority of TFP response is negative
+    IRFs(:,:,pos_news)   = -IRFs(:,:,pos_news);
+    ub(:,:,pos_news)     = - ub(:,:,pos_news);
+    lb(:,:,pos_news)     = - lb(:,:,pos_news);
 end
 
 %Printing/Showing IRFs
