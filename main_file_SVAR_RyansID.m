@@ -83,7 +83,7 @@ end
 
 %Creating and Printing figures
 comment = [which_ID '_' char(varnames(5)) '_LR_hor_' num2str(LR_hor)];
-print_figs = 'yes';
+print_figs = 'no';
 
 [IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,...
       B,beta_tilde_star,H,sig);
