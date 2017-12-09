@@ -69,7 +69,7 @@ end
 
 % Step 2b
 disp('Step 2b')
-% warning off
+warning off
 nonstationarities =zeros(nsimul,1);
 for i_simul=1:nsimul
       flag = test_stationarity(beta_hat_star2(:,:,i_simul)');
