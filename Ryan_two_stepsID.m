@@ -1,6 +1,5 @@
 function [impact, FEV_opt, IRFs, gam, FEV_news, FEV_IT] ...
         = Ryan_two_stepsID(which_variable,which_shocks,H,LR_hor,B,A,q)
-    
 %which_variable: variable we want to max the response for a specific shock (TFP)
 %which_shocks: the shock is maximizing the FEV of which_variable (--> news and IT shocks)
 %H: horizon of the maximization
@@ -14,10 +13,10 @@ nlags                = nvarlags/nvar;
 nshocks              = length(which_shocks);
 
 %Barsky and Sims identification strategy
-D               = eye(nvar);
-gamma0          = D(:,which_shocks);
-gam3_zero       = gamma0(:,1); %news shock impact vector (initial value)
-gam4_zero       = gamma0(:,2); %IT shock impact vector (initial value)
+D = eye(nvar);
+gamma0 = D(:,which_shocks);
+gam3_zero = gamma0(:,1); %news shock impact vector (initial value)
+gam4_zero = gamma0(:,2); %IT shock impact vector (initial value)
 
 %% First Step - Identifying gam3 - Similar to B&S(2012) with long-restriction
 %over relative price
@@ -32,18 +31,17 @@ options  = optimset(options, 'TolFun', 1e-9, 'display', 'none');
 
 % Instead of Blanchard Quah, impose that IR(rel_prices, news) = 0 at some
 % finite long horizon.
-sig1 = NaN; % not used, but we need to input something not to get error
-sig2 = NaN; % not used, but we need to input something not to get error
-[IR, ~, ~, ~, ~] = ...
-    genIRFs(A,0,vertcat(ones(1,size(B,2)),B),0,LR_hor,sig1,sig2);
+sig1 = 0.9; % not used, but we need to input something not to get error
+sig2 = 0.95; % not used, but we need to input something not to get error
+[IR, ~, ~, ~, ~] = genIRFs(A,0,vertcat(ones(1,size(B,2)), B),0,LR_hor, sig1,sig2);
 % R = zeros(nvar,nvar); 
 R = squeeze(IR(:,end,:)); % comment this out if you wanna not impose the LR-restriction
 
 %Constraint that News and IT have no contemporaneous effect on TFP
-Me3        = 1; %  Me = no. of equality constraints
-Beq3       = zeros(Me3,1); % Beq is (Me x 1) where
-Aeq3       = zeros(Me3,1*nvar); % Aeq is (Me x (nshock*nvar)) - nshock is 1 at this step
-Aeq3(1,1)  = 1; %zero-impact of news on TFP
+Me3       = 1; %  Me = no. of equality constraints
+Beq3      = zeros(Me3,1); % Beq is (Me x 1) where
+Aeq3      = zeros(Me3,1*nvar); % Aeq is (Me x (nshock*nvar)) - nshock is 1 at this step
+Aeq3(1,1) = 1; %zero-impact of news on TFP
 
 % dbstop constraint_ryan at 12
 % [gam3_opt] = fmincon(obj, gam3_zero,[],[],Aeq3,Beq3,[],[],@(gam3) constraint_barskysims11(gam3),options);
@@ -52,7 +50,7 @@ Aeq3(1,1)  = 1; %zero-impact of news on TFP
 
 % Recover FEV from the step 1 minimization
 [FEV3_opt, ~, ~]     = objective_barskysims(which_variable,H,B,A,gam3_opt);
-FEV3_opt             = - FEV3_opt;
+FEV3_opt     = - FEV3_opt;
 
 if FEV3_opt > 1 || (gam3_opt'*gam3_opt - 1)^2 > 10^(-10) || gam3_opt(1)^2 > 10^(-12)
     warning('The problem is not consistent with the constraints.')

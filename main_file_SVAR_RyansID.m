@@ -8,8 +8,6 @@ close all
 
 tic
 
-dbstop in Ryan_two_stepsID at 54
-
 %Data Reading and Transformation
 filename = 'dataset_main';
 sheet    = 'Data';
@@ -36,15 +34,15 @@ else
     warning('Position of IT is not anymore 3.')
 end
 %Technical Parameters
-max_lags         = 10;
-nburn            = 0; %with the Kilian correction better not burning!!!
-nsimul           = 20; %5000
-nvar             = size(data,2);
-sig1             = 0.80; % significance level
-sig2             = 0.90; % significance level
-H                = 100; %40; % horizon for generation of IRFs
-h                = H; %40; % horizon for IRF plots
-which_variable   = 1; % select TFP as the variable whose FEV we wanna max
+max_lags        = 10;
+nburn           = 0; %with the Kilian correction better not burning!!!
+nsimul          = 20; %5000
+nvar            = size(data,2);
+sig1            = 0.80; % significance level
+sig2            = 0.90; % significance level
+H               = 100; %40; % horizon for generation of IRFs
+h               = H; %40; % horizon for IRF plots
+which_variable  = 1; % select TFP as the variable whose FEV we wanna max
 
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
 [AIC,BIC,HQ] = aic_bic_hq(data,max_lags);

@@ -1,5 +1,5 @@
 function [IRFs, ub1, lb1, ub2, lb2] = ...
-        genIRFs(A_IRF,A_boot,B,B_boot,H,sig1, sig2)
+        genIRFs(A_IRF,A_boot,B,B_boot,H, sig1, sig2)
     % Generate IRFs and bootstrapped IRF confidence intervals for ALL shocks
     % H = IR horizon for the generation of IRFs (to be used in variance decomposition)
     % sig1 = CI significance level (enter as 0.9 for example)

@@ -24,13 +24,11 @@ for i_shock = 1:nshocks
       shocks(i_shock,1)   = 1;      
       % Initialize:
       IRFs_all(:,1,i_shock)   = A*shocks;
-      F                       = ...
-          [IRFs_all(:,1,i_shock)' zeros(1,(nlags-1)*nvar)];
+      F                       = [IRFs_all(:,1,i_shock)' zeros(1,(nlags-1)*nvar)];
       % Generate IRFs
       for k=2:H
             IRFs_all(:,k,i_shock)    = F*bet;
-            F                        = ...
-                [IRFs_all(:,k,i_shock)' F(1:end-nvar)];
+            F                        = [IRFs_all(:,k,i_shock)' F(1:end-nvar)];
       end
 end
 
