@@ -15,12 +15,22 @@ range    = 'B1:P286';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
 % which_shocks = [3 4];
-which_shocks = [2 3];
-pos_rel_prices = 6;
-if pos_rel_prices == 6
-else
-      warning('Position of Relative Price is not anymore 6.')
+% which_shocks = [2 3];
+% pos_rel_prices = 6;
+% if pos_rel_prices == 6
+% else
+%       warning('Position of Relative Price is not anymore 6.')
+% end
+
+% Find positions of shocks and of relative prices in a correct way
+if sum(strcmp('Real SP', varnames))==1 % i.e. 'Real SP' exists as a variable
+    pos_news = find(strcmp('Real SP', varnames));
+elseif sum(strcmp('Michigan Index ', varnames))==1 % i.e. we use Mich for news
+    pos_news = find(strcmp('Michigan Index ', varnames));
 end
+pos_IT = find(strcmp('Real IT Investment', varnames));
+pos_rel_prices = find(strcmp('Relative Price', varnames));
+which_shocks = [pos_news pos_IT];
 
 
 %Technical Parameters
