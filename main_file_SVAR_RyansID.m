@@ -11,7 +11,7 @@ tic
 %Data Reading and Transformation
 filename = 'dataset_main';
 sheet    = 'Data';
-range    = 'B1:P286';
+range    = 'B1:T286';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
 
@@ -29,12 +29,16 @@ if sum(strcmp('Real SP', varnames))==1 % i.e. 'Real SP' exists as a variable
     pos_news = find(strcmp('Real SP', varnames));
 elseif sum(strcmp('Michigan Index ', varnames))==1 % i.e. we use Mich for news
     pos_news = find(strcmp('Michigan Index ', varnames));
+elseif sum(strcmp('SP deflated', varnames))==1 % i.e. we use SP deflated by GDPDEF for news    
+    pos_news = find(strcmp('SP deflated', varnames));
+elseif sum(strcmp('SP deflated per capita', varnames))==1 % i.e. we use SP deflated by GDPDEF for news    
+    pos_news = find(strcmp('SP deflated per capita', varnames));
 end
 pos_IT = find(strcmp('Real IT Investment', varnames));
 pos_rel_prices = find(strcmp('Relative Price', varnames));
 which_shocks = [pos_news pos_IT];
 
-
+return
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
