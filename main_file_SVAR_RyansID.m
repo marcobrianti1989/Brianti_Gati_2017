@@ -16,15 +16,6 @@ range    = 'B1:T286';
 shocknames = {'News Shock','IT Shock'};
 varnames
 
-% can delete the commented-out stuff below after a while
-% which_shocks = [3 4];
-% which_shocks = [2 3];
-% pos_rel_prices = 6;
-% if pos_rel_prices == 6
-% else
-%       warning('Position of Relative Price is not anymore 6.')
-% end
-
 % Find positions of shocks and of relative prices in a correct way
 if sum(strcmp('Real SP', varnames))==1 % i.e. 'Real SP' exists as a variable
     pos_news = find(strcmp('Real SP', varnames));
