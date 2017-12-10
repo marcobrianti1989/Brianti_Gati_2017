@@ -50,7 +50,7 @@ function [IRFs, ub, lb] = genIRFs(A_IRF,A_boot,B,B_boot,H, sig)
                     F_boot = [IRFs_boot(:,k,i_shock,i_sim)' F_boot(1:end-nvar)];
                 end
                 % If bootstraps go the wrong way, flip them
-                if i_shock == 3
+                if i_shock == 3 % only do for IT shock since news never flips
                     if sum(sum(abs(IRFs_boot(:,:,i_shock,i_sim) - IRFs(:,:,i_shock)))) ...
                             >= sum(sum(abs(IRFs_boot(:,:,i_shock,i_sim) + IRFs(:,:,i_shock))))
                         IRFs_boot(:,:,i_shock,i_sim) = - IRFs_boot(:,:,i_shock,i_sim);
