@@ -42,7 +42,7 @@ which_shocks = [pos_news pos_IT];
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 20; %5000
+nsimul          = 500; %5000
 nvar            = size(data,2);
 sig             = 0.90; % significance level
 H               = 100; %40; % horizon for generation of IRFs
@@ -67,8 +67,9 @@ test_stationarity(B');
 % Implement Ryan's ID strategy
 LR_hor = 8; % at what horizon to impose the LR restriction
 % [impact, FEV_opt, IRFs, gamma_opt, FEV_news, FEV_IT] = ryansID(which_variable,which_shocks,H,B,A,q);
+H_max = 100;
 [impact, FEV_opt, ~, gam_opt, FEV_news, FEV_IT] ...
-    = Ryan_two_stepsID(which_variable,which_shocks,H,...
+    = Ryan_two_stepsID(which_variable,which_shocks,H_max,...
     LR_hor,B,A,pos_rel_prices);
 
 % Bootstrap
@@ -85,7 +86,7 @@ for i_simul=1:nsimul
     % Get bootstrapped confidence intervals nsimul times
     disp(['Iteration ' num2str(i_simul) ' out of ' num2str(nsimul)])
     [impact_boot(:,:,i_simul),~,~,~,~,~] = Ryan_two_stepsID(which_variable,...
-          which_shocks,H,LR_hor,beta_tilde_star(:,:,i_simul),A_boot, pos_rel_prices);
+          which_shocks,H_max,LR_hor,beta_tilde_star(:,:,i_simul),A_boot, pos_rel_prices);
 end
 
 %Creating a fake matrix for the IRF of the point estimation
