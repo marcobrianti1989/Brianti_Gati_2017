@@ -33,7 +33,7 @@ options  = optimset(options, 'TolFun', 1e-9, 'display', 'none');
 % finite long horizon.
 % LR_hor = 8; % 100
 sig = 0.9; % not used, but we need to input something not to get error
-[IR, ~, ~] = genIRFs(A,0,vertcat(ones(1,size(B,2)), B),0,LR_hor, sig);
+[IR, ~, ~, ~, ~] = genIRFs(A,0,vertcat(ones(1,size(B,2)), B),0,LR_hor, sig, sig);
 % R = zeros(nvar,nvar); 
 R = squeeze(IR(:,end,:)); % comment this out if you wanna not impose the LR-restriction
 

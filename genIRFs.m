@@ -1,15 +1,18 @@
-function [IRFs, ub, lb] = genIRFs(A_IRF,A_boot,B,B_boot,H, sig)
+function [IRFs, ub1, lb1, ub2, lb2] = genIRFs(A_IRF,A_boot,B,B_boot,H, sig1, sig2)
 % Generate IRFs and bootstrapped IRF confidence intervals for ALL shocks
 % H = IR horizon for the generation of IRFs (to be used in variance decomposition)
-% sig = CI significance level (enter as 0.9 for example)
+% sig1 = CI significance level (enter as 0.9 for example)
+% sig2 = a 2nd CI significance level (enter as 0.95 for example)
 % Can choose not to do bootstrapping by setting A_boot to 0.
 
 nvar = size(A_IRF,1);
 nlag = (size(B,1)-1)/nvar;
 nshocks = nvar;
 nsimul = size(A_boot,3);
-perc_up = ceil(nsimul*sig); % the upper percentile of bootstrapped responses for CI
-perc_low = floor(nsimul*(1-sig)); % the lower percentile of bootstrapped responses for CI
+perc_up1 = ceil(nsimul*sig1); % the upper percentile of bootstrapped responses for CI
+perc_low1 = floor(nsimul*(1-sig1)); % the lower percentile of bootstrapped responses for CI
+perc_up2 = ceil(nsimul*sig2); % same for 2nd CI
+perc_low2 = floor(nsimul*(1-sig2)); % same for 2nd CI
 
 % Remove constant
 B = B(2:end,:);
@@ -20,8 +23,10 @@ B_boot = B_boot(2:end,:,:);
 IRFs = zeros(nvar,H,nshocks);
 IRFs_boot = zeros(nvar,H,nshocks,nsimul);
 IRFs_boot_sorted = zeros(nvar,H,nshocks,nsimul);
-ub = zeros(nvar,H,nshocks);
-lb = zeros(nvar,H,nshocks);
+ub1 = zeros(nvar,H,nshocks);
+lb1 = zeros(nvar,H,nshocks);
+ub2 = zeros(nvar,H,nshocks);
+lb2 = zeros(nvar,H,nshocks);
 
 for i_shock=1:nshocks
     shocks = zeros(nvar,1);
@@ -77,8 +82,10 @@ for i_shock=1:nshocks
         % Sort bootstrap IRFs and set lower and upper bounds
         for i_shocks = 1:nshocks
             IRFs_boot_sorted(:,:,i_shocks,:) = sort(IRFs_boot(:,:,i_shocks,:),4);
-            ub(:,:,i_shocks) = IRFs_boot_sorted(:,:,i_shocks,perc_up);
-            lb(:,:,i_shocks) = IRFs_boot_sorted(:,:,i_shocks,perc_low);
+            ub1(:,:,i_shocks) = IRFs_boot_sorted(:,:,i_shocks,perc_up1);
+            lb1(:,:,i_shocks) = IRFs_boot_sorted(:,:,i_shocks,perc_low1);
+            ub2(:,:,i_shocks) = IRFs_boot_sorted(:,:,i_shocks,perc_up2);
+            lb2(:,:,i_shocks) = IRFs_boot_sorted(:,:,i_shocks,perc_low2);
         end
     end
     %     %Normalization

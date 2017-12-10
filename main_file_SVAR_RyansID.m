@@ -33,9 +33,10 @@ which_shocks = [pos_news pos_IT];
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 20; %5000
+nsimul          = 1000; %5000
 nvar            = size(data,2);
-sig             = 0.90; % significance level
+sig1            = 0.9; % significance level
+sig2            = 0.95; % a 2nd sig. level
 H               = 100; %40; % horizon for generation of IRFs
 h               = H; %40; % horizon for IRF plots
 which_variable  = 1; % select TFP as the variable whose FEV we wanna max
@@ -93,27 +94,32 @@ end
 comment = [which_ID '_' char(varnames(5)) '_LR_hor_' num2str(LR_hor)];
 print_figs = 'no';
 
-[IRFs, ub, lb] = genIRFs(fake_impact,fake_impact_boot,...
-      B,beta_tilde_star,H,sig);
+[IRFs, ub1, lb1, ub2, lb2] = genIRFs(fake_impact,fake_impact_boot,...
+      B,beta_tilde_star,H,sig1, sig2);
 
 % % With Barsky & Sims-type ID, since you do a abs max, there are two
 % % solutions: gam and -gam. So choose the one that makes sense. I'm doing
 % % that so that news and IT have + effects on TFP.
 if sum(IRFs(1,:,pos_IT)) < 0 % if the majority of TFP response is negative
     IRFs(:,:,pos_IT)   = -IRFs(:,:,pos_IT);
-    ub(:,:,pos_IT)     = - ub(:,:,pos_IT);
-    lb(:,:,pos_IT)     = - lb(:,:,pos_IT);
+    ub1(:,:,pos_IT)     = - ub1(:,:,pos_IT);
+    lb1(:,:,pos_IT)     = - lb1(:,:,pos_IT);
+    ub2(:,:,pos_IT)     = - ub2(:,:,pos_IT);
+    lb2(:,:,pos_IT)     = - lb2(:,:,pos_IT);
 end
 if sum(IRFs(1,:,pos_news)) < 0 % if the majority of TFP response is negative
     IRFs(:,:,pos_news)   = -IRFs(:,:,pos_news);
-    ub(:,:,pos_news)     = - ub(:,:,pos_news);
-    lb(:,:,pos_news)     = - lb(:,:,pos_news);
+    ub1(:,:,pos_news)     = - ub1(:,:,pos_news);
+    lb1(:,:,pos_news)     = - lb1(:,:,pos_news);
+    ub2(:,:,pos_news)     = - ub2(:,:,pos_news);
+    lb2(:,:,pos_news)     = - lb2(:,:,pos_news);
 end
 
 %Printing/Showing IRFs
 h = 40;
 % plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames,which_ID,print_figs)
-plot_single_IRFs(IRFs,ub,lb,h,which_shocks,shocknames, varnames, which_ID, print_figs)
+% plot_single_IRFs(IRFs,ub1,lb1,h,which_shocks,shocknames, varnames, which_ID, print_figs)
+plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shocks,shocknames, varnames, which_ID, print_figs)
 
 %Forni&Gambetti Orthogonality Test
 do_FG_test = 'no';

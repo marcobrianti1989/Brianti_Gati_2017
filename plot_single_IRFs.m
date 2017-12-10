@@ -31,7 +31,7 @@ for i_shock=1:nshocks
             plot(zeros(1,h), 'Color','b')
             plot(periods,IRFs(i_var,1:h,which_shock(i_shock)),'linewidth',1,'Color','r')
             xt = get(gca, 'XTick');
-            set(gca, 'FontSize', 14)
+            set(gca, 'FontSize', 22)
             title([name, ' on ' , varname],'fontsize',72)
          %   ylim([min_y_lim(i_var) max_y_lim(i_var)]);
             hold off
