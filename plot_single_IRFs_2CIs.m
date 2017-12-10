@@ -13,8 +13,10 @@ nshocks = size(which_shock,2);
 periods = 1:h;
 
 %Ylim
-min_y_lim = [-0.5    -0.1     -0.01     0        0        -0.012];
-max_y_lim = [2.5      0.8      0.03     0.012    0.012     0.006];
+% min_y_lim = [-0.5    -0.1     -0.01     0        0        -0.012];
+% max_y_lim = [2.5      0.8      0.03     0.012    0.012     0.006];
+min_y_lim = [-3    -0.1     -0.05     -0.02       -0.02     -0.02];
+max_y_lim = [3      0.1      0.05     0.02        0.02       0.02];
 
 % Draw pretty pictures
 for i_shock=1:nshocks
@@ -39,7 +41,7 @@ for i_shock=1:nshocks
         xt = get(gca, 'XTick');
         set(gca, 'FontSize', 22)
         title([name, ' on ' , varname],'fontsize',72)
-        %   ylim([min_y_lim(i_var) max_y_lim(i_var)]);
+          ylim([min_y_lim(i_var) max_y_lim(i_var)]);
         hold off
         grid on
         
