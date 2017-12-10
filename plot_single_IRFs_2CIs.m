@@ -1,4 +1,4 @@
-function plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2, lb2, h,which_shock,names, varnames, which_ID_strat, print_figs)
+function plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2, lb2, h,which_shock,names, varnames, which_ID_strat, print_figs, use_current_time)
 % h = IR horizon for figures
 % ub1 and lb1 are the bootstrapped CI for the 1st significance level
 % ub2 and lb2 are the bootstrapped CI for the 2nd significance level
@@ -13,10 +13,8 @@ nshocks = size(which_shock,2);
 periods = 1:h;
 
 %Ylim
-% min_y_lim = [-0.5    -0.1     -0.01     0        0        -0.012];
-% max_y_lim = [2.5      0.8      0.03     0.012    0.012     0.006];
-min_y_lim = [-3    -0.1     -0.05     -0.02       -0.02     -0.02];
-max_y_lim = [3      0.1      0.05     0.02        0.02       0.02];
+min_y_lim = [-1   -0.01     -0.02     -0.02       -0.02     -0.02];
+max_y_lim = [4        0.1      0.05      0.02        0.02      0.02];
 
 % Draw pretty pictures
 for i_shock=1:nshocks
@@ -39,7 +37,7 @@ for i_shock=1:nshocks
         plot(zeros(1,h), 'Color','b')
         plot(periods,IRFs(i_var,1:h,which_shock(i_shock)),'linewidth',1,'Color','r')
         xt = get(gca, 'XTick');
-        set(gca, 'FontSize', 22)
+        set(gca, 'FontSize', 28)
         title([name, ' on ' , varname],'fontsize',72)
           ylim([min_y_lim(i_var) max_y_lim(i_var)]);
         hold off
@@ -47,7 +45,7 @@ for i_shock=1:nshocks
         
         % Save figures if you want to
         if strcmp(print_figs, 'yes')
-            invoke_export_fig([name, ' on ' , varname], which_ID_strat)
+            invoke_export_fig([name, ' on ' , varname], which_ID_strat,use_current_time)
             close all
             pause(0.5)
         end

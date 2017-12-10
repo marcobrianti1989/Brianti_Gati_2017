@@ -119,7 +119,8 @@ end
 h = 40;
 % plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames,which_ID,print_figs)
 % plot_single_IRFs(IRFs,ub1,lb1,h,which_shocks,shocknames, varnames, which_ID, print_figs)
-plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shocks,shocknames, varnames, which_ID, print_figs)
+use_current_time = 0; % don't save the time
+plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shocks,shocknames, varnames, '_', print_figs, use_current_time)
 
 %Forni&Gambetti Orthogonality Test
 do_FG_test = 'no';

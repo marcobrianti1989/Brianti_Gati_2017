@@ -1,4 +1,4 @@
-function plot_single_IRFs(IRFs,ub,lb,h,which_shock,names, varnames, which_ID_strat, print_figs)
+function plot_single_IRFs(IRFs,ub,lb,h,which_shock,names, varnames, which_ID_strat, print_figs, use_current_time)
 % h = IR horizon for figures
 % ub and lb are the bootstrapped CI
 % names = cell vector of shock names
@@ -39,7 +39,7 @@ for i_shock=1:nshocks
             
             % Save figures if you want to
             if strcmp(print_figs, 'yes')
-                  invoke_export_fig([name, ' on ' , varname], which_ID_strat)
+                  invoke_export_fig([name, ' on ' , varname], which_ID_strat,use_current_time)
                   close all
                   pause(0.5)
             end
