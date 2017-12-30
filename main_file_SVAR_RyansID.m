@@ -11,7 +11,7 @@ tic
 %Data Reading and Transformation
 filename = 'dataset_main';
 sheet    = 'Data';
-range    = 'B1:T286';
+range    = 'B1:V286';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
 varnames
@@ -27,13 +27,17 @@ elseif sum(strcmp('SP deflated per capita', varnames))==1 % i.e. we use SP defla
     pos_news = find(strcmp('SP deflated per capita', varnames));
 end
 pos_IT = find(strcmp('Real IT Investment', varnames));
-pos_rel_prices = find(strcmp('Relative Price', varnames));
+if find(strcmp('Relative Price', varnames))==1
+    pos_rel_prices = find(strcmp('Relative Price', varnames));
+elseif find(strcmp('Relative price PCE', varnames))
+    pos_rel_prices = find(strcmp('Relative price PCE', varnames));
+end
 which_shocks = [pos_news pos_IT];
 
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 1000; %5000
+nsimul          = 30; %5000
 nvar            = size(data,2);
 sig1            = 0.9; % significance level
 sig2            = 0.95; % a 2nd sig. level
