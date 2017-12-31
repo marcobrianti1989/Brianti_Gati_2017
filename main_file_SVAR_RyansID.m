@@ -11,7 +11,7 @@ tic
 %Data Reading and Transformation
 filename = 'dataset_main';
 sheet    = 'Data';
-range    = 'B1:V286';
+range    = 'B1:W286';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
 varnames
@@ -27,7 +27,7 @@ elseif sum(strcmp('SP deflated per capita', varnames))==1 % i.e. we use SP defla
     pos_news = find(strcmp('SP deflated per capita', varnames));
 end
 pos_IT = find(strcmp('Real IT Investment', varnames));
-if find(strcmp('Relative Price', varnames))==1
+if find(strcmp('Relative Price', varnames)) > 0
     pos_rel_prices = find(strcmp('Relative Price', varnames));
 elseif find(strcmp('Relative price PCE', varnames))
     pos_rel_prices = find(strcmp('Relative price PCE', varnames));

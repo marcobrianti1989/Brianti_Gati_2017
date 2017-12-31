@@ -13,8 +13,8 @@ nshocks = size(which_shock,2);
 periods = 1:h;
 
 %Ylim
-min_y_lim = [-1   -0.01     -0.02     -0.02       -0.02     -0.02];
-max_y_lim = [4        0.1      0.05      0.02        0.02      0.02];
+min_y_lim = [-0.01   -0.01     -0.02     -0.02       -0.02     -0.02];
+max_y_lim = [0.04        0.1      0.05      0.02        0.02      0.02];
 
 % Draw pretty pictures
 for i_shock=1:nshocks
