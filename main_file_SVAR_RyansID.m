@@ -11,7 +11,7 @@ tic
 %Data Reading and Transformation
 filename = 'dataset_main';
 sheet    = 'Data';
-range    = 'B1:W286';
+range    = 'B1:W287';
 [data, varnames] = read_data2(filename, sheet, range);
 shocknames = {'News Shock','IT Shock'};
 varnames
@@ -159,4 +159,54 @@ end
 toc
 disp(varnames)
 disp(datestr(now))
+
+% Counterfactual
+s = get_structural_shocks_Forni(A,gam_opt,res);
+
+% Historical decompositions of TFP from the 2 structral shocks
+% IT:
+hd_IT = historical_decomposition(s(:,pos_IT),fake_impact,B, pos_IT, 1);
+% News:
+hd_news = historical_decomposition(s(:,pos_news),fake_impact,B, pos_news, 1);
+% sum of the two:
+hd = hd_IT + hd_news;
+
+% Get counterfactual when shutting off IT shocks 2000-Q3 onward
+IT_bubble = find(time=='01-Jul-2000');
+s_alternative = s;
+s_alternative(IT_bubble:end,3) = 0;
+% Redo counterfactuals for alternative scenario
+% IT:
+hd_IT_alt = historical_decomposition(s_alternative(:,pos_IT),fake_impact,B, pos_IT, 1);
+% News:
+hd_news_alt = historical_decomposition(s_alternative(:,pos_news),fake_impact,B, pos_news, 1);
+% sum of the two:
+hd_alt = hd_IT_alt + hd_news_alt;
+
+
+time = datetime(1989,7,1) + calquarters(0:size(s,1)-1); %ALWAYS CHECK IF THE INITIAL PERIOD IS THE SAME
+
+figure
+plot(time,hd); hold on
+plot(time, hd_alt)
+legend('original', 'alternative')
+title('Hd total')
+
+figure
+plot(time,hd_IT); hold on
+plot(time, hd_IT_alt)
+legend('original', 'alternative')
+title('Hd IT')
+
+figure
+plot(time,hd_IT); hold on
+plot(time, hd_news)
+legend('hd IT', 'hd news')
+title('Hd IT vs Hd news')
+
+figure
+plot(time,hd_IT_alt); hold on
+plot(time, hd_news_alt)
+legend('hd IT', 'hd news')
+title('Hd IT vs Hd news in alternative world')
 

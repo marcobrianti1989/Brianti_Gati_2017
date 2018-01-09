@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a4paper,top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm,%
+bindingoffset=0mm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.75em depth0em\fi}
+\usepackage{tikz}
+\usepackage{graphicx}
+%\graphicspath{{./Figures/}}
+\def \ourFigPath {../../} % this should move up two steps 
+% . = current directory
+ % .. = parent directory
+\usepackage{rotating}
+\usepackage{float}
+\linespread{1.3}
+\raggedbottom
+
+
+
+
+%
+\font\reali=msbm10 at 12pt
+% subsets of real numbers
+\newcommand{\real}{\hbox{\reali R}}
+\newcommand{\realp}{\hbox{\reali R}_{\scriptscriptstyle +}}
+\newcommand{\realpp}{\hbox{\reali R}_{\scriptscriptstyle ++}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+%
+
+\title{Counterfactuals from SVARs - Questions}
+\author{Marco Brianti\\Laura Gati}
+\date{10 Jan 2018}
+
+\begin{document}
+
+\maketitle
+
+\
+
+\section{What we have done so far:}
+\begin{enumerate}
+\item Recovered structural shocks from our identified VAR
+\item Used them together with the impulse responses to generate what Kilian calls ``cumulative contribution of a shock $j$" to TFP. These are historical decompositions of TFP in the sense that, relative to the trend of our TFP series, we can see the percent deviations caused by the shocks - together with the responses to them - in our sample. Mathematically, the cumulative effect of a shock $j$ on TFP is:
+
+\begin{equation}
+\hat{y}^{j}_{TFP, t} = \sum^{t-1}_{i=0} B(L)^i A s_{j, t-i}
+\end{equation}
+
+where $j = \{IT, news\}$ and $s$ is the structural shock. Then, the overall cumulative effect of all shocks is
+
+\begin{equation}
+\hat{y}_{TFP, t} = \sum_{j= IT,news} \hat{y}^{j}_{TFP, t}
+\end{equation}
+
+\item The object we're interested in is
+\begin{equation}
+TFP - f\big( \hat{y}^{IT}_{TFP, t} \big)
+\end{equation}
+
+and our question is: what is $f$?
+
+\
+
+In other words: the problem comes from the fact that $\hat{y}^{IT}_{TFP, t}$ is in percentage deviations from the trend of TFP. What we're interested in, however, is how TFP would have evolved (in levels) absent the shocks to IT starting in 2000-Q3. 
+
+
+\end{enumerate}
+
+
+
+\end{document}
+
