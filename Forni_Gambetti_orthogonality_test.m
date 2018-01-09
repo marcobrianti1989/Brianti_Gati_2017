@@ -9,8 +9,8 @@ function [pvalue_news, pvalue_IT] = ...
 % principal components we want to use as a regressor to 
 % test the orthogonality of the structural shock time series.
 % A: is the standar Cholesky. (nvar,nvar)
-% gamma: is the column vector such that A*gamma is the impact 
-% responses of the system to the shock of interst. (nvar,1)
+% gamma: is the column vectors such that A*gamma is the impact 
+% responses of the system to the shock of interst. (nvar,nshocks_recovered)
 % resid: is the time series of reduced form residuals from the VAR
 % (T,nvar).
 T = size(resid,1);
