@@ -161,7 +161,9 @@ disp(varnames)
 disp(datestr(now))
 
 % Counterfactual
-s = get_structural_shocks_Forni(A,gam_opt,res);
+[s, IR] = get_structural_shocks_Forni(A,gam_opt,res);
+
+
 
 % Historical decompositions of TFP from the 2 structral shocks
 % IT:
