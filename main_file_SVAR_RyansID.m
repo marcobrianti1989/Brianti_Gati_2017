@@ -163,52 +163,50 @@ disp(datestr(now))
 % Counterfactual
 [s, IR] = get_structural_shocks_Forni(A,gam_opt,res);
 
+which_shock_zero = 3; % set negative realizations of the IT shock to 0
+y0 = data(1,:); % initial values of data
+counterfactuals = counterfactual(s,IR,B,y0,which_shock_zero);
 
-
-% Historical decompositions of TFP from the 2 structral shocks
-% IT:
-hd_IT = historical_decomposition(s(:,pos_IT),fake_impact,B, pos_IT, 1);
-% News:
-hd_news = historical_decomposition(s(:,pos_news),fake_impact,B, pos_news, 1);
-% sum of the two:
-hd = hd_IT + hd_news;
-
-% Get counterfactual when shutting off IT shocks 2000-Q3 onward
-IT_bubble = find(time=='01-Jul-2000');
-s_alternative = s;
-s_alternative(IT_bubble:end,3) = 0;
-% Redo counterfactuals for alternative scenario
-% IT:
-hd_IT_alt = historical_decomposition(s_alternative(:,pos_IT),fake_impact,B, pos_IT, 1);
-% News:
-hd_news_alt = historical_decomposition(s_alternative(:,pos_news),fake_impact,B, pos_news, 1);
-% sum of the two:
-hd_alt = hd_IT_alt + hd_news_alt;
-
-
-time = datetime(1989,7,1) + calquarters(0:size(s,1)-1); %ALWAYS CHECK IF THE INITIAL PERIOD IS THE SAME
+time = datetime(1989,7,1) + calquarters(0:size(s,1)); %ALWAYS CHECK IF THE INITIAL PERIOD IS THE SAME
 
 figure
-plot(time,hd); hold on
-plot(time, hd_alt)
-legend('original', 'alternative')
-title('Hd total')
+set(gcf,'color','w'); % sets white background color
+set(gcf, 'Position', get(0, 'Screensize')); % sets the figure fullscreen (hopefully)
+plot(time, data(:,1), 'b', 'linewidth', 2)
+hold on
+plot(time, counterfactuals(:,1), 'r', 'linewidth', 2)
+legend('Original TFP series', 'Counterfactual TFP','Location','Southeast')
+title('Shutting off negative IT productivity shocks')
+set(gca, 'FontSize', 28)
+grid on
 
-figure
-plot(time,hd_IT); hold on
-plot(time, hd_IT_alt)
-legend('original', 'alternative')
-title('Hd IT')
+save_counterfactual_fig = 'yes';
+switch save_counterfactual_fig
+    case 'yes'
+        invoke_export_fig('counterfactual','',0)
+end
 
-figure
-plot(time,hd_IT); hold on
-plot(time, hd_news)
-legend('hd IT', 'hd news')
-title('Hd IT vs Hd news')
+% % Historical decompositions of TFP from the 2 structral shocks
+% % IT:
+% hd_IT = historical_decomposition(s(:,pos_IT),fake_impact,B, pos_IT, 1);
+% % News:
+% hd_news = historical_decomposition(s(:,pos_news),fake_impact,B, pos_news, 1);
+% % sum of the two:
+% hd = hd_IT + hd_news;
+% 
+% % Get counterfactual when shutting off IT shocks 2000-Q3 onward
+% IT_bubble = find(time=='01-Jul-2000');
+% s_alternative = s;
+% s_alternative(IT_bubble:end,3) = 0;
+% % Redo counterfactuals for alternative scenario
+% % IT:
+% hd_IT_alt = historical_decomposition(s_alternative(:,pos_IT),fake_impact,B, pos_IT, 1);
+% % News:
+% hd_news_alt = historical_decomposition(s_alternative(:,pos_news),fake_impact,B, pos_news, 1);
+% % sum of the two:
+% hd_alt = hd_IT_alt + hd_news_alt;
 
-figure
-plot(time,hd_IT_alt); hold on
-plot(time, hd_news_alt)
-legend('hd IT', 'hd news')
-title('Hd IT vs Hd news in alternative world')
+
+
+
 
