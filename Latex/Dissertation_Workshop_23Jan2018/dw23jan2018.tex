@@ -51,14 +51,58 @@
 \end{frame}
 
 
-%%%%%  OLD STUFF
-%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Motivation}
+	
+	\begin{itemize}
+	\item The neoclassical tradition (RBC literature) in macro has treated total factor productivity (TFP) as exogenous. 
+	
+	(King \& Rebelo 1999, Christiano, Eichenbaum \& Trabandt 2014, 2018)
+	
+	\
+	
+	\item The Great Recession 2008 revived interest in endogenous components in TFP for explaining long-run TFP fluctuations.
+	
+	\
+	
+	\item[] $\rightarrow$ We explore the possibility that general-purpose technologies (GPT), in particular for the last 30 years information technologies (IT), play a role in explaining TFP fluctuations at long horizons. 
+	
+	\
+	
+	\end{itemize} 
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Motivation II}
+	
+	\begin{itemize}
+	\item Our main analysis is estimating a structural VAR in which we identify a shock to the exogenous component of future TFP (a news shock) and a shock to the endogenous component of TFP (a shock to IT productivity, hereafter ``IT shock").
+	
+	
+	\
+	
+	\
+	
+	\item Along the way, we provide a solution to an econometric challenge in the literature on long-run productivity. 
+	
+	\end{itemize} 
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
 
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
 	\frametitle{Our starting point: Barsky \& Sims (2011)}
 	\label{BS_quote}
+
+BS identify news shocks as shocks that maximize future fluctuations in TFP. But they warn:
+	
+	\
 	
 \blockquote{\emph{A more general objection to our empirical approach would be that a number of structural shocks, which are not really ``news'' in the sense defined by the literature, might affect a measure of TFP in the future without impacting it immediately. Among these shocks might be research and development shocks, investment specific shocks, and reallocative shocks. Our identification (and any other existing VAR identifications) would obviously confound any true news shock with these shocks.}}
 
@@ -68,127 +112,14 @@
 
 \
 
-\
-
-\
+$\rightarrow$ We focus on a specific subset of shocks which are ``not really `news''': shocks to the productivity of the sector that produces IT goods.
 	
-\hyperlink{related_lit}{\beamerreturnbutton{Return}}	
-\hyperlink{BS_FEV}{\beamerbutton{Barsky \& Sims' FEV-table}}	
-\end{frame}
-%%%%%%%%%%%%%%%%%
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{What we do}
-
-\begin{itemize}
-\item We pick a particular shock out of this class of news-resembling shocks
-
-\
-
-\item We lay out a simple model of the role of this shock in explaining TFP fluctuations
-
-\
-
-\item Main analysis: Using a structural VAR, we test empirically for the contribution of this shock to TFP fluctuations against that of a classical news shock
-\end{itemize}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
-
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Theoretical model}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
-
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Theoretical model}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
-
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Theoretical model}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
-
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Theoretical model}
-
+%\hyperlink{BS_FEV}{\beamerbutton{Barsky \& Sims' FEV-table}}	
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{A very big question}
-	
-Broad consensus on secular stagnation.
-
-
-\
-
-The literature has agreed that there are two main factors driving this:
-\begin{itemize}
-\item decreasing labor force participation
-\item decreasing TFP growth
-\end{itemize}
-	
-	
-
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
-
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{A smaller, but still big question}
-	
-
-	Why has TFP slowed down? 
-	
-	
-	\
-	
-	
-	\vspace{-1cm}
-	\noindent
-	\begin{figure}
-		\centering
-		\includegraphics[scale=0.28]{\ourFigPath Figures/fig_TFP_macrolunch_29-Nov-2017_17_41_17}
-	\end{figure}
-	
-	
-\end{frame}
-%%%%%%%%%%%%%%%%%
-
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Two possible mechanisms}
-	
-\begin{itemize}
-\item a permanent, or very persistent exogenous shock to TFP
-
-\
-
-\item an endogenous mechanism
-\end{itemize}	
-
-\
-
-\
-
-$\rightarrow$ What we do in a nutshell: test for the endogenous mechanism (main analysis will be a SVAR)
-
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
 
 
 %%%%%%% Slide %%%%%%
@@ -204,9 +135,6 @@ $\rightarrow$ What we do in a nutshell: test for the endogenous mechanism (main 
 	\end{itemize}
 \item [] \textbf{Our contribution: allow in this setting the existence of an endogenous mechanism that affects future TFP}	
 
-
-\hyperlink{BS_quote}{\beamergotobutton{Barsky \& Sims quote}}
-
 	\
 	
 	\
@@ -215,7 +143,7 @@ $\rightarrow$ What we do in a nutshell: test for the endogenous mechanism (main 
 	\begin{itemize}
 	\item Comin \& Gertler (2006)
 	\item Moran \& Queralto (2017)
-	\item  Guerron \& Jinnai (2014)
+	\item Guerron \& Jinnai (2014)
 	
 	\end{itemize}	
 
@@ -232,35 +160,127 @@ $\rightarrow$ What we do in a nutshell: test for the endogenous mechanism (main 
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
-	\frametitle{Why more convincing?}
-	\label{convincing}
+	\frametitle{A toy model}
 	
-	Because the endogenous TFP literature faces a big problem: The endogenous mechanism is rationalized entirely using R\&D investment. 
+	How should we think of this IT productivity shock?
 	
 	\
 	
-\begin{enumerate}
-\item  But R\&D in the data is almost acyclical.... $\rightarrow$ hard to rationalize as a driver of business cycle fluctuations % hyperlink to graph: growth rate of RD vs. growth rate of TFP and GDP
-
-
-\
-
-\item Timing issue: the TFP slowdown begins around 2006, i.e. \emph{before} the Great Recession and thus \emph{before} the marked drop in R\&D  % hyperlink to graph: level of RD and TFP, so we see that TFP drops in 2006, while RD only during the recession.
-\hyperlink{timing}{\beamergotobutton{Graph of R\&D}}
-
-\end{enumerate}
-
-\
-
-$\Rightarrow$ Following the suggestion of Fernald, Hall, Stock \& Watson (2009), we propose to use investment in information technology (IT)  % hyperlink to our own graph motivation.pdf: the top graph.
-\hyperlink{it_investment}{\beamergotobutton{Graph of IT investment}}
-
+	\
 	
+	\
 	
+	Contextualize using a simple expanding variety model (Romer 1990)
+	
+
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Expanding variety model}
+	\label{expanding_variety}
+	
+Final good $Y_t$ is the CES aggregate of a number $A_t$ intermediate goods $Y_t^M(s)$:	% theta is between 0 and infinity
+	\begin{equation}
+	Y_t = \Big[ \int_{0}^{A_t} Y_t^M(s)^{\frac{\theta-1}{\theta} } ds \Big]^{\frac{\theta}{\theta-1}}
+	\end{equation}
 
+\pause
+
+Intermediate good $s$ is Cobb-Douglas with exogenous TFP $\Psi_t$:
+\begin{equation}
+Y_t(s) = \Psi_t K_t(s)^{\alpha}L_t(s)^{1-\alpha}
+\end{equation}
+
+\pause
+
+$\rightarrow$ letting $K_t$ and $L_t$ be aggregate capital and labor, final output is:
+\begin{equation}
+Y_t = A_t^{\frac{1}{\theta-1}} \Psi_t K_t^{\alpha}L_t^{1-\alpha}
+\end{equation}
+
+
+\pause 
+
+The IT sector is a separate sector that uses IT investment $S_{i,t}$ to expand $A_t$. Importantly, we assume that the IT sector is also augmented by $\Psi_t$, as well as by the sector-specific productivity $\lambda_t$. 
+
+\begin{equation}
+V_{i,t} = \lambda_t \Psi_t f(S_{i,t}) 
+\end{equation}
+
+\hyperlink{it_sector}{\beamergotobutton{IT sector in detail}}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{The shocks}
+
+	
+\begin{equation*}
+Y_t \; = \underbrace{A_t^{\frac{1}{\theta-1}}}_\text{endogenous TFP} \; \; \underbrace{\Psi_t}_\text{exogenous TFP} \; K_t^{\alpha}L_t^{1-\alpha}
+\end{equation*}
+
+\
+
+\
+
+$\hookrightarrow$ A news shock is $\Psi_{t+k} \uparrow$ for some $k>0$
+
+\
+
+$\hookrightarrow$ An IT productivity shock is $\lambda_t \uparrow$, which shows up in $A_{t+j} \uparrow$ with a lag $j>0$
+
+\
+
+Crucially, both lead to an increase in future TFP, with no effect on impact. 
+
+\
+
+ $\rightarrow$ to a Barsky \& Sims-type identification, the two shocks are observationally equivalent! 
+ 
+ $\Rightarrow$ econometric challenge is to disentangle the two!
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Identification: relative prices}
+
+The price level $P$ is an aggregate of the prices intermediate goods. These are determined as an FOC to 
+\begin{equation*}
+Y_t(s) = \Psi_t K_t(s)^{\alpha}L_t(s)^{1-\alpha}
+\end{equation*}
+
+\hspace{5cm} $\hookrightarrow P$ is a function of $\Psi_t$ 
+
+\
+
+The price of IT good, $P^{IT}$, is determined as an FOC to
+
+\begin{equation}
+V_{i,t} = \lambda_t \Psi_t f(S_{i,t})
+\end{equation}
+
+
+\hspace{5cm}  $\hookrightarrow P^{IT}$ is a function of $\Psi_t$ \textbf{and} $\lambda_t$	
+
+\
+
+$\Rightarrow$ The two shocks imply different responses of relative prices $\frac{P^{IT}}{P}$!
+
+\begin{itemize}
+\item A news shock moves both $P$ and $P^{IT}$, leaving relative prices unchanged.
+\item An IT productivity shock moves only $P^{IT}$, thus changing relative prices.
+\end{itemize}
+
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
 
 
 %%%%%%% Slide %%%%%%
@@ -295,7 +315,7 @@ $\Rightarrow$ Following the suggestion of Fernald, Hall, Stock \& Watson (2009),
 \begin{itemize}
 \item $RP = \pi^{IT}/\pi^{CPI}$. 
 \item All variables are real (except price indexes) and in log levels (except for RP, which is in growth rates). 
-\item The dataset ranges from 1989:q1 - 2017:q1.
+\item The dataset ranges from 1989:q1 - 2017:q2.
 \end{itemize}	
 	
 \end{frame}
@@ -337,86 +357,24 @@ Reduced Form
 	\item $D$ is a rotation matrix s.t. $DD' = I$ $\Rightarrow$ $AD(AD)' = \Sigma$
 \end{itemize}
 
-$D$ will be a tool to impose our identification assumptions \hyperlink{Technicalities}{\beamergotobutton{Technicalities}}
+We impose our identifying assumptions on the matrix $D$. \hyperlink{Technicalities}{\beamergotobutton{Technicalities}}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-\frametitle{Identified shocks}
-
-
-\begin{itemize}
-	\item We impose restrictions on $D$ in order to identify two shocks:
-	\begin{enumerate}
-		\item News Shock
-		\item IT Productivity Shock
-	\end{enumerate}
-
-\
-	
-	\item Econometric challenge is to disentangle two shocks with very similar features 
-		\begin{enumerate}
-		\item No impact effect on TFP
-		\item Persistent positive effect over time on TFP
-		\item Most likely both shocks have positive impact effects on forward-looking variables
-	\end{enumerate}
-
-\
-	
-	
-	\item Barsky \& Sims' identification strategy is not sufficient to disentangle the two
-	\begin{itemize}
-		\item We need a further assumption (restriction) to find a dimension of difference between the shocks
-	\end{itemize}
-\end{itemize}
-
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
-
-%%%%%%% Slide %%%%%%
-\begin{frame}
-\frametitle{Additional restriction}
-
-
-\begin{itemize}
-	\item We rely on simple demand and supply theory
-	
-	\
-	
-	\begin{enumerate}
-		\item The IT shock is a \emph{sectoral} shock $\rightarrow$ we expect it to move relative prices
-		\item The news shock is \emph{not} a sectoral shock $\rightarrow$ we have no a priori sense of what it should do to relative prices on impact, but after some time relative prices should go back to their initial value
-	\end{enumerate}
-	
-	\
-	
-\end{itemize}
-
-	$\rightarrow$ add the restriction that a news shock should have no effect on relative prices after a reasonable time
-	
-\hspace{4cm} $\hookrightarrow$ enough for prices to adjust, so
-
-\hspace{4cm}   between 6-12 quarters 
-
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
 	\frametitle{Identification strategy overall}
 
 \begin{equation}
-TFP_t =   \underbrace{V_{t-k}}_\text{news shock} + \underbrace{IT_{t-k}}_\text{IT shock}  + \underbrace{\varepsilon_t}_\text{surprise tech shock} 
+\epsilon^{TFP}_t =   \underbrace{V_{t-k}}_\text{news shock} + \underbrace{IT_{t-k}}_\text{IT productivity shock}  + \underbrace{\varepsilon_t}_\text{surprise tech shock} 
 \end{equation}
 
 \
 
     \begin{enumerate}
-    	\item The news shock $V_{t-k}$ maximizes the FEV of future TFP subject to the restriction that it has no effect on the relative price $RP$ at a small number of quarters;
+    	\item The news shock $V_{t-k}$ maximizes the FEV of future TFP subject to the restriction that it has no effect on the relative price $RP$ at a small number of quarters (enough for prices to adjust, so 6-12);
 	
 	\
 	
@@ -436,7 +394,7 @@ TFP_t =   \underbrace{V_{t-k}}_\text{news shock} + \underbrace{IT_{t-k}}_\text{I
 	\frametitle{Our favorite specification}
 	
 	\begin{itemize}
-	\item Recall: dataset is quarterly and covers 1989:q1-2017-q1.
+	\item Recall: dataset is quarterly and covers 1989:q1-2017-q2.
 	
 	\
 	
@@ -463,7 +421,7 @@ TFP_t =   \underbrace{V_{t-k}}_\text{news shock} + \underbrace{IT_{t-k}}_\text{I
 \frametitle{TFP response to both shocks}
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.15]{\ourFigPath Figures/fig_News_Shock_on_TFP__}
+	\includegraphics[scale=0.15]{\ourFigPath Figures/fig_News_Shock_on_TFP__} % REGENERATE TFP SHOCKS FIGURES WITH RIGHT SCALES!!
 \end{figure}
 \begin{figure}
 	\centering
@@ -503,7 +461,7 @@ TFP_t =   \underbrace{V_{t-k}}_\text{news shock} + \underbrace{IT_{t-k}}_\text{I
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Other responses to  both shocks}
+\frametitle{Other responses to both shocks}
 
 \vspace{-0.2cm}
 \begin{figure}
@@ -563,32 +521,32 @@ For BS, FEV of news was 45\%.
  %\ 
  
 	\begin{itemize}
-	\item both the Barsky \& Sims result ...
+	\item both the Barsky \& Sims result;
 	
 	\vspace{0.1cm}
 	
-	\item ... as well as the the conjecture that the IT shock looks similar to news along certain dimensions, 
+	\item as well as the the conjecture that the IT shock looks similar to news along certain dimensions; 
 	
 	\vspace{0.1cm}
 	
-	\item ... but relative prices do indeed introduce a margin of difference between the two shocks.
+	\item but relative prices do indeed introduce a margin of difference between the two shocks.
 	\end{itemize}
 
 \
 
 \item Shares of FEV of TFP explained ...
 	\begin{itemize}
-	\item ... are also in line with the Barsky \& Sims result ...
-	\item [] For BS, news explains around 45\%, compared to 20\% here
+	\item are also in line with the Barsky \& Sims result;
+	\item [] (for BS, news explains around 45\%, compared to 20\% here)
 	
 	\vspace{0.1cm}
 	
-	\item ... yet suggest that the IT shock plays an important role as well (around 52\%)
+	\item  yet suggest that the IT shock plays an important role as well (around 52\%).
 	
 	\vspace{0.1cm}
 	
-	\item ... and indeed the IT shock \emph{complements} the news shock, instead of substituting for it
-	\item [] For BS, the single identified shock explains around 45\%, while our two identified shocks explain around 73\%
+	\item And indeed the IT shock \emph{complements} the news shock, instead of substituting for it.
+	\item [] For BS, the single identified shock explains around 45\%, while our two identified shocks explain around 73\%.
 	\end{itemize}
 
 \end{enumerate}
@@ -630,21 +588,38 @@ For BS, FEV of news was 45\%.
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
-	\frametitle{Conclusion}
+	\frametitle{A counterfactual} 
+
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.28]{\ourFigPath Figures/fig_counterfactual_}
+	\end{figure}
+
+	
+
+   		 	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Conclusion} 
 	
 \begin{itemize}
-\item Provided what we think (and we hope you do too) a careful and more general test for the endogenous mechanism in TFP.
-\begin{itemize}
-\item While the literature focuses exclusively on R\&D, we show that IT is a better variable to focus on.
-\end{itemize}
+\item Provided a test for the role of IT as an example of GPTs in explaining fluctuations in long-run TFP, and in doing so, overcame an econometric challenge prevalent in the literature on long-run productivity.
 
 \ 
 
-\item The results show that by controlling for the presence of news shocks, the endogenous component of TFP is an important driver of TFP fluctuations at long horizons.
+\item The results show that by controlling for the presence of news shocks, IT productivity shocks are important drivers of TFP fluctuations at long horizons.
 
 \
 
-\item This result does not contrast however with the findings of the news shock literature since we still find that news also play a significant role in explaining TFP.
+\item This result does not contrast however with the findings of the news shock literature since we still find that news also play a significant role in explaining TFP. 
+
+\
+
+\item Moreover, IT productivity shocks can be thought of as giving more microfoundations to what classical news shocks carry information on. 
 
 \end{itemize}
    		 	
@@ -653,29 +628,26 @@ For BS, FEV of news was 45\%.
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
-	\frametitle{Work ahead}
+	\frametitle{Work ahead} 
 	
 \begin{itemize}
-\item Rationalize this setting using a theoretical model
-\item [] $\hookrightarrow$ what we have in mind: an endogenous TFP model (in the vein of Comin \& Gertler) augmented with news shocks 
+
+\item Technically, should do a VECM due to cointegration and wanting to have variables in the VAR as growth rates rather than levels...
 
 \
 
-\item Estimate the model (IR-matching)
+\item Dig deeper: IT is just an example of GPTs for the last 30 years
+\item[] $\hookrightarrow$ could redo analysis for different time periods with different GPTs (electricity in 1920s, airplane industry in 1960s ...)
 
 \
 
-\item Perform a counterfactual for the Great Recession \emph{and} the period prior, shutting down the negative IT shocks around 2000
-% assuming the IT bubble, i.e. the negative shock to IT productivity around 2000, did not happen.
 
-\
-
-\item See if we can find interesting interactions between the two shocks?
+\item Use a fully structural model to see if we can find interesting interactions between the two shocks?
 \item [] $\hookrightarrow$ In particular, we're thinking of noise shocks on IT productivity
-	\begin{itemize}
-	\item [] news shock: shock to expected future value
-	\item [] noise shock: shock to expected current value (``perceptions'')
-	\end{itemize}
+
+\	
+	
+\item But there are also other shocks that are similar to news shocks and yet not news shocks in the Barsky \& Sims sense: reallocative shocks, shocks to inventories, etc...  
 \end{itemize}
 
 
@@ -690,6 +662,22 @@ For BS, FEV of news was 45\%.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%                     APPENDIX  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{The current TFP slowdown}
+	
+	
+	\vspace{-1cm}
+	\noindent
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.28]{\ourFigPath Figures/fig_TFP_macrolunch_29-Nov-2017_17_41_17}
+	\end{figure}
+	
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%
 
 
 %%%%%%% Slide %%%%%%
@@ -706,6 +694,37 @@ For BS, FEV of news was 45\%.
 \end{figure}
 	
 \hyperlink{related_lit}{\beamerreturnbutton{Return}}	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Production of IT goods}
+	\label{it_sector}
+	
+Production function for IT goods:
+
+\begin{equation}
+V_{i,t} = \lambda_t \Psi_t f(S_{i,t}) 
+\end{equation}
+where $S_{i,t}$ is investment by producer $i$ in IT goods and $\lambda$ is the productivity of the IT sector. 
+
+\
+
+The IT producer's problem is to max discounted profits $J_{i,t+1}$
+
+\begin{equation}
+\max_{S_{i,t}} \; \mathbb{E}(\Lambda_{t,t+1},J_{i,t+1})\lambda_t \Psi_t f(S_{i,t}) - P^{IT}_t S_{i,t}
+\end{equation}
+
+\
+FOC: 
+
+\begin{equation}
+P^{IT}_t = \mathbb{E}(\Lambda_{t,t+1},J_{i,t+1})\lambda \Psi_t f_1
+\end{equation}
+	
+\hyperlink{expanding_variety}{\beamerreturnbutton{Return}}	
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
