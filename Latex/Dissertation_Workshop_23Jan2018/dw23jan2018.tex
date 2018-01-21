@@ -33,7 +33,7 @@
 \institute[Boston College]{Boston College}
 
 
-\title{The Slowdown of TFP \\ Exogenous and Endogenous Mechanisms}
+\title{IT Spillovers in Long-Run TFP \\ A SVAR Approach}
 
 \date{January 23, 2018}
 
@@ -56,9 +56,9 @@
 	\frametitle{Motivation}
 	
 	\begin{itemize}
-	\item The neoclassical tradition (RBC literature) in macro has treated total factor productivity (TFP) as exogenous. 
+	\item The neoclassical tradition (RBC literature) in macro has treated total factor productivity (TFP) as exogenous, working against endogenous growth models 
 	
-	(King \& Rebelo 1999, Christiano, Eichenbaum \& Trabandt 2014, 2018)
+	(King \& Rebelo 1999, Christiano, Eichenbaum \& Trabandt 2014, 2018, vs. e.g. Romer 1990)
 	
 	\
 	
@@ -203,13 +203,11 @@ Y_t = A_t^{\frac{1}{\theta-1}} \Psi_t K_t^{\alpha}L_t^{1-\alpha}
 
 \pause 
 
-The IT sector is a separate sector that uses IT investment $S_{i,t}$ to expand $A_t$. Importantly, we assume that the IT sector is also augmented by $\Psi_t$, as well as by the sector-specific productivity $\lambda_t$. 
+IT sector is a separate sector that uses IT investment and its own sectoral productivity $\lambda_t$ to expand $A_t$.  \hyperlink{it_sector}{\beamergotobutton{IT sector in detail}}
 
-\begin{equation}
-V_{i,t} = \lambda_t \Psi_t f(S_{i,t}) 
-\end{equation}
+$\rightarrow$ IT sector is driven by profits from selling the IT good, but its advances spill over to aggregate TFP.
 
-\hyperlink{it_sector}{\beamergotobutton{IT sector in detail}}
+
 
 \end{frame}
 %%%%%%%%%%%%%%%%%
@@ -250,32 +248,51 @@ Crucially, both lead to an increase in future TFP, with no effect on impact.
 \begin{frame}
 	\frametitle{Identification: relative prices}
 
-The price level $P$ is an aggregate of the prices intermediate goods. These are determined as an FOC to 
-\begin{equation*}
-Y_t(s) = \Psi_t K_t(s)^{\alpha}L_t(s)^{1-\alpha}
-\end{equation*}
-
-\hspace{5cm} $\hookrightarrow P$ is a function of $\Psi_t$ 
+Let $P$ be the price level (price of final good), $P^{IT}$ the price of the IT good and relative prices be $P^{IT}/P$.
 
 \
 
-The price of IT good, $P^{IT}$, is determined as an FOC to
-
-\begin{equation}
-V_{i,t} = \lambda_t \Psi_t f(S_{i,t})
-\end{equation}
-
-
-\hspace{5cm}  $\hookrightarrow P^{IT}$ is a function of $\Psi_t$ \textbf{and} $\lambda_t$	
-
-\
-
-$\Rightarrow$ The two shocks imply different responses of relative prices $\frac{P^{IT}}{P}$!
-
+Intuition:
 \begin{itemize}
-\item A news shock moves both $P$ and $P^{IT}$, leaving relative prices unchanged.
-\item An IT productivity shock moves only $P^{IT}$, thus changing relative prices.
+\item News shock makes all sectors of the economy more productive $\rightarrow$ impacts the sectoral price $P^IT$ as well as P $\Rightarrow$ relative prices do not move.
+\item IT productivity shock makes only the IT sector more productive $\rightarrow$ impacts the sectoral price $P^{IT}$ \textbf{only} $\Rightarrow$ relative prices move! 
 \end{itemize}
+
+\
+
+$\Rightarrow$ identifying restriction: news shock does not move relative prices.
+\newline Accounting for price rigidities: news shock does not move relative prices after price adjustment has taken place (6-12 quarters).
+
+\
+
+Similar identification scheme: Fisher 2006.
+
+%The price level $P$ is an aggregate of the prices intermediate goods. These are determined as an FOC to 
+%\begin{equation*}
+%Y_t(s) = \Psi_t K_t(s)^{\alpha}L_t(s)^{1-\alpha}
+%\end{equation*}
+%
+%\hspace{5cm} $\hookrightarrow P$ is a function of $\Psi_t$ 
+%
+%\
+%
+%The price of IT good, $P^{IT}$, is determined as an FOC to
+%
+%\begin{equation}
+%V_{i,t} = \lambda_t \Psi_t f(S_{i,t})
+%\end{equation}
+%
+%
+%\hspace{5cm}  $\hookrightarrow P^{IT}$ is a function of $\Psi_t$ \textbf{and} $\lambda_t$	
+%
+%\
+%
+%$\Rightarrow$ The two shocks imply different responses of relative prices $\frac{P^{IT}}{P}$!
+%
+%\begin{itemize}
+%\item A news shock moves both $P$ and $P^{IT}$, leaving relative prices unchanged.
+%\item An IT productivity shock moves only $P^{IT}$, thus changing relative prices.
+%\end{itemize}
 
 
 
@@ -367,8 +384,10 @@ We impose our identifying assumptions on the matrix $D$. \hyperlink{Technicaliti
 \begin{frame}
 	\frametitle{Identification strategy overall}
 
+Innovation in TFP at time $t$ can be decomposed as:
+
 \begin{equation}
-\epsilon^{TFP}_t =   \underbrace{V_{t-k}}_\text{news shock} + \underbrace{IT_{t-k}}_\text{IT productivity shock}  + \underbrace{\varepsilon_t}_\text{surprise tech shock} 
+\epsilon^{TFP}_t =   \underbrace{V_{t-k}}_\text{news shock} + \underbrace{f(IT_{t-j})}_\text{IT productivity shock}  + \underbrace{\varepsilon_t}_\text{surprise tech shock} 
 \end{equation}
 
 \
@@ -378,7 +397,7 @@ We impose our identifying assumptions on the matrix $D$. \hyperlink{Technicaliti
 	
 	\
 	
-    \item The IT shock maximizes the remaining FEV of future TFP;
+    \item The IT productivity shock maximizes the remaining FEV of future TFP;
     
     \
     
@@ -631,6 +650,10 @@ For BS, FEV of news was 45\%.
 	\frametitle{Work ahead} 
 	
 \begin{itemize}
+
+\item Show the identification assumption in the structural model. 
+
+\
 
 \item Technically, should do a VECM due to cointegration and wanting to have variables in the VAR as growth rates rather than levels...
 

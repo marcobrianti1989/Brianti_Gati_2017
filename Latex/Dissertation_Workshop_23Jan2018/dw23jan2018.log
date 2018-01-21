@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 JAN 2018 17:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  21 JAN 2018 09:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1129,18 +1129,9 @@ Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 (./dw23jan2018.nav)
-Overfull \hbox (26.39658pt too wide) in paragraph at lines 43--43
- [][][][]  
- []
-
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 51.
-
-
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
 
 [1
 
@@ -1160,110 +1151,35 @@ line 75.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-)
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
+) [2
 
-[2
+] [3
 
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
+] [4
 
-[3
+] [5
 
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
+] [6
 
-[4
+] [7
 
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
+] [8
 
-[5
+] [9
 
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
+] [10
 
-[6
+] [11
 
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
+] [12
 
-[7
+] [13
 
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
+] [14
 
-[8
+] [15
 
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[9
-
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[10
-
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[11
-
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[12
-
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[13
-
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[14
-
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[15
-
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[16
+] [16
 
 ]
 <../../Figures/fig_News_Shock_on_TFP__.png, id=484, 1086.0575pt x 645.41125pt>
@@ -1271,7 +1187,7 @@ File: ../../Figures/fig_News_Shock_on_TFP__.png Graphic file (type png)
 
 <use ../../Figures/fig_News_Shock_on_TFP__.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_TFP__.png used on inpu
-t line 430.
+t line 449.
 (pdftex.def)             Requested size: 162.9016pt x 96.80751pt.
 
 <../../Figures/fig_IT_Shock_on_TFP__.png, id=485, 1086.0575pt x 645.41125pt>
@@ -1279,14 +1195,9 @@ File: ../../Figures/fig_IT_Shock_on_TFP__.png Graphic file (type png)
 
 <use ../../Figures/fig_IT_Shock_on_TFP__.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_TFP__.png used on input 
-line 430.
+line 449.
 (pdftex.def)             Requested size: 162.9016pt x 96.80751pt.
-
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[17
+ [17
 
  <../../Figures/fig_News_Shock_on_TFP__.png (PNG copy)> <../../Figures/fig_IT_S
 hock_on_TFP__.png (PNG copy)>]
@@ -1295,7 +1206,7 @@ pt>
 File: ../../Figures/fig_News_Shock_on_Real_SP__.png Graphic file (type png)
  <use ../../Figures/fig_News_Shock_on_Real_SP__.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_Real_SP__.png used on 
-input line 444.
+input line 463.
 (pdftex.def)             Requested size: 161.24548pt x 96.65695pt.
 
 <../../Figures/fig_IT_Shock_on_Real_SP__.png, id=513, 1075.01625pt x 644.4075pt
@@ -1303,14 +1214,9 @@ input line 444.
 File: ../../Figures/fig_IT_Shock_on_Real_SP__.png Graphic file (type png)
  <use ../../Figures/fig_IT_Shock_on_Real_SP__.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_Real_SP__.png used on in
-put line 444.
+put line 463.
 (pdftex.def)             Requested size: 161.24548pt x 96.65695pt.
-
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[18
+ [18
 
  <../../Figures/fig_News_Shock_on_Real_SP__.png (PNG copy)> <../../Figures/fig_
 IT_Shock_on_Real_SP__.png (PNG copy)>]
@@ -1320,7 +1226,7 @@ File: ../../Figures/fig_News_Shock_on_Real_IT_Investment__.png Graphic file (ty
 pe png)
  <use ../../Figures/fig_News_Shock_on_Real_IT_Investment__.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_Real_IT_Investment__.p
-ng used on input line 458.
+ng used on input line 477.
 (pdftex.def)             Requested size: 179.46275pt x 96.65695pt.
 
 <../../Figures/fig_IT_Shock_on_Real_IT_Investment__.png, id=541, 1108.14pt x 64
@@ -1329,14 +1235,9 @@ File: ../../Figures/fig_IT_Shock_on_Real_IT_Investment__.png Graphic file (type
  png)
  <use ../../Figures/fig_IT_Shock_on_Real_IT_Investment__.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_Real_IT_Investment__.png
- used on input line 458.
+ used on input line 477.
 (pdftex.def)             Requested size: 166.21382pt x 96.65695pt.
-
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[19
+ [19
 
  <../../Figures/fig_News_Shock_on_Real_IT_Investment__.png (PNG copy)> <../../F
 igures/fig_IT_Shock_on_Real_IT_Investment__.png (PNG copy)>]
@@ -1348,7 +1249,7 @@ File: ../../Figures/fig_News_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_
 <use ../../Figures/fig_News_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_3
 4_47.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_Real_GDP_Ryan_two_step
-sID_10-Dec-2017_17_34_47.png used on input line 487.
+sID_10-Dec-2017_17_34_47.png used on input line 506.
 (pdftex.def)             Requested size: 110.11783pt x 64.5449pt.
 
 <../../Figures/fig_News_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-2017_
@@ -1359,7 +1260,7 @@ File: ../../Figures/fig_News_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-
 <use ../../Figures/fig_News_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-2
 017_17_34_50.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_Real_Consumption_Ryan_
-two_stepsID_10-Dec-2017_17_34_50.png used on input line 487.
+two_stepsID_10-Dec-2017_17_34_50.png used on input line 506.
 (pdftex.def)             Requested size: 118.85095pt x 64.5449pt.
 
 <../../Figures/fig_News_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-2017_17
@@ -1370,7 +1271,7 @@ File: ../../Figures/fig_News_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-20
 <use ../../Figures/fig_News_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-201
 7_17_34_52.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_Relative_Price_Ryan_tw
-o_stepsID_10-Dec-2017_17_34_52.png used on input line 487.
+o_stepsID_10-Dec-2017_17_34_52.png used on input line 506.
 (pdftex.def)             Requested size: 110.31859pt x 64.5449pt.
 
 <../../Figures/fig_IT_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_35_00.p
@@ -1381,7 +1282,7 @@ _00.png Graphic file (type png)
 <use ../../Figures/fig_IT_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_35_
 00.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_Real_GDP_Ryan_two_stepsI
-D_10-Dec-2017_17_35_00.png used on input line 487.
+D_10-Dec-2017_17_35_00.png used on input line 506.
 (pdftex.def)             Requested size: 110.11783pt x 64.5449pt.
 
 <../../Figures/fig_IT_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-2017_17
@@ -1392,7 +1293,7 @@ File: ../../Figures/fig_IT_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-20
 <use ../../Figures/fig_IT_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-201
 7_17_35_02.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_Real_Consumption_Ryan_tw
-o_stepsID_10-Dec-2017_17_35_02.png used on input line 487.
+o_stepsID_10-Dec-2017_17_35_02.png used on input line 506.
 (pdftex.def)             Requested size: 111.7239pt x 64.5449pt.
 
 <../../Figures/fig_IT_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-2017_17_3
@@ -1403,15 +1304,10 @@ _17_35_04.png Graphic file (type png)
 <use ../../Figures/fig_IT_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-2017_
 17_35_04.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_Relative_Price_Ryan_two_
-stepsID_10-Dec-2017_17_35_04.png used on input line 487.
+stepsID_10-Dec-2017_17_35_04.png used on input line 506.
 (pdftex.def)             Requested size: 110.11783pt x 64.5449pt.
 
-Overfull \vbox (5.1817pt too high) detected at line 487
- []
-
-
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
+Overfull \vbox (5.1817pt too high) detected at line 506
  []
 
 [20
@@ -1423,26 +1319,11 @@ ative_Price_Ryan_two_stepsID_10-Dec-2017_17_34_52.png (PNG copy)> <../../Figure
 s/fig_IT_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_35_00.png (PNG copy)
 > <../../Figures/fig_IT_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-2017_
 17_35_02.png (PNG copy)> <../../Figures/fig_IT_Shock_on_Relative_Price_Ryan_two
-_stepsID_10-Dec-2017_17_35_04.png (PNG copy)>]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
+_stepsID_10-Dec-2017_17_35_04.png (PNG copy)>] [21
 
-[21
+] [22
 
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[22
-
-]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[23
+] [23
 
 ]
 <../../Figures/fig_counterfactual_.png, id=682, 1045.9075pt x 649.42625pt>
@@ -1450,25 +1331,14 @@ File: ../../Figures/fig_counterfactual_.png Graphic file (type png)
 
 <use ../../Figures/fig_counterfactual_.png>
 Package pdftex.def Info: ../../Figures/fig_counterfactual_.png used on input li
-ne 601.
+ne 620.
 (pdftex.def)             Requested size: 292.8521pt x 181.8381pt.
+ [24
 
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[24
-
- <../../Figures/fig_counterfactual_.png (PNG copy)>]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[25
+ <../../Figures/fig_counterfactual_.png (PNG copy)>] [25
 
 ]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
+Overfull \vbox (3.13974pt too high) detected at line 678
  []
 
 [26
@@ -1480,16 +1350,11 @@ File: ../../Figures/fig_TFP_macrolunch_29-Nov-2017_17_41_17.pdf Graphic file (t
 ype pdf)
  <use ../../Figures/fig_TFP_macrolunch_29-Nov-2017_17_41_17.pdf>
 Package pdftex.def Info: ../../Figures/fig_TFP_macrolunch_29-Nov-2017_17_41_17.
-pdf used on input line 679.
+pdf used on input line 702.
 (pdftex.def)             Requested size: 327.70206pt x 177.34978pt.
 
-Overfull \hbox (11.87636pt too wide) in paragraph at lines 679--679
+Overfull \hbox (11.87636pt too wide) in paragraph at lines 702--702
  [] 
- []
-
-
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [27
@@ -1499,27 +1364,17 @@ Overfull \hbox (26.39658pt too wide) has occurred while \output is active
 File: ../../Tables/fig_BS_fevtable.png Graphic file (type png)
 
 <use ../../Tables/fig_BS_fevtable.png>
-Package pdftex.def Info: ../../Tables/fig_BS_fevtable.png used on input line 69
-7.
+Package pdftex.def Info: ../../Tables/fig_BS_fevtable.png used on input line 72
+0.
 (pdftex.def)             Requested size: 330.03555pt x 181.27864pt.
 
-Overfull \hbox (14.20985pt too wide) in paragraph at lines 697--697
+Overfull \hbox (14.20985pt too wide) in paragraph at lines 720--720
  [] 
- []
-
-
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [28
 
- <../../Tables/fig_BS_fevtable.png>]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[29
+ <../../Tables/fig_BS_fevtable.png>] [29
 
 ]
 <../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04.pdf, id=855, 1209.5
@@ -1529,16 +1384,11 @@ le (type pdf)
 
 <use ../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04.pdf>
 Package pdftex.def Info: ../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_3
-1_04.pdf used on input line 746.
+1_04.pdf used on input line 769.
 (pdftex.def)             Requested size: 338.66295pt x 177.34978pt.
 
-Overfull \hbox (22.83725pt too wide) in paragraph at lines 746--746
+Overfull \hbox (22.83725pt too wide) in paragraph at lines 769--769
  [] 
- []
-
-
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [30
@@ -1551,26 +1401,16 @@ le (type pdf)
 
 <use ../../Figures/fig_IT_level_macrolunch_30-Nov-2017_11_37_26.pdf>
 Package pdftex.def Info: ../../Figures/fig_IT_level_macrolunch_30-Nov-2017_11_3
-7_26.pdf used on input line 763.
+7_26.pdf used on input line 786.
 (pdftex.def)             Requested size: 337.43454pt x 183.68024pt.
 
-Overfull \hbox (21.60884pt too wide) in paragraph at lines 763--763
+Overfull \hbox (21.60884pt too wide) in paragraph at lines 786--786
  [] 
- []
-
-
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [31
 
- <../../Figures/fig_IT_level_macrolunch_30-Nov-2017_11_37_26.pdf>]
-Overfull \hbox (26.39658pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[32
+ <../../Figures/fig_IT_level_macrolunch_30-Nov-2017_11_37_26.pdf>] [32
 
 ]
 \tf@nav=\write6
@@ -1582,11 +1422,12 @@ Overfull \hbox (26.39658pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `dw23jan2018.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 815.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 815.
- (./dw23jan2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 815.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 815.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 838.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 838.
+
+(./dw23jan2018.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 838.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 838.
 Package rerunfilecheck Info: File `dw23jan2018.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1594,12 +1435,12 @@ Package rerunfilecheck Info: File `dw23jan2018.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 815.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 838.
  ) 
 Here is how much of TeX's memory you used:
  19778 strings out of 493089
  374555 string characters out of 6134842
- 463318 words of memory out of 5000000
+ 463278 words of memory out of 5000000
  22691 multiletter control sequences out of 15000+600000
  23954 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1631,7 +1472,7 @@ xmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/public/cm-super/sfsx0600.pfb></usr/local/texlive/2015/texmf-
 dist/fonts/type1/public/cm-super/sfsx0800.pfb></usr/local/texlive/2015/texmf-di
 st/fonts/type1/public/cm-super/sfsx1095.pfb>
-Output written on dw23jan2018.pdf (32 pages, 925479 bytes).
+Output written on dw23jan2018.pdf (32 pages, 924126 bytes).
 PDF statistics:
  1043 PDF objects out of 1200 (max. 8388607)
  941 compressed objects within 10 object streams
