@@ -94,6 +94,46 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{VARs - A quick recap}
+	\label{identification}
+	
+Structural Form	
+\begin{equation}
+(\mathbf{AD})^{-1}
+    \mathbf{X_{t}}
+= \mathbf{C(L)} 
+\mathbf{X_{t-1}}
++ \mathbf{s_t}
+\end{equation}
+
+\
+
+\
+
+Reduced Form
+\begin{equation}
+\mathbf{X_{t}}
+= \underbrace{\mathbf{AD} \mathbf{C(L)}}_\text{$\mathbf{B(L)}$} 
+\mathbf{X_{t-1}}
++ \underbrace{\mathbf{AD} \mathbf{s_t}}_\text{$\mathbf{i_t}$}
+\end{equation}
+
+\
+
+\
+
+\begin{itemize}
+	\item $AD$ is the impact matrix
+	\item $A$ is s.t. $As_t s_t' A' = i_t i_t' = \Sigma$ and $s_t s_t' = I$
+	\item $D$ is a rotation matrix s.t. $DD' = I$ $\Rightarrow$ $AD(AD)' = \Sigma$
+\end{itemize}
+
+We impose our identifying assumptions on the matrix $D$. \hyperlink{Technicalities}{\beamergotobutton{Technicalities}}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
@@ -190,7 +230,7 @@ Final good $Y_t$ is the CES aggregate of a number $A_t$ intermediate goods $Y_t^
 
 Intermediate good $s$ is Cobb-Douglas with exogenous TFP $\Psi_t$:
 \begin{equation}
-Y_t(s) = \Psi_t K_t(s)^{\alpha}L_t(s)^{1-\alpha}
+Y^M_t(s) = \Psi_t K_t(s)^{\alpha}L_t(s)^{1-\alpha}
 \end{equation}
 
 \pause
@@ -233,13 +273,12 @@ $\hookrightarrow$ An IT productivity shock is $\lambda_t \uparrow$, which shows 
 
 \
 
+So in this model, the innovation to TFP at period $t$ is:
+\begin{equation}
+\epsilon^{TFP}_t =   \underbrace{V_{t-k}}_\text{news shock} + \underbrace{f(IT_{t-j})}_\text{IT productivity shock}  + \underbrace{\varepsilon_t}_\text{surprise tech shock} 
+\end{equation}
+
 Crucially, both lead to an increase in future TFP, with no effect on impact. 
-
-\
-
- $\rightarrow$ to a Barsky \& Sims-type identification, the two shocks are observationally equivalent! 
- 
- $\Rightarrow$ econometric challenge is to disentangle the two!
 
 \end{frame}
 %%%%%%%%%%%%%%%%%
@@ -254,7 +293,7 @@ Let $P$ be the price level (price of final good), $P^{IT}$ the price of the IT g
 
 Intuition:
 \begin{itemize}
-\item News shock makes all sectors of the economy more productive $\rightarrow$ impacts the sectoral price $P^IT$ as well as P $\Rightarrow$ relative prices do not move.
+\item News shock makes all sectors of the economy more productive $\rightarrow$ impacts the sectoral price $P^{IT}$ as well as P $\Rightarrow$ relative prices do not move.
 \item IT productivity shock makes only the IT sector more productive $\rightarrow$ impacts the sectoral price $P^{IT}$ \textbf{only} $\Rightarrow$ relative prices move! 
 \end{itemize}
 
@@ -302,6 +341,34 @@ Similar identification scheme: Fisher 2006.
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
+	\frametitle{Identification strategy overall}
+
+Recall that the innovation in TFP at time $t$ is:
+
+\begin{equation*}
+\epsilon^{TFP}_t =   \underbrace{V_{t-k}}_\text{news shock} + \underbrace{f(IT_{t-j})}_\text{IT productivity shock}  + \underbrace{\varepsilon_t}_\text{surprise tech shock} 
+\end{equation*}
+
+\
+
+    \begin{enumerate}
+    	\item The news shock $V_{t-k}$ maximizes the FEV of future TFP, with a zero impact effect, subject to the restriction that it has no effect on the relative price $RP$ at a small number of quarters;
+	
+	\
+	
+    \item The IT productivity shock maximizes the remaining FEV of future TFP, with a zero impact effect;
+    
+    \
+    
+    \item The tech shock $\varepsilon_t$ is considered as a residual shock and is left unrestricted (unidentified).
+   \end{enumerate}
+	
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
 	\frametitle{Empirical analysis}
 
 	We run a SVAR using aggregate, quarterly US data. The data vector is:
@@ -338,75 +405,8 @@ Similar identification scheme: Fisher 2006.
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{From reduced form to structural form}
-	\label{identification}
-	
-Structural Form	
-\begin{equation}
-(\mathbf{AD})^{-1}
-    \mathbf{X_{t}}
-= \mathbf{C(L)} 
-\mathbf{X_{t-1}}
-+ \mathbf{s_t}
-\end{equation}
-
-\
-
-\
-
-Reduced Form
-\begin{equation}
-\mathbf{X_{t}}
-= \underbrace{\mathbf{AD} \mathbf{C(L)}}_\text{$\mathbf{B(L)}$} 
-\mathbf{X_{t-1}}
-+ \underbrace{\mathbf{AD} \mathbf{s_t}}_\text{$\mathbf{i_t}$}
-\end{equation}
-
-\
-
-\
-
-\begin{itemize}
-	\item $AD$ is the impact matrix
-	\item $A$ is s.t. $As_t s_t' A' = i_t i_t' = \Sigma$ and $s_t s_t' = I$
-	\item $D$ is a rotation matrix s.t. $DD' = I$ $\Rightarrow$ $AD(AD)' = \Sigma$
-\end{itemize}
-
-We impose our identifying assumptions on the matrix $D$. \hyperlink{Technicalities}{\beamergotobutton{Technicalities}}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
 
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Identification strategy overall}
-
-Innovation in TFP at time $t$ can be decomposed as:
-
-\begin{equation}
-\epsilon^{TFP}_t =   \underbrace{V_{t-k}}_\text{news shock} + \underbrace{f(IT_{t-j})}_\text{IT productivity shock}  + \underbrace{\varepsilon_t}_\text{surprise tech shock} 
-\end{equation}
-
-\
-
-    \begin{enumerate}
-    	\item The news shock $V_{t-k}$ maximizes the FEV of future TFP subject to the restriction that it has no effect on the relative price $RP$ at a small number of quarters (enough for prices to adjust, so 6-12);
-	
-	\
-	
-    \item The IT productivity shock maximizes the remaining FEV of future TFP;
-    
-    \
-    
-    \item The tech shock $\varepsilon_t$ is considered as a residual shock and is left unrestricted (unidentified).
-   \end{enumerate}
-	
-	
-\end{frame}
-%%%%%%%%%%%%%%%%%
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
@@ -586,6 +586,10 @@ For BS, FEV of news was 45\%.
 	\
 	
 	\item Replace IT prices with capital prices (following Comin \& Gertler)
+	
+	\
+	
+	\item Replace CPI inflation with PCE inflation
 	\end{itemize}
 	
 	\

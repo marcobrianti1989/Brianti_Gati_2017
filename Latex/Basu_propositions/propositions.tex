@@ -1,0 +1,126 @@
+\documentclass{beamer}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{csquotes}
+\usepackage{sansmathaccent}
+\usepackage{subfigure}
+\usepackage{multicol}
+\pdfmapfile{+sansmathaccent.map}
+\def \ourFigPath {../../} 
+\def \ourTablePath {../../Tables/} 
+
+\setbeamersize{text margin left=5mm,text margin right=12mm} 
+%
+\font\reali=msbm10 at 12pt
+% subsets of real numbers
+\newcommand{\numberset}{\mathbb}
+\newcommand{\real}{\hbox{\reali R}}
+\newcommand{\N}{\numberset{N}}
+\newcommand{\realp}{\hbox{\reali R}_{\scriptscriptstyle +}}
+\newcommand{\realpp}{\hbox{\reali R}_{\scriptscriptstyle ++}}
+\newcommand{\virgolette}[1]{``#1''}
+%
+
+\author[Brianti, Gati]{Marco Brianti and Laura Gati}
+
+\institute[Boston College]{Boston College}
+
+
+\title{3 slides to convince you that it's endogenous TFP}
+
+\date{\today}
+
+\usetheme{Warsaw}
+
+
+\begin{document}
+
+
+\begin{frame}
+
+\maketitle
+
+
+\end{frame}
+
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+\frametitle{A two-sector model}
+
+Final goods firm (GE)
+\begin{align*}
+\max_{K^f_t(s), L^f_t(s), K^{IT}_t(s) } Y_t(s) =  & K^f_t(s)^{\alpha}L^f_t(s)^{\beta}K^{IT}_t(s)^{1-\alpha - \beta}A_t \\
+ & - w_t L_t(s) -R_tK^f_t(s) -P^{IT}_t I^{IT}_t(s) \\
+ & \text{where} \; K^{IT}_t(s) =  (1-\delta^{IT})K^{IT}_{t-1} + I^{IT}_t \\
+ & \text{and} \; A_t =  S_t \Psi_t (K^{IT}_t)^{\gamma}
+\end{align*}
+
+IT-producing firm (Google)
+\begin{align*}
+\max_{K^{I}_t(s), L^{I}_t(s)} I^{IT}_t(s) = P^{IT}_t S_t \lambda_t F(K^I_t(s), L^I_t(s)) -w_t L^I_t(s) - R_t K^I_t(s)
+\end{align*}
+
+\
+
+A news shock is $S_{t+k} \uparrow$ for some positive $k$. 
+
+An IT productivity shock is $\lambda_{t+j}$ for some positive $j$. 
+
+$\Psi$ is a final-good-specific exogenous technology process.
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+\frametitle{Proposition 1 - the Solow-residual in this model}
+
+\begin{align*}
+\frac{\dot{A}}{A} = & \frac{\dot{Y}}{Y} - \alpha \frac{\dot{K^f}}{K^f} - \beta \frac{\dot{L^f}}{L^f} - (1-\alpha - \beta) \frac{\dot{K^{IT}}}{K^{IT}} \\
+= & \frac{\dot{S}}{S} + \frac{\dot{\Psi}}{\Psi} + \gamma \frac{\dot{K^{IT}}}{K^{IT}}
+\end{align*}
+
+TFP consists of an exogenous, common technology process $S$, a final-good-specific exogenous technology process $\Psi$ and an endogenous component coming as a spillover from the aggregate stock of IT technology. 
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+\frametitle{Proposition 2 - when a news shock leaves relative prices constant}
+
+Since the rate of return on the input factors have to equal in the two sectors, we can set the FOCs from GE and Google equal. Let's do this for capital:
+
+\begin{align*}
+R_t = & \alpha \frac{Y_t(s)}{K^f_t(s)} P^C_t = S_t \lambda_t F_k P^{IT}_t \\
+\Leftrightarrow \frac{P^{IT}_t }{P^{C}_t } = & \alpha \frac{K^f_t(s)^{\alpha}L^f_t(s)^{\beta}K^{IT}_t(s)^{1-\alpha - \beta}S_t \Psi_t (K^{IT}_t)^{\gamma} }{K^f_t(s)} \frac{1}{S_t \lambda_t F_k}
+\end{align*}
+
+
+A news shock doesn't move relative prices if 
+\begin{itemize}
+\item No other exogenous shock hits the economy ($\Psi_t$ and $\lambda_t$ do not move);
+\item the news shock doesn't change the relative marginal productivities of the two inputs in the two sectors, so that labor and capital are not reallocated from one sector to another.
+\end{itemize}
+
+
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+\end{document}
