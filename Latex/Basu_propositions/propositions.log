@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  31 JAN 2018 11:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  31 JAN 2018 11:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1206,7 +1206,7 @@ texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb>
-Output written on propositions.pdf (5 pages, 135693 bytes).
+Output written on propositions.pdf (5 pages, 135708 bytes).
 PDF statistics:
  221 PDF objects out of 1000 (max. 8388607)
  185 compressed objects within 2 object streams
