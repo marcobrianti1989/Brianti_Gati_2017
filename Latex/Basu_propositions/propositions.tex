@@ -59,9 +59,15 @@ Final goods firm (GE)
 \begin{align*}
 \max_{K^f_t(s), L^f_t(s), K^{IT}_t(s) } Y_t(s) =  & K^f_t(s)^{\alpha}L^f_t(s)^{\beta}K^{IT}_t(s)^{1-\alpha - \beta}A_t \\
  & - w_t L_t(s) -R_tK^f_t(s) -P^{IT}_t I^{IT}_t(s) \\
- & \text{s.t.} \; K^{IT}_t(s) =  (1-\delta^{IT})K^{IT}_{t-1} + I^{IT}_t \\
- & \text{but not internalizing} \; A_t =  S_t \Psi_t (K^{IT}_t)^{\gamma}
+ & \text{where} \; K^{IT}_t(s) =  (1-\delta^{IT})K^{IT}_{t-1} + I^{IT}_t \\
+ &  \; A_t =  S_t \Psi_t (G(K^{IT}_t,K^{IT}_{t-1},\dots))^{\gamma} \\
+ &  \; G(K^{IT}_t,K^{IT}_{t-1},\dots) = \zeta_1 K_t^{IT} + \zeta_2 K^{IT}_{t-1} + \dots \\
+  & \text{and} \; \sum_{i=1}^{N} \zeta_i = 1
 \end{align*}
+
+\end{frame}
+
+\begin{frame}
 
 IT-producing firm (Google)
 \begin{align*}
@@ -74,7 +80,7 @@ A news shock is $S_{t+k} \uparrow$ for some positive $k$.
 
 An IT productivity shock is $\lambda_{t} \uparrow$, i.e. an increase in IT productivity today. 
 
-$\Psi$ is a final-good-specific exogenous deterministic technology process.
+$\Psi$ is a final-good-specific exogenous technology process.
 
 \end{frame}
 %%%%%%%%%%%%%%%%%
