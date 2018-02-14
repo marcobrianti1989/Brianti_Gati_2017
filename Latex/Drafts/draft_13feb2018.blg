@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: draft_13feb2018.aux
+The style file: cell.bst
+Database file #1: itgpt.bib
+Warning--empty note in chen_wemy2014
+Warning--empty note in roldan2017
+You've used 43 entries,
+            2116 wiz_defined-function locations,
+            759 strings with 10560 characters,
+and the built_in function-call counts, 15067 in all, are:
+= -- 1556
+> -- 613
+< -- 44
++ -- 205
+- -- 198
+* -- 1422
+:= -- 2462
+add.period$ -- 126
+call.type$ -- 43
+change.case$ -- 187
+chr.to.int$ -- 43
+cite$ -- 155
+duplicate$ -- 505
+empty$ -- 1016
+format.name$ -- 275
+if$ -- 3015
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 32
+newline$ -- 215
+num.names$ -- 129
+pop$ -- 203
+preamble$ -- 1
+purify$ -- 228
+quote$ -- 0
+skip$ -- 458
+stack$ -- 0
+substring$ -- 945
+swap$ -- 56
+text.length$ -- 16
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 250
+warning$ -- 2
+while$ -- 116
+width$ -- 0
+write$ -- 550
+(There were 2 warnings)

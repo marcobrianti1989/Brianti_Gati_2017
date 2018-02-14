@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amsthm, amssymb,lscape, natbib}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{hhline}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage[final]{pdfpages}
+\usepackage[left=2.5cm,top=2.5cm,right=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{natbib} 
+\usepackage{bibentry} 
+\newcommand{\bibverse}[1]{\begin{verse} \bibentry{#1} \end{verse}}
+\newcommand{\vs}{\vspace{.3in}}
+\renewcommand{\ni}{\noindent}
+\usepackage{xr-hyper}
+\usepackage[]{hyperref}
+
+\definecolor{citec}{rgb}{0,0,.5}
+\definecolor{linkc}{rgb}{0,0,.6}
+\definecolor{bcolor}{rgb}{1,1,1}
+\hypersetup{
+%hidelinks = true
+  colorlinks = true,
+  urlcolor=linkc,
+  linkcolor=linkc,
+  citecolor = citec,
+  filecolor = linkc,
+  pdfauthor={Laura G\'ati},
+}
+
+% A first draft in a paper-format
+
+
+\geometry{left=.97in,right=1in,top=1in,
+bottom=1in}
+\linespread{1.5}
+\renewcommand{\[}{\begin{equation}}
+\renewcommand{\]}{\end{equation}}
+
+
+\begin{document}
+
+\linespread{1.0}
+
+\title{Title}
+\author{Marco Brianti, Laura G\'ati\thanks{%
+Department of Economics, Boston College, Chestnut Hill, MA 02467, U.S.A. Email: gati@bc.edu} \\
+%EndAName
+ Boston College \\
+%EndAName
+}
+\date{Preliminary and Incomplete \\ \today}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%             ABSTRACT           %%%%%%%%%%%%%%%%%% 
+%\begin{abstract}
+
+%\end{abstract}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%               INTRODUCTION                 %%%%%%%%%%%%%%%%%% 
+\section{Introduction}
+
+
+
+%%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
+\section{Model}
+
+%%%%%%%%%%%%%%%%%%%%               EMPIRICS                 %%%%%%%%%%%%%%%%%% 
+\section{Empirics}
+\subsection{Data and specification}
+\subsection{Results}
+
+%%%%%%%%%%%%%%%%%%%%               CONCLUSION                 %%%%%%%%%%%%%%%%%% 
+\section{Conclusion}
+
+
+ %%%%%%%%%%%%%%%%%%           BIBLIOGRAPHY            %%%%%%%%%%%%%%%%%% 
+\newpage
+\nocite{*}
+\bibliography{itgpt} % try one from BibDesk -- it works!!! 
+\bibliographystyle{cell} % cell is the best so far, acm 2nd best	
+ 
+\end{document}
+
+
