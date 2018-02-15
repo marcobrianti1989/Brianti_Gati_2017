@@ -18,6 +18,8 @@
 \definecolor{citec}{rgb}{0,0,.5}
 \definecolor{linkc}{rgb}{0,0,.6}
 \definecolor{bcolor}{rgb}{1,1,1}
+\def \ourFigPath {../../Figures/} 
+\def \ourTablePath {../../Tables/} 
 \hypersetup{
 %hidelinks = true
   colorlinks = true,
@@ -60,26 +62,51 @@ Department of Economics, Boston College, Chestnut Hill, MA 02467, U.S.A. Email: 
 \newpage
 %%%%%%%%%%%%%%%%%%%%               INTRODUCTION                 %%%%%%%%%%%%%%%%%% 
 \section{Introduction}
+The sluggish recovery of productivity after the Great Recession of 2008 has reignited interest in the factors behind long-run productivity growth. On the one hand, the literature in the wake of the seminal contribution of \cite{comin_gertler2006} interprets productivity fluctuations as medium-run business cycle phenomena, thus inviting the interpretation of the current productivity slowdown as a persistent, but transitory slump due to procyclical R\&D investment contracting during the bust. On the other hand, a glance at Fig. \ref{fig_slowdowns} reveals that total factor productivity (TFP) dropped already before the 2008 recession. Motivated by this observation, a large literature has turned to alternative potential drivers of productivity.\footnote{Another reason to be skeptical concerning the extent to which R\&D can play a major rule in current productivity developments is that R\&D investment only started decreasing after the decrease in TFP materialized, contrary to the conventional wisdom that R\&D leads TFP. See for example \cite{guerron_jinnai2013}.} In particular, this literature reexamines the question of what the main forces behind productivity growth are in the economy in general.
+
+\begin{figure}[h!]
+\centering
+\caption{The Slowdown of TFP and R\&D (levels)}
+\includegraphics[scale = 0.3]{\ourFigPath fig_RD_level_macrolunch_30-Nov-2017_11_31_04}
+\label{fig_slowdowns}
+\end{figure}
+
+The particular channel of productivity growth this paper focuses on is general purpose technology (GPT). GPTs are technologies whose main effect on productivity comes through changing the organization and the process of production. Thus they may be inputs to production themselves, but their fundamental contribution is as spillovers to aggregate production.\footnote{See for example \cite{bresnahan_trajtenberg1992}.} More specifically, we consider information technologies (IT), which has widely been claimed to be the main GPT since the 1990s.\footnote{See \cite{basu_etal2004}, \cite{brynjolfsson_etal1994} and \cite{allstar_paper} among many others.} Our main contribution is quantifying the extent to which IT productivity can explain long-run fluctuations in TFP. We use SVAR approach in which we identify a shock to IT productivity and examine how much of the forecast error variance (FEV) of TFP our identified shock can account for. Our second contribution is providing an identification scheme for the IT productivity shock in the presence of other shocks that at first glance seem observationally equivalent. Since our shock of interest contemporaneously effects the productivity of the IT sector and shows up in aggregate TFP with a lag\footnote{See \cite{david1989}.}, it bears strong resemblance to classical news shocks, which by definition have no contemporaneous effect on TFP, yet affect it over time.\footnote{This is the classical definition of the news shock literature in the wake of \cite{beaudry_portier2006}.} In order to make sure that our IT productivity shock is not picking up the effects of news shocks, we propose an identification approach that identifies both shocks, thus disentangling them. 
+Applying our methodology to aggregate US data from 1989 to 2017, we obtain that IT productivity shocks explain around 50\% of TFP fluctuations at long horizons, while news shocks account for around 20\%. We interpret these findings as evidence that IT as a general purpose technology is indeed an important factor behind the evolution of long-run TFP, while still maintaining a considerable role for news shocks. 
+
+The paper is organized as follows. Section \ref{sec_related_lit} reviews the related literature. Section \ref{sec_model} lays out a simple two-sector model which we use to work out our identifying restrictions. Section \ref{sec_empirics} presents the data, the SVAR we run and discusses the results. Section \ref{sec_conclusion} concludes. 
 
 
+%%%%%%%%%%%%%%%%%%%%               RELATED LITERATURE                 %%%%%%%%%%%%%%%%%% 
+\section{Related literature}
+\label{sec_related_lit}
+
+This paper is situated at the intersection of three literatures. The first is the medium-run business cycles literature which emphasizes the role of R\&D investment for productivity growth. Here the seminal paper is \cite{comin_gertler2006}, which first set up the structural framework to analyze endogenous growth phenomena with the tools of business cycle analysis. Many papers rely on Comin \& Gertler's framework to attempt to quantify the importance of R\&D investment for TFP shocks. These papers include \cite{anzo_etal2016}, \cite{comin_etal2016} and \cite{moran_queralto2017}. Our paper is most closely related to \cite{moran_queralto2017}, since that paper also uses SVAR analysis to assess the role of R\&D investment. However, while Moran \& Queralto focus on R\&D, our interest here is IT productivity because of its role as a general purpose technology. Additionally, while Moran and Queralto recognize the identification problem that arises due to the similarity between their shock of interest and news shocks, they refrain from attempting to identify both shocks. 
+
+The second literature our paper is related to is the literature on GPTs. It is difficult to trace this literature back to a single paper, but one of the early, important contributions is \cite{bresnahan_trajtenberg1992}, which first suggests the possibility of GPTs being the engines behind productivity growth. Bresnahan \& Trajtenberg are also among the first to interpret electricity and IT to have been the most important GPTs, electricity being seminal in the early 20\textsuperscript{th} century up to the 1930s, and IT gaining prominence in the 1990s. The literature on GPTs has subsequently identified a number of characteristics of GPTs. \cite{david1990} and \cite{jov_rous2005} pinpoint that GPTs do not tend to increase productivity contemporaneously but only affect it after considerable time. Based on this observation, \cite{atkeson_kehoe2007} build a model which captures the slow diffusion of GPTs. A number of papers, most notably \cite{oliner_sichel2000} and \cite{oulton2010}, use neoclassical growth accounting techniques to conclude that both IT production but in particular IT use contributed significantly to the US productivity surge in the 1990s. \cite{basu_etal2004} conduct a case study between the US and the UK to compare why the UK did not experience the productivity uptake the US enjoyed in the 1990s, and find that differences in IT productivity explain a large fraction. Finally, to our knowledge \cite{allstar_paper} carries out the most thorough analysis of a vast arsenal of possible causes for the sluggish recovery of productivity after the 2008 recession. A clear reason remains elusive, yet the authors conclude that IT is a strong potential candidate. 
+
+The third and last literature that our work relates to is the news shocks literature. 
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
 \section{Model}
+\label{sec_model}
 
 %%%%%%%%%%%%%%%%%%%%               EMPIRICS                 %%%%%%%%%%%%%%%%%% 
 \section{Empirics}
+\label{sec_empirics}
 \subsection{Data and specification}
 \subsection{Results}
 
 %%%%%%%%%%%%%%%%%%%%               CONCLUSION                 %%%%%%%%%%%%%%%%%% 
 \section{Conclusion}
+\label{sec_conclusion}
 
 
  %%%%%%%%%%%%%%%%%%           BIBLIOGRAPHY            %%%%%%%%%%%%%%%%%% 
 \newpage
 \nocite{*}
-\bibliography{itgpt} % try one from BibDesk -- it works!!! 
-\bibliographystyle{cell} % cell is the best so far, acm 2nd best	
+\bibliography{itgpt} 
+\bibliographystyle{cell} 
  
 \end{document}
 
