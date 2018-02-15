@@ -4,6 +4,7 @@
 \usepackage{colortbl}
 \usepackage{hhline}
 \usepackage{multirow}
+\usepackage{multicol}
 \usepackage{setspace}
 \usepackage[final]{pdfpages}
 \usepackage[left=2.5cm,top=2.5cm,right=2.5cm, bottom=2.5cm]{geometry}
@@ -62,7 +63,7 @@ Department of Economics, Boston College, Chestnut Hill, MA 02467, U.S.A. Email: 
 \newpage
 %%%%%%%%%%%%%%%%%%%%               INTRODUCTION                 %%%%%%%%%%%%%%%%%% 
 \section{Introduction}
-The sluggish recovery of productivity after the Great Recession of 2008 has reignited interest in the factors behind long-run productivity growth. On the one hand, the literature in the wake of the seminal contribution of \cite{comin_gertler2006} interprets productivity fluctuations as medium-run business cycle phenomena, thus inviting the interpretation of the current productivity slowdown as a persistent, but transitory slump due to procyclical R\&D investment contracting during the bust. On the other hand, a glance at Fig. \ref{fig_slowdowns} reveals that total factor productivity (TFP) dropped already before the 2008 recession. Motivated by this observation, a large literature has turned to alternative potential drivers of productivity.\footnote{Another reason to be skeptical concerning the extent to which R\&D can play a major rule in current productivity developments is that R\&D investment only started decreasing after the decrease in TFP materialized, contrary to the conventional wisdom that R\&D leads TFP. See for example \cite{guerron_jinnai2013}.} In particular, this literature reexamines the question of what the main forces behind productivity growth are in the economy in general.
+The sluggish recovery of productivity after the Great Recession of 2008 has reignited interest in the factors behind long-run productivity. On the one hand, the literature in the wake of the seminal contribution of \cite{comin_gertler2006} interprets productivity fluctuations as medium-run business cycle phenomena, thus inviting the interpretation of the current productivity slowdown as a persistent, but transitory slump due to procyclical R\&D investment contracting during the bust. On the other hand, a glance at Figure \ref{fig_slowdowns} reveals that total factor productivity (TFP) dropped already before the 2008 recession. Motivated by this observation, a large literature has turned to potential drivers of productivity other than R\&D.\footnote{Another reason to be skeptical concerning the extent to which R\&D can play a major rule in current productivity developments is that R\&D investment only started decreasing after the decrease in TFP materialized, contrary to the conventional wisdom that R\&D leads TFP. See for example \cite{guerron_jinnai2013}.} 
 
 \begin{figure}[h!]
 \centering
@@ -71,21 +72,23 @@ The sluggish recovery of productivity after the Great Recession of 2008 has reig
 \label{fig_slowdowns}
 \end{figure}
 
-The particular channel of productivity growth this paper focuses on is general purpose technology (GPT). GPTs are technologies whose main effect on productivity comes through changing the organization and the process of production. Thus they may be inputs to production themselves, but their fundamental contribution is as spillovers to aggregate production.\footnote{See for example \cite{bresnahan_trajtenberg1992}.} More specifically, we consider information technologies (IT), which has widely been claimed to be the main GPT since the 1990s.\footnote{See \cite{basu_etal2004}, \cite{brynjolfsson_etal1994} and \cite{allstar_paper} among many others.} Our main contribution is quantifying the extent to which IT productivity can explain long-run fluctuations in TFP. We use SVAR approach in which we identify a shock to IT productivity and examine how much of the forecast error variance (FEV) of TFP our identified shock can account for. Our second contribution is providing an identification scheme for the IT productivity shock in the presence of other shocks that at first glance seem observationally equivalent. Since our shock of interest contemporaneously effects the productivity of the IT sector and shows up in aggregate TFP with a lag\footnote{See \cite{david1989}.}, it bears strong resemblance to classical news shocks, which by definition have no contemporaneous effect on TFP, yet affect it over time.\footnote{This is the classical definition of the news shock literature in the wake of \cite{beaudry_portier2006}.} In order to make sure that our IT productivity shock is not picking up the effects of news shocks, we propose an identification approach that identifies both shocks, thus disentangling them. 
-Applying our methodology to aggregate US data from 1989 to 2017, we obtain that IT productivity shocks explain around 50\% of TFP fluctuations at long horizons, while news shocks account for around 20\%. We interpret these findings as evidence that IT as a general purpose technology is indeed an important factor behind the evolution of long-run TFP, while still maintaining a considerable role for news shocks. 
-
-The paper is organized as follows. Section \ref{sec_related_lit} reviews the related literature. Section \ref{sec_model} lays out a simple two-sector model which we use to work out our identifying restrictions. Section \ref{sec_empirics} presents the data, the SVAR we run and discusses the results. Section \ref{sec_conclusion} concludes. 
+The particular channel of productivity growth this paper focuses on is general purpose technology (GPT). GPTs are technologies whose main effect on productivity comes through changing the organization and the process of production. Thus they may be inputs to production themselves, but their fundamental contribution is as spillovers to aggregate production.\footnote{See for example \cite{bresnahan_trajtenberg1992}.} More specifically, we consider information technologies (IT), which has widely been claimed to be the main GPT since the 1990s.\footnote{See \cite{basu_etal2004}, \cite{brynjolfsson_etal1994} and \cite{allstar_paper} among many others.} Our main contribution is quantifying the extent to which IT investment can explain long-run fluctuations in TFP. We use a SVAR approach in which we identify a shock to IT investment and examine how much of the forecast error variance (FEV) of TFP our identified shock can account for. Our second contribution is providing an identification scheme for the IT investment shock in the presence of other shocks that at first glance seem observationally equivalent. Since our shock of interest contemporaneously effects the productivity of the IT sector and shows up in aggregate TFP with a lag\footnote{See \cite{david1989}.}, it bears strong resemblance to classical news shocks, which by definition have no contemporaneous effect on TFP, yet affect it over time.\footnote{This is the classical definition of the news shock literature in the wake of \cite{beaudry_portier2006}.} In order to make sure that our IT investment shock is not picking up the effects of news shocks, we propose an identification approach that identifies both shocks, thus disentangling them. 
+Applying our methodology to aggregate US data from 1989 to 2017, we obtain that IT investment shocks explain around 50\% of TFP fluctuations at long horizons, while news shocks account for around 20\%. We interpret these findings as evidence that IT as a general purpose technology is indeed an important factor behind the evolution of long-run TFP, while still maintaining a considerable role for news shocks. 
 
 
 %%%%%%%%%%%%%%%%%%%%               RELATED LITERATURE                 %%%%%%%%%%%%%%%%%% 
 \section{Related literature}
 \label{sec_related_lit}
 
-This paper is situated at the intersection of three literatures. The first is the medium-run business cycles literature which emphasizes the role of R\&D investment for productivity growth. Here the seminal paper is \cite{comin_gertler2006}, which first set up the structural framework to analyze endogenous growth phenomena with the tools of business cycle analysis. Many papers rely on Comin \& Gertler's framework to attempt to quantify the importance of R\&D investment for TFP shocks. These papers include \cite{anzo_etal2016}, \cite{comin_etal2016} and \cite{moran_queralto2017}. Our paper is most closely related to \cite{moran_queralto2017}, since that paper also uses SVAR analysis to assess the role of R\&D investment. However, while Moran \& Queralto focus on R\&D, our interest here is IT productivity because of its role as a general purpose technology. Additionally, while Moran and Queralto recognize the identification problem that arises due to the similarity between their shock of interest and news shocks, they refrain from attempting to identify both shocks. 
+This paper is situated at the intersection of three literatures. The first is the medium-run business cycles literature which emphasizes the role of R\&D investment for productivity growth. Here the seminal paper is \cite{comin_gertler2006}, which first set up the structural framework to analyze endogenous growth phenomena with the tools of business cycle analysis. Many papers rely on Comin \& Gertler's framework to attempt to quantify the importance of R\&D investment for TFP shocks. These papers include \cite{anzo_etal2016}, \cite{comin_etal2016} and \cite{moran_queralto2017}. Our paper is most closely related to \cite{moran_queralto2017}, since that paper also uses SVAR analysis to assess the role of R\&D investment. However, while Moran \& Queralto focus on R\&D, our interest here is IT investment because of its role as a general purpose technology. Additionally, while Moran and Queralto recognize the identification problem that arises due to the similarity between their shock of interest and news shocks, they refrain from attempting to identify both shocks. 
 
-The second literature our paper is related to is the literature on GPTs. It is difficult to trace this literature back to a single paper, but one of the early, important contributions is \cite{bresnahan_trajtenberg1992}, which first suggests the possibility of GPTs being the engines behind productivity growth. Bresnahan \& Trajtenberg are also among the first to interpret electricity and IT to have been the most important GPTs, electricity being seminal in the early 20\textsuperscript{th} century up to the 1930s, and IT gaining prominence in the 1990s. The literature on GPTs has subsequently identified a number of characteristics of GPTs. \cite{david1990} and \cite{jov_rous2005} pinpoint that GPTs do not tend to increase productivity contemporaneously but only affect it after considerable time. Based on this observation, \cite{atkeson_kehoe2007} build a model which captures the slow diffusion of GPTs. A number of papers, most notably \cite{oliner_sichel2000} and \cite{oulton2010}, use neoclassical growth accounting techniques to conclude that both IT production but in particular IT use contributed significantly to the US productivity surge in the 1990s. \cite{basu_etal2004} conduct a case study between the US and the UK to compare why the UK did not experience the productivity uptake the US enjoyed in the 1990s, and find that differences in IT productivity explain a large fraction. Finally, to our knowledge \cite{allstar_paper} carries out the most thorough analysis of a vast arsenal of possible causes for the sluggish recovery of productivity after the 2008 recession. A clear reason remains elusive, yet the authors conclude that IT is a strong potential candidate. 
+The second literature our paper is related to is the literature on GPTs. It is difficult to trace this literature back to a single paper, but one of the early, important contributions is \cite{bresnahan_trajtenberg1992}, which first suggests the possibility of GPTs being the engines behind productivity growth. Bresnahan \& Trajtenberg are also among the first to interpret electricity and IT to have been the most important GPTs, electricity being seminal in the early 20\textsuperscript{th} century up to the 1930s, and IT gaining prominence in the 1990s. The literature on GPTs has subsequently identified a number of characteristics of GPTs. \cite{david1990} and \cite{jov_rous2005} pinpoint that GPTs do not tend to increase productivity contemporaneously but only affect it after considerable time. Based on this observation, \cite{atkeson_kehoe2007} build a model which captures the slow diffusion of GPTs. A number of papers, most notably \cite{oliner_sichel2000} and \cite{oulton2010}, use neoclassical growth accounting techniques to conclude that both IT production but in particular IT use contributed significantly to the US productivity surge in the 1990s. \cite{stiroh2002} uses industry-level data to reach the same findings. \cite{basu_etal2004} conduct a case study between the US and the UK to compare why the UK did not experience the productivity uptake the US enjoyed in the 1990s, and find that differences in IT investment explain a large fraction. Finally, to our knowledge \cite{allstar_paper} carries out the most thorough analysis of a vast arsenal of possible causes for the sluggish recovery of productivity after the 2008 recession. A clear reason remains elusive, yet the authors conclude that IT is a strong potential candidate. 
 
-The third and last literature that our work relates to is the news shocks literature. 
+The third and last literature that our work relates to is the news shocks literature started by  \cite{beaudry_portier2006}. Our work is most closely related to \cite{barsky_sims2011}, because we augment their identification strategy to identify an additional shock. \cite{bouakez_kemoe2017} and \cite{kurmann_sims2017} are similar to our paper in spirit because they argue that news shocks are not properly identified if there are measurement errors in TFP. Along these lines, \cite{crouzet_oh2014} consider fluctuations in inventories as variation that needs to purged from TFP in order to properly identify news shocks. Instead of measurement errors or inventories, we attribute the misidentification of news shocks to a general purpose technology, IT, spilling over into TFP.  A large fraction of the literature has chosen to focus on investment-specific shocks, most notably \cite{greenwood_etal1997}, \cite{fisher2006}, \cite{chen_wemy2015} and \cite{cummins_violante2002}. While these papers, in particular \cite{fisher2006}, resemble our work in that they identify a news shock and a sector-specific shock, they also deviate from what we do here in a crucial way. Importantly, all of these papers essentially postulate two separate news shocks: one to aggregate TFP, and one to sector-specific TFPs. Our IT investment shock is, however, not a classical news shock in the sense that it affects the demand for IT goods contemporaneously; it is not information that productivity will increase in the future. Instead, the reason that this shock ends up impacting aggregate TFP in the future is the slow diffusion of GPTs documented by the GPT literature. Thus, our IT investment shock has a very different interpretation than the reduced-form shocks identified in this strand of literature. 
+
+The rest of the paper is organized as follows. Section \ref{sec_model} lays out a simple two-sector model which we use to work out our identifying restrictions. Section \ref{sec_empirics} presents the data, the SVAR we run and discusses the results. Section \ref{sec_conclusion} concludes. 
+
+
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
 \section{Model}
@@ -94,12 +97,125 @@ The third and last literature that our work relates to is the news shocks litera
 %%%%%%%%%%%%%%%%%%%%               EMPIRICS                 %%%%%%%%%%%%%%%%%% 
 \section{Empirics}
 \label{sec_empirics}
+Having rationalized our identification restriction, we now summarize our overall identification scheme and present the VAR that we run. In order to identify the IT investment shock as well as a classical news shock, we proceed sequentially as follows. First, we identify the news as the shock that maximizes the FEV of future TFP subject to our additional identification restriction developed in Section \ref{sec_model} that the news shock has no effect on relative prices after a small number of periods. Second, we let the IT investment shock maximize the remaining FEV of future TFP. Lastly, whatever FEV of future TFP remains unexplained we attribute to surprise shocks to technology. 
+
+It is apparent that this overall strategy relies heavily on \cite{barsky_sims2011}, since they are the first to propose a FEV-maximization strategy in order to identify news shocks. The novelty here is adding a second shock, the IT investment shock, that is observationally equivalent to a news shock in data, and relying on the additional restriction on relative prices in order to disentangle the two shocks. As stated in Section \ref{sec_related_lit}, a similar identification scheme relying on relative prices has been proposed by \cite{fisher2006}, but the shock that Fisher identifies has a completely different interpretation than our shock. Fisher's additional shock is indeed a sector-specific news shock, while our IT investment shock is a surprise shock to IT investment today. Thus, while Fisher disentangles two types of news shocks, we here disentangle a news shock from a shock that captures endogenous growth in TFP. We therefore believe that understanding the importance of our shock to the evolution of TFP is especially of interest to economists, because it can shed light on the contribution of one channel of endogenous growth. 
+
 \subsection{Data and specification}
+We run a VAR on a vector of aggregate variables $\mathbf{X_t}$, using quarterly data from the US for the time period of 1989:q1 - 2017:q2. The data vector is:
+
+	\begin{equation*}
+	\mathbf{X_t} = 
+	\begin{bmatrix}
+    TFP_t      \\
+ 
+   SP_t   \\
+   
+   IT_t \\
+   
+   GDP_t \\
+   
+   C_t \\
+   
+   RP_t
+\end{bmatrix}
+	\end{equation*}
+	
+	\
+	
+	
+$TFP$ is the log of Fernald's constructed TFP series, utilization-adjusted. $SP$ is the log of the S\&P 500 stock price index. $IT$ is private fixed investment in information processing equipment and software, deflated using the price index for IT goods from the CPI. $GDP$ and $C$ are the logs of GDP and personal consumption expenditures respectively. $RP$ is the ratio of two inflation rates: IT price inflation divided by overall CPI inflation.\footnote{Redoing the analysis with PCE instead of CPI inflation yields very similar results.} All relevant variables are real. 
+
+We choose one lag for our VAR as suggested by the BIC and HQ lag selection criteria. In our preferred specification, we set the horizon of FEV-maximization at 60 quarters, but the results are robust to different long horizons. The restriction on relative prices after a news shock is imposed at 8 quarters, but numbers between 6 and 12 quarters yield similar results.
+
+
 \subsection{Results}
+
+Turning to the results, we first examine the impulse responses to our two identified shocks to see whether the responses are in line with our expectations and the predictions of our structural model. We then proceed to the heart of the results, the variance decompositions.
+
+\begin{figure}
+\caption{Impulse responses to our news and IT investment shocks}
+\begin{multicols}{2}
+\centering 
+\includegraphics[scale=0.14]{\ourFigPath fig_News_Shock_on_TFP__} \\
+\vspace{0.7cm}
+\includegraphics[scale=0.14]{\ourFigPath fig_News_Shock_on_Real_SP__}\\
+\vspace{0.7cm}
+\includegraphics[scale=0.14]{\ourFigPath fig_News_Shock_on_Real_IT_Investment__}\\
+\vspace{0.7cm}
+\includegraphics[scale = 0.14]{\ourFigPath fig_News_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_34_47}\\ 
+\vspace{0.7cm}
+\includegraphics[scale = 0.14]{\ourFigPath fig_News_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-2017_17_34_50}\\ 
+\vspace{0.7cm}
+\includegraphics[scale = 0.14]{\ourFigPath fig_News_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-2017_17_34_52}\\ 
+
+\includegraphics[scale=0.14]{\ourFigPath fig_IT_Shock_on_TFP__} \\
+\vspace{0.7cm}
+\includegraphics[scale=0.14]{\ourFigPath fig_IT_Shock_on_Real_SP__} \\
+\vspace{0.7cm}
+\includegraphics[scale=0.14]{\ourFigPath fig_IT_Shock_on_Real_IT_Investment__} \\
+\vspace{0.7cm}
+\includegraphics[scale = 0.14]{\ourFigPath fig_IT_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_35_00}\\
+\vspace{0.7cm}
+\includegraphics[scale = 0.14]{\ourFigPath fig_IT_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-2017_17_35_02}\\ 
+\vspace{0.7cm}
+\includegraphics[scale = 0.14]{\ourFigPath fig_IT_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-2017_17_35_04}\\ 
+
+\end{multicols}
+\label{fig_irfs}
+\end{figure}
+
+Figure \ref{fig_irfs} displays the impulse responses of all the variables in the VAR to the news shock and to the IT investment shock. The first row depicts the response of TFP. In line with the expectation that the two shocks look very similar with respect to the way they affect TFP, this impulse response indeed looks very similar for both shocks. TFP does not react on impact, but moves into positive territory after 10-15 quarters, and remains above its steady state value for an extended period of time. The similarity of the two shocks is also seen in the response of stock prices in the second row. For both the news shock and the IT investment shock, stock prices jump up on impact because both shocks will eventually entail higher future TFP.\footnote{While we here emphasize the sign of the responses because we seek to validate our identification approach, it should be noted that the magnitude of the responses is in line with the literature, in particular with \cite{barsky_sims2011}.} 
+
+The first variable where the difference between the two shocks starts kicking in is IT investment in the third row. Of course, the IT investment shock is by default an increase in the IT investment residual, so we have a positive response there. After the news shock, however, IT investment decreases significantly on impact. This response can be rationalized with consumption smoothing. When news about increases in TFP in the future hit, consumers know that their future consumption will increase. Therefore they seek to raise consumption already today, and to do so, they decrease savings. Thus, all investment variables decrease. 
+
+GDP and consumption in the fourth and fifth rows respond very similarly to each other and across the two shocks. This is because both are a function of productivity and expectations, and as we have highlighted above, both TFP and stock prices react similarly to both shocks, thus inducing similar GDP and consumption responses.
+
+A very comforting feature of these results are the impulse responses of relative prices, seen in the last row. On the one hand, one can see our identification restriction imposed on the response to the news shock at 8 quarters. On the other hand, even though we do not impose anything on the response of relative prices to the IT investment shock, we get a significantly negative response on impact which remains significant for about 20 quarters. This seems to confirm the validity of our identification restriction, since relative prices indeed move more following an IT investment shock than they do after a news shock. 
+
+Overall the impulse responses are in line with our expectations and suggest that our identification approach is performing well. We therefore now turn to the core of our results and investigate what fraction of TFP volatility can be attributed to our two shocks at a long horizon. Table \ref{tab_vardecomp} portrays the share of forecast error variance of TFP that the two identified shocks account for. To put the numbers in perspective, the news shock identified by \cite{barsky_sims2011} explains about 45\% of the FEV of TFP at 40 quarters.   
+
+
+\begin{table}[h!]
+\centering
+\caption{Share of FEV of TFP at 60 quarters explained by the identified shocks}
+\label{tab_vardecomp}
+\
+
+\begin{large}
+	\begin{tabular}{lccc}
+	\hline
+		& News & IT & Total \\
+		\hline
+	TFP	           & 0.20384  & 0.52596 & 0.72981  \\
+		\hline
+	\end{tabular}
+\end{large}
+\end{table}
+
+The striking result is that the IT investment shock alone is able to explain almost 53\% of long-run TFP variation!  One the one hand, this means that some of the explanatory power of the news shock should actually be attributed to the IT shock, so we are indeed doing a correct cleaning of the news shock from elements that come from a different channel. On the other hand, the IT investment shock is also picking up explanatory power above and beyond that purged from the news shock. Thus, it is not the case that the news shock is really just an IT investment shock; the two are indeed two different sources of TFP fluctuations. By extension, the news shock still retains a significant explanatory power of about 20\%. All in all, the IT investment shock does not discredit the news shock in explaining long-run TFP, but it seems to play a far more important role itself.
+
+\subsection{A counterfactual for the Dotcom bubble}
+Returning to our motivating example, we now address the question what our VAR predicts for the evolution of TFP had the negative IT investment shocks of the Dotcom bubble not happened. Therefore, using the time series of structural IT investment shocks recovered from our SVAR, we construct a counterfactual TFP series in which we shut off all negative shocks in our sample. This counterfactual series is plotted against the original series in Figure \ref{fig_counter}.
+
+\begin{figure}[h!]
+\caption{A counterfactual TFP series}
+\label{fig_counter}
+
+\vspace{0.5cm}
+	\centering
+	\includegraphics[scale=0.28]{\ourFigPath fig_counterfactual_}
+\end{figure}
+
+By definition, since we have shut off negative IT investment shocks, the counterfactual TFP series, represented by the red line, are above the original blue series. The notable feature of this graph, however, is that the two lines really start to diverge around 2005, around 12 quarters after the Dotcom bubble burst in 2002. As the impulse responses from the VAR indicate, it takes about 10 quarters for the IT investment shock to show up as significant response in TFP. Thus the counterfactual is suggesting that the large divergence between original and constructed series come from the sizable negative IT investment shock that hit during the Dotcom crash. 
 
 %%%%%%%%%%%%%%%%%%%%               CONCLUSION                 %%%%%%%%%%%%%%%%%% 
 \section{Conclusion}
 \label{sec_conclusion}
+This paper has proposed spillovers from the stock of IT as an important driver for TFP fluctuations in the long run. Our main contribution is presenting empirical evidence in a SVAR context that quantifies the role of IT. The results indicate that since IT investment shocks explain almost 53\% of long-run TFP fluctuations, they are indeed an important factor for the evolution of TFP. At the same time, news shocks still explain about 20\%, losing some, but not all of their explanatory power found in previous studies.
+
+Our second contribution is developing an identification strategy to properly disentangle news shocks from IT investment shocks. Our procedure augments FEV-maximization \`a la \cite{barsky_sims2011} with a restriction on the relative price of IT goods. The identification scheme is intuitive and simple to implement, and can be generalized to a whole class of shocks that bear resemblance to news shocks, yet have an entirely different structural interpretation. 
+
 
 
  %%%%%%%%%%%%%%%%%%           BIBLIOGRAPHY            %%%%%%%%%%%%%%%%%% 
