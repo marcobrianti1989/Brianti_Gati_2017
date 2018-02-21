@@ -7,10 +7,6 @@
 
 
 clear all
-% cd '/Users/lauragati/Documents/Matlab/Lorenzoni/Code/Baseline' % removed
-% because this is moved to dropbox.
-
-% FULL INFORMATION
 
 %Load Parameters
 param = parameters;
