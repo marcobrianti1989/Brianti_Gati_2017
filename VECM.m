@@ -1,4 +1,4 @@
-function [Pi,reg,res,sigma] = VECM(dataset, nlags)
+function [Pi,B,res,sigma] = VECM(dataset, nlags)
 
 % Rearrange data to run a VECM, outputting Pi, the correction matrix.
 % reg the betas of the lagged terms. Similar to Reduced form VAR
@@ -35,7 +35,7 @@ res = data_1 - reg*B;
 sigma = res'*res/(T-nlags);
 
 %Compute the correction matrix
-Pi = B(2:nvar+1,:);
-B = B(nvar+2:end,:);
+Pi   = B(2:nvar+1,:);
+B    = [B(1,:);   B(nvar+2:end,:)];
 
 end

@@ -18,19 +18,19 @@ varnames
 
 % Find positions of shocks and of relative prices in a correct way
 if sum(strcmp('Real SP', varnames))==1 % i.e. 'Real SP' exists as a variable
-    pos_news = find(strcmp('Real SP', varnames));
+      pos_news = find(strcmp('Real SP', varnames));
 elseif sum(strcmp('Michigan Index ', varnames))==1 % i.e. we use Mich for news
-    pos_news = find(strcmp('Michigan Index ', varnames));
-elseif sum(strcmp('SP deflated', varnames))==1 % i.e. we use SP deflated by GDPDEF for news    
-    pos_news = find(strcmp('SP deflated', varnames));
-elseif sum(strcmp('SP deflated per capita', varnames))==1 % i.e. we use SP deflated by GDPDEF for news    
-    pos_news = find(strcmp('SP deflated per capita', varnames));
+      pos_news = find(strcmp('Michigan Index ', varnames));
+elseif sum(strcmp('SP deflated', varnames))==1 % i.e. we use SP deflated by GDPDEF for news
+      pos_news = find(strcmp('SP deflated', varnames));
+elseif sum(strcmp('SP deflated per capita', varnames))==1 % i.e. we use SP deflated by GDPDEF for news
+      pos_news = find(strcmp('SP deflated per capita', varnames));
 end
 pos_IT = find(strcmp('Real IT Investment', varnames));
 if find(strcmp('Relative Price', varnames)) > 0
-    pos_rel_prices = find(strcmp('Relative Price', varnames));
+      pos_rel_prices = find(strcmp('Relative Price', varnames));
 elseif find(strcmp('Relative price PCE', varnames))
-    pos_rel_prices = find(strcmp('Relative price PCE', varnames));
+      pos_rel_prices = find(strcmp('Relative price PCE', varnames));
 end
 which_shocks = [pos_news pos_IT];
 
@@ -48,25 +48,33 @@ which_variable  = 1; % select TFP as the variable whose FEV we wanna max
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
 [AIC,BIC,HQ] = aic_bic_hq(data,max_lags);
 if AIC >= 4
-    nlags = 1; % 2;
-    warning(['AIC > 4, setting nlags to ', num2str(nlags) ])
+      nlags = 1; % 2;
+      warning(['AIC > 4, setting nlags to ', num2str(nlags) ])
 else
-    nlags = AIC;
+      nlags = AIC;
 end
 
-%Run VAR imposing Cholesky
-[A,B,res,sigma] = sr_var(data, nlags);
-
-%Checking if the VAR is stationary
-test_stationarity(B');
+switch 'VECM'
+      case 'VAR'
+            %Run VAR imposing Cholesky
+            [A,B,res,sigma] = sr_var(data, nlags);
+            %Checking if the VAR is stationary
+            test_stationarity(B');
+            
+      case 'VECM'
+            %Run VECM
+            [Pi,B,res,sigma] = VECM(data, nlags);
+            %Static rotation matrix
+            A = chol(sigma)';
+end
 
 % Implement Ryan's ID strategy
 LR_hor = 8; % at what horizon to impose the LR restriction
 % [impact, FEV_opt, IRFs, gamma_opt, FEV_news, FEV_IT] = ryansID(which_variable,which_shocks,H,B,A,q);
 H_max = 60;
 [impact, FEV_opt, ~, gam_opt, FEV_news, FEV_IT] ...
-    = Ryan_two_stepsID(which_variable,which_shocks,H_max,...
-    LR_hor,B,A,pos_rel_prices);
+      = Ryan_two_stepsID(which_variable,which_shocks,H_max,...
+      LR_hor,B,A,pos_rel_prices);
 
 % Bootstrap
 which_ID = 'Ryan_two_stepsID';
@@ -78,11 +86,19 @@ blocksize = 5; % size of block for drawing in blocks
 
 % Get "bootstrapped A" nsimul times
 for i_simul=1:nsimul
-    [A_boot, ~,~,~] = sr_var(data_boot2(:,:,i_simul), nlags);
-    % Get bootstrapped confidence intervals nsimul times
-    disp(['Iteration ' num2str(i_simul) ' out of ' num2str(nsimul)])
-    [impact_boot(:,:,i_simul),~,~,~,~,~] = Ryan_two_stepsID(which_variable,...
-          which_shocks,H_max,LR_hor,beta_tilde_star(:,:,i_simul),A_boot, pos_rel_prices);
+      switch 'VAR'
+            case 'VAR'
+                  [A_boot, ~,~,~] = sr_var(data_boot2(:,:,i_simul), nlags);
+            case 'VECM'
+                  %Run VECM
+                  [Pi,B,res,sigma] = VECM(data_boot2(:,:,i_simul), nlags);
+                  %Static rotation matrix
+                  A_boot = chol(sigma)';
+      end
+      % Get bootstrapped confidence intervals nsimul times
+      disp(['Iteration ' num2str(i_simul) ' out of ' num2str(nsimul)])
+      [impact_boot(:,:,i_simul),~,~,~,~,~] = Ryan_two_stepsID(which_variable,...
+            which_shocks,H_max,LR_hor,beta_tilde_star(:,:,i_simul),A_boot, pos_rel_prices);
 end
 
 %Creating a fake matrix for the IRF of the point estimation
@@ -91,7 +107,7 @@ fake_impact(:,which_shocks) = impact;
 % Create a fake matrix for the IRFs of the bootstrap
 fake_impact_boot = zeros(nvar,nvar,nsimul);
 for i_simul = 1:nsimul
-    fake_impact_boot(:,which_shocks,i_simul) = impact_boot(:,:,i_simul);
+      fake_impact_boot(:,which_shocks,i_simul) = impact_boot(:,:,i_simul);
 end
 
 %Creating and Printing figures
@@ -105,18 +121,18 @@ print_figs = 'no';
 % % solutions: gam and -gam. So choose the one that makes sense. I'm doing
 % % that so that news and IT have + effects on TFP.
 if sum(IRFs(1,:,pos_IT)) < 0 % if the majority of TFP response is negative
-    IRFs(:,:,pos_IT)   = -IRFs(:,:,pos_IT);
-    ub1(:,:,pos_IT)     = - ub1(:,:,pos_IT);
-    lb1(:,:,pos_IT)     = - lb1(:,:,pos_IT);
-    ub2(:,:,pos_IT)     = - ub2(:,:,pos_IT);
-    lb2(:,:,pos_IT)     = - lb2(:,:,pos_IT);
+      IRFs(:,:,pos_IT)   = -IRFs(:,:,pos_IT);
+      ub1(:,:,pos_IT)     = - ub1(:,:,pos_IT);
+      lb1(:,:,pos_IT)     = - lb1(:,:,pos_IT);
+      ub2(:,:,pos_IT)     = - ub2(:,:,pos_IT);
+      lb2(:,:,pos_IT)     = - lb2(:,:,pos_IT);
 end
 if sum(IRFs(1,:,pos_news)) < 0 % if the majority of TFP response is negative
-    IRFs(:,:,pos_news)   = -IRFs(:,:,pos_news);
-    ub1(:,:,pos_news)     = - ub1(:,:,pos_news);
-    lb1(:,:,pos_news)     = - lb1(:,:,pos_news);
-    ub2(:,:,pos_news)     = - ub2(:,:,pos_news);
-    lb2(:,:,pos_news)     = - lb2(:,:,pos_news);
+      IRFs(:,:,pos_news)   = -IRFs(:,:,pos_news);
+      ub1(:,:,pos_news)     = - ub1(:,:,pos_news);
+      lb1(:,:,pos_news)     = - lb1(:,:,pos_news);
+      ub2(:,:,pos_news)     = - ub2(:,:,pos_news);
+      lb2(:,:,pos_news)     = - lb2(:,:,pos_news);
 end
 
 %Printing/Showing IRFs
@@ -129,15 +145,15 @@ plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shocks,shocknames, varnames, 
 %Forni&Gambetti Orthogonality Test
 do_FG_test = 'no';
 switch do_FG_test
-    case 'yes'
-filename_PC       = 'Dataset_test_PC';
-sheet_PC          = 'Quarterly';
-range_PC          = 'B2:DC287';
-first_n_PCs       = 10;
-mlags             = 1;
-[pvalue_news_shock, pvalue_IT_shock] = ...
-      Forni_Gambetti_orthogonality_test(filename_PC,...
-      sheet_PC,range_PC,first_n_PCs,A,gam_opt,res,which_shocks,mlags)
+      case 'yes'
+            filename_PC       = 'Dataset_test_PC';
+            sheet_PC          = 'Quarterly';
+            range_PC          = 'B2:DC287';
+            first_n_PCs       = 10;
+            mlags             = 1;
+            [pvalue_news_shock, pvalue_IT_shock] = ...
+                  Forni_Gambetti_orthogonality_test(filename_PC,...
+                  sheet_PC,range_PC,first_n_PCs,A,gam_opt,res,which_shocks,mlags)
 end
 
 %Saving in Tex format the Variance Decomposition Matrix
@@ -148,12 +164,12 @@ fev_matrix
 
 export_FEV_matrix = 'no';
 if strcmp(export_FEV_matrix,'yes') ==1
-    fev_matrix_out = [FEV_news, FEV_IT, FEV_opt];
-    rowLabels = {'Share of TFP FEV explained'};
-    columnLabels = {'News', 'IT', 'Total'};
-    matrixname   = 'FEVs';
-    invoke_matrix_outputting(fev_matrix_out,matrixname,rowLabels,...
-          columnLabels,comment);
+      fev_matrix_out = [FEV_news, FEV_IT, FEV_opt];
+      rowLabels = {'Share of TFP FEV explained'};
+      columnLabels = {'News', 'IT', 'Total'};
+      matrixname   = 'FEVs';
+      invoke_matrix_outputting(fev_matrix_out,matrixname,rowLabels,...
+            columnLabels,comment);
 end
 
 toc
@@ -182,8 +198,8 @@ grid on
 
 save_counterfactual_fig = 'yes';
 switch save_counterfactual_fig
-    case 'yes'
-        invoke_export_fig('counterfactual','',0)
+      case 'yes'
+            invoke_export_fig('counterfactual','',0)
 end
 
 % % Historical decompositions of TFP from the 2 structral shocks
@@ -193,7 +209,7 @@ end
 % hd_news = historical_decomposition(s(:,pos_news),fake_impact,B, pos_news, 1);
 % % sum of the two:
 % hd = hd_IT + hd_news;
-% 
+%
 % % Get counterfactual when shutting off IT shocks 2000-Q3 onward
 % IT_bubble = find(time=='01-Jul-2000');
 % s_alternative = s;

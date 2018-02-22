@@ -31,8 +31,8 @@ res = data_1 - reg*B;
 %Compute the variance-covariance matrix
 sigma = res'*res/(T-nlags);
 
-if nvar ==1
-      A= 0;
+if nvar == 1
+      A = 0;
 else
       %Static rotation matrix
       A = chol(sigma)';
