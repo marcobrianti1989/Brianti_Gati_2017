@@ -24,10 +24,10 @@ eta      = param.eta; % common tech param
 
 %Use closed form expressions for the ss values. (My notes p. 147)
 r     = 1/bet -(1-del1);
-y_k1  = r/alph1;
+y_k1  = r/alph1; %%%
 wl1_y  = alph2;
 sp_y  = (1-alph1-alph2)/r;
-sp_k2 = r/(eta*lam*phi*del2);
+sp_k2 = r/(eta*lam*phi*del2); %%
 k2_k1 = (eta*lam*phi*del2)/alph1*sp_y; % (eq. 10)
 c_y   = wl1_y + (r-del1)*(y_k1)^(-1) + sp_y - del2*k2_k1*(y_k1)^(-1); % (eq. 11)   
 wl2_y = eta*lam*(1-phi)*del2*sp_y; % (eq. 12)
@@ -46,10 +46,10 @@ s     = s_y*y;
 w     = (y_w)^(-1)*y;
 l     = l1+l2;
 k     = k1+k2;
-i     = del1*k;
+i     = del1*k;%
 it    = del2*s;
 
 %Put the ss values in a vector consistent with Y and X vectors in model.m
-yy  = [y c l l1 l2 r w i it p];
-xx  = [k k1 k2 s];
+yy  = [y c l l1 l2 r w i it];
+xx  = [k k1 k2 s p];
 ss  = [yy xx];

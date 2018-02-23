@@ -44,11 +44,11 @@ syms YY C L L1 L2 R W I IT P
 syms YY_p C_p L_p L1_p L2_p R_p W_p I_p IT_p P_p
 
 %Declare X and Y vectors
-X  = [K K1 K2 S]; % vector of state variables  
-XP = [K_p K1_p K2_p S_p]; % p signifies t+1
+X  = [K K1 K2 S P]; % vector of state variables  
+XP = [K_p K1_p K2_p S_p P_p]; % p signifies t+1
 
-Y  = [YY C L L1 L2 R W I IT P]; % vector of controls
-YP = [YY_p C_p L_p L1_p L2_p R_p W_p I_p IT_p P_p] ;
+Y  = [YY C L L1 L2 R W I IT]; % vector of controls
+YP = [YY_p C_p L_p L1_p L2_p R_p W_p I_p IT_p] ;
 
 
 % Model Equations (my notes p. 152):
