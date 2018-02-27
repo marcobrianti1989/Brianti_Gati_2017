@@ -63,7 +63,8 @@ switch 'VECM'
             
       case 'VECM'
             %Run VECM
-            [Pi,B,res,sigma] = VECM(data, nlags);
+            constant = 0;
+            [Pi,B,res,sigma] = VECM(data, nlags, constant);
             %Static rotation matrix
             A = chol(sigma)';
 end

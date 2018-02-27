@@ -29,5 +29,5 @@ end
 
 %Run VECM
 
-
-[Pi,B,res,sigma] = VECM(data, nlags);
+constant = 0; %no contant in the VECM
+[Pi,B,res,sigma] = VECM(data, nlags, constant);
