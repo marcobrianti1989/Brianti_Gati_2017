@@ -64,20 +64,27 @@ if det(Pi) >= 10^(10-8)
 end
 
 
-r = 6;
+r = 5;
 % Set random vector beta in order to split Pi in alpha times beta'.
-bet = [ones(1,r); ones(nvar-1,r)];
+%bet = [ones(1,r); ones(nvar-1,r)];
 %Set the objective function to min over alpha
-obj_alph = @(alph_x) objective_alph(Pi,bet,alph_x);
+obj_alph = @(alph_bet_x) objective_alph(Pi,r,alph_bet_x);
 %Initial value
-alph_zero = ones(nvar,r);
+alph_bet_zero = ones(nvar,2*r);
 
 %Optimization Parameters
 options  = optimset('fmincon');
 options  = optimset(options, 'TolFun', 1e-9, 'display', 'none');
 %Optimization
-alph = fmincon(obj_alph, alph_zero,[],[],[],[],[],[],[],options);
+[alph_bet_opt] = fmincon(obj_alph, alph_bet_zero,[],[],[],[],[],[],[],options);
 %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
+%alph_bet_opt = fzero(obj_alph,alph_bet_zero);
+
+
+alph = alph_bet_opt(:,r);
+bet  = alph_bet_opt(:,r+1:end);
+
+obj_alph(alph_bet_opt)
 
 Pi - alph*bet'
 
