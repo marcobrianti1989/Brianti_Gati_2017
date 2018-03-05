@@ -29,5 +29,6 @@ end
 
 %Run VECM
 
-constant = 0; %no contant in the VECM
-[Pi,B,res,sigma] = VECM(data, nlags, constant);
+constant = 1; %no contant in the VECM
+r = 1; %number of cointegrating vectors
+[Pi,B,res,sigma,bet,alph] = VECM(data, nlags, constant, r);
