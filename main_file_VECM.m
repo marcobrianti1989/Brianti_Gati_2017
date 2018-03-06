@@ -27,8 +27,11 @@ else
     nlags = AIC;
 end
 
-%Run VECM
-
+%Run reduced form VECM
 constant = 1; %no contant in the VECM
-r = 1; %number of cointegrating vectors
-[alph_hat,bet_hat,Pi,Gam_hat,res] = VECM(data, nlags, r);
+r = 2; %number of cointegrating vectors
+[alph_hat,bet_hat,Pi,Gam_hat,res,sigma] = redu_VECM(data, nlags, r);
+
+%Run structural VECM
+[B, Xi] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags);
+

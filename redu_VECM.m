@@ -1,4 +1,4 @@
-function [alph_hat,bet_hat,Pi,Gam_hat,res] = redu_VECM(dataset, nlags, r)
+function [alph_hat,bet_hat,Pi,Gam_hat,res,sigma] = redu_VECM(dataset, nlags, r)
 
 % INPUTS:
 % dataset is (T, nvar)
@@ -76,8 +76,9 @@ Pi = alph_hat*bet_hat';
 Gam_hat = (dY - alph_hat*bet_hat'*Y)*X'*(X*X')^(-1);
 Gam_hat = Gam_hat';
 
-%Getting residuals
+%Getting residuals and Variance-Covariance Matrix
 res = dY*M - alph_hat*bet_hat'*Y*M;
 res = res';
+sigma = res'*res;
 
 end
