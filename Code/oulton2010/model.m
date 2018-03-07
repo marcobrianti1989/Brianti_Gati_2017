@@ -58,6 +58,7 @@ f(end+1)= -KI + KI1 + KI2;
 f(end+1)= -H + H1 + H2;
 f(end+1)= -KC_p*(1+G) + (1-dc)*KC + IC;
 f(end+1)= -KI_p*(1+GI)+ (1-di)*KI + IT; 
+% f(end+1)= -KI_p*(1+GI)*(1+GP_p)+ (1-di)*KI + IT; % brown attempt 3
 f(end+1)= -YC + C + IC;
 f(end+1)= -YI + IT;
 f(end+1)= -W/C + chi;

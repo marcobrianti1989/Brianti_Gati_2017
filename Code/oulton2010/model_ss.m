@@ -50,6 +50,7 @@ ki     = ki1 + ki2;
 c      = w/chi;
 ic     = (1+g-(1-dc))*kc;
 it     = (1+gi-(1-di))*ki;
+% it     = ((1+gi)*(1+gp)-(1-di))*ki; % brown attempt 3
 yc     = c+ic;
 yi     = it;
 
