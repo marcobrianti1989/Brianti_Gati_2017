@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a4paper,top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm,%
+bindingoffset=0mm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.75em depth0em\fi}
+\usepackage{tikz}
+\usepackage{graphicx}
+%\graphicspath{{./Figures/}}
+\def \ourFigPath {../../} % this should move up two steps 
+% . = current directory
+ % .. = parent directory
+\usepackage{rotating}
+\usepackage{float}
+\linespread{1.3}
+\raggedbottom
+
+
+
+
+%
+\font\reali=msbm10 at 12pt
+% subsets of real numbers
+\newcommand{\real}{\hbox{\reali R}}
+\newcommand{\realp}{\hbox{\reali R}_{\scriptscriptstyle +}}
+\newcommand{\realpp}{\hbox{\reali R}_{\scriptscriptstyle ++}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+%
+
+\title{Steady state of two-sector models - Questions}
+\author{Marco Brianti\\Laura Gati}
+\date{5 March 2018}
+
+\begin{document}
+
+\maketitle
+
+\
+
+\section{A two-sector model \`a la Oulton (2010)}
+Why look at this model? Because the one we have laid out maps to this, but here the formulation is simpler because the HH accumulates all kinds of capital. Also, I'm shutting off spillovers to TFP from the IT stock for now.
+
+\begin{align*}
+& yc_t = bc_t \; h1^{1-a-b} kc1_t^aki1_t^b \\
+ & yi_t = bi_t  \; h2^{1-a-b} kc2_t^a kci1_t^b \\
+& kc_t  = kc1_t + kc2_t \\
+& ki_t = ki1_t + ki2_t \\
+& h_t  = h1_t + h2_t \\
+& kc_{t+1}  = (1-\delta_c )kc_t + ic_t \\
+& ki_{t+1}  = (1-\delta_i)ki_t + it_t \\
+& yc_t = c_t + ic_t \\
+& yi_t = it_t \\
+& p_t  = pi_t / pc_t  \; \; \; \text{Normalizing} \; pc = 1 \; \text{we have} \; p \; \text{as only price variable left.}\\
+& bc_t, bi_t \; \text{grow with exogenous growth rates} \; \gamma_c \; \text{and} \; \gamma_i \\
+& w_t / c_t = \chi \\
+& 1 = \beta \mathbb{E}_t\frac{c_t}{c_{t+1}}(rc_{t+1} + 1- \delta_c ) \\
+& 1 = \beta \mathbb{E}_t\frac{c_t}{c_{t+1}} (\frac{1}{p_{t+1}}ri_{t+1} + 1-\delta_i) \\
+& w_t = (1-a-b)bc_t \; h1_t^{-a-b} kc1_t^a ki1_t^b \\
+& rc_t = a \; bc_t \; h1_t^{1-a-b} kc1_t^{a-1} ki1_t^b \\
+& ri_t = b \; bc_t \; h1_t^{1-a-b} kc1_t^a ki1_t^{b-1} \\
+& \frac{1}{p_t}w_t = (1-a-b)bc_t \; h1_t^{-a-b} kc1_t^a ki1_t^b \\
+& \frac{1}{p_t}rc_t = a \; bc_t \; h1_t^{1-a-b} kc1_t^{a-1} ki1_t^b \\
+& \frac{1}{p_t}ri_t = b \; bc_t \; h1_t^{1-a-b} kc1_t^a ki1_t^{b-1} 
+\end{align*}
+
+\section{Steady state with growth}
+BGP: Following Oulton, let's assume that $\gamma_i > \gamma_c$. It can be shown that $g_p = \gamma_c - \gamma_i < 0$, i.e. relative prices are falling.
+Furthermore it can be shown (from LOMs, GDP equations) that $yc, c, ic$ and $kc$ grow at a shared rate $g$, while $yi, it$ and $ki$ grow at the rate $g_i$ which is faster than $g$. (Something like $g_i = g - g_p$.) From the EEs, we also see that $rc$ is constant while $ri$ is falling at the rate $g_p$. So at this point I have things growing at 3 different rates ($g, g_i$ and $g_p$) and how to connect these rates with the exogenous growth rates is tough, especially since I begin to get confused about gross and net growth rates too. But what I find the most challenging is to stationarize. Suppose I just divide the variables by the appropriate variable. For example since I know that $yc, c, ic$ and $kc$ grow at a shared rate $g$, I can divide all those variables by for example $yc_{t-1}$. So let's divide the final goods production function by $yc_{t-1}$ and denote by tilde the stationary variables:
+
+\begin{equation*}
+\tilde{yc}_t = bc_t \; h1^{1-a-b} \tilde{kc}_t^a \; ki_t^b \; yc_{t-1}^{-(1+b)}
+\end{equation*}
+
+What makes me confused here is that to get $ki$ to be stationary, we need to divide by additional stuff: the difference between the growth rates of the standard capital sector and the IT sector. But because of the exponents things don't seem to work out. And then we haven't even dealt with $bc$ which is merrily growing at its own rate and I don't see how to connect that with the $g, g_i$ and $g_p$. 
+
+\section{Shutting off growth - steady state is still tough}
+ To shut off growth, I let $bc, bi$ be constants for a moment so that nothing grows. Then the steady state is given by the following set of equations (once I've done a couple of substitutions):
+
+
+\begin{equation}
+\frac{w}{\chi}  +\delta_c kc1 + \delta_c  kc2 = bc \; h1^{1-a-b} \; kc1^{a} \; ki1^{b}
+\end{equation}
+
+\begin{equation}
+\delta_i ki1 + \delta_i ki2 = bi \; h2^{1-a-b} \; kc2^{a} \; ki2^{b}
+\end{equation}
+
+\begin{equation}
+rc =1/\beta -(1-\delta_c)
+\end{equation}
+
+\begin{equation}
+ri =(1/\beta -(1-\delta_i))p
+\end{equation}
+
+\begin{equation}
+w = (1-a-b) \; bc \; h1^{-a-b} \; kc1^{a} \; ki1^{b}
+\end{equation}
+
+\begin{equation}
+rc =  a \; bc \; h1^{1-a-b} \; kc1^{a-1} \; ki1^{b}
+\end{equation}
+
+\begin{equation}
+ri =  b \; bc \; h1^{1-a-b} \; kc1^{a} \; ki1^{b-1}
+\end{equation}
+
+\begin{equation}
+\frac{1}{p} w = (1-a-b) \; bi \; h2^{-a-b} \; kc2^{a} \; ki2^{b}
+\end{equation}
+
+\begin{equation}
+\frac{1}{p} rc  = a \; bi \; h2^{1-a-b} \; kc2^{a-1} \; ki2^{b}
+\end{equation}
+
+\begin{equation}
+\frac{1}{p} ri= b \; bi \; h2^{1-a-b} \; kc2^{a} \; ki2^{b-1}
+\end{equation}
+
+Even this one is tricky because so much seems redundant. I've been able to solve it, but it's not a 100\% correct. 
+
+%Taking ratios of (5)-(10), I get that $p = bc/bi$, which makes sense. I also get $\frac{h1}{h2} = \frac{kc1}{kc2} = \frac{ki1}{ki2}$. Then from (4) I get $ri$, and from (2) and (10) I get $\frac{ki1}{ki2}$. From (1) I get $\frac{w}{kc1}$, which I can use in (5) to get $h1$. The problem is, now I'm stuck. There doesn't seem to be a way to pin down the levels of standard capital and IT capital in any of the two sectors. 
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
