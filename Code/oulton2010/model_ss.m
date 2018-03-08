@@ -23,9 +23,8 @@ gp = gamc - gami; % eq. I p. 222
 g = ((1-b)*gamc + b*gami)/(1-a-b);  % eq. II
 gi = ((a)*gamc + (1-a)*gami)/(1-a-b);  % eq. III
 rc = (1+g)/bet - (1-dc); % green 1
-ri = ((1+g)/bet - (1-di))*(1+gp); % green 2
-% ri = ((1+g)/bet - (1-di)); % brown option 2
-
+% ri = ((1+g)/bet - (1-di))*(1+gp); % green 2
+ri = ((1+g)/bet -(1-di)*(1+gp)); % yellow 2
 
 % Purple suggestion instead of orange one
 ki1_h1  = (b/ri)^((1-a)/(1-a-b)) *(a/rc)^(a/(1-a-b)) * (1+gamc)^(1/(1-a-b)); %purple 1
@@ -50,7 +49,6 @@ ki     = ki1 + ki2;
 c      = w/chi;
 ic     = (1+g-(1-dc))*kc;
 it     = (1+gi-(1-di))*ki;
-% it     = ((1+gi)*(1+gp)-(1-di))*ki; % brown attempt 3
 yc     = c+ic;
 yi     = it;
 
