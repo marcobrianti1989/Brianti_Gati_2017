@@ -32,7 +32,6 @@ kc1_h1  = (a*(1+gamc)/rc)^(1/(1-a)) *ki1_h1^(b/(1-a)); % purple 2
 w       = (1-a-b)*(1+gamc)*kc1_h1^(a) * ki1_h1^(b); % purple 3
 kc2_h2  = (a/rc)^((1-b)/(1-a-b)) * (b/ri)^(b/(1-a-b)) *((1+gami)*(1+gp))^(1/(1-a-b)); % purple 4 = orange 1
 ki2_h2  = (b/ri * (1+gami)*(1+gp))^(1/(1-b))*(kc2_h2)^(a/(1-b)); % purple 5 = orange 2
-% ki1_h2  = w/((1+gi -(1-di))*(1-a-b)*(1+gp)) - ki2_h2; % purple 6
 ki1_h2  = ((1+gami)/(1+gi -(1-di)))*kc2_h2^a*ki2_h2^b - ki2_h2; % purple 6 alternative
 h1_h2   = ki1_h2 / ki1_h1; % purple 7
 kc2_h1  = kc2_h2/ h1_h2;  % purple 7
