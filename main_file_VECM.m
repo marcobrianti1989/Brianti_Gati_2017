@@ -33,5 +33,5 @@ r = 2; %number of cointegrating vectors
 [alph_hat,bet_hat,Pi,Gam_hat,res,sigma] = redu_VECM(data, nlags, r);
 
 %Run structural VECM
-[B, Xi] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags);
+[B, Xi] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
 
