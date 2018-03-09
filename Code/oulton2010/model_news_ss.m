@@ -3,9 +3,9 @@
 % usage:
 % 
 % [ss, param] = model_ss(param)
-% STEADY STATE OF OULTON 2010 WITH GROWTH
+% STEADY STATE OF OULTON 2010 WITH GROWTH AND WITH NEWS SHOCKS
 
-function [ss,param] = model_ss(param)
+function [ss,param] = model_news_ss(param)
 
 %Parameters from param object
 bet      = param.bet;  %Never call anything beta...it's a matlab function
@@ -17,11 +17,11 @@ di       = param.di; % depreciation rate of capital IT
 dc       = param.dc; % depreciation rate of capital standard
 chi      = param.chi; % preference parameter.
 
-%Use closed form expressions for the ss values. 
+%Use closed form expressions for the ss values.
+v1 = 0;
+v2 = 0;
+
 % starting at my notes p. 231, green equations.
-gp = gamc - gami; % eq. I p. 222
-g = ((1-b)*gamc + b*gami)/(1-a-b);  % eq. II
-gi = ((a)*gamc + (1-a)*gami)/(1-a-b);  % eq. III
 gp = gamc - gami; % eq. I p. 222
 g = ((1-b)*gamc + b*gami)/(1-a-b);  % eq. II
 gi = ((a)*gamc + (1-a)*gami)/(1-a-b);  % eq. III
@@ -57,7 +57,7 @@ yi     = it;
 
 %Put the ss values in a vector consistent with Y and X vectors in model.m
 % KC KI GAMC GAMI
-xx  = [kc ki gamc gami]; 
+xx  = [kc ki gamc gami v1 v2]; 
 yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 g gi gp];
 % YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 G GI GP
 

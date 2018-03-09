@@ -26,7 +26,7 @@ for i_shock=1:nshocks
         set(gcf,'color','w'); % sets white background color
         set(gcf, 'Position', get(0, 'Screensize')); % sets the figure fullscreen (hopefully)
         varname = varnames{i_var};
-        name = names{i_shock};
+        name = names{which_shock(i_shock)};
         hold on
         if nargin > 6
             % if ub, lb given, do shaded confidence intervals
