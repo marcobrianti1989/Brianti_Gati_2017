@@ -3,48 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: draft_13feb2018.aux
 The style file: cell.bst
 Database file #1: itgpt.bib
-Warning--I didn't find a database entry for "crouzet_oh2014"
 Warning--empty note in chen_wemy2014
 Warning--empty note in roldan2017
-You've used 50 entries,
+You've used 55 entries,
             2116 wiz_defined-function locations,
-            793 strings with 11500 characters,
-and the built_in function-call counts, 17301 in all, are:
-= -- 1794
-> -- 692
-< -- 54
-+ -- 230
-- -- 222
-* -- 1621
-:= -- 2830
-add.period$ -- 147
-call.type$ -- 50
-change.case$ -- 214
-chr.to.int$ -- 50
-cite$ -- 179
-duplicate$ -- 584
-empty$ -- 1171
-format.name$ -- 316
-if$ -- 3465
+            815 strings with 12045 characters,
+and the built_in function-call counts, 19053 in all, are:
+= -- 1981
+> -- 744
+< -- 58
++ -- 247
+- -- 238
+* -- 1785
+:= -- 3108
+add.period$ -- 162
+call.type$ -- 55
+change.case$ -- 233
+chr.to.int$ -- 55
+cite$ -- 198
+duplicate$ -- 642
+empty$ -- 1304
+format.name$ -- 339
+if$ -- 3823
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 35
-newline$ -- 250
-num.names$ -- 150
-pop$ -- 230
+missing$ -- 39
+newline$ -- 275
+num.names$ -- 165
+pop$ -- 246
 preamble$ -- 1
-purify$ -- 261
+purify$ -- 284
 quote$ -- 0
-skip$ -- 531
+skip$ -- 584
 stack$ -- 0
-substring$ -- 1074
-swap$ -- 62
+substring$ -- 1224
+swap$ -- 66
 text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 292
+type$ -- 322
 warning$ -- 2
-while$ -- 133
+while$ -- 147
 width$ -- 0
-write$ -- 641
-(There were 3 warnings)
+write$ -- 706
+(There were 2 warnings)
