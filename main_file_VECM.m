@@ -33,5 +33,17 @@ r = 2; %number of cointegrating vectors
 [alph_hat,bet_hat,Pi,Gam_hat,res,sigma] = redu_VECM(data, nlags, r);
 
 %Run structural VECM
-[B, Xi] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
+[B, Xi, A] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
+
+A = [zeros(nvar,1) A];
+
+flag = test_stationarity(A);
+
+H = 40;
+sig1 = 0;
+sig2 = 0;
+[IRFs, ub1, lb1, ub2, lb2] = genIRFs(B,0,A',0,H, sig1, sig2);
+print_figs = 'no';
+which_shock = [1,2,3];
+simple_plotIRFs(IRFs,ub1,lb1,H,which_shock, print_figs)
 
