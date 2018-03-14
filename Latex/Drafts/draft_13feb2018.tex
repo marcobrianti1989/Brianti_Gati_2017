@@ -92,27 +92,35 @@ The rest of the paper is organized as follows. Section \ref{sec_model} lays out 
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
 \section{Model}
-The structural model used to illustrate our identification procedure displays two key features. The first one is that it is a two-sector model. This is obviously crucial in order to allow the IT sector to differ in meaningful ways from the rest of the economy. The second key element is that the production function of the final good incorporates a spillover effect from the stock of IT goods in the economy. Thus, essentially our theoretical model is a combination of a two-sector neoclassical growth model and an endogenous growth model \`a la \cite{romer1986}. The modeling of the two-sector element follows closely the approach taken in \cite{oulton2010}.
+The structural model used to illustrate our identification procedure displays two key features. The first one is that it is a two-sector model. This is obviously crucial in order to allow the IT sector to differ in meaningful ways from the rest of the economy. The second key element is that the production function of the final good incorporates a spillover effect from the stock of IT goods in the final goods production. Thus, essentially our theoretical model is a combination of a two-sector neoclassical growth model and an endogenous growth model \`a la \cite{romer1986}. The modeling of the two-sector element follows closely the approach taken in \cite{oulton2010}.
 
-There are two sectors in the economy. Sector 1 produces the final consumption good, $yc$, while sector 2 produces the IT good, $yi$. Both sectors employ labor, capital and IT goods to produce output using an identical production technology. The production functions are constant returns to scale of the standard Cobb-Douglas form:
+There are two sectors in the economy. Sector 1 consists of a unity mass of firms producing the final consumption good, $yc(j)$, where $j$ indexes each firm. Sector 2 produces the IT good, $yi$. Both sectors employ labor, capital and IT goods to produce output using an identical production technology. The production functions are constant returns to scale of the standard Cobb-Douglas form:
 
 \begin{align}
-& yc_t = bc_t \; h1^{1-a-b} k1_t^a s1_t^b \\
- & yi_t = bi_t  \; h2^{1-a-b} k2_t^a si1_t^b 
+& yc_t(j) = BC_t(j) \; h_1(j)^{1-a-b} k_{1,t}(j)^a s_{1,t}(j)^b \\
+ & yi_t = bi_t  \; h_2^{1-a-b} k_{2,t}^a si_{2,t}^b 
 \end{align}
 
-where $k$ signifies the capital stock, $s$ the stock of IT goods and the numbers denote in which sector the factor is employed in. $bc$ and $bi$ are the Solow-residuals of the two sectors. The assumption of spillovers from the stock of IT goods shows up in $bc$ as 
+where $k$ signifies the capital stock, $s$ the stock of IT goods and the numbers denote in which sector the factor is employed in. $BC$ and $bi$ are the Solow-residuals of the two sectors. The assumption of spillovers from the stock of IT goods shows up in $BC$ as 
 
 \begin{equation}
-bc_t  = \psi_t  s_t^\gamma
+BC_t  = bc_t  s_{1,t}^\gamma
 \end{equation}
 
-where $\psi$ is a final-good specific exogenous technology process and $\gamma$ will be specified in more detail below. Market clearing requires
+where $bc$ is a final-good specific exogenous technology process (the analogy of $bi$ for the final-good sector) and $\gamma$ captures the intensity of the spillover. Key here is that while an individual final-goods firm $j$ considers $BC_t$ to be exogenous when optimizing over $ki_{1,t}$, aggregating the final-goods production function over $j$ and substituting in for $BC_t$ yields
+
+\begin{equation}
+yc_t = bc_t \; s_{1,t}^\gamma \; h_1^{1-a-b} k_{1,t}^a s_{1,t}^b 
+\end{equation}
+
+This is the sense in which the stock of IT capital employed in final goods production spills over to aggregate productivity. A balanced growth path requires $\gamma \leq 1-b$, so that the production function does not exhibit increasing returns to scale. The interesting case that we investigate here is when $\gamma = 1-b$, because then the production function assumes an AK-form in the stock of IT capital in the final-goods sector. Thus, the spillover from the IT stock generates endogenous growth here, in line with the interpretation of IT goods as general purpose technologies.   
+
+Market clearing in the two-sector economy requires
 
 \begin{align}
-& kc_t  = kc1_t + kc2_t \\
-& ki_t = ki1_t + ki2_t \\
-& h_t  = h1_t + h2_t 
+& kc_t  = kc_{1,t} + kc_{2,t} \\
+& ki_t = ki_{1,t} + ki_{2,t} \\
+& h_t  = h_{1,t} + h_{2,t} 
 \end{align}
 
 The capital stock and the stock of IT goods evolve according to
@@ -131,7 +139,7 @@ where $\delta_j$ with $j = \{c,i\}$ are the rates of depreciation and $ic$ and $
 
 signifying that the final good can be used for consumption and investment in capital, while all of the IT output is used as input in the accumulation of the IT stock. Thus, in this setting the IT good is a pure intermediate good.
 
-Firms in both sectors choose labor, capital and the amount of IT stock to use to maximize profits. Thus, in both sectors we obtain three first order conditions that are completely standard, The only difference between the two sectors is that their output is denominated using different prices. Therefore we now define the relative price of IT goods as $p_t = p^i_t / p^c_t$. Normalizing $p^c_t = 1$ allows us to consider only $p_t$ in what follows. 
+Firms in both sectors choose labor, capital and the amount of IT stock to use to maximize profits. Thus, in both sectors we obtain three first order conditions that are completely standard. The only difference between the two sectors is that their output is denominated using different prices. Therefore we now define the relative price of IT goods as $p_t = pi_t / pc_t$. Normalizing $pc_t = 1$ allows us to consider only $p_t$ in what follows. 
 
 To close the model, we consider a standard household that maximizes log utility from consumption and leisure subject to a budget constraint. The household problem then is
 
@@ -140,7 +148,7 @@ To close the model, we consider a standard household that maximizes log utility 
 & \text{s.t.} \; \; c_t + k_{t+1} + p_t s_{t+1} = w_t h_t + rc_t k_t + ri_t s_t + (1-\delta_c)k_t + (1+ \delta_i)p_t s_t
 \end{align}
 
-where $rc$ and $ri$ are the rental rates of capital and of the IT good., and $w$ is the wage. This problem yields three first order conditions, where in relative prices again constitute a difference between the Euler equations of capital and IT goods. 
+where $rc$ and $ri$ are the rental rates of capital and of the IT good, and $w$ is the wage. This problem yields three first order conditions, where relative prices again constitute a difference between the Euler equations of capital and IT goods. 
 
 Let us now consider the behavior of this model in response to the following shocks: 1) classical news shocks 2) and IT investment shocks. The goal of the exercise here is to analyze how the model responds to these shocks and use those observations to work out our identification restriction. 
 

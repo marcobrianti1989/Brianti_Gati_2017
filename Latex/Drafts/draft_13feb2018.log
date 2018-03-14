@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  8 MAR 2018 22:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 MAR 2018 17:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -540,124 +540,124 @@ Package pdftex.def Info: ../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_3
  [2 <../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04.pdf>] [3] [4] [
 5] [6]
 [7]
-<../../Figures/fig_News_Shock_on_TFP__.png, id=224, 1086.0575pt x 645.41125pt>
+<../../Figures/fig_News_Shock_on_TFP__.png, id=223, 1086.0575pt x 645.41125pt>
 File: ../../Figures/fig_News_Shock_on_TFP__.png Graphic file (type png)
 
 <use ../../Figures/fig_News_Shock_on_TFP__.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_TFP__.png used on inpu
-t line 192.
+t line 200.
 (pdftex.def)             Requested size: 152.04701pt x 90.35695pt.
 
-<../../Figures/fig_News_Shock_on_Real_SP__.png, id=225, 1075.01625pt x 644.4075
+<../../Figures/fig_News_Shock_on_Real_SP__.png, id=224, 1075.01625pt x 644.4075
 pt>
 File: ../../Figures/fig_News_Shock_on_Real_SP__.png Graphic file (type png)
  <use ../../Figures/fig_News_Shock_on_Real_SP__.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_Real_SP__.png used on 
-input line 194.
+input line 202.
 (pdftex.def)             Requested size: 150.50125pt x 90.21643pt.
 
-<../../Figures/fig_News_Shock_on_Real_IT_Investment__.png, id=226, 1196.47pt x 
+<../../Figures/fig_News_Shock_on_Real_IT_Investment__.png, id=225, 1196.47pt x 
 644.4075pt>
 File: ../../Figures/fig_News_Shock_on_Real_IT_Investment__.png Graphic file (ty
 pe png)
  <use ../../Figures/fig_News_Shock_on_Real_IT_Investment__.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_Real_IT_Investment__.p
-ng used on input line 196.
+ng used on input line 204.
 (pdftex.def)             Requested size: 167.50465pt x 90.21643pt.
 
 <../../Figures/fig_News_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_34_47
-.png, id=227, 1101.11375pt x 645.41125pt>
+.png, id=226, 1101.11375pt x 645.41125pt>
 File: ../../Figures/fig_News_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_
 34_47.png Graphic file (type png)
 
 <use ../../Figures/fig_News_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_3
 4_47.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_Real_GDP_Ryan_two_step
-sID_10-Dec-2017_17_34_47.png used on input line 198.
+sID_10-Dec-2017_17_34_47.png used on input line 206.
 (pdftex.def)             Requested size: 154.15488pt x 90.35695pt.
 
 <../../Figures/fig_News_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-2017_
-17_34_50.png, id=228, 1188.44pt x 645.41125pt>
+17_34_50.png, id=227, 1188.44pt x 645.41125pt>
 File: ../../Figures/fig_News_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-
 2017_17_34_50.png Graphic file (type png)
 
 <use ../../Figures/fig_News_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-2
 017_17_34_50.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_Real_Consumption_Ryan_
-two_stepsID_10-Dec-2017_17_34_50.png used on input line 200.
+two_stepsID_10-Dec-2017_17_34_50.png used on input line 208.
 (pdftex.def)             Requested size: 166.38046pt x 90.35695pt.
 
 <../../Figures/fig_News_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-2017_17
-_34_52.png, id=229, 1103.12125pt x 645.41125pt>
+_34_52.png, id=228, 1103.12125pt x 645.41125pt>
 File: ../../Figures/fig_News_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-20
 17_17_34_52.png Graphic file (type png)
 
 <use ../../Figures/fig_News_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-201
 7_17_34_52.png>
 Package pdftex.def Info: ../../Figures/fig_News_Shock_on_Relative_Price_Ryan_tw
-o_stepsID_10-Dec-2017_17_34_52.png used on input line 202.
+o_stepsID_10-Dec-2017_17_34_52.png used on input line 210.
 (pdftex.def)             Requested size: 154.43591pt x 90.35695pt.
 
-<../../Figures/fig_IT_Shock_on_TFP__.png, id=230, 1086.0575pt x 645.41125pt>
+<../../Figures/fig_IT_Shock_on_TFP__.png, id=229, 1086.0575pt x 645.41125pt>
 File: ../../Figures/fig_IT_Shock_on_TFP__.png Graphic file (type png)
 
 <use ../../Figures/fig_IT_Shock_on_TFP__.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_TFP__.png used on input 
-line 204.
+line 212.
 (pdftex.def)             Requested size: 152.04701pt x 90.35695pt.
 
-<../../Figures/fig_IT_Shock_on_Real_SP__.png, id=231, 1075.01625pt x 644.4075pt
+<../../Figures/fig_IT_Shock_on_Real_SP__.png, id=230, 1075.01625pt x 644.4075pt
 >
 File: ../../Figures/fig_IT_Shock_on_Real_SP__.png Graphic file (type png)
  <use ../../Figures/fig_IT_Shock_on_Real_SP__.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_Real_SP__.png used on in
-put line 206.
+put line 214.
 (pdftex.def)             Requested size: 150.50125pt x 90.21643pt.
 
-<../../Figures/fig_IT_Shock_on_Real_IT_Investment__.png, id=232, 1108.14pt x 64
+<../../Figures/fig_IT_Shock_on_Real_IT_Investment__.png, id=231, 1108.14pt x 64
 4.4075pt>
 File: ../../Figures/fig_IT_Shock_on_Real_IT_Investment__.png Graphic file (type
  png)
  <use ../../Figures/fig_IT_Shock_on_Real_IT_Investment__.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_Real_IT_Investment__.png
- used on input line 208.
+ used on input line 216.
 (pdftex.def)             Requested size: 155.13853pt x 90.21643pt.
 
 <../../Figures/fig_IT_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_35_00.p
-ng, id=233, 1101.11375pt x 645.41125pt>
+ng, id=232, 1101.11375pt x 645.41125pt>
 File: ../../Figures/fig_IT_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_35
 _00.png Graphic file (type png)
 
 <use ../../Figures/fig_IT_Shock_on_Real_GDP_Ryan_two_stepsID_10-Dec-2017_17_35_
 00.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_Real_GDP_Ryan_two_stepsI
-D_10-Dec-2017_17_35_00.png used on input line 210.
+D_10-Dec-2017_17_35_00.png used on input line 218.
 (pdftex.def)             Requested size: 154.15488pt x 90.35695pt.
 
 <../../Figures/fig_IT_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-2017_17
-_35_02.png, id=234, 1117.17375pt x 645.41125pt>
+_35_02.png, id=233, 1117.17375pt x 645.41125pt>
 File: ../../Figures/fig_IT_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-20
 17_17_35_02.png Graphic file (type png)
 
 <use ../../Figures/fig_IT_Shock_on_Real_Consumption_Ryan_two_stepsID_10-Dec-201
 7_17_35_02.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_Real_Consumption_Ryan_tw
-o_stepsID_10-Dec-2017_17_35_02.png used on input line 212.
+o_stepsID_10-Dec-2017_17_35_02.png used on input line 220.
 (pdftex.def)             Requested size: 156.40326pt x 90.35695pt.
 
 <../../Figures/fig_IT_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-2017_17_3
-5_04.png, id=235, 1101.11375pt x 645.41125pt>
+5_04.png, id=234, 1101.11375pt x 645.41125pt>
 File: ../../Figures/fig_IT_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-2017
 _17_35_04.png Graphic file (type png)
 
 <use ../../Figures/fig_IT_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-2017_
 17_35_04.png>
 Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_Relative_Price_Ryan_two_
-stepsID_10-Dec-2017_17_35_04.png used on input line 214.
+stepsID_10-Dec-2017_17_35_04.png used on input line 222.
 (pdftex.def)             Requested size: 154.15488pt x 90.35695pt.
 
 
-LaTeX Warning: Float too large for page by 40.21901pt on input line 218.
+LaTeX Warning: Float too large for page by 40.21901pt on input line 226.
 
 [8] [9 <../../Figures/fig_News_Shock_on_TFP__.png (PNG copy)> <../../Figures/fi
 g_News_Shock_on_Real_SP__.png (PNG copy)> <../../Figures/fig_News_Shock_on_Real
@@ -671,13 +671,17 @@ n_Real_IT_Investment__.png (PNG copy)> <../../Figures/fig_IT_Shock_on_Real_GDP_
 Ryan_two_stepsID_10-Dec-2017_17_35_00.png (PNG copy)> <../../Figures/fig_IT_Sho
 ck_on_Real_Consumption_Ryan_two_stepsID_10-Dec-2017_17_35_02.png (PNG copy)> <.
 ./../Figures/fig_IT_Shock_on_Relative_Price_Ryan_two_stepsID_10-Dec-2017_17_35_
-04.png (PNG copy)>] [10]
-<../../Figures/fig_counterfactual_.png, id=260, 1045.9075pt x 649.42625pt>
+04.png (PNG copy)>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10]
+<../../Figures/fig_counterfactual_.png, id=261, 1045.9075pt x 649.42625pt>
 File: ../../Figures/fig_counterfactual_.png Graphic file (type png)
 
 <use ../../Figures/fig_counterfactual_.png>
 Package pdftex.def Info: ../../Figures/fig_counterfactual_.png used on input li
-ne 259.
+ne 267.
 (pdftex.def)             Requested size: 292.8521pt x 181.8381pt.
  [11 <../../Figures/fig_counterfactual_.png (PNG copy)>] [12] (./draft_13feb201
 8.bbl [13] [14]
@@ -685,20 +689,20 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no  in font cmr10!
  [15] [16])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 279.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 287.
  [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 279.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 287.
 
 (./draft_13feb2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 279.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 279.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 287.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 287.
 Package rerunfilecheck Info: File `draft_13feb2018.out' has not changed.
 (rerunfilecheck)             Checksum: D3495DEFA5D73DEE3F1FF3B06848A3FE;442.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 279.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 287.
  ) 
 Here is how much of TeX's memory you used:
- 8204 strings out of 493089
- 123814 string characters out of 6134842
+ 8205 strings out of 493089
+ 123827 string characters out of 6134842
  222714 words of memory out of 5000000
  11431 multiletter control sequences out of 15000+600000
  15126 words of font info for 57 fonts, out of 8000000 for 9000
@@ -721,10 +725,10 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on draft_13feb2018.pdf (17 pages, 688240 bytes).
+Output written on draft_13feb2018.pdf (17 pages, 690018 bytes).
 PDF statistics:
- 409 PDF objects out of 1000 (max. 8388607)
- 354 compressed objects within 4 object streams
- 105 named destinations out of 1000 (max. 500000)
+ 410 PDF objects out of 1000 (max. 8388607)
+ 355 compressed objects within 4 object streams
+ 106 named destinations out of 1000 (max. 500000)
  135 words of extra memory for PDF output out of 10000 (max. 10000000)
 
