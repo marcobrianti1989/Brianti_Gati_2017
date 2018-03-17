@@ -43,27 +43,30 @@ end
 % dY = alp*bet'*Y + Gam*X + U
 % where dY is (nvar,T'), alp is (nvar,r), bet is (nvar,r), Y is (nvar,T'),
 % Gam is (nvar,nvar*nlags), X is (nvar*nlags,T') and U is (nvar,T')
-Y       = dataset(nlags+1:end-1,:)'; %Y(t-1) level of the right-hand side.
+Ylag       = dataset(nlags+1:end-1,:)'; %Y(t-1) level of the right-hand side.
 % I am removing the last obs from Y since it is Y(t-1) which implies that
 % Y(T) will never be used. 
 X       = reg'; %dT(t-j) first diff of the right-hand side
-dY      = diff_dataset(nlags+1:end,:)'; %left-hand side
+dY      = diff_dataset(nlags+1:end,:)'; %left-hand side - Should be equal to data_1
 % dY should be equal to data_1. Otherwise there is something wrong
 M       = eye(T-nlags-1,T-nlags-1) - X'*(X*X')^(-1)*X; %(T',T')
 S00     = (dY*M*dY')/T; %(nvar,navr)
-S01     = (dY*M*Y')/T;  %(nvar,navr)
-S11     = (Y*M*Y')/T;   %(nvar,navr)
+S01     = (dY*M*Ylag')/T;  %(nvar,navr)
+S11     = (Ylag*M*Ylag')/T;   %(nvar,navr)
 
 % e = eig(A,B) returns a column vector containing the ...
 % generalized eigenvalues of square matrices A and B.
 % det(lambda*B - A)
-A = S01'*S00^(-1)*S01;
+A = S01'*(S00^(-1))*S01;
 B = S11;
 eigv = eig(A,B);
 sorted_eig = sort(eigv,'descend');
 
 %Check if the generalize eigenvalue problem is correct
 [V, D] = eig(A,B); %V is the eigenvectors matrix and D is the eignvalue diagonal matrix
+%[V,D] = eig(A,B) produces a diagonal matrix D of generalized
+%eigenvalues and a full matrix V whose columns are the corresponding
+%eigenvectors so that A*V = B*V*D.
 check = A*V - B*V*D;
 check = sum(sum(abs(check)));
 if check > 10^(-14)
@@ -79,14 +82,17 @@ end
 
 %Getting alpha_hat and beta_hat
 bet_hat = bet_full(:,1:r);
-alph_hat = dY*M*Y'*bet_hat*(bet_hat'*Y*M*Y'*bet_hat)^(-1);
+alph_hat = dY*M*Ylag'*bet_hat*(bet_hat'*Ylag*M*Ylag'*bet_hat)^(-1);
 Pi = alph_hat*bet_hat';
 
 %Getting Gamma_hat
-Gam_hat = (dY - alph_hat*bet_hat'*Y)*X'*(X*X')^(-1); %(nvar,nvar*nlags)
+Gam_hat = (dY - alph_hat*bet_hat'*Ylag)*X'*(X*X')^(-1); %(nvar,nvar*nlags)
 
 %Getting residuals and Variance-Covariance Matrix
-U = dY*M - alph_hat*bet_hat'*Y*M; 
-sigma = U*U';
+U = dY*M - alph_hat*bet_hat'*Ylag*M; 
+sigma = U*U'/(T-nlags-1);
+
+U2 = - alph_hat*bet_hat'*Ylag - Gam_hat*X + dY;
+obj = sum(sum(U2.^2));
 
 end
