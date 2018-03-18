@@ -17,7 +17,7 @@ addpath(base_path)
 param = parameters;
 
 %Compute the first-order coefficiencients of the model
-[fyn, fxn, fypn, fxpn] = model(param);
+[fyn, fxn, fypn, fxpn] = model_exog_stat(param);
 
 %Compute the transition and policy functions, using code by
 %Stephanie Schmitt-Grohé and Martín Uribe (and available on their wedsite.)
@@ -29,6 +29,7 @@ save('gxhx.mat', 'gx', 'hx')
 disp('Computing eigenvalues of hx');
 disp(eig(hx))
 
+hmr
 % IRFs
 % Positions of the shocks in shock vector:
 nvar = size(gx,1) + size(gx,2);
