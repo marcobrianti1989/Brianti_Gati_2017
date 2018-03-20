@@ -52,13 +52,13 @@ Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P]; % vector of controls
 YP = [YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p KC1_p KC2_p KI1_p KI2_p P_p] ;
 
 % Model Equations (my notes p. 287):
-f(1)    = -YC + (1+GAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b);
-f(end+1)= -YI + (1+GAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b); 
-f(end+1)= -KC + KC1 + KC2;
-f(end+1)= -KI + KI1 + KI2;
-f(end+1)= -H + H1 + H2;
-f(end+1)= -KC_p*((1+GAMC)^((1-b)/(1-a-b)) *(1+GAMI)^((b)/(1-a-b))) + (1-dc)*KC + IC;
-f(end+1)= -KI_p*((1+GAMC)^((a)/(1-a-b)) *(1+GAMI)^((1-a)/(1-a-b)))+ (1-di)*KI + IT; 
+f(1)    = -YC + (1+GAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b); %
+f(end+1)= -YI + (1+GAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b); %
+f(end+1)= -KC + KC1 + KC2; 
+f(end+1)= -KI + KI1 + KI2; 
+f(end+1)= -H + H1 + H2; 
+f(end+1)= -KC_p*((1+GAMC)^((1-b)/(1-a-b)) *(1+GAMI)^((b)/(1-a-b))) + (1-dc)*KC + IC;%
+f(end+1)= -KI_p*((1+GAMC)^((a)/(1-a-b)) *(1+GAMI)^((1-a)/(1-a-b))) + (1-di)*KI + IT; %
 f(end+1)= -YC + C + IC;
 f(end+1)= -YI + IT;
 f(end+1)= -W/C + chi;
@@ -67,9 +67,9 @@ f(end+1)= -1 + bet*C/C_p* ((1/(1+GAMC))^((1-b)/(1-a-b)) *(1/(1+GAMI))^((b)/(1-a-
 f(end+1)= -W + (1-a-b)*(1+GAMC)*H1^(-a-b)*KC1^(a)*KI1^(b); 
 f(end+1)= -RC + a*(1+GAMC)*H1^(1-a-b)*KC1^(a-1)*KI1^(b);
 f(end+1)= -RI + b*(1+GAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b-1);
-f(end+1)= -W + (1-a-b)*(1+GAMI)*H2^(-a-b)*KC2^(a)*KI2^(b);
-f(end+1)= -RC + a*(1+GAMI)*H2^(1-a-b)*KC2^(a-1)*KI2^(b);
-f(end+1)= -RI + b*(1+GAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b-1);
+f(end+1)= -W + (1-a-b)*(1+GAMI)*H2^(-a-b)*KC2^(a)*KI2^(b)*P; 
+f(end+1)= -RC + a*(1+GAMI)*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P; 
+f(end+1)= -RI + b*(1+GAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P; 
 f(end+1)= log(GAMC_p/gamc) - .95*log(GAMC/gamc); %taken directly from Ryan's example code.
 f(end+1)= log(GAMI_p/gami) - .95*log(GAMI/gami); %taken directly from Ryan's example code.
 

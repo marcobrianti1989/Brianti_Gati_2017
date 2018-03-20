@@ -19,29 +19,34 @@ chi      = param.chi; % preference parameter.
 
 %Use closed form expressions for the ss values. 
 % My notes p. 289-292
-p  = (1-gamc)/(1+gami); % p. 291
+p  = (1+gamc)/(1+gami); % p. 291
 rc = 1/(bet* ((1/(1+gamc))^((1-b)/(1-a-b)) *(1/(1+gami))^((b)/(1-a-b))) ) - (1-dc); % p. 289
 ri = (1/(bet* ((1/(1+gamc))^((1-b)/(1-a-b)) *(1/(1+gami))^((b)/(1-a-b))) ) -(1-di))*p; 
 
 % p. 292
-kc_h = (a/rc)^((1-b)/(1-a-b)) * (1+gamc)^(1/(1-a-b)) * (b/ri)^(b/(1-a-b));%  eq.1
-ki_h = (b*(1+gamc)/ri)^(1/(1-b)) * kc_h^(a/(1-b)); % eq.2
-w    = (1-a-b)*(1+gamc)*kc_h^a * ki_h^b; % eq.3
-h    = w/(chi*(1+gamc)*kc_h^a*ki_h^b - chi*kc_h*( ...
-    ((1/(1+gamc))^((1-b)/(1-a-b)) *(1/(1+gami))^((b)/(1-a-b))) - (1-dc))); %eq.4
+kc1_h = (a/rc)^((1-b)/(1-a-b)) * (1+gamc)^(1/(1-a-b)) * (b/ri)^(b/(1-a-b));%  eq.1 and p. 293 comment
+ki1_h = (b*(1+gamc)/ri)^(1/(1-b)) * kc1_h^(a/(1-b)); % eq.2 and p. 293 comment
+w    = (1-a-b)*(1+gamc)*kc1_h^a * ki1_h^b; % eq.3 and p. 293 comment
+h1    = w/(chi*(1+gamc)*kc1_h^a*ki1_h^b - chi*kc1_h*( ...
+    ((1/(1+gamc))^((1-b)/(1-a-b)) *(1/(1+gami))^((b)/(1-a-b))) - (1-dc))); %eq.4 and p. 293 comment
 
-kc = kc_h*h;
-ki = ki_h*h;
-h1 = h; % See Oulton 2010, p. 10.
-h2 = h;
-kc1= kc;
-kc2= kc;
-ki1= ki;
-ki2= ki;
+kc1 = kc1_h*h1;
+ki1 = ki1_h*h1;
+%h1 = h1; % See Oulton 2010, p. 10.
+h2 = h1;
+%kc1= kc1;
+kc2= kc1;
+%ki1= ki1;
+ki2= ki1;
+
+% p. 293
+kc = kc1+kc2;
+ki = ki1+ki2;
+h  = h1+h2;
 
 c      = w/chi;
-ic     = (  ((1/(1+gamc))^((1-b)/(1-a-b)) *(1/(1+gami))^((b)/(1-a-b)))   -(1-dc))*kc; % p. 289
-it     = (  ((1+gamc)^((a)/(1-a-b)) *(1+gami)^((1-a)/(1-a-b)))   -(1-di))*ki;
+ic     = (  ((1+gamc)^((1-b)/(1-a-b)) *(1+gami)^((b)/(1-a-b)))   -(1-dc))*kc1; % p. 289
+it     = (  ((1+gamc)^((a)/(1-a-b)) *(1+gami)^((1-a)/(1-a-b)))   -(1-di))*ki1;
 yc     = c+ic;
 yi     = it;
 
