@@ -69,7 +69,7 @@ options  = optimset(options, 'TolFun', 1e-9, 'display', 'none');
 B_zero = rand(nvar);
 if r > 1
       %B_opt = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],[],options);
-      B_opt = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],@(B) constraint_long(B,Xi,r,nvar),options);
+      B_opt  = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],@(B) constraint_long(B,Xi,r,nvar),options);
       %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
 else
       B_opt = fmincon(obj, B_zero,[],[],[],[],[],[],@(B) constraint_long(B,Xi,r,nvar),options);

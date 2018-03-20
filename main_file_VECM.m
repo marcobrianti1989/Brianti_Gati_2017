@@ -21,7 +21,7 @@ nvar            = size(data,2);
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
 [AIC,BIC,HQ] = aic_bic_hq(data,max_lags);
 if AIC >= 4
-    nlags = 2; % 2;
+    nlags = 3; % 2;
     warning(['AIC > 4, setting nlags to ', num2str(nlags) ])
 else
     nlags = AIC;
@@ -29,13 +29,13 @@ end
 
 %Run reduced form VECM
 r = 2; %number of cointegrating vectors
-[alph_hat, bet_hat,Gam_hat,sigma] = RRR(data, nlags, r);
-[alph_hat2,bet_hat2,Pi,Gam_hat2,res,sigma2] = redu_VECM(data, nlags, r);
+%[alph_hat, bet_hat,Gam_hat,sigma] = RRR(data, nlags, r);
+[alph_hat,bet_hat,Pi,Gam_hat,res,sigma] = redu_VECM(data, nlags, r);
 
 %Run structural VECM
 [B, Xi, A] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
 
-H = 1000;
+H = 40;
 sig1 = 0;
 sig2 = 0;
 [IRFs, ub1, lb1, ub2, lb2] = genIRFs_VECM(B,0,A',0,H,sig1,sig2);
