@@ -17,7 +17,7 @@ function [alph_hat,bet_hat,Pi,Gam_hat,U,sigma] = redu_VECM(dataset, nlags, r)
 % res = residuals from VECM estimation. (nvar,T')
 % sigma the variance covariance matrix of res (nvar, nvar)
 
-% Comment. With T' I mean T properly adjusted for nlags.
+% Comment. With T' I mean T properly adjusted for nlags. (T'= T-nlags-1)
 
 T               = size(dataset,1); % time periods
 nvar            = size(dataset,2); % number of variables
@@ -82,7 +82,8 @@ end
 
 %Getting alpha_hat and beta_hat
 bet_hat = bet_full(:,1:r);
-alph_hat = dY*M*Ylag'*bet_hat*(bet_hat'*Ylag*M*Ylag'*bet_hat)^(-1);
+% alph_hat = dY*M*Ylag'*bet_hat*(bet_hat'*Ylag*M*Ylag'*bet_hat)^(-1);
+alph_hat = S01*bet_hat; % Prior: this one is correct, line 85 is wrong. Check!
 Pi = alph_hat*bet_hat';
 
 %Getting Gamma_hat

@@ -33,7 +33,11 @@ G = eye(nvar); % Need to build G with a loop because
 for i = 1:nlags
       G = G - Gam(:,((i-1)*nvar)+1:i*nvar); %(nvar,nvar)
 end
-Xi = bet*(alp'*G*bet)^(-1)*alp'; %(nvar,nvar)
+% Xi = bet*(alp'*G*bet)^(-1)*alp'; %(nvar,nvar)
+betT = null(bet','r');
+alpT = null(alp','r');
+Xi = betT*(alpT'*G*betT)^(-1)*alpT'; %(nvar,nvar) % This line is based on Chiawa et al. 
+
 
 % Objective function to minimize - See Lutkepohl (2005) - EUI, working paper
 obj = @(B) LL_VECM(T,B,sigma);
