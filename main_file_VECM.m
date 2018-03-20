@@ -1,7 +1,7 @@
 % This file corresponds to main_file_VECM, it is a tool to test if the
 % function VECM is working
 
-% Marco Brianti, Laura Gáti, Feb 22 2018
+% Marco Brianti, Laura Gáti, Mar 13 2018
 
 clear
 close all
@@ -28,10 +28,18 @@ else
 end
 
 %Run reduced form VECM
-constant = 1; %no contant in the VECM
 r = 2; %number of cointegrating vectors
-[alph_hat,bet_hat,Pi,Gam_hat,res,sigma] = redu_VECM(data, nlags, r);
+[alph_hat, bet_hat,Gam_hat,sigma] = RRR(data, nlags, r);
+[alph_hat2,bet_hat2,Pi,Gam_hat2,res,sigma2] = redu_VECM(data, nlags, r);
 
 %Run structural VECM
-[B, Xi] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
+[B, Xi, A] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
+
+H = 1000;
+sig1 = 0;
+sig2 = 0;
+[IRFs, ub1, lb1, ub2, lb2] = genIRFs_VECM(B,0,A',0,H,sig1,sig2);
+print_figs = 'no';
+which_shock = [1,2,3];
+simple_plotIRFs(IRFs,ub1,lb1,H,which_shock, print_figs)
 
