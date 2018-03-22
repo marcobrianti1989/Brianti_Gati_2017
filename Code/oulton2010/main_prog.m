@@ -29,6 +29,7 @@ save('gxhx.mat', 'gx', 'hx')
 disp('Computing eigenvalues of hx');
 disp(eig(hx))
 
+stoppy
 
 % IRFs
 % Positions of the shocks in shock vector:
