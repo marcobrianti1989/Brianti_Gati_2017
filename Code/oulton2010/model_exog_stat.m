@@ -41,15 +41,20 @@ syms BIGGAMC_p BIGGAMI_p
 syms YC YI C IC IT W RC RI H H1 H2 % 11 vars
 syms YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p  
 syms P P_p % 1 var  % -> 20 vars
+syms CL CL_p KIL KIL_p
+syms GAMC GAMC_p GAMKI GAMKI_p
 
 %Declare X and Y vectors
 % KC KI BIGGAMC BIGGAMI
-X  = [KC KI BIGGAMC BIGGAMI]; % vector of state variables  
-XP = [KC_p KI_p BIGGAMC_p BIGGAMI_p]; % p signifies t+1 
+X  = [KC KI BIGGAMC BIGGAMI CL KIL]; % vector of state variables  
+XP = [KC_p KI_p BIGGAMC_p BIGGAMI_p CL_p KIL_p]; % p signifies t+1 
 
 % YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P
-Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P]; % vector of controls
-YP = [YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p KC1_p KC2_p KI1_p KI2_p P_p] ;
+Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P GAMC GAMKI]; % vector of controls
+YP = [YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p KC1_p KC2_p KI1_p KI2_p P_p GAMC_p GAMKI_p] ;
+
+%Make index variables for future use
+make_index([Y,X])
 
 % Model Equations (my notes p. 287):
 f(1)    = -YC + BIGGAMC*H1^(1-a-b)*KC1^(a)*KI1^(b); 
@@ -72,6 +77,12 @@ f(end+1)= -RC + a*BIGGAMI*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P;
 f(end+1)= -RI + b*BIGGAMI*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P; 
 f(end+1)= log(BIGGAMC_p/biggamc) - .95*log(BIGGAMC/biggamc); %taken directly from Ryan's example code.
 f(end+1)= log(BIGGAMI_p/biggami) - .95*log(BIGGAMI/biggami); %taken directly from Ryan's example code.
+% Approach for growth rates: 
+f(end+1)= CL_p - C;
+f(end+1)= GAMC - C/CL*(BIGGAMC^((1-b)/(1-a-b)) *BIGGAMI^((b)/(1-a-b)));
+f(end+1)= KIL_p - KI;
+f(end+1)= GAMKI - KI/KIL*(BIGGAMC^((a)/(1-a-b)) *BIGGAMI^((1-a)/(1-a-b)));
+
 
 
 %Check Computation of Steady-State Numerically
