@@ -72,8 +72,8 @@ yi     = it;
 
 %Put the ss values in a vector consistent with Y and X vectors in model.m
 % KC KI BIGGAMC BIGGAMI
-xx  = [kc ki biggamc biggami c ki]; 
-yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 p expg expgi];
+xx  = [kc ki biggamc biggami c ki biggamc biggami yc yi h p kc2 ki2]; 
+yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 p expg expgi expg expgi 1 p expg expgi];
 % YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P
 
 ss  = [yy xx];

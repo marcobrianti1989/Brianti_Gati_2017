@@ -41,17 +41,22 @@ syms BIGGAMC_p BIGGAMI_p
 syms YC YI C IC IT W RC RI H H1 H2 % 11 vars
 syms YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p  
 syms P P_p % 1 var  % -> 20 vars
-syms CL CL_p KIL KIL_p
-syms GAMC GAMC_p GAMKI GAMKI_p
+syms CL CL_p KIL KIL_p KCL KCL_p YCL YCL_p YIL YIL_p HL HL_p PL PL_p KC2L KC2L_p KI2L KI2L_p
+syms GAMC GAMC_p GAMKI GAMKI_p GAMKC GAMKC_p GAMYC GAMYC_p GAMYI GAMYI_p GAMH GAMH_p GAMP GAMP_p GAMKC2 GAMKC2_p GAMKI2 GAMKI2_p
+syms BIGGAMCL BIGGAMCL_p BIGGAMIL BIGGAMIL_p
 
 %Declare X and Y vectors
 % KC KI BIGGAMC BIGGAMI
-X  = [KC KI BIGGAMC BIGGAMI CL KIL]; % vector of state variables  
-XP = [KC_p KI_p BIGGAMC_p BIGGAMI_p CL_p KIL_p]; % p signifies t+1 
+X  = [KC KI BIGGAMC BIGGAMI ...
+    CL KIL BIGGAMCL BIGGAMIL YCL YIL HL PL KC2L KI2L]; % vector of state variables  
+XP = [KC_p KI_p BIGGAMC_p BIGGAMI_p ...
+    CL_p KIL_p BIGGAMCL_p BIGGAMIL_p YCL_p YIL_p HL_p PL_p KC2L_p KI2L_p]; % p signifies t+1 
 
 % YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P
-Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P GAMC GAMKI]; % vector of controls
-YP = [YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p KC1_p KC2_p KI1_p KI2_p P_p GAMC_p GAMKI_p] ;
+Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P ...
+    GAMC GAMKI GAMYC GAMYI GAMH GAMP GAMKC2 GAMKI2]; % vector of controls
+YP = [YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p KC1_p KC2_p KI1_p KI2_p P_p ...
+    GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p] ;
 
 %Make index variables for future use
 make_index([Y,X])
@@ -77,12 +82,25 @@ f(end+1)= -RC + a*BIGGAMI*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P;
 f(end+1)= -RI + b*BIGGAMI*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P; 
 f(end+1)= log(BIGGAMC_p/biggamc) - .95*log(BIGGAMC/biggamc); %taken directly from Ryan's example code.
 f(end+1)= log(BIGGAMI_p/biggami) - .95*log(BIGGAMI/biggami); %taken directly from Ryan's example code.
-% Approach for growth rates: 
+% Approach for growth rates:
+f(end+1)= BIGGAMCL_p - BIGGAMC;
+f(end+1)= BIGGAMIL_p - BIGGAMI;
 f(end+1)= CL_p - C;
-f(end+1)= GAMC - C/CL*(BIGGAMC^((1-b)/(1-a-b)) *BIGGAMI^((b)/(1-a-b)));
 f(end+1)= KIL_p - KI;
-f(end+1)= GAMKI - KI/KIL*(BIGGAMC^((a)/(1-a-b)) *BIGGAMI^((1-a)/(1-a-b)));
-
+f(end+1)= YCL_p - YC;
+f(end+1)= YIL_p - YI;
+f(end+1)= HL_p - H;
+f(end+1)= PL_p -P;
+f(end+1)= KC2L_p - KC2;
+f(end+1)= KI2L_p - KI2;
+f(end+1)= GAMC - C/CL*(BIGGAMCL^((1-b)/(1-a-b)) *BIGGAMIL^((b)/(1-a-b)));
+f(end+1)= GAMKI - KI/KIL*(BIGGAMCL^((a)/(1-a-b)) *BIGGAMIL^((1-a)/(1-a-b)));
+f(end+1) = GAMYC - YC/YCL*(BIGGAMCL^((1-b)/(1-a-b)) *BIGGAMIL^((b)/(1-a-b)));
+f(end+1) = GAMYI - YI/YIL*(BIGGAMCL^((a)/(1-a-b)) *BIGGAMIL^((1-a)/(1-a-b)));
+f(end+1) = GAMH - H/HL;
+f(end+1) = GAMP - P/PL*BIGGAMCL/BIGGAMIL;
+f(end+1) = GAMKC2 - KC2/KC2L*(BIGGAMCL^((1-b)/(1-a-b)) *BIGGAMIL^((b)/(1-a-b)));
+f(end+1) = GAMKI2 - KI2/KI2L*(BIGGAMCL^((a)/(1-a-b)) *BIGGAMIL^((1-a)/(1-a-b)));
 
 
 %Check Computation of Steady-State Numerically

@@ -31,33 +31,34 @@ disp(eig(hx))
 
 
 % IRFs
-% Positions of the shocks in shock vector:
 nvar = size(gx,1) + size(gx,2);
 nshocks = size(hx,1);
 njumps  = size(gx,1);
-pos_KC = 1; % shock to K stock
-pos_KI = 2; % shock to IT stock
-pos_BIGGAMC = 3; % a shock to TFP in final goods prod (= surprise tech shock)
-pos_BIGGAMI = 4; % IT productivity shock
+pos_KC = kc_idx-njumps; % shock to K stock
+pos_KI = ki_idx-njumps; % shock to IT stock
+pos_BIGGAMC = biggamc_idx-njumps; % a shock to TFP in final goods prod (= surprise tech shock)
+pos_BIGGAMI = biggami_idx-njumps; % IT productivity shock
 T = 200;
-IRFs = zeros(nvar, T, nshocks);
+IRFs_all = zeros(nvar, T, nshocks);
 for s=3 %1:nshocks
     x0 = zeros(nshocks,1); % impulse vector
     x0(s) = 1;
     [IR, iry, irx]=ir(gx,hx,x0,T);
     % To get levels, we need to cumsum all except RC, H, H1, H2
     IR(:,[1:6,8,12:end]) = cumsum(IR(:,[1:6,8,12:end]));
-    IRFs(:,:,s) = IR'; 
+    IRFs_all(:,:,s) = IR'; 
 end
+% Gather IRFs of interest:
+IRFs = IRFs_all(gamc_idx:njumps,:,:);
 
+return
 which_shock = [pos_BIGGAMC];
-% [KC KI BIGGAMC BIGGAMI CL KIL]
-names = {'Hard capital shock', 'IT capital shock', 'Growth rate of Final', 'Growth rate of IT'};
-% Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P GAMC GAMKI]
-varnames = {'YC', 'YI', 'C', 'IC', 'IT', 'W', 'RC', 'RI', 'H', 'H1', 'H2', 'KC1', 'KC2', 'KI1', 'KI2','P', 'Logdev C', 'Logdev KI', ...
-     'KC', 'KI', 'BIGGAMC', 'BIGGAMI', 'CL', 'KIL'};
+shocknames = {'Hard capital shock', 'IT capital shock', 'Growth rate of Final', 'Growth rate of IT'};
+% GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
+varnames = {'Logdev C', 'Logdev KI', 'Logdev YC', 'Logdev YI', 'Logdev H', 'Logdev P', 'Logdev KC2', 'Logdev KI2' };
 print_figs = 'no';
-plot_single_simple_IRFs(IRFs,T,which_shock,names, varnames, print_figs)
+plot_single_simple_IRFs(IRFs,T,which_shock,shocknames, varnames, print_figs)
+
 
 return
 %% Oulton 2010 with news shocks (so far only 2 periods ahead)
