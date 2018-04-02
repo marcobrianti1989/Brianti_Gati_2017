@@ -38,21 +38,21 @@ pos_KC = kc_idx-njumps; % shock to K stock
 pos_KI = ki_idx-njumps; % shock to IT stock
 pos_BIGGAMC = biggamc_idx-njumps; % a shock to TFP in final goods prod (= surprise tech shock)
 pos_BIGGAMI = biggami_idx-njumps; % IT productivity shock
-T = 200;
+T = 60;
 IRFs_all = zeros(nvar, T, nshocks);
-for s=3 %1:nshocks
+for s=1:nshocks
     x0 = zeros(nshocks,1); % impulse vector
     x0(s) = 1;
     [IR, iry, irx]=ir(gx,hx,x0,T);
     % To get levels, we need to cumsum all except RC, H, H1, H2
-    IR(:,[1:6,8,12:end]) = cumsum(IR(:,[1:6,8,12:end]));
+    IR(:,gamc_idx:njumps) = cumsum(IR(:,gamc_idx:njumps));
     IRFs_all(:,:,s) = IR'; 
 end
 % Gather IRFs of interest:
 IRFs = IRFs_all(gamc_idx:njumps,:,:);
+IRFs_some = IRFs_all([c_idx, gamc_idx],:,:);
 
-return
-which_shock = [pos_BIGGAMC];
+which_shock = [pos_KI];
 shocknames = {'Hard capital shock', 'IT capital shock', 'Growth rate of Final', 'Growth rate of IT'};
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
 varnames = {'Logdev C', 'Logdev KI', 'Logdev YC', 'Logdev YI', 'Logdev H', 'Logdev P', 'Logdev KC2', 'Logdev KI2' };

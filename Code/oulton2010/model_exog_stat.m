@@ -80,8 +80,8 @@ f(end+1)= -RI + b*BIGGAMC*H1^(1-a-b)*KC1^(a)*KI1^(b-1);
 f(end+1)= -W + (1-a-b)*BIGGAMI*H2^(-a-b)*KC2^(a)*KI2^(b)*P; 
 f(end+1)= -RC + a*BIGGAMI*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P; 
 f(end+1)= -RI + b*BIGGAMI*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P; 
-f(end+1)= log(BIGGAMC_p/biggamc) - .95*log(BIGGAMC/biggamc); %taken directly from Ryan's example code.
-f(end+1)= log(BIGGAMI_p/biggami) - .95*log(BIGGAMI/biggami); %taken directly from Ryan's example code.
+f(end+1)= log(BIGGAMC_p/biggamc) - .8*log(BIGGAMC/biggamc); %taken directly from Ryan's example code.
+f(end+1)= log(BIGGAMI_p/biggami) - .8*log(BIGGAMI/biggami); %taken directly from Ryan's example code.
 % Approach for growth rates:
 f(end+1)= BIGGAMCL_p - BIGGAMC;
 f(end+1)= BIGGAMIL_p - BIGGAMI;
