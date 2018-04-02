@@ -16,6 +16,8 @@ addpath(base_path)
 %Load Parameters
 param = parameters;
 
+return
+%% Correctly stationarized model w/o spillover
 %Compute the first-order coefficiencients of the model
 [fyn, fxn, fypn, fxpn] = model_exog_stat(param);
 
@@ -61,6 +63,27 @@ plot_single_simple_IRFs(IRFs,T,which_shock,shocknames, varnames, print_figs)
 
 
 return
+
+%% Model with spillover
+
+%Load Parameters
+param = parameters;
+
+%Compute the first-order coefficiencients of the model
+[fyn, fxn, fypn, fxpn] = model_spillover(param);
+
+%Compute the transition and policy functions, using code by
+%Stephanie Schmitt-Grohé and Martín Uribe (and available on their wedsite.)
+[gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
+
+save('gxhx.mat', 'gx', 'hx')
+
+%Eigenvalues of hx
+disp('Computing eigenvalues of hx');
+disp(eig(hx))
+
+return
+
 %% Oulton 2010 with news shocks (so far only 2 periods ahead)
 
 %Compute the first-order coefficiencients of the model
