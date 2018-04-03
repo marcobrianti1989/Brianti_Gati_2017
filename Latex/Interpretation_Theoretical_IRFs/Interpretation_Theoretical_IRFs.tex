@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a4paper,top=3.5cm,bottom=3.5cm,left=3.5cm,right=3.5cm,%
+bindingoffset=0mm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+	\ifdim\lastskip<1.5em \hskip-\lastskip
+	\hskip1.5em plus0em minus0.5em \fi \nobreak
+	\vrule height0.75em width0.75em depth0em\fi}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{float}
+\linespread{1.3}
+\raggedbottom
+
+
+
+
+%
+\font\reali=msbm10 at 12pt
+% subsets of real numbers
+\newcommand{\real}{\hbox{\reali R}}
+\newcommand{\realp}{\hbox{\reali R}_{\scriptscriptstyle +}}
+\newcommand{\realpp}{\hbox{\reali R}_{\scriptscriptstyle ++}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+%
+
+\title{Theoretical Impulse Response Functions}
+\author{Marco Brianti\\Laura Gati}
+\date{October 2017}
+
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Zero Balanced-Growth Path}
+	
+	Define $x_t$ as the value of variable $x$ at time $t$. Define $\overline{x}$ as the value of variable $x$ in steady state. Impulse response functions are percentage deviation of $x$ from its steady state value $\overline{x}$. Formally,
+$$
+IRF(x_t | \varepsilon) = \log \bigg( \frac{x_t}{\overline{x}}  \bigg)
+$$
+where $\varepsilon$ is a general perturbation from the steady state level of the system. As long as $\varepsilon$ has a transitory nature, we expect IRFs to converge to zero asymptotically. In other words, we expect that the system will naturally converge to the steady state level once the perturbation ceases.
+	
+\section{Positive Balanced-Growth Path - Temporary Shock}
+
+Define $x_t$ as the value of variable $x$ at time $t$. Define $\tilde{x}_t$ as the value of $x$ when divide by the value of an exogenous process which is growing at the same rate of $x$. Formally,
+$$
+\tilde{x}_t = \frac{x_t}{G_{t-1}}
+$$
+where $G_{t-1}$ may represent the value of the exogenous productivity process which is growing at the same rate of $x$. Define $\tilde{x}$ as the value of $\tilde{x_t}$ when the system is growing at the balanced growth at the BGP without any past or present source of perturbation. In this case, impulse response functions are percentage deviation of $\tilde{x}_t$ from its steady state value $\tilde{x}$. Formally,
+\begin{eqnarray}
+\begin{aligned}
+IRF(\tilde{x}_t | \varepsilon) &= \log \bigg( \frac{\tilde{x}_t}{\tilde{x}}  \bigg)  \\
+                               &= \log \bigg( \frac{\frac{x_t(\varepsilon)}{G_{t-1}}}{\frac{x_t}{G_{t-1}}}  \bigg)  \\
+                               &= \log \bigg( \frac{x_t(\varepsilon)}{x_t} \bigg)  \\
+\end{aligned}
+\end{eqnarray}
+In other words, we can interpret $IRF(\tilde{x}_t | \varepsilon)$ as percentage deviation of $x_t$ from the value it should have had without $\varepsilon$. Also in this case we expect IRFs to converge to zero asymptotically. In other words, we expect $x_t(\varepsilon)$ to converge back to $x_t$ once the perturbation ceases.
+
+\section{Positive Balanced-Growth Path - Permanent Shock}
+	
+
+\end{document}
