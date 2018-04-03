@@ -50,7 +50,7 @@ IRF(x_t | \varepsilon) = \log \bigg( \frac{x_t}{\overline{x}}  \bigg)
 $$
 where $\varepsilon$ is a general perturbation from the steady state level of the system. As long as $\varepsilon$ has a transitory nature, we expect IRFs to converge to zero asymptotically. In other words, we expect that the system will naturally converge to the steady state level once the perturbation ceases.
 	
-\section{Positive Balanced-Growth Path - Temporary Shock}
+\section{Positive Balanced-Growth Path - Level Shock}
 
 Define $x_t$ as the value of variable $x$ at time $t$. Define $\tilde{x}_t$ as the value of $x$ when divide by the value of an exogenous process which is growing at the same rate of $x$. Formally,
 $$
@@ -66,7 +66,22 @@ IRF(\tilde{x}_t | \varepsilon) &= \log \bigg( \frac{\tilde{x}_t}{\tilde{x}}  \bi
 \end{eqnarray}
 In other words, we can interpret $IRF(\tilde{x}_t | \varepsilon)$ as percentage deviation of $x_t$ from the value it should have had without $\varepsilon$. Also in this case we expect IRFs to converge to zero asymptotically. In other words, we expect $x_t(\varepsilon)$ to converge back to $x_t$ once the perturbation ceases.
 
-\section{Positive Balanced-Growth Path - Permanent Shock}
+\section{Positive Balanced-Growth Path - Trend Shock}
+
+Define $x_t$ as the value of variable $x$ at time $t$. Define $\tilde{x}_t$ as the value of $x$ when divide by the value of an exogenous process which is growing at the same rate of $x$. Formally,
+$$
+\tilde{x}_t = \frac{x_t}{G_{t-1}}
+$$
+where $G_{t-1}$ may represent the value of the exogenous productivity process which is growing at the same rate of $x$. Define $\tilde{x}$ as the value of $\tilde{x}_t$ when the system is growing at the balanced growth at the BGP without any past or present source of perturbation. In this case, impulse response functions are percentage deviation of $\tilde{x}_t$ from its steady state value $\tilde{x}$. Formally,
+\begin{eqnarray}
+\begin{aligned}
+IRF(\tilde{x}_{t+h} | \varepsilon) &= \log \bigg[ \Pi_{i=0}^h \bigg( \frac{\tilde{x}_{t+i}(\varepsilon)}{\tilde{x}_{t+i-1}(\varepsilon)}  \frac{G_{t+i-1}}{G_{t+i-2}}  \bigg) \bigg]  \\
+&= \log \Bigg[ \Pi_{i=0}^h \Bigg( \frac{\frac{x_{t+i}(\varepsilon)}{G_{t+i-1}(\varepsilon)}}{\frac{x_{t+i-1}(\varepsilon)}{G_{t+i-2}(\varepsilon)}}  \frac{G_{t+i-1}(\varepsilon)}{G_{t+i-2}(\varepsilon)}  \Bigg) \Bigg]  \\
+&= \log \Bigg[ \Pi_{i=0}^h \Bigg( \frac{x_{t+i}(\varepsilon)}{x_{t+i-1}(\varepsilon)}   \Bigg) \Bigg]  \\
+&= \log \bigg( \frac{x_{t+h}(\varepsilon)}{x_{t-1}}  \bigg)  \\
+\end{aligned}
+\end{eqnarray}
+
 	
 
 \end{document}

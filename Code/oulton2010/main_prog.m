@@ -16,7 +16,6 @@ addpath(base_path)
 %Load Parameters
 param = parameters;
 
-return
 %% Correctly stationarized model w/o spillover
 %Compute the first-order coefficiencients of the model
 [fyn, fxn, fypn, fxpn] = model_exog_stat(param);
@@ -54,7 +53,7 @@ end
 IRFs = IRFs_all(gamc_idx:njumps,:,:);
 IRFs_some = IRFs_all([c_idx, gamc_idx],:,:);
 
-which_shock = [pos_KI];
+which_shock = [pos_BIGGAMC];
 shocknames = {'Hard capital shock', 'IT capital shock', 'Growth rate of Final', 'Growth rate of IT'};
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
 varnames = {'Logdev C', 'Logdev KI', 'Logdev YC', 'Logdev YI', 'Logdev H', 'Logdev P', 'Logdev KC2', 'Logdev KI2' };
@@ -81,6 +80,8 @@ save('gxhx.mat', 'gx', 'hx')
 %Eigenvalues of hx
 disp('Computing eigenvalues of hx');
 disp(eig(hx))
+
+fghjk
 
 return
 
