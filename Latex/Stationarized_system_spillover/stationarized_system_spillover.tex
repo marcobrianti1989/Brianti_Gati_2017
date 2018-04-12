@@ -44,62 +44,179 @@ bindingoffset=0mm]{geometry}
 \Large{
 	
 
-\begin{equation}
-y_{c,t} = \Gamma_{c,t} k_{i,1,t}^{\gamma} h_{1,t}^{1 - a- b} k_{c,1,t}^a k_{i,1,t}^b
+\begin{equation}\label{eq:prodfuncfinal}
+y_{c,t} = \Gamma_{c,t} k_{i,t}^{\gamma} h_{1,t}^{1 - a- b} k_{c,1,t}^a k_{i,1,t}^b
 \end{equation}
-\begin{equation}
-y_{i,t} = \Gamma_{i,t} k_{i,2,t}^{\gamma} h_{2,t}^{1 - a- b} k_{c,2,t}^a k_{i,2,t}^b
+\begin{equation}\label{eq:prodfuncinter}
+y_{i,t} = \Gamma_{i,t} k_{i,t}^{\gamma} h_{2,t}^{1 - a- b} k_{c,2,t}^a k_{i,2,t}^b
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:LOMfinal}
 k_{c,t+1} \exp{(g_c)} = (1 - \delta_c)k_{c,t} + i_{c,t}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:LOMinter}
 k_{i,t+1} \exp{(g_i)} = (1 - \delta_i)k_{i,t} + i_{i,t}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:resourcefinal}
 y_{c,t} = c_{t} + i_{c,t}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:resourceinter}
 y_{i,t} = i_{i,t}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:intratEE}
 w_{t} = \chi c_{t}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:hardKconstr}
 k_{c,t} = k_{c,1,t} + k_{c,2,t}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:softKconstr}
 k_{i,t} = k_{i,1,t} + k_{i,2,t}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:hoursconstr}
 h_{t} = h_{1,t} + h_{2,t}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:intertEEhard}
 1 = \beta \E \bigg[ (\exp{(g_c)})^{-1} \frac{c_{t}}{c_{t+1}} \bigg( r_{c,t+1} + 1 - \delta_c   \bigg)     \bigg]
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:intertEEsoft}
 1 = \beta \E \bigg[ (\exp{(g_i)})^{-1} \frac{c_{t}}{c_{t+1}} \bigg( \frac{r_{i,t+1}}{p_t} + 1 - \delta_i  \bigg)     \bigg]
 \end{equation}
-\begin{equation}
-w_t = (1 - a - b)\Gamma_{c,t} k_{i,1,t}^{\gamma} h_{1,t}^{- a- b} k_{c,1,t}^a k_{i,1,t}^b
+\begin{equation}\label{eq:FOClaborfinal}
+w_t = (1 - a - b)\Gamma_{c,t} k_{i,t}^{\gamma} h_{1,t}^{- a- b} k_{c,1,t}^a k_{i,1,t}^b
 \end{equation}
-\begin{equation}
-r_{c,t} = a \Gamma_{c,t} k_{i,1,t}^{\gamma} h_{1,t}^{1 - a- b} k_{c,1,t}^{a-1} k_{i,1,t}^b
+\begin{equation}\label{eq:FOChardKfinal}
+r_{c,t} = a \Gamma_{c,t} k_{i,t}^{\gamma} h_{1,t}^{1 - a- b} k_{c,1,t}^{a-1} k_{i,1,t}^b
 \end{equation}
-\begin{equation}
-r_{i,t} = b \Gamma_{c,t} k_{i,1,t}^{\gamma} h_{1,t}^{1 - a- b} k_{c,1,t}^a k_{i,1,t}^{b-1}
+\begin{equation}\label{eq:FOCsoftKfinal}
+r_{i,t} = b \Gamma_{c,t} k_{i,t}^{\gamma} h_{1,t}^{1 - a- b} k_{c,1,t}^a k_{i,1,t}^{b-1}
 \end{equation}
-\begin{equation}
-\frac{w_t}{p_t} = (1 - a - b)\Gamma_{i,t} k_{i,2,t}^{\gamma} h_{2,t}^{- a- b} k_{c,2,t}^a k_{i,2,t}^b
+\begin{equation}\label{eq:FOClaborinter}
+\frac{w_t}{p_t} = (1 - a - b)\Gamma_{i,t} k_{i,t}^{\gamma} h_{2,t}^{- a- b} k_{c,2,t}^a k_{i,2,t}^b
 \end{equation}
-\begin{equation}
-\frac{r_{c,t}}{p_t} = a \Gamma_{i,t} k_{i,2,t}^{\gamma} h_{2,t}^{1 - a- b} k_{c,2,t}^{a-1} k_{i,2,t}^b\\\
+\begin{equation}\label{eq:FOChardKinter}
+\frac{r_{c,t}}{p_t} = a \Gamma_{i,t} k_{i,t}^{\gamma} h_{2,t}^{1 - a- b} k_{c,2,t}^{a-1} k_{i,2,t}^b\\\
 \end{equation}
-\begin{equation}
-\frac{r_{i,t}}{p_t} = b \Gamma_{i,t} k_{i,2,t}^{\gamma} h_{2,t}^{1 - a- b} k_{c,2,t}^a k_{i,2,t}^{b-1}
+\begin{equation}\label{eq:FOCsoftKinter}
+\frac{r_{i,t}}{p_t} = b \Gamma_{i,t} k_{i,t}^{\gamma} h_{2,t}^{1 - a- b} k_{c,2,t}^a k_{i,2,t}^{b-1}
 \end{equation}
 
+\section*{Steady-State Procedure}
+
+\subsection*{Step 0}
+
+Divide \ref{eq:FOClaborfinal} over \ref{eq:FOClaborinter} and obtain
+\begin{equation}\label{Pclosedform}
+p = \frac{\Gamma_c}{\Gamma_i}.
+\end{equation}
+Solve for $r_c$ in \ref{eq:intertEEhard} and obtain
+\begin{equation}
+r_c = 1/\beta \exp(g_c) - (1-\delta_c)
+\end{equation}
+where $\exp(g_c) = \Gamma_c^{\frac{1-b-\gamma}{1-a-b-\gamma}} \Gamma_i^{\frac{b+\gamma}{1-a-b-\gamma}}$.
 }
-	
+
+Solve for $r_i$ in \ref{eq:intertEEsoft} and obtain
+\begin{equation}
+r_i = 1/\beta \exp(g_i) - (1-\delta_i)
+\end{equation}
+where $\exp(g_i) = \Gamma_c^{\frac{a}{1-a-b-\gamma}} \Gamma_i^{\frac{1-a}{1-a-b-\gamma}}$.
+
+\subsection*{Step 1}
+
+Solve \ref{eq:FOClaborfinal}, \ref{eq:FOChardKfinal}, and \ref{eq:FOCsoftKfinal} for $k_i$, $\bar{k}_c = \frac{k_{c,1}}{h,1}$, and $\bar{k}_i = \frac{k_{i,1}}{h,1}$ in function of unknown wage $w$. It yields
+\begin{equation}
+\bar{k}_c = \frac{a}{1 - a- b}\frac{w}{r_c},
+\end{equation}
+\begin{equation}
+\bar{k}_i = \frac{b}{1 - a- b}\frac{w}{r_i},
+\end{equation}
+and
+\begin{equation}
+k_i = \bigg[   \frac{r_c}{a \Gamma_c}   \bar{k}_c^{1-a} \bar{k}_i^{-b}   \bigg]^{\frac{1}{\gamma}}
+\end{equation}
+Moreover, divide \ref{eq:FOChardKfinal} over \ref{eq:FOCsoftKfinal} and obtain
+\begin{equation}
+\frac{\bar{k}_i}{\bar{k}_c} = \frac{b}{a} \frac{r_c}{r_i}
+\end{equation}
+Finally, using \ref{eq:FOClaborfinal}-\ref{eq:FOCsoftKinter} notice that 
+$$
+\bar{k}_c = \frac{k_{c,1}}{h_1} = \frac{k_{c,2}}{h_2} = \frac{k_{c}}{h},
+$$
+$$
+\bar{k}_i = \frac{k_{i,1}}{h_1} = \frac{k_{i,2}}{h_2} = \frac{k_{i}}{h},
+$$
+and
+$$
+\frac{\bar{k}_i}{\bar{k}_c} = \frac{{k}_i}{{k}_c} = \frac{{k}_{i,1}}{{k}_{c,1}} = \frac{{k}_{i,2}}{{k}_{c,2}}.
+$$
+
+\subsection*{Step 2}
+
+Obtain from \ref{eq:FOCsoftKinter}
+\begin{equation}\label{eq:LOMinterSS}
+i_i = G_i k_i 
+\end{equation}
+where $G_i = \exp(g_i) - (1 - \delta_i)$.
+
+Substitute \ref{eq:LOMinterSS} into \ref{eq:resourceinter} and then into \ref{eq:prodfuncinter} to obtain
+$$
+G_i k_i = \Gamma_{i} k_{i}^{\gamma} h_{2}^{1 - a- b} k_{c,2}^a k_{i,2}^b
+$$
+which is
+$$
+G_i k_i = \Gamma_{i} k_{i}^{\gamma} h_{2} \bar{k}_{c,2}^a \bar{k}_{i,2}^b
+$$
+Isolate over $h_2$ and get
+\begin{equation}
+h_2 = \frac{G_i}{\Gamma_i} k_i^{1 - \gamma} \bar{k}_{c,2}^{-a} \bar{k}_{i,2}^{-b}
+\end{equation}
+which yields
+$$
+k_{i,2} = \bar{k}_i h_2 \ \ \text{and} \ \ k_{c,2} = \bar{k}_c h_2.
+$$
+
+
+\subsection*{Step 3}
+
+
+Obtain from \ref{eq:FOCsoftKfinal}
+\begin{equation}\label{eq:LOMfinalSS}
+i_c = G_c k_c
+\end{equation}
+where $G_c = \exp(g_c) - (1 - \delta_c)$.
+
+Substitute \ref{eq:LOMfinalSS} into \ref{eq:resourcefinal} and then into \ref{eq:prodfuncfinal} to obtain
+$$
+G_i k_i = \Gamma_{i} k_{i}^{\gamma} h_{2}^{1 - a- b} k_{c,2}^a k_{i,2}^b
+$$
+which is
+$$
+G_i k_i = \Gamma_{i} k_{i}^{\gamma} h_{2} \bar{k}_{c,2}^a \bar{k}_{i,2}^b
+$$
+Isolate over $h_2$ and get
+\begin{equation}
+h_2 = \frac{G_i}{\Gamma_i} k_i^{1 - \gamma} \bar{k}_{c,2}^{-a} \bar{k}_{i,2}^{-b}
+\end{equation}
+which yields
+$$
+k_{i,2} = \bar{k}_i h_2 \ \ \text{and} \ \ k_{c,2} = \bar{k}_c h_2.
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
 

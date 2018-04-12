@@ -55,10 +55,10 @@ Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P EXPGC EXPGI]; % vector of 
 YP = [YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p KC1_p KC2_p KI1_p KI2_p P_p EXPGC_p EXPGI_p] ;
 
 % Model Equations 
-f(1)    = -YC + KI^gam * (BIGGAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b); %
-f(end+1)= -YI + KI^gam *(BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b); %
+f(1)    = -YC + KI^gam * (BIGGAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b); 
+f(end+1)= -YI + KI^gam *(BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b); 
 f(end+1)= -KC + KC1 + KC2;
-f(end+1)= -KI + KI1 + KI2;
+f(end+1)= -KI + KI1 + KI2; %
 f(end+1)= -H + H1 + H2;
 f(end+1)= -EXPGC + BIGGAMC^((1-b-gam)/(1-a-b-gam))*BIGGAMI^((b+gam)/(1-a-b-gam));
 f(end+1)= -EXPGI + BIGGAMC^(a/(1-a-b-gam))*BIGGAMI^((1-a)/(1-a-b-gam));
