@@ -99,8 +99,8 @@ disp(eig(hx_v))
 
 % IRFs
 % Positions of the shocks in shock vector:
-nvar = size(gx_v,1) + size(gx_v,2);
-nshocks = size(hx_v,1);
+nvar = size(gx,1) + size(gx,2);
+nshocks = size(hx,1);
 pos_KC = 1; % shock to K stock
 pos_KI = 2; % shock to IT stock
 pos_GAMC = 3; % a shock to TFP in final goods prod (= surprise tech shock)

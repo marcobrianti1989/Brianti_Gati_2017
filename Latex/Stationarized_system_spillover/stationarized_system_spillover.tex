@@ -184,23 +184,63 @@ i_c = G_c k_c
 \end{equation}
 where $G_c = \exp(g_c) - (1 - \delta_c)$.
 
-Substitute \ref{eq:LOMfinalSS} into \ref{eq:resourcefinal} and then into \ref{eq:prodfuncfinal} to obtain
+Substitute \ref{eq:intratEE} and \ref{eq:LOMfinalSS} into \ref{eq:resourcefinal} and then into \ref{eq:prodfuncfinal} to obtain
 $$
-G_i k_i = \Gamma_{i} k_{i}^{\gamma} h_{2}^{1 - a- b} k_{c,2}^a k_{i,2}^b
+\frac{w}{\chi} + G_c k_c = \Gamma_{c} k_{i}^{\gamma} h_{1}^{1 - a- b} k_{c,1}^a k_{i,1}^b
 $$
 which is
 $$
-G_i k_i = \Gamma_{i} k_{i}^{\gamma} h_{2} \bar{k}_{c,2}^a \bar{k}_{i,2}^b
+\frac{w}{\chi} + G_c k_c = \Gamma_{c} k_{i}^{\gamma} h_{1} \bar{k}_{c,1}^a \bar{k}_{i,1}^b
 $$
-Isolate over $h_2$ and get
+adjust as follows
+$$
+\frac{w}{\chi} + G_c \bigg( \frac{k_i}{k_c} \bigg)^{-1} k_i = \Gamma_{c} k_{i}^{\gamma} h_{1} \bar{k}_{c,1}^a \bar{k}_{i,1}^b
+$$
+Isolate over $h_1$ and get
 \begin{equation}
-h_2 = \frac{G_i}{\Gamma_i} k_i^{1 - \gamma} \bar{k}_{c,2}^{-a} \bar{k}_{i,2}^{-b}
+h_1 = \bigg[   \frac{w}{\chi} + G_c \bigg( \frac{k_i}{k_c} \bigg)^{-1} k_i    \bigg] \frac{1}{\Gamma_c} k_i^{-\gamma} \bar{k}_c^{-a} \bar{k}_i^{-b}
 \end{equation}
 which yields
 $$
-k_{i,2} = \bar{k}_i h_2 \ \ \text{and} \ \ k_{c,2} = \bar{k}_c h_2.
+k_{i,1} = \bar{k}_i h_1 \ \ \text{and} \ \ k_{c,1} = \bar{k}_c h_1.
 $$
 
+\subsection*{Step 4}
+
+Complete the missing variables such as
+$$
+h = h_1 + h_2,
+$$
+$$
+k_c = k_{c,1} + k_{c,2},
+$$
+$$
+y_c =  \Gamma_c k_i^{\gamma} h_1^{1-a-b} k_{c,1}^{a} k_{i,1}^{b},
+$$
+$$
+y_i =  \Gamma_i k_i^{\gamma} h_2^{1-a-b} k_{c,2}^{a} k_{i,2}^{b},
+$$
+$$
+i_i =  G_i k_{i},
+$$
+$$
+i_c =  G_c k_{c},
+$$
+$$
+c =  y_c - I_c.
+$$
+
+
+\subsection*{Step 5}
+
+Solve either numerically or analytically 
+$$
+f(w) = w^* - \chi c(w^*) = 0
+$$
+
+\subsection*{Step 6}
+
+Get back to Step 1 but know $w = w^*$ is known.
 
 
 

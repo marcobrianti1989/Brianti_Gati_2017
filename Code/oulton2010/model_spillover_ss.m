@@ -56,8 +56,6 @@ end
 Ki1 = @(wx) ki(wx)*h1(wx);
 Kc1 = @(wx) kc(wx)*h1(wx);
 
-%Error is above this point
-
 %Step 4
 h = @(wx) h1(wx) + h2(wx);
 Kc = @(wx) Kc1(wx) + Kc2(wx);
