@@ -65,6 +65,8 @@ return
 
 %% Model with spillover
 
+disp('Doing Model with Spillover')
+
 %Load Parameters
 param = parameters;
 

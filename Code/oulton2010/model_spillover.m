@@ -54,6 +54,9 @@ XP = [KC_p KI_p BIGGAMC_p BIGGAMI_p]; % p signifies t+1
 Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P EXPGC EXPGI]; % vector of controls
 YP = [YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p KC1_p KC2_p KI1_p KI2_p P_p EXPGC_p EXPGI_p] ;
 
+%Make index variables for future use
+make_index([Y,X])
+
 % Model Equations 
 f(1)    = -YC + KI^gam * (BIGGAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b); 
 f(end+1)= -YI + KI^gam *(BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b); 
