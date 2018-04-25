@@ -17,6 +17,7 @@ addpath(base_path)
 param = parameters;
 
 %% Correctly stationarized model w/o spillover
+disp('Doing Model with NO Spillover')
 %Compute the first-order coefficiencients of the model
 [fyn, fxn, fypn, fxpn] = model_exog_stat(param);
 
@@ -83,7 +84,36 @@ save('gxhx.mat', 'gx', 'hx')
 disp('Computing eigenvalues of hx');
 disp(eig(hx))
 
-fghjk
+
+% IRFs
+nvar = size(gx,1) + size(gx,2);
+nshocks = size(hx,1);
+njumps  = size(gx,1);
+pos_KC = kc_idx-njumps; % shock to K stock
+pos_KI = ki_idx-njumps; % shock to IT stock
+pos_BIGGAMC = biggamc_idx-njumps; % a shock to TFP in final goods prod (= surprise tech shock)
+pos_BIGGAMCL = biggamcl_idx-njumps; % a shock to TFP in final goods prod but at a different time
+pos_BIGGAMI = biggami_idx-njumps; % IT productivity shock
+T = 60;
+IRFs_all = zeros(nvar, T, nshocks);
+for s=1:nshocks
+    x0 = zeros(nshocks,1); % impulse vector
+    x0(s) = 1;
+    [IR, iry, irx]=ir(gx,hx,x0,T);
+    % To get levels, we need to cumsum all except RC, H, H1, H2
+    IR(:,gamc_idx:njumps) = cumsum(IR(:,gamc_idx:njumps));
+    IRFs_all(:,:,s) = IR'; 
+end
+% Gather IRFs of interest:
+IRFs = IRFs_all([biggamc_idx gamc_idx:njumps],:,:);
+IRFs_some = IRFs_all([c_idx, gamc_idx],:,:);
+
+which_shock = [pos_BIGGAMC];
+shocknames = {'Hard capital shock', 'IT capital shock', 'Growth rate of Final', 'Growth rate of IT'};
+% GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
+varnames = {'Logdev Biggamc', 'Logdev C', 'Logdev KI', 'Logdev YC', 'Logdev YI', 'Logdev H', 'Logdev P', 'Logdev KC2', 'Logdev KI2' };
+print_figs = 'no';
+plot_single_simple_IRFs(IRFs,T,which_shock,shocknames, varnames, print_figs)
 
 return
 

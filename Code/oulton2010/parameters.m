@@ -16,5 +16,5 @@ param.biggamc  = 1.00328; %1.00328;    % growth rate of cons. productivity
 param.di       = 0.3; %0.124; % depreciation rate of IT capital (Some work suggests 0.1830)
 param.dc       = 0.3; %0.056 depreciation rate of standard capital
 param.chi      = 1; % preference parameter in labor disutility. (From Ryan)
-param.gam      = 0.2; % spillover elasticity (only used in model_spillover.m and model_spillover_ss.m)
+param.gam      = 0.2; %0.2 spillover elasticity (only used in model_spillover.m and model_spillover_ss.m)
 

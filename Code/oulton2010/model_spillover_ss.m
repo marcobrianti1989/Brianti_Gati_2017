@@ -36,7 +36,7 @@ ki              = @(wx) (rc/(a*biggamc)*kc_bar(wx)^(1-a)*ki_bar(wx)^(-b))^(1/gam
 Ki_check        = @(wx) (ri/(b*biggamc)*kc_bar(wx)^(-a)*ki_bar(wx)^(1-b))^(1/gam); %check 
 Ki_check2       = @(wx) (wx/((1-a-b)*biggamc)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b))^(1/gam); %check
 check           = ((ki(15) - Ki_check(15)) + (ki(15) - Ki_check2(15)))^2;
-if check > 10^(-20)
+if check > 10^(-16)
       error('Ki is wrong')
 end
 Ki_Kc = b/a*rc/ri; %Ki_Kc = Ki/Kc = Ki1/Kc1 = Ki2/Kc2 = ki/kc
@@ -50,7 +50,7 @@ kc2 = @(wx) kc_bar(wx)*h2(wx);
 h1 = @(wx) (1/chi*wx/ki(wx) + gc/Ki_Kc)/biggamc*ki(wx)^(1-gam)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b);
 h1_check = @(wx) (wx/chi + gc/Ki_Kc*ki(wx))/biggamc*ki(wx)^(-gam)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b);
 check_h = (h1(150) - h1_check(150))^2;
-if check > 10^(-20)
+if check > 10^(-16)
       error('h1 is wrong')
 end
 ki1 = @(wx) ki_bar(wx)*h1(wx);
@@ -69,13 +69,14 @@ c = @(wx) yc(wx) - ic(wx);
 %Objective: w = @(wx) chi*c(wx)
 options = optimoptions('fmincon'); 
 % Set OptimalityTolerance to 1e-15
-%options = optimoptions(options, 'OptimalityTolerance', 1e-15); 
+options = optimoptions(options, 'OptimalityTolerance', 1e-18); 
 % Set the Display option to 'iter' and StepTolerance to 1e-4
 % options.Display = 'iter';
-%options.StepTolerance = 1e-15;
+options.StepTolerance = 1e-18;
 objw = @(wx) (wx - chi*c(wx))^2;
-wx0 = 1.5;
+wx0 = 3.5;
 wstar = fmincon(objw,wx0,[],[],[],[],[],[],[],options);
+wstar
 % Try to use also fzero
 % objw2 = @(wx)  wx - chi*c(wx);
 % wstar2 = fzero(objw2,wx0);
@@ -98,30 +99,12 @@ kc2 = kc2(wstar); %small kc2 back to be original Kc2 - drop previous notation
 ki1 = ki1(wstar); %small ki1 back to be original Ki1 - drop previous notation
 ki2 = ki2(wstar); %small ki2 back to be original Ki2 - drop previous notation
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SECOND STRATEGY
-
-% %Step 1
-% w = @(Kix) (  (1-a-b)^(1-a-b) * biggamc * Kix^gam * (a/rc)^a * (b/ri)^b  )^(1/(1-a-b));
-% kc = @(Kix) a/(1-a-b) * w(Kix)/rc; %kc = kc1 = kc2 = Kc/h = Kc1/h1 = Kc2/h2
-% ki = @(Kix) b/(1-a-b) * w(Kix)/ri; %ki = ki1 = ki2 = Ki/h = Ki1/h1 = Ki2/h2
-% Ki_Kc = b/a*rc/ri; %Ki_Kc = Ki/Kc = Ki1/Kc1 = Ki2/Kc2 = ki/kc
-% 
-% %Step 2
-% h2 = @(Kix) gi/biggami * Kix^(1-gam) * kc(Kix)^(-a) * ki(Kix)^(-b);
-% Ki2 = @(Kix) ki(Kix)*h2(Kix);
-% Kc2 = @(Kix) kc(Kix)*h2(Kix);
-% 
-% %Step 3
-% h1 = @(Kix) (w(Kix)/chi + gc/Ki_Kc*Kix)/biggamc*Kix^(-gam)*kc(Kix)^(-a)*kc(wx)^(-b);
-
 
 %Put the ss values in a vector consistent with Y and X vectors in model.m
-% KC KI BIGGAMC BIGGAMI
-xx  = [kc ki biggamc biggami]; 
-yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 p expgc expgi];
-% YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P
-
+xx  = [kc ki biggamc biggami ...
+    c biggamc biggami yc yi h p kc2 ki2 ki kc]; 
+yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 p expgc expgi ...
+    expgc expgi expgc expgi 1 p expgc expgi];
 
 ss  = [yy xx];
 
