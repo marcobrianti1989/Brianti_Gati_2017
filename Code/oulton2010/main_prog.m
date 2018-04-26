@@ -109,9 +109,9 @@ IRFs = IRFs_all([biggamc_idx gamc_idx:njumps],:,:);
 IRFs_some = IRFs_all([c_idx, gamc_idx],:,:);
 
 which_shock = [pos_BIGGAMC];
-shocknames = {'Hard capital shock', 'IT capital shock', 'Growth rate of Final', 'Growth rate of IT'};
+shocknames = {'KC', 'KI', '\Gamma_c', '\Gamma_i'};
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
-varnames = {'Logdev Biggamc', 'Logdev C', 'Logdev KI', 'Logdev YC', 'Logdev YI', 'Logdev H', 'Logdev P', 'Logdev KC2', 'Logdev KI2' };
+varnames = {'Biggamc', 'C', 'KI', 'YC', 'YI', 'H', 'P', 'KC2', 'KI2' };
 print_figs = 'no';
 plot_single_simple_IRFs(IRFs,T,which_shock,shocknames, varnames, print_figs)
 
