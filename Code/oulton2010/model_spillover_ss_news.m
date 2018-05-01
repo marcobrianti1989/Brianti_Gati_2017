@@ -1,4 +1,4 @@
-% MODEL_SS - Return the steady state of the model (computed analytically)
+ % MODEL_SS - Return the steady state of the model (computed analytically)
 %
 % usage:
 % 
@@ -47,10 +47,15 @@ ki2 = @(wx) ki_bar(wx)*h2(wx);
 kc2 = @(wx) kc_bar(wx)*h2(wx);
 
 %Step 3
+% Case of V(h) = -chi*H
 h1 = @(wx) (1/chi*wx/ki(wx) + gc/Ki_Kc)/biggamc*ki(wx)^(1-gam)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b);
 h1_check = @(wx) (wx/chi + gc/Ki_Kc*ki(wx))/biggamc*ki(wx)^(-gam)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b);
+% % Case of V(h) = chi*log(1-h)
+% h1 = @(wx) (wx*h2(wx)/chi - wx/chi + gc/Ki_Kc*ki(wx)) / (biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b) -wx/chi);
+% h1_check = @(wx) (biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b) -wx/chi)^(-1) ...
+%     *(gc/Ki_Kc*ki(wx) + biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)*h2(wx) -wx/chi) - h2(wx);
 check_h = (h1(150) - h1_check(150))^2;
-if check > 10^(-16)
+if check_h > 10^(-16)
       error('h1 is wrong')
 end
 ki1 = @(wx) ki_bar(wx)*h1(wx);
@@ -71,12 +76,33 @@ options = optimoptions('fmincon');
 % Set OptimalityTolerance to 1e-15
 options = optimoptions(options, 'OptimalityTolerance', 1e-18); 
 % Set the Display option to 'iter' and StepTolerance to 1e-4
-% options.Display = 'iter';
+options.Display = 'iter';
 options.StepTolerance = 1e-18;
-objw = @(wx) (wx - chi*c(wx))^2;
-wx0 = 3.5;
+objw = @(wx) (wx/chi - c(wx))^2;
+wx0 = 100;
 wstar = fmincon(objw,wx0,[],[],[],[],[],[],[],options);
 wstar
+% A check on how h(w) behaves
+wgrid = linspace(0.5,0.9,100);
+for j=1:length(wgrid)
+w_figure(j) = objw(wgrid(j));
+h_figure(j) = h(wgrid(j));
+c_figure(j) = c(wgrid(j));
+ic_figure(j) = ic(wgrid(j));
+yc_figure(j) = yc(wgrid(j));
+ki_figure(j) = ki(wgrid(j));
+kc_figure(j) = kc(wgrid(j));
+ki1_figure(j) = ki1(wgrid(j));
+kc1_figure(j) = kc1(wgrid(j));
+ki2_figure(j) = ki2(wgrid(j));
+kc2_figure(j) = kc2(wgrid(j));
+h1_figure(j) = h1(wgrid(j));
+end
+
+% plot(wgrid, h_figure); hold on
+ plot(wgrid, w_figure)
+ %plot(wgrid, c_figure)
+ legend('objective')
 % Try to use also fzero
 % objw2 = @(wx)  wx - chi*c(wx);
 % wstar2 = fzero(objw2,wx0);
@@ -102,7 +128,7 @@ ki2 = ki2(wstar); %small ki2 back to be original Ki2 - drop previous notation
 
 %Put the ss values in a vector consistent with Y and X vectors in model.m
 xx  = [kc ki biggamc biggami ...
-    c biggamc biggami yc yi h p kc2 ki2 ki kc 0 0 0 0 0 0 0 0 0 1]; 
+    c biggamc biggami yc yi h p kc2 ki2 ki kc 0 0 0 0 0 0 0 0 0 1 1]; 
 yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 p expgc expgi ...
     expgc expgi expgc expgi 1 p expgc expgi ri];
 

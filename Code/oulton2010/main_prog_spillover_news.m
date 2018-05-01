@@ -32,10 +32,11 @@ param = parameters;
 [gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
 
 save('gxhx.mat', 'gx', 'hx')
-
+% return
 %Eigenvalues of hx
 disp('Computing eigenvalues of hx');
 disp(eig(hx))
+
 
 % IRFs
 nvar = size(gx,1) + size(gx,2);
@@ -59,19 +60,19 @@ for s=1:nshocks
     IRFs_all(:,:,s) = IR'; 
 end
 % Gather IRFs of interest:
-IRFs = IRFs_all([biggamc_idx gamc_idx:njumps],:,:);
+IRFs = IRFs_all([biggamc_idx gamc_idx:njumps-1],:,:);
 %IRFs_some = IRFs_all([c_idx, gamc_idx],:,:);
 
-which_shock                = [pos_SIT];
+which_shock                = [pos_news];
 shocknames                 = cell(1,size(hx,1));
 shocknames(1,pos_KC)       = {'KC'};
 shocknames(1,pos_KI)       = {'KI'};
 shocknames(1,pos_BIGGAMC)  = {'\Gamma_c'};
 shocknames(1,pos_BIGGAMI)  = {'\Gamma_i'};
-shocknames(1,pos_news)     = {'News \Gamma_c'};
+shocknames(1,pos_news)     = {'News'};
 shocknames(1, pos_SIT)     = {'IT return'};
 
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
-varnames = {'Biggamc', 'C', 'KI', 'YC', 'YI', 'H', 'P', 'KC2', 'KI2', 'RIS' };
+varnames = {'Biggamc', 'C', 'KI', 'YC', 'YI', 'H', 'P', 'KC2', 'KI2' };
 print_figs = 'no';
 plot_single_simple_IRFs(IRFs,T,which_shock,shocknames, varnames, print_figs)
