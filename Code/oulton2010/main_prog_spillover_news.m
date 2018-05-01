@@ -32,7 +32,7 @@ param = parameters;
 [gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
 
 save('gxhx.mat', 'gx', 'hx')
-% return
+ 
 %Eigenvalues of hx
 disp('Computing eigenvalues of hx');
 disp(eig(hx))
@@ -49,6 +49,7 @@ pos_BIGGAMCL = biggamcl_idx-njumps; % a shock to TFP in final goods prod but at 
 pos_BIGGAMI = biggami_idx-njumps; % IT productivity shock
 pos_news    = v8_idx - njumps;
 pos_SIT     = sit_idx - njumps;
+pos_N       = n_idx - njumps;
 T = 60;
 IRFs_all = zeros(nvar, T, nshocks);
 for s=1:nshocks
@@ -71,6 +72,7 @@ shocknames(1,pos_BIGGAMC)  = {'\Gamma_c'};
 shocknames(1,pos_BIGGAMI)  = {'\Gamma_i'};
 shocknames(1,pos_news)     = {'News'};
 shocknames(1, pos_SIT)     = {'IT return'};
+shocknames(1, pos_N)     = {'Surprise common component'};
 
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
 varnames = {'Biggamc', 'C', 'KI', 'YC', 'YI', 'H', 'P', 'KC2', 'KI2' };

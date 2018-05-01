@@ -82,8 +82,9 @@ f(end+1) = -KC_p*(EXPGC) + (1-dc)*KC + IC;
 f(end+1) = -KI_p*(EXPGI)+ (1-di)*KI + IT; 
 f(end+1) = -YC + C + IC;
 f(end+1) = -YI + IT;
-f(end+1) = -C + W/chi;
+% f(end+1) = -C + W/chi; % case of linear V(H) = -chi*H
 % f(end+1) = -C -(1-H)*W/chi; Case of V(H) = chi*log(1-H)
+f(end+1) = -C + W/(chi*H); % case of V(H) = chi/2 * H^2
 f(end+1) = -1 + bet*C/C_p*1/EXPGC*(RC_p + 1-dc);
 f(end+1) = -1 + bet*C/C_p*1/EXPGI*(SIT_p*RI_p/P_p + 1-di);
 f(end+1) = -W + KI^gam * (1-a-b)*(BIGGAMC)*H1^(-a-b)*KC1^(a)*KI1^(b); %

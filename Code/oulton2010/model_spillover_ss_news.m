@@ -54,10 +54,16 @@ h1_check = @(wx) (wx/chi + gc/Ki_Kc*ki(wx))/biggamc*ki(wx)^(-gam)*kc_bar(wx)^(-a
 % h1 = @(wx) (wx*h2(wx)/chi - wx/chi + gc/Ki_Kc*ki(wx)) / (biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b) -wx/chi);
 % h1_check = @(wx) (biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b) -wx/chi)^(-1) ...
 %     *(gc/Ki_Kc*ki(wx) + biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)*h2(wx) -wx/chi) - h2(wx);
-check_h = (h1(150) - h1_check(150))^2;
-if check_h > 10^(-16)
-      error('h1 is wrong')
-end
+% Case of V(h) = chi/2*H^2
+h1 = @(wx) (gc/Ki_Kc*ki(wx) + biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)*h2(wx)  ...
+    + sqrt(  (gc/Ki_Kc*ki(wx) + biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)*h2(wx))^2  ...
+    + 4*biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b) *wx/chi)) ...
+    / (2*biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)) -h2(wx);
+
+% check_h = (h1(150) - h1_check(150))^2;
+% if check_h > 10^(-16)
+%       error('h1 is wrong')
+% end
 ki1 = @(wx) ki_bar(wx)*h1(wx);
 kc1 = @(wx) kc_bar(wx)*h1(wx);
 
@@ -78,7 +84,8 @@ options = optimoptions(options, 'OptimalityTolerance', 1e-18);
 % Set the Display option to 'iter' and StepTolerance to 1e-4
 options.Display = 'iter';
 options.StepTolerance = 1e-18;
-objw = @(wx) (wx/chi - c(wx))^2;
+% objw = @(wx) (wx/chi - c(wx))^2; % case of linear V(H)
+objw = @(wx) (chi*h(wx) - wx/c(wx))^2; % case of  V(H) quadratic
 wx0 = 100;
 wstar = fmincon(objw,wx0,[],[],[],[],[],[],[],options);
 wstar
