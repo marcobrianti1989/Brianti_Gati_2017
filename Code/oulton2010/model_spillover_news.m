@@ -33,6 +33,8 @@ di       = param.di; % depreciation rate of capital IT
 dc       = param.dc; % depreciation rate of capital standard
 chi      = param.chi; % preference parameter.
 gam      = param.gam; % spillover elasticity
+siggami  = param.siggami; % variance of BIGGAMI
+sige     = param.sige; % variance of signal on BIGGAMI
 
 %Declare Needed Symbols
 syms KC KI KC1 KC2 KI1 KI2 % 6 vars

@@ -17,4 +17,6 @@ param.di       = 0.3; %0.124; % depreciation rate of IT capital (Some work sugge
 param.dc       = 0.3; %0.056 depreciation rate of standard capital
 param.chi      = 1; % preference parameter of preference for leisure. (From Ryan)
 param.gam      = 0.2; %0.2 spillover elasticity (only used in model_spillover.m and model_spillover_ss.m)
+param.siggami  = 1; % variance of BIGGAMI
+param.sige     = 1; % variance of signal on BIGGAMI
 

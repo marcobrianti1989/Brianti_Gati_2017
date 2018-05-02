@@ -5,7 +5,7 @@
 % [ss, param] = model_ss(param)
 % STEADY STATE OF OULTON 2010 WITH GROWTH
 
-function [ss,param] = model_spillover_ss(param)
+function [ss,param] = model_spillover_ss_news(param)
 
 %Parameters from param object
 bet      = param.bet;  %Never call anything beta...it's a matlab function
@@ -17,7 +17,8 @@ di       = param.di; % depreciation rate of capital IT
 dc       = param.dc; % depreciation rate of capital standard
 chi      = param.chi; % preference parameter.
 gam      = param.gam; % spillover elasticity
-
+siggami  = param.siggami; % variance of BIGGAMI
+sige     = param.sige; % variance of signal on BIGGAMI
 %Use closed form expressions for the ss values. 
 
 %Step 0 - always run it!
