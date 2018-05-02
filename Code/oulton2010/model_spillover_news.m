@@ -56,18 +56,16 @@ syms N N_p
 X  = [KC KI BIGGAMC BIGGAMI ...
     CL BIGGAMCL BIGGAMIL YCL YIL HL PL KC2L KI2L KIL KCL ...
     V0 V1 V2 V3 V4 V5 V6 V7 V8 ...
-    SIT ...
     N]; % vector of state variables  
 XP = [KC_p KI_p BIGGAMC_p BIGGAMI_p ...
     CL_p BIGGAMCL_p BIGGAMIL_p YCL_p YIL_p HL_p PL_p KC2L_p KI2L_p KIL_p KCL_p ...
     V0_p V1_p V2_p V3_p V4_p V5_p V6_p V7_p V8_p ...
-    SIT_p ...
     N_p]; % p signifies t+1 
 
 Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P EXPGC EXPGI ...
-    GAMC GAMKI GAMYC GAMYI GAMH GAMP GAMKC2 GAMKI2 RIS]; % vector of controls
+    GAMC GAMKI GAMYC GAMYI GAMH GAMP GAMKC2 GAMKI2]; % vector of controls
 YP = [YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p KC1_p KC2_p KI1_p KI2_p P_p EXPGC_p EXPGI_p ...
-    GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p RIS_p] ;
+    GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p] ;
 
 %Make index variables for future use
 make_index([Y,X])
@@ -88,13 +86,13 @@ f(end+1) = -YI + IT;
 % f(end+1) = -C -(1-H)*W/chi; Case of V(H) = chi*log(1-H)
 f(end+1) = -C + W/(chi*H); % case of V(H) = chi/2 * H^2
 f(end+1) = -1 + bet*C/C_p*1/EXPGC*(RC_p + 1-dc);
-f(end+1) = -1 + bet*C/C_p*1/EXPGI*(SIT_p*RI_p/P_p + 1-di);
+f(end+1) = -1 + bet*C/C_p*1/EXPGI*(RI_p/P_p + 1-di);
 f(end+1) = -W + KI^gam * (1-a-b)*(BIGGAMC)*H1^(-a-b)*KC1^(a)*KI1^(b); %
 f(end+1) = -RC + KI^gam * a*(BIGGAMC)*H1^(1-a-b)*KC1^(a-1)*KI1^(b); %
-f(end+1) = -RI*SIT + KI^gam * b*(BIGGAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b-1); %
+f(end+1) = -RI + KI^gam * b*(BIGGAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b-1); %
 f(end+1) = -W + KI^gam*(1-a-b)*(BIGGAMI)*H2^(-a-b)*KC2^(a)*KI2^(b)*P;%
 f(end+1) = -RC + KI^gam*a*(BIGGAMI)*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P;%
-f(end+1) = -RI*SIT + KI^gam*b*(BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P;%
+f(end+1) = -RI + KI^gam*b*(BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P;%
 f(end+1) = log(BIGGAMC_p/biggamc) - .8*log(BIGGAMC/biggamc); %taken directly from Ryan's example code.
 f(end+1) = log(BIGGAMI_p/biggami) - .8*log(BIGGAMI/biggami); %taken directly from Ryan's example code.
 f(end+1) = log(N_p) - 0.8*log(N) -V0; % common component of technology on which there is a news shock
@@ -128,8 +126,6 @@ f(end+1) = V4_p - V5;
 f(end+1) = V5_p - V6;
 f(end+1) = V6_p - V7;
 f(end+1) = V7_p - V8;
-f(end+1) = log(SIT_p) - .8*log(SIT);
-f(end+1) = SIT*RI - RIS;
 
 
 

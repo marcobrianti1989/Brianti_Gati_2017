@@ -48,7 +48,6 @@ pos_BIGGAMC = biggamc_idx-njumps; % a shock to TFP in final goods prod (= surpri
 pos_BIGGAMCL = biggamcl_idx-njumps; % a shock to TFP in final goods prod but at a different time
 pos_BIGGAMI = biggami_idx-njumps; % IT productivity shock
 pos_news    = v8_idx - njumps;
-pos_SIT     = sit_idx - njumps;
 pos_N       = n_idx - njumps;
 T = 60;
 IRFs_all = zeros(nvar, T, nshocks);
@@ -61,7 +60,7 @@ for s=1:nshocks
     IRFs_all(:,:,s) = IR'; 
 end
 % Gather IRFs of interest:
-IRFs = IRFs_all([biggamc_idx gamc_idx:njumps-1],:,:);
+IRFs = IRFs_all([biggamc_idx gamc_idx:njumps],:,:);
 %IRFs_some = IRFs_all([c_idx, gamc_idx],:,:);
 
 which_shock                = [pos_news];
@@ -71,7 +70,6 @@ shocknames(1,pos_KI)       = {'KI'};
 shocknames(1,pos_BIGGAMC)  = {'\Gamma_c'};
 shocknames(1,pos_BIGGAMI)  = {'\Gamma_i'};
 shocknames(1,pos_news)     = {'News'};
-shocknames(1, pos_SIT)     = {'IT return'};
 shocknames(1, pos_N)     = {'Surprise common component'};
 
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p

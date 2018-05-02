@@ -136,9 +136,9 @@ ki2 = ki2(wstar); %small ki2 back to be original Ki2 - drop previous notation
 
 %Put the ss values in a vector consistent with Y and X vectors in model.m
 xx  = [kc ki biggamc biggami ...
-    c biggamc biggami yc yi h p kc2 ki2 ki kc 0 0 0 0 0 0 0 0 0 1 1]; 
+    c biggamc biggami yc yi h p kc2 ki2 ki kc 0 0 0 0 0 0 0 0 0 1]; 
 yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 p expgc expgi ...
-    expgc expgi expgc expgi 1 p expgc expgi ri];
+    expgc expgi expgc expgi 1 p expgc expgi];
 
 ss  = [yy xx];
 
