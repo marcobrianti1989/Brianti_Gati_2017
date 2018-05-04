@@ -37,7 +37,6 @@ save('gxhx.mat', 'gx', 'hx')
 disp('Computing eigenvalues of hx');
 disp(eig(hx))
 
-
 % IRFs
 nvar = size(gx,1) + size(gx,2);
 nshocks = size(hx,1);
@@ -49,6 +48,7 @@ pos_BIGGAMCL = biggamcl_idx-njumps; % a shock to TFP in final goods prod but at 
 pos_BIGGAMI = biggami_idx-njumps; % IT productivity shock
 pos_news    = v8_idx - njumps;
 pos_N       = n_idx - njumps;
+pos_noise   = biggamitt_idx - njumps; %preliminary noise shock
 T = 60;
 IRFs_all = zeros(nvar, T, nshocks);
 for s=1:nshocks
@@ -63,14 +63,15 @@ end
 IRFs = IRFs_all([biggamc_idx gamc_idx:njumps],:,:);
 %IRFs_some = IRFs_all([c_idx, gamc_idx],:,:);
 
-which_shock                = [pos_news];
+which_shock                = [pos_noise];
 shocknames                 = cell(1,size(hx,1));
 shocknames(1,pos_KC)       = {'KC'};
 shocknames(1,pos_KI)       = {'KI'};
 shocknames(1,pos_BIGGAMC)  = {'\Gamma_c'};
 shocknames(1,pos_BIGGAMI)  = {'\Gamma_i'};
 shocknames(1,pos_news)     = {'News'};
-shocknames(1, pos_N)     = {'Surprise common component'};
+shocknames(1, pos_N)       = {'Surprise common component'};
+shocknames(1, pos_noise)   = {'Noise'};
 
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
 varnames = {'Biggamc', 'C', 'KI', 'YC', 'YI', 'H', 'P', 'KC2', 'KI2' };

@@ -81,10 +81,10 @@ c = @(wx) yc(wx) - ic(wx);
 %Objective: w = @(wx) chi*c(wx)
 options = optimoptions('fmincon'); 
 % Set OptimalityTolerance to 1e-15
-options = optimoptions(options, 'OptimalityTolerance', 1e-18); 
+%options = optimoptions(options, 'OptimalityTolerance', 1e-18); 
 % Set the Display option to 'iter' and StepTolerance to 1e-4
 options.Display = 'iter';
-options.StepTolerance = 1e-18;
+%options.StepTolerance = 1e-18;
 % objw = @(wx) (wx/chi - c(wx))^2; % case of linear V(H)
 objw = @(wx) (chi*h(wx) - wx/c(wx))^2; % case of  V(H) quadratic
 wx0 = 100;
@@ -108,9 +108,9 @@ h1_figure(j) = h1(wgrid(j));
 end
 
 % plot(wgrid, h_figure); hold on
- plot(wgrid, w_figure)
+ %plot(wgrid, w_figure)
  %plot(wgrid, c_figure)
- legend('objective')
+ %legend('objective')
 % Try to use also fzero
 % objw2 = @(wx)  wx - chi*c(wx);
 % wstar2 = fzero(objw2,wx0);
@@ -136,7 +136,8 @@ ki2 = ki2(wstar); %small ki2 back to be original Ki2 - drop previous notation
 
 %Put the ss values in a vector consistent with Y and X vectors in model.m
 xx  = [kc ki biggamc biggami ...
-    c biggamc biggami yc yi h p kc2 ki2 ki kc 0 0 0 0 0 0 0 0 0 1]; 
+    c biggamc biggami yc yi h p kc2 ki2 ki kc 0 0 0 0 0 0 0 0 0 1 ...
+    biggami biggami]; 
 yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 p expgc expgi ...
     expgc expgi expgc expgi 1 p expgc expgi];
 

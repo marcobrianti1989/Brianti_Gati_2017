@@ -50,17 +50,19 @@ syms BIGGAMCL BIGGAMCL_p BIGGAMIL BIGGAMIL_p
 syms EXPGC EXPGC_p EXPGI EXPGI_p
 syms V0 V1 V2 V3 V4 V5 V6 V7 V8 V0_p V1_p V2_p V3_p V4_p V5_p V6_p V7_p V8_p
 syms SIT SIT_p RIS RIS_p
-syms N N_p
+syms N N_p BIGGAMITT S BIGGAMITT_p S_p
 
 % %Declare X and Y vectors
 X  = [KC KI BIGGAMC BIGGAMI ...
     CL BIGGAMCL BIGGAMIL YCL YIL HL PL KC2L KI2L KIL KCL ...
     V0 V1 V2 V3 V4 V5 V6 V7 V8 ...
-    N]; % vector of state variables  
+    N ...
+    BIGGAMITT S]; % vector of state variables  
 XP = [KC_p KI_p BIGGAMC_p BIGGAMI_p ...
     CL_p BIGGAMCL_p BIGGAMIL_p YCL_p YIL_p HL_p PL_p KC2L_p KI2L_p KIL_p KCL_p ...
     V0_p V1_p V2_p V3_p V4_p V5_p V6_p V7_p V8_p ...
-    N_p]; % p signifies t+1 
+    N_p ...
+    BIGGAMITT_p S_p]; % p signifies t+1 
 
 Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P EXPGC EXPGI ...
     GAMC GAMKI GAMYC GAMYI GAMH GAMP GAMKC2 GAMKI2]; % vector of controls
@@ -74,7 +76,7 @@ make_index([Y,X])
 f(1)     = -YC + KI^gam * N *(BIGGAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b); 
 f(end+1) = -YI + KI^gam * N * (BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b); 
 f(end+1) = -KC + KC1 + KC2;
-f(end+1) = -KI + KI1 + KI2; %
+f(end+1) = -KI + KI1 + KI2; 
 f(end+1) = -H + H1 + H2;
 f(end+1) = -EXPGC + BIGGAMC^((1-b-gam)/(1-a-b-gam))*BIGGAMI^((b+gam)/(1-a-b-gam));
 f(end+1) = -EXPGI + BIGGAMC^(a/(1-a-b-gam))*BIGGAMI^((1-a)/(1-a-b-gam));
@@ -87,15 +89,18 @@ f(end+1) = -YI + IT;
 f(end+1) = -C + W/(chi*H); % case of V(H) = chi/2 * H^2
 f(end+1) = -1 + bet*C/C_p*1/EXPGC*(RC_p + 1-dc);
 f(end+1) = -1 + bet*C/C_p*1/EXPGI*(RI_p/P_p + 1-di);
-f(end+1) = -W + KI^gam * (1-a-b)*(BIGGAMC)*H1^(-a-b)*KC1^(a)*KI1^(b); %
-f(end+1) = -RC + KI^gam * a*(BIGGAMC)*H1^(1-a-b)*KC1^(a-1)*KI1^(b); %
-f(end+1) = -RI + KI^gam * b*(BIGGAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b-1); %
-f(end+1) = -W + KI^gam*(1-a-b)*(BIGGAMI)*H2^(-a-b)*KC2^(a)*KI2^(b)*P;%
-f(end+1) = -RC + KI^gam*a*(BIGGAMI)*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P;%
-f(end+1) = -RI + KI^gam*b*(BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P;%
+f(end+1) = -W + KI^gam * (1-a-b)*(BIGGAMC)*H1^(-a-b)*KC1^(a)*KI1^(b); 
+f(end+1) = -RC + KI^gam * a*(BIGGAMC)*H1^(1-a-b)*KC1^(a-1)*KI1^(b); 
+f(end+1) = -RI + KI^gam * b*(BIGGAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b-1); 
+% f(end+1) = -W + KI^gam*(1-a-b)*(BIGGAMI)*H2^(-a-b)*KC2^(a)*KI2^(b)*P;
+% f(end+1) = -RC + KI^gam*a*(BIGGAMI)*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P;
+% f(end+1) = -RI + KI^gam*b*(BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P;
+f(end+1) = -W + KI^gam*(1-a-b)*(BIGGAMITT)*H2^(-a-b)*KC2^(a)*KI2^(b)*P;
+f(end+1) = -RC + KI^gam*a*(BIGGAMITT)*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P;
+f(end+1) = -RI + KI^gam*b*(BIGGAMITT)*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P;
 f(end+1) = log(BIGGAMC_p/biggamc) - .8*log(BIGGAMC/biggamc); %taken directly from Ryan's example code.
 f(end+1) = log(BIGGAMI_p/biggami) - .8*log(BIGGAMI/biggami); %taken directly from Ryan's example code.
-f(end+1) = log(N_p) - 0.8*log(N) -V0; % common component of technology on which there is a news shock
+f(end+1) = log(N_p) - 0.8*log(N) - V0; % common component of technology on which there is a news shock
 % Approach for growth rates:
 f(end+1) = BIGGAMCL_p - BIGGAMC;
 f(end+1) = BIGGAMIL_p - BIGGAMI;
@@ -126,8 +131,9 @@ f(end+1) = V4_p - V5;
 f(end+1) = V5_p - V6;
 f(end+1) = V6_p - V7;
 f(end+1) = V7_p - V8;
-
-
+%LOM of beliefs
+f(end+1) = BIGGAMITT_p - siggami/(siggami+sige)*S_p - sige/(siggami+sige)*BIGGAMITT;
+f(end+1) = S_p - BIGGAMI_p;
 
 %Check Computation of Steady-State Numerically
 fnum = double(subs(f, [Y X YP XP], [ss, ss]));
