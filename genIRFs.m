@@ -57,7 +57,7 @@ for i_shock=1:nshocks
             % If bootstraps go the wrong way, flip them
             if i_shock == 3 % only do for IT shock since news never flips
                 
-                which_flip_test = 'old';
+                which_flip_test = 'alt2';
                 switch which_flip_test
                     case 'old'
                         % thinks of the flip as being a mirror around the 0-line
@@ -75,6 +75,13 @@ for i_shock=1:nshocks
                         if IRFs_boot(1,far_out, i_sim) < 0
                             IRFs_boot(:,:,i_shock,i_sim) = - IRFs_boot(:,:,i_shock,i_sim);
                         end
+                        
+                    case 'alt2'
+                        % alternative test for 'going the wrong way' for IT (its position is 3):
+                        % If the response of IT to IT is negative on impact
+                        if IRFs_boot(3,1, i_sim) < 0
+                            IRFs_boot(:,:,i_shock,i_sim) = - IRFs_boot(:,:,i_shock,i_sim);
+                        end    
                 end
             end
         end

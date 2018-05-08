@@ -14,8 +14,16 @@ nshocks = nvar;
 % cut out those IRs we don't need
 IRFs = IRFs(:,1:m,:);
 
-% Generate denominator
-den = sum(sum(IRFs.^2,3),2); % one value for each variable, so (nvar x 1)
+identification = 'complete';
+switch identification
+    case 'complete'
+        % Generate denominator
+        den = sum(sum(IRFs.^2,3),2); % one value for each variable, so (nvar x 1)
+        
+    case 'partial'
+        % Alternative denominator for partial identification case
+        
+end
 
 % Generate numerator
 num = sum(IRFs.^2,2);
