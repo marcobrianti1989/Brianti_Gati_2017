@@ -93,8 +93,10 @@ sig2 = 0;
 which_ID = 'just_IT';
 which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residuals in blocks or not.
 blocksize = 5; % size of block for drawing in blocks
+% Add constant to beta matrix to work properly with the bootstrap code:
+A  = [zeros(size(A,1),1) A];
 [beta_tilde, data_boot2, beta_tilde_star, nonstationarities] = ...
-      bootstrap_with_kilian(A, nburn, res', ...
+      bootstrap_with_kilian(A', nburn, res', ...
       nsimul, which_correction, blocksize);
 
  
