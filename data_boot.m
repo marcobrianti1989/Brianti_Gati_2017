@@ -3,7 +3,7 @@ function [dataset_boot] = data_boot(B,nburn,res,nsimul,which_correction,q)
 % B: Beta coefficient matrix from VAR (nvar*nlags + 1 , nvar)
 % nburn = number of burn-in periods
 % nlag = number of lags in VAR
-% res = residuals from original VAR (Tx1)
+% res = residuals from original VAR (Txnvar)
 % nsimul = number of simulations, i.e. how many bootstrapped datasets to
 % generate
 % q = for block drawing, the length of each block

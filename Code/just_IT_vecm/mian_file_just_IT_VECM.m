@@ -1,4 +1,4 @@
-% main_file_just_IT.m  - implements a SVAR to identify the effect of an IT
+% main_file_just_IT.m  - implements a VECM to identify the effect of an IT
 % shock alone as a shock that maximizes FEV IT on impact and has 0 impact
 % effect on TFP
 %
@@ -71,26 +71,22 @@ else
       nlags = AIC;
 end
 
+%Run reduced form VECM
+r = nvar-1; %number of cointegrating vectors. If there is just one trend then...
+%we have just one permanent shock and all the others shocks are temporary.
+%This is the reason why we have nvar-1 cointegrating relationships.
+[alph_hat,bet_hat,Pi,Gam_hat,res,sigma] = redu_VECM(data, nlags, r);
 
-procedure = 'VAR';
-switch procedure
-      case 'VAR'
-            %Run VAR imposing Cholesky
-            [A,B,res,sigma] = sr_var(data, nlags);
-            %Checking if the VAR is stationary
-            test_stationarity(B');
-            
-      case 'VECM'
-            %Run VECM
-            constant = 0;
-            [Pi,B,res,sigma] = VECM(data, nlags, constant);
-            %Static rotation matrix
-            A = chol(sigma)';
-end
+%Run structural VECM
+[B, Xi, A] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
 
 % Implement the "just IT" ID strategy in a VAR
-H_max = 60;
-[impact, impact_IT_opt, gam_opt]  = just_IT_ID(which_variable,which_shock,A);
+[impact, impact_IT_opt, gam_opt]  = just_IT_ID(which_variable,which_shock,B);
+
+H = 40;
+sig1 = 0;
+sig2 = 0;
+[IRFs, ub1, lb1, ub2, lb2] = genIRFs_VECM(B,0,A',0,H,sig1,sig2);
 
 
 % Bootstrap
@@ -98,24 +94,27 @@ which_ID = 'just_IT';
 which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residuals in blocks or not.
 blocksize = 5; % size of block for drawing in blocks
 [beta_tilde, data_boot2, beta_tilde_star, nonstationarities] = ...
-      bootstrap_with_kilian(B, nburn, res, ...
+      bootstrap_with_kilian(A, nburn, res', ...
       nsimul, which_correction, blocksize);
 
  
 % Get "bootstrapped A" nsimul times
 for i_simul=1:nsimul
-      switch procedure
-            case 'VAR'
-                  [A_boot, ~,~,~] = sr_var(data_boot2(:,:,i_simul), nlags);
-            case 'VECM'
-                  %Run VECM
-                  [Pi,B,res,sigma] = VECM(data_boot2(:,:,i_simul), nlags);
-                  %Static rotation matrix
-                  A_boot = chol(sigma)';
-      end
-      % Get bootstrapped confidence intervals nsimul times
+    %Run reduced form VECM
+      [alph_hat_boot(:,:,i_simul),bet_hat_boot(:,:,i_simul),...
+          Pi_boot(:,:,i_simul),Gam_hat_boot(:,:,i_simul),...
+          res_boot(:,:,i_simul),sigma_boot(:,:,i_simul)] ...
+          = redu_VECM(data_boot2, nlags, r);
+      %Run structural VECM
+[B_boot(:,:,i_simul), Xi_boot(:,:,i_simul), A_boot(:,:,i_simul)] ...
+    = structural_VECM(alph_hat_boot(:,:,i_simul),bet_hat_boot(:,:,i_simul),...
+    Gam_hat_boot(:,:,i_simul),res_boot(:,:,i_simul),sigma_boot(:,:,i_simul),...
+    nlags,r);
+
+% Implement the "just IT" ID strategy in a VAR
       disp(['Iteration ' num2str(i_simul) ' out of ' num2str(nsimul)])   
-     [impact_boot(:,i_simul), ~, ~]  = just_IT_ID(which_variable,which_shock,A_boot);
+     [impact_boot(:,i_simul), ~, ~]  ...
+         = just_IT_ID(which_variable,which_shock,B_boot(:,:,i_simul));
 end
 
 

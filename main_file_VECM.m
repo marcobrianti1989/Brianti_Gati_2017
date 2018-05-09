@@ -28,12 +28,14 @@ else
 end
 
 %Run reduced form VECM
-r = 2; %number of cointegrating vectors
+r = nvar-1; %number of cointegrating vectors
 %[alph_hat, bet_hat,Gam_hat,sigma] = RRR(data, nlags, r);
 [alph_hat,bet_hat,Pi,Gam_hat,res,sigma] = redu_VECM(data, nlags, r);
 
 %Run structural VECM
 [B, Xi, A] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
+
+return
 
 H = 40;
 sig1 = 0;

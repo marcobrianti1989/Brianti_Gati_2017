@@ -7,6 +7,6 @@ function obj_FEV = objective_just_IT(which_variable,A,gam)
 
 obj = A*gam;
 obj_FEV = - obj(which_variable);
-if obj_FEV >0
-    obj_FEV = - obj_FEV
+if obj_FEV > 0
+    obj_FEV = - obj_FEV;
 end

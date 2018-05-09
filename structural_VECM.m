@@ -20,7 +20,7 @@ function [B_opt, Xi, A] = structural_VECM(alp,bet,Gam,res,sigma,nlags,r)
 % A represents the structural relation between the past values and the
 % present values. A is (nvar*nlags,nvar). Treat A as you used to treat B for a simple SVAR!
 
-% NOTICE
+% NOTICE:
 % Again I am using the notation of Lutkepohl (2005) - EUI, working paper
 
 %Useful tools
@@ -48,9 +48,9 @@ if r > 1
       Me       = r*(r-1)/2; %  Me = no. of equality constraints. It must be r*(r - 1)/2 in a VECM
       Beq      = zeros(Me,1); % Beq is (Me x 1) where
       Aeq      = zeros(Me,nvar*nvar); % Aeq is (Me x (nvar*nvar)) - it is B vectorized
-      element_restricted = 2; %Coordinate to set the element equal to zero. It should ...
+      %element_restricted = 2; %Coordinate to set the element equal to zero. It should ...
       % go from one to nvar*nvar since the contraint is a big vector.
-      Aeq(1,element_restricted) = 1; %zero-impact restriction(s)
+      Aeq(:,end-Me+1:end) = eye(Me); %zero-impact restriction(s)
 end
 % NOTICE. For some reasons which I am not fully understannding I can only
 % impose independent restrictions of the first column of B, i.e.
@@ -63,13 +63,14 @@ end
 
 %Optimization Parameters
 options  = optimset('fmincon');
-options  = optimset(options, 'TolFun', 1e-9, 'display', 'none');
+options  = optimset(options, 'TolFun', 1e-19, 'display', 'none');
 
 %Minimization
 B_zero = rand(nvar);
 if r > 1
       %B_opt = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],[],options);
-      B_opt  = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],@(B) constraint_long(B,Xi,r,nvar),options);
+      B_opt  = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],@(B) ...
+          constraint_long(B,Xi,r,nvar),options);
       %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
 else
       B_opt = fmincon(obj, B_zero,[],[],[],[],[],[],@(B) constraint_long(B,Xi,r,nvar),options);
