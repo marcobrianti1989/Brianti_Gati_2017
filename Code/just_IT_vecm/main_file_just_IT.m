@@ -57,7 +57,7 @@ nsimul          = 200; %5000
 nvar            = size(data,2);
 sig1            = 0.9; % significance level
 sig2            = 0.95; % a 2nd sig. level
-H               = 100; %40; % horizon for generation of IRFs
+H               = 40; %40; % horizon for generation of IRFs
 h               = H; %40; % horizon for IRF plots
 which_variable  = pos_IT; % select IT as the variable whose FEV we wanna max
 
@@ -89,7 +89,7 @@ switch procedure
 end
 
 % Implement the "just IT" ID strategy in a VAR
-H_max = 60;
+H_max = 40;
 [impact, impact_IT_opt, gam_opt]  = just_IT_ID(which_variable,which_shock,A);
 
 
