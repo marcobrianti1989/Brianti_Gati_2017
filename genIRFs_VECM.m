@@ -12,7 +12,7 @@ function [IRFs, ub1, lb1, ub2, lb2] ...
 
 nvar = size(B_IRF,1);
 nlag = (size(A_gam,1))/nvar;
-nshocks = nvar; %Question to ask Ryan
+nshocks = nvar; 
 nsimul = size(B_irf_boot,3);
 perc_up1 = ceil(nsimul*sig1); % the upper percentile of bootstrapped responses for CI
 perc_low1 = floor(nsimul*(1-sig1)); % the lower percentile of bootstrapped responses for CI

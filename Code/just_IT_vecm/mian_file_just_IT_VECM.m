@@ -53,10 +53,10 @@ which_shock = [pos_IT];
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 200; %5000
+nsimul          = 20; %5000
 nvar            = size(data,2);
-sig1            = 0.9; % significance level
-sig2            = 0.95; % a 2nd sig. level
+sig1            = 0.75; % significance level
+sig2            = 0.8; % a 2nd sig. level
 H               = 100; %40; % horizon for generation of IRFs
 h               = H; %40; % horizon for IRF plots
 which_variable  = pos_IT; % select IT as the variable whose FEV we wanna max
@@ -83,21 +83,15 @@ r = nvar-1; %number of cointegrating vectors. If there is just one trend then...
 % Implement the "just IT" ID strategy in a VAR
 [impact, impact_IT_opt, gam_opt]  = just_IT_ID(which_variable,which_shock,B);
 
-H = 40;
-sig1 = 0;
-sig2 = 0;
-[IRFs, ub1, lb1, ub2, lb2] = genIRFs_VECM(B,0,A',0,H,sig1,sig2);
-
-
 % Bootstrap
 which_ID = 'just_IT';
 which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residuals in blocks or not.
 blocksize = 5; % size of block for drawing in blocks
 % Add constant to beta matrix to work properly with the bootstrap code:
 A  = [zeros(size(A,1),1) A];
-[beta_tilde, data_boot2, beta_tilde_star, nonstationarities] = ...
-      bootstrap_with_kilian(A', nburn, res', ...
-      nsimul, which_correction, blocksize);
+[beta_tilde, data_boot2, beta_tilde_star] = ...
+      bootstrap_with_kilian_VECM(A', nburn, res', ...
+      nsimul, which_correction, blocksize,r);
 
  
 % Get "bootstrapped A" nsimul times
@@ -106,7 +100,7 @@ for i_simul=1:nsimul
       [alph_hat_boot(:,:,i_simul),bet_hat_boot(:,:,i_simul),...
           Pi_boot(:,:,i_simul),Gam_hat_boot(:,:,i_simul),...
           res_boot(:,:,i_simul),sigma_boot(:,:,i_simul)] ...
-          = redu_VECM(data_boot2, nlags, r);
+          = redu_VECM(data_boot2(:,:,i_simul), nlags, r);
       %Run structural VECM
 [B_boot(:,:,i_simul), Xi_boot(:,:,i_simul), A_boot(:,:,i_simul)] ...
     = structural_VECM(alph_hat_boot(:,:,i_simul),bet_hat_boot(:,:,i_simul),...
@@ -118,7 +112,6 @@ for i_simul=1:nsimul
      [impact_boot(:,i_simul), ~, ~]  ...
          = just_IT_ID(which_variable,which_shock,B_boot(:,:,i_simul));
 end
-
 
 %Creating a fake matrix for the IRF of the point estimation
 fake_impact = zeros(nvar,nvar);
@@ -132,9 +125,10 @@ end
 %Creating and Printing figures
 comment = [which_ID '_' char(varnames(5))];
 print_figs = 'no';
-
-[IRFs, ub1, lb1, ub2, lb2] = genIRFs(fake_impact,fake_impact_boot,...
-      B,beta_tilde_star,H,sig1, sig2);
+%Remove the constant
+A = A(:,2:end);
+[IRFs, ub1, lb1, ub2, lb2] = genIRFs_VECM(fake_impact,fake_impact_boot,...
+      A',permute(A_boot,[2 1 3]),H,sig1, sig2);
 
 % % % With Barsky & Sims-type ID, since you do a abs max, there are two
 % % % solutions: gam and -gam. So choose the one that makes sense. I'm doing

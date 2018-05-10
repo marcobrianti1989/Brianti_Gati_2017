@@ -64,7 +64,7 @@ end
 %Optimization Parameters
 options  = optimset('fmincon');
 options  = optimset(options, 'TolFun', 1e-19, 'display', 'none');
-
+warning off
 %Minimization
 B_zero = rand(nvar);
 if r > 1
@@ -76,10 +76,11 @@ else
       B_opt = fmincon(obj, B_zero,[],[],[],[],[],[],@(B) constraint_long(B,Xi,r,nvar),options);
 end
 %Temporary tools to visualize the correctness of restrictions
-obj_min = obj(B_opt)
-obj_zero = obj(B_zero)
-B_opt
-long_restr = Xi*B_opt
+obj_min = obj(B_opt);
+obj_zero = obj(B_zero);
+B_opt;
+long_restr = Xi*B_opt;
+warning on
 
 %Setting the A matrix to obtain a SVAR functional form as follows
 % y(t) = A1*y(t-1) + ... + Ap*y(t-p) + B*eps(t)
