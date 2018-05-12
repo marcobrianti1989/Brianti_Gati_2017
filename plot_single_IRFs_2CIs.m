@@ -1,4 +1,5 @@
-function plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2, lb2, h,which_shock,names, varnames, which_ID_strat, print_figs, use_current_time)
+function plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2, lb2, h,which_shock,names, varnames, which_ID_strat, print_figs, ...
+    use_current_time, base_path)
 % h = IR horizon for figures
 % ub1 and lb1 are the bootstrapped CI for the 1st significance level
 % ub2 and lb2 are the bootstrapped CI for the 2nd significance level
@@ -39,13 +40,13 @@ for i_shock=1:nshocks
         xt = get(gca, 'XTick');
         set(gca, 'FontSize', 28)
         title([name, ' on ' , varname],'fontsize',72)
-          ylim([min_y_lim(i_var) max_y_lim(i_var)]);
+          %ylim([min_y_lim(i_var) max_y_lim(i_var)]);
         hold off
         grid on
         
         % Save figures if you want to
         if strcmp(print_figs, 'yes')
-            invoke_export_fig([name, ' on ' , varname], which_ID_strat,use_current_time)
+            invoke_export_fig([name, ' on ' , varname], which_ID_strat,use_current_time, base_path)
             close all
             pause(0.5)
         end

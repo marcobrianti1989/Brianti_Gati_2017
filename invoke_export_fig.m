@@ -1,4 +1,4 @@
-function invoke_export_fig(figname, some_comment,use_current_time)
+function invoke_export_fig(figname, some_comment,use_current_time, base_path)
 % This file invokes the export_fig command which requires the figure to be saved to be open
 % Inputs:
 % figname      = what you want the figure to be called
@@ -23,21 +23,24 @@ else
     final_name = ['fig_' figname '_' some_comment '.png'];
 end
 
-base_path = pwd;
-if exist([base_path '\Figures'], 'dir')
-    cd([base_path '\Figures']) %for Microsoft
+if nargin < 4
+    base_path = pwd;
 else
-    cd([base_path '/Figures']) %for Mac
+    if exist([base_path '\Figures'], 'dir')
+        cd([base_path '\Figures']) %for Microsoft
+    else
+        cd([base_path '/Figures']) %for Mac
+    end
+    
+    if exist([base_path '\Export_Fig'], 'dir')
+        addpath([base_path '\Export_Fig']) %for Microsoft
+    else
+        addpath([base_path '/Export_Fig']) %for Mac
+    end
+    
+    
+    export_fig(final_name)
+    
+    cd(base_path)
 end
-
-if exist([base_path '\Export_Fig'], 'dir')
-    addpath([base_path '\Export_Fig']) %for Microsoft
-else
-    addpath([base_path '/Export_Fig']) %for Mac
-end
-
-export_fig(final_name)
-
-cd(base_path)
-
 end

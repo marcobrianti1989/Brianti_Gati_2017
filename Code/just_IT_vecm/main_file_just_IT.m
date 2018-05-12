@@ -57,8 +57,8 @@ nsimul          = 200; %5000
 nvar            = size(data,2);
 sig1            = 0.9; % significance level
 sig2            = 0.95; % a 2nd sig. level
-H               = 40; %40; % horizon for generation of IRFs
-h               = H; %40; % horizon for IRF plots
+H               = 100; %40; % horizon for generation of IRFs
+h               = 40; %40; % horizon for IRF plots
 which_variable  = pos_IT; % select IT as the variable whose FEV we wanna max
 
 
@@ -130,7 +130,7 @@ end
 
 %Creating and Printing figures
 comment = [which_ID '_' char(varnames(5))];
-print_figs = 'no';
+print_figs = 'yes';
 
 [IRFs, ub1, lb1, ub2, lb2] = genIRFs(fake_impact,fake_impact_boot,...
       B,beta_tilde_star,H,sig1, sig2);
@@ -146,13 +146,11 @@ if IRFs(pos_IT,1,pos_IT) < 0 % if the impact effect on IT is negative
       lb2(:,:,pos_IT)     = - lb2(:,:,pos_IT);
 end
 
-
 %Printing/Showing IRFs
-h = 40;
 % plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames,which_ID,print_figs)
 % plot_single_IRFs(IRFs,ub1,lb1,h,which_shocks,shocknames, varnames, which_ID, print_figs)
 use_current_time = 0; % don't save the time
-plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shock,shocknames, varnames, '_', print_figs, use_current_time)
+plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shock,shocknames, varnames, '_', print_figs, use_current_time, base_path)
 
 %Forni&Gambetti Orthogonality Test
 do_FG_test = 'no';

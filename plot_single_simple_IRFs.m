@@ -1,4 +1,4 @@
-function plot_single_simple_IRFs(IRFs,h,which_shock,names, varnames, print_figs, ub, lb)
+function plot_single_simple_IRFs(IRFs,h,which_shock,names, varnames, print_figs, base_path)
 % A simplified function for plotting IRFs in particular when there are no
 % bells and whistles. You only need to input IRFs, h, shocknames, varnames
 % and 'no' for printing figures.
@@ -28,13 +28,6 @@ for i_shock=1:nshocks
         varname = varnames{i_var};
         name = names{which_shock(i_shock)};
         hold on
-        if nargin > 6
-            % if ub, lb given, do shaded confidence intervals
-            x2 = [periods, fliplr(periods)];
-            inBetween = [lb(i_var,1:h,which_shock(i_shock)), ...
-                fliplr(ub(i_var,1:h,which_shock(i_shock)))];
-            fill(x2, inBetween, [0.75 0.75 0.75],'LineStyle','none');
-        end
         plot(zeros(1,h), 'Color','b')
         plot(periods,IRFs(i_var,1:h,which_shock(i_shock)),'linewidth',1,'Color','r')
         xt = get(gca, 'XTick');
@@ -48,7 +41,7 @@ for i_shock=1:nshocks
         if strcmp(print_figs, 'yes')
             which_ID_strat = '_';
             use_current_time = 'no';
-            invoke_export_fig([name, ' on ' , varname], which_ID_strat,use_current_time)
+            invoke_export_fig([name, ' on ' , varname], which_ID_strat,use_current_time, base_path)
             close all
             pause(0.5)
         end

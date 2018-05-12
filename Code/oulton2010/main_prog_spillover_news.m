@@ -49,7 +49,7 @@ pos_BIGGAMI = biggami_idx-njumps; % IT productivity shock
 pos_news    = v8_idx - njumps;
 pos_N       = n_idx - njumps;
 pos_noise   = biggamitt_idx - njumps; %preliminary noise shock
-T = 60;
+T = 0;
 IRFs_all = zeros(nvar, T, nshocks);
 for s=1:nshocks
     x0 = zeros(nshocks,1); % impulse vector
@@ -75,5 +75,5 @@ shocknames(1, pos_noise)   = {'Noise'};
 
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
 varnames = {'Biggamc', 'C', 'KI', 'YC', 'YI', 'H', 'P', 'KC2', 'KI2' };
-print_figs = 'no';
-plot_single_simple_IRFs(IRFs,T,which_shock,shocknames, varnames, print_figs)
+print_figs = 'yes';
+plot_single_simple_IRFs(IRFs,T,which_shock,shocknames, varnames, print_figs, base_path)
