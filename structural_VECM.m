@@ -36,8 +36,7 @@ end
 % Xi = bet*(alp'*G*bet)^(-1)*alp'; %(nvar,nvar)
 betT = null(bet','r');
 alpT = null(alp','r');
-Xi = betT*(alpT'*G*betT)^(-1)*alpT'; %(nvar,nvar) % This line is based on Chiawa et al. 
-
+Xi = betT*(alpT'*G*betT)^(-1)*alpT'; %(nvar,nvar) % This line is based on Chiawa et al.
 
 % Objective function to minimize - See Lutkepohl (2005) - EUI, working paper
 obj = @(B) LL_VECM(T,B,sigma);
@@ -63,23 +62,23 @@ end
 
 %Optimization Parameters
 options  = optimset('fmincon');
-options  = optimset(options, 'TolFun', 1e-19, 'display', 'none');
+options  = optimset(options, 'display', 'iter','TolFun', 1e-7);
+%'TolFun', 1e-19, 'FinDiffRelStep', 1
 warning off
 %Minimization
-B_zero = rand(nvar);
+B_zero = randn(nvar,nvar);
 if r > 1
       %B_opt = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],[],options);
       B_opt  = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],@(B) ...
-          constraint_long(B,Xi,r,nvar),options);
+            constraint_long(B,Xi,r,nvar),options);
       %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
 else
       B_opt = fmincon(obj, B_zero,[],[],[],[],[],[],@(B) constraint_long(B,Xi,r,nvar),options);
 end
 %Temporary tools to visualize the correctness of restrictions
-obj_min = obj(B_opt);
-obj_zero = obj(B_zero);
-B_opt;
-long_restr = Xi*B_opt;
+diff_BBp_sigma = B_opt'*B_opt - sigma
+long_restr = Xi*B_opt
+B_opt
 warning on
 
 %Setting the A matrix to obtain a SVAR functional form as follows

@@ -32,13 +32,6 @@ lb1 = zeros(nvar,H,nshocks);
 ub2 = zeros(nvar,H,nshocks);
 lb2 = zeros(nvar,H,nshocks);
 
-
-% Phi_zero = eye(nvar);
-% Phi_one = Phi_zero*A(:,1:nvar);
-% Phi_two = Phi_one*A(:,1:nvar) + Phi_zero*A(:,1:nvar);
-% % and so on and so forth ...
-
-
 for i_shock=1:nshocks
     shocks = zeros(nvar,1);
     shocks(i_shock,1) = 1;

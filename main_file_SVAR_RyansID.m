@@ -37,10 +37,10 @@ which_shocks = [pos_news pos_IT];
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 30; %5000
+nsimul          = 10; %5000
 nvar            = size(data,2);
-sig1            = 0.9; % significance level
-sig2            = 0.95; % a 2nd sig. level
+sig1            = 0.6; % significance level
+sig2            = 0.4; % a 2nd sig. level
 H               = 100; %40; % horizon for generation of IRFs
 h               = H; %40; % horizon for IRF plots
 which_variable  = 1; % select TFP as the variable whose FEV we wanna max
@@ -54,25 +54,15 @@ else
       nlags = AIC;
 end
 
-switch 'VECM'
-      case 'VAR'
-            %Run VAR imposing Cholesky
-            [A,B,res,sigma] = sr_var(data, nlags);
-            %Checking if the VAR is stationary
-            test_stationarity(B');
-            
-      case 'VECM'
-            %Run VECM
-            constant = 0;
-            [Pi,B,res,sigma] = VECM(data, nlags, constant);
-            %Static rotation matrix
-            A = chol(sigma)';
-end
+%Run VAR imposing Cholesky
+[A,B,res,sigma] = sr_var(data, nlags);
+%Checking if the VAR is stationary
+test_stationarity(B');
 
 % Implement Ryan's ID strategy
 LR_hor = 8; % at what horizon to impose the LR restriction
 % [impact, FEV_opt, IRFs, gamma_opt, FEV_news, FEV_IT] = ryansID(which_variable,which_shocks,H,B,A,q);
-H_max = 60;
+H_max = 100;
 [impact, FEV_opt, ~, gam_opt, FEV_news, FEV_IT] ...
       = Ryan_two_stepsID(which_variable,which_shocks,H_max,...
       LR_hor,B,A,pos_rel_prices);
@@ -223,6 +213,8 @@ end
 % % sum of the two:
 % hd_alt = hd_IT_alt + hd_news_alt;
 
+[structural_shock_RyanID, ~] = ...
+      get_structural_shocks_general(A,gam_opt,res,which_shocks);
 
 
 

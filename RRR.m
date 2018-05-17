@@ -76,7 +76,7 @@ sorted_eig = sort(eigv,'descend');
 %eigenvectors so that A*V = B*V*D.
 check = A*V - B*V*D;
 check = sum(sum(abs(check)));
-if check > 10^(-14)
+if check > 10^(-12)
       warning('Eigenvalues and eigenvectors are not solving the generalized eigenvalue problem.')
 end
 

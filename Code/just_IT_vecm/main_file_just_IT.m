@@ -130,7 +130,7 @@ end
 
 %Creating and Printing figures
 comment = [which_ID '_' char(varnames(5))];
-print_figs = 'yes';
+print_figs = 'no';
 
 [IRFs, ub1, lb1, ub2, lb2] = genIRFs(fake_impact,fake_impact_boot,...
       B,beta_tilde_star,H,sig1, sig2);
@@ -176,6 +176,10 @@ impact_vardec = A*D_null; % where A is the chol.
 vardec = gen_vardecomp(IRF_vardec,h,h);
 shareIT_on_TFP = vardec(1,end); % "end" b/c we put gam_opt as last.
 
+%Get Structural Shocks
+[s_shock_just_IT, ~] = ...
+      get_structural_shocks_general(A,gam_opt,res,which_shock);
+
 disp('stopping here')
 return
 %Saving in Tex format the Variance Decomposition Matrix
@@ -197,10 +201,3 @@ end
 toc
 disp(varnames)
 disp(datestr(now))
-
-
-
-
-
-
-
