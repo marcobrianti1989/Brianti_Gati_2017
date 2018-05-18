@@ -48,7 +48,7 @@ if find(strcmp('Relative Price', varnames)) > 0
 elseif find(strcmp('Relative price PCE', varnames))
       pos_rel_prices = find(strcmp('Relative price PCE', varnames));
 end
-which_shock = [pos_IT];
+which_shock = 2; %[pos_IT];
 
 %Technical Parameters
 max_lags        = 10;
@@ -59,7 +59,7 @@ sig1            = 0.9; % significance level
 sig2            = 0.95; % a 2nd sig. level
 H               = 100; %40; % horizon for generation of IRFs
 h               = 40; %40; % horizon for IRF plots
-which_variable  = pos_IT; % select IT as the variable whose FEV we wanna max
+which_variable  = which_shock; % select IT as the variable whose FEV we wanna max
 
 
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
@@ -70,7 +70,6 @@ if AIC >= 4
 else
       nlags = AIC;
 end
-
 
 procedure = 'VAR';
 switch procedure
@@ -129,7 +128,7 @@ for i_simul = 1:nsimul
 end
 
 %Creating and Printing figures
-comment = [which_ID '_' char(varnames(5))];
+comment = [which_ID '_' char(varnames(pos_IT))];
 print_figs = 'no';
 
 [IRFs, ub1, lb1, ub2, lb2] = genIRFs(fake_impact,fake_impact_boot,...
@@ -180,8 +179,12 @@ shareIT_on_TFP = vardec(1,end); % "end" b/c we put gam_opt as last.
 [s_shock_just_IT, ~] = ...
       get_structural_shocks_general(A,gam_opt,res,which_shock);
 
+varnames
+
 disp('stopping here')
+
 return
+
 %Saving in Tex format the Variance Decomposition Matrix
 fev_matrix = {'News', 'IT', 'Total'};
 fev_matrix(2,:) = {num2str(FEV_news), num2str(FEV_IT), num2str(FEV_opt)};

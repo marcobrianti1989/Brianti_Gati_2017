@@ -36,7 +36,7 @@ sig = 0.9; % not used, but we need to input something not to get error
 hor_IRF = 40;
 [IR, ~, ~, ~, ~] = genIRFs(A,0,vertcat(ones(1,size(B,2)), B),0,hor_IRF, sig, sig);
 % R = zeros(nvar,nvar); 
-R = squeeze(IR(:,end,:)); % comment this out if you wanna not impose the LR-restriction
+R = squeeze(IR(:,LR_hor,:)); % comment this out if you wanna not impose the LR-restriction
 
 %Constraint that News and IT have no contemporaneous effect on TFP
 Me3       = 1; %  Me = no. of equality constraints

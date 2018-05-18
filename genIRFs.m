@@ -57,7 +57,7 @@ for i_shock=1:nshocks
             % If bootstraps go the wrong way, flip them
             if i_shock == 3 % only do for IT shock since news never flips
                 
-                which_flip_test = 'alt2';
+                which_flip_test = 'old';
                 switch which_flip_test
                     case 'old'
                         % thinks of the flip as being a mirror around the 0-line

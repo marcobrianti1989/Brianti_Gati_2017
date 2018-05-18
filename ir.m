@@ -11,7 +11,7 @@ function [IR, iry, irx]=ir(gx,hx,x0,T)
 %(c) Stephanie Schmitt-Grohe and Martin Uribe, August 18, 1993. 
 
 if nargin < 4
-T =10;
+T = 10;
 end 
 
 x0=x0(:);
