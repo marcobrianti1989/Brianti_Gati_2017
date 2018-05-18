@@ -32,7 +32,8 @@ param = parameters;
 [gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
 
 save('gxhx.mat', 'gx', 'hx')
- 
+save('indexes.mat', '*_idx')
+
 %Eigenvalues of hx
 disp('Computing eigenvalues of hx');
 disp(eig(hx))
