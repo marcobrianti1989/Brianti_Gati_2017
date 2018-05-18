@@ -8,12 +8,13 @@
 %% % --->>>>> this is specific to BriantiGati2017
 % This code specifically implements a matching of responses of an IT shock
 % from our justIT VAR to the responses of our two-sector model with
-% spillovers to a noise shock. It may be worth considering other shocks. 
+% spillovers to a noise shock. It may be worth considering other shocks.
 
 %%
 
 clear
 close all
+disp('Running IR matching. Don''t forget to edit specific parts.')
 
 % Add all the relevant paths
 current_dir = pwd;
@@ -41,7 +42,7 @@ IRF_IT = IRFs(:,:,pos_IT); % response of all vars to IT shock % --->>>>> this is
 % Gather the VAR IRFs to all the relevant shocks
 IRFs_VAR = [IRF_IT]; % --->>>>> this is specific to BriantiGati2017
 
-%% Input gx hx from solved theoretical model
+%% Input gx hx from solved theoretical model and generate theoretical IRFs
 load('gxhx.mat')
 load('indexes.mat')
 param = parameters;
@@ -61,10 +62,41 @@ shocks(biggamitt_idx-ny) = 1; % the noise shock  % --->>>>> this is specific to 
 IRF_noise_Theory = ir(gx,hx,eta*shocks,T_VAR); %noise shock; % --->>>>> this is specific to BriantiGati2017
 
 % Choose the variables such that they correspond to those in the VAR:
+% Here I'm pretending that the variables in the model correspond to those
+% in the VAR, which is not really the case and needs to be rethought.
+IRF_noise_Theory_subset = IRF_noise_Theory(:, [biggamc_idx rc_idx it_idx gamyc_idx gamc_idx gamp_idx]); % --->>>>> this is specific to BriantiGati2017
 
 % Gather the Theoretical IRFs to all the relevant shocks
-IRFs_Theory = [IRF_noise_Theory]; % --->>>>> this is specific to BriantiGati2017
+IRFs_Theory = [IRF_noise_Theory_subset']; % --->>>>> this is specific to BriantiGati2017
 
 %% Do GMM
+% What we wanna minimize here is some squared distance (IRFs_VAR - IRFs_Theory).
+% I.e. we want param = argmin [IRFs_VAR - IRFs_Theory(param)].
+% Thus for every new set of param values, fmincon also needs to resolve the
+% model to get a new gx, hx and new IRFs_Theory. That part will be done in
+% the objective function.
+
+% Compute weighting matrix W = V^(-1), where V=var[bootstrap_IRFs] from the
+% VAR.
+
+% Get "bootstrapped IRFs" nsimul times
+% Here procedure differs from standard bootstrap because we want
+% bootstrapped IRFs, so to keep that clear I denote everything here by _s
+IRFs_s = zeros(nvar_VAR, T_VAR, nshocks_VAR, nsimul);
+for i_simul=1:nsimul
+    [A_s, B_s,~,~] = sr_var(data_boot2(:,:,i_simul), nlags);
+    % Get bootstrapped confidence intervals nsimul times
+    disp(['Iteration ' num2str(i_simul) ' out of ' num2str(nsimul)])
+    [impact_s, ~, ~]  = just_IT_ID(which_variable,which_shock,A_boot);  % --->>>>> this is specific to BriantiGati2017
+    %Creating a fake matrix for the IRF due to partial ID
+    fake_impact_s = zeros(nvar,nvar);
+    fake_impact_s(:,which_shock) = impact_s;
+    [IRFs_s(:,:,:,i_simul), ~, ~, ~, ~] = genIRFs(fake_impact_s,0,...
+    B_s,0,T_VAR,sig1, sig2);
+end
+IRFs_s_IT = squeeze(IRFs_s(:,:,pos_IT,:)); % --->>>>> this is specific to BriantiGati2017
+V = var(IRFs_s_IT,0,3); %The weighting matrix - not quite working yet, the wrong size.
+W = inv(V);
+W = W/norm(W);
 
 disp('Done.')
