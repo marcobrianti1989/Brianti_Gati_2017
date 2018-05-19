@@ -6,6 +6,18 @@
 clear
 close all
 
+current_dir = pwd;
+cd ../.. % go up 2 levels
+base_path = pwd;
+cd(current_dir)
+addpath(base_path)
+
+if exist([base_path '\Data'], 'dir')
+      addpath([base_path '\Data']) %for Microsoft
+else
+      addpath([base_path '/Data']) %for Mac
+end
+
 tic
 
 %Data Reading and Transformation
