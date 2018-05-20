@@ -1,7 +1,7 @@
 function wlf = objective_IRmatching(param,set,S,H,psi_hat,W)
 
 %Step 1: compute the model solution
-[~, fx, fy, fxp, fyp, G, ~, ~]=model_prog(param,set);
+[~, fx, fy, fxp, fyp, G, ~, ~]=model_prog_IRmatching_spillover_news(param,set); % --->>>>> this is specific to BriantiGati2017
 [gx,hx]=gx_hx_alt(fy,fx,fyp,fxp);
 
 

@@ -1,6 +1,17 @@
-% MAIN_FILE_IRMATCHING - Implements a general version of IR-matching a la CEE. The idea is that
+% MAIN_FILE_IRMATCHING - Implements IR-matching a la CEE specifically for our two-sector model with spillover and news.
+% Stuff specific to this model are indicated throughout so that
 % the structure should be general and you can use this file with modified
 % functions or inputs in it to estimate different models.
+
+% STRUCTURE
+% -1.) Some notational comments
+%  0.) Some playing around with the paths.
+% STAGE 1. Set up a matlab function that will solve the model w/o using the
+% symbolic toolbox (faster for fmincon)
+% STAGE 2. Generate/import empirical IRFs from VAR
+% STAGE 3. Generate bootstrap IRFs and take their variance to get the
+% weighting matrix.
+% STAGE 4. Compute loss function and do fmincon.
 
 % Code by Marco Brianti and Laura Gati, Boston College, 2018
 %**************************************************************
@@ -8,7 +19,8 @@
 %% % --->>>>> this is specific to BriantiGati2017
 % This code specifically implements a matching of responses of an IT shock
 % from our justIT VAR to the responses of our two-sector model with
-% spillovers to a noise shock. It may be worth considering other shocks.
+% spillovers to a noise shock. (It may be worth considering other shocks.)
+% This sign indicates the parts that are specific to this particular model.
 
 %%
 
@@ -30,7 +42,7 @@ else
 end
 
 %% Choose some stuff specific to this application
-nshocks = 1; % to how many shocks do we wanna match IRFs (not sure if we can actually set this... maybe it's actually = nvar?)
+nshocks = 1; % to how many shocks do we wanna match IRFs (not sure if we can actually set this... maybe it's actually = nvar_VAR?)
 
 %% taken from Ryan directly (PS3)
 %**********************************************************
@@ -44,14 +56,13 @@ nshocks = 1; % to how many shocks do we wanna match IRFs (not sure if we can act
 
 %Compute the first-order derivative numerically
 %%%%%
-% Need to figure out how to use this model thing properly.
-% Think I need to write model.m (or edit it, to be correct. model_IRmatching_spillover_news.m)
-% Then run model_func.m to generate model_prog.m
-% Then run model_prog.m
+% How to use this model numerical approach properly:
+% Write model.m (or edit it, to be correct, here: model_IRmatching_spillover_news.m)
+% Then run model_func.m to generate model_prog.m (I called it model_prog_IRmatching_spillover_news.m)
+% Then run model_prog.m (i.e. here run model_prog_IRmatching_spillover_news.m)
 %%%%%
 
-mod = model(param0,set);
-
+mod = model_IRmatching_spillover_news(param0,set);
 
 %Get dimensions of the model
 nx = length(mod.X);
@@ -60,7 +71,7 @@ neq = nx+ny;
 
 %Generate a matlab function that can compute the derivative matrices
 %quickly
-trans = zeros(1,neq);
+trans = zeros(1,neq); % this part specifies whether params should be transformed to all positive or negative
 lb = -inf*trans;
 ub = +inf*trans;
 model_func(mod, trans, lb, ub);
@@ -73,12 +84,18 @@ param0 = struct2array(param0);
 set = struct2array(set);
 
 %Test intial values
-[f fx fy fxp fyp G R set]=model_prog(param0,set);
-[gx,hx]=gx_hx_alt(fy,fx,fyp,fxp);
-mom_tab(gx,hx,G*G', [gamy_idx,rp_idx], {'DY','R'})
-
+[f fx fy fxp fyp G R set]=model_prog_IRmatching_spillover_news(param0,set); % --->>>>> this is specific to BriantiGati2017
+[gx,hx]=gx_hx_alt(fy,fx,fyp,fxp); % No eq. exists?? WTF???
+% mom_tab shows a little table of stddevs, autocorrs and corrs of the
+% specified variables after a specific shock (G = eta*shock vector)
 return
-%% Input IRFs from VAR
+mom_tab(gx,hx,G*G', [gamyc_idx,gamki_idx], {'YC','KI'})  %% here a dumb matrix size error 
+
+
+%%
+%**********************************************************
+% STAGE 2. Input IRFs from VAR
+%**********************************************************
 load('Workspace_Just_IT_SVAR_1LAG.mat') % --->>>>> this is specific to BriantiGati2017
 
 % Construct VAR IRFs to shocks of your choice
@@ -92,52 +109,12 @@ IRF_IT = IRFs(:,:,pos_IT); % response of all vars to IT shock % --->>>>> this is
 IRFs_VAR = [IRF_IT']; % --->>>>> this is specific to BriantiGati2017
 psi_hat  = IRFs_VAR(:);
 
-%% Input gx hx from solved theoretical model and generate theoretical IRFs
-%%%%%
-% Cut out all of this part once the objective is correct.
-%%%%%
 
-load('gxhx.mat')
-load('indexes.mat')
-param = parameters;
-
-% Construct theoretical IRFs
-%Second Moments
-nx = length(hx);
-ny = size(gx,1);
-eta = zeros(nx,nx);
-
-eta(biggamitt_idx-ny,biggamitt_idx-ny) = param.sige; % --->>>>> this is specific to BriantiGati2017
-
-shocks = zeros(nx,1);
-shocks(biggamitt_idx-ny) = 1; % the noise shock  % --->>>>> this is specific to BriantiGati2017
-
-%Selector matrix to select the variables we're interested in
-% which are for this project [biggamc_idx rc_idx it_idx gamyc_idx gamc_idx gamp_idx]
-S = zeros(nvar_VAR,ny);
-S(1,gamki_idx) = 1;
-S(2,rc_idx)    = 1; 
-S(3,it_idx)    = 1;
-S(4,gamyc_idx) = 1;
-S(5,gamc_idx)  = 1;
-S(6,gamp_idx)  = 1;
-g = S*gx;
-
-%Impulse Responses Theoretical
-IRF_noise_Theory = ir(gx,hx,eta*shocks,T_VAR); %noise shock; % --->>>>> this is specific to BriantiGati2017
-
-% Choose the variables such that they correspond to those in the VAR:
-% Here I'm pretending that the variables in the model correspond to those
-% in the VAR, which is not really the case and needs to be rethought.
-IRF_noise_Theory_subset = IRF_noise_Theory(:, [biggamc_idx rc_idx it_idx gamyc_idx gamc_idx gamp_idx]); % --->>>>> this is specific to BriantiGati2017
-
-% Gather the Theoretical IRFs to all the relevant shocks
-IRFs_Theory = [IRF_noise_Theory_subset]; % --->>>>> this is specific to BriantiGati2017
-psi_T       = IRFs_Theory(:);
-
-
-
-%% Compute weighting matrix W = V^(-1), where V=var[bootstrap_IRFs] from the
+%%
+%**********************************************************
+% STAGE 3. Bootstrap IRFs and weighting matrix
+%**********************************************************
+% Compute weighting matrix W = V^(-1), where V=var[bootstrap_IRFs] from the
 % VAR.
 
 % Get "bootstrapped IRFs" nsimul times
@@ -175,7 +152,55 @@ end
 W = inv(V); %The weighting matrix
 W = W/norm(W); 
 
-%% Do GMM
+%% Input gx hx from solved theoretical model and generate theoretical IRFs
+%%%%%
+% Cut out all of this part once the objective is correct.
+%%%%%
+
+load('gxhx.mat')
+load('indexes.mat')
+param = parameters;
+
+% Construct theoretical IRFs
+%Second Moments
+nx = length(hx);
+ny = size(gx,1);
+eta = zeros(nx,nx);
+
+eta(biggamitt_idx-ny,biggamitt_idx-ny) = param.sige; % --->>>>> this is specific to BriantiGati2017
+
+shocks = zeros(nx,1);
+shocks(biggamitt_idx-ny) = 1; % the noise shock  % --->>>>> this is specific to BriantiGati2017
+
+%Selector matrix to select the variables we're interested in (only does this for jumps!!)
+% which are for this project [biggamc_idx rc_idx it_idx gamyc_idx gamc_idx gamp_idx]
+% Choose the variables such that they correspond to those in the VAR:
+% Here I'm pretending that the variables in the model correspond to those
+% in the VAR, which is not really the case and needs to be rethought.
+% I wonder if this sets the order too...?
+S = zeros(nvar_VAR-1,ny);
+S(1,rc_idx)    = 1; 
+S(2,it_idx)    = 1;
+S(3,gamyc_idx) = 1;
+S(4,gamc_idx)  = 1;
+S(5,gamp_idx)  = 1;
+g = S*gx;
+
+%Impulse Responses Theoretical
+[IRF_noise_Theory_all, IRFs_selected_jumps, IRF_states] = ir(g,hx,eta*shocks,T_VAR); %noise shock; % --->>>>> this is specific to BriantiGati2017
+
+% I'm also selecting some states ... wonder if that's legitimate at all...?
+IRFs_selected_states = IRF_states(:, [biggamc_idx-ny]); % --->>>>> this is specific to BriantiGati2017
+
+% Gather the Theoretical IRFs to all the relevant shocks
+IRFs_Theory = [IRFs_selected_states IRFs_selected_jumps]; % --->>>>> this is specific to BriantiGati2017
+psi_T       = IRFs_Theory(:);
+
+
+%% 
+%**********************************************************
+% STAGE 4. Do fmincon
+%**********************************************************
 % What we wanna minimize here is some squared distance (IRFs_VAR - IRFs_Theory).
 % I.e. we want param = argmin [IRFs_VAR - IRFs_Theory(param)].
 % Thus for every new set of param values, fmincon also needs to resolve the
@@ -190,20 +215,17 @@ options = optimset(options, 'TolFun', 1e-9, 'display', 'iter');
 % Figure out what's going on with selecting states...?
 %%%%%
 
-%Selector matrix to select the variables we're interested in
-% which are for this project [biggamc_idx rc_idx it_idx gamyc_idx gamc_idx
-% gamp_idx] % --->>>>> this is specific to BriantiGati2017
-S = zeros(nvar_VAR,ny);
-S(1,biggamc_idx) = 1;
-S(2,rc_idx)      = 1; 
-S(3,it_idx)      = 1;
-S(4,gamyc_idx)   = 1;
-S(5,gamc_idx)    = 1;
-S(6,gamp_idx)    = 1;
+%Selector matrix to select the variables we're interested in % --->>>>> this is specific to BriantiGati2017
+S = zeros(nvar_VAR-1,ny);
+S(1,rc_idx)    = 1; 
+S(2,it_idx)    = 1;
+S(3,gamyc_idx) = 1;
+S(4,gamc_idx)  = 1;
+S(5,gamp_idx)  = 1;
 
 % One-time evaluation of the objective 
 wlf = objective_IRmatching(param,set,S,T_VAR,psi_hat,100000*W);
-
+return
 %Objective with V weighting
 objj = @(param) objective_IRmatching(param,set,S,T_VAR,psi_hat,100000*W);
 [param_opt,obj_opt] = fmincon(objj, param0,[],[],[],[],[.01,.01,.0,1.01,.0001,.0001],[.99,100,.99,15,1,1],[],options);
