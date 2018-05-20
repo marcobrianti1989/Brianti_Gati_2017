@@ -19,5 +19,3 @@ param.chi      = 1; % preference parameter of preference for leisure. (From Ryan
 param.gam      = 0.2; %0.2 spillover elasticity (only used in model_spillover.m and model_spillover_ss.m)
 param.siggami  = 1; % variance of BIGGAMI
 param.sige     = 2; % variance of signal on BIGGAMI
-
-end

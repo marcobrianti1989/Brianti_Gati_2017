@@ -29,6 +29,55 @@ else
     addpath([base_path '/Code/just_IT_vecm']) %for Mac
 end
 
+%% Choose some stuff specific to this application
+nshocks = 1; % to how many shocks do we wanna match IRFs (not sure if we can actually set this... maybe it's actually = nvar?)
+
+%% taken from Ryan directly (PS3)
+%**********************************************************
+% STAGE 1: Prepare a function to solve the  model quickly
+%          i.e. without using the symbolic toolbox for each
+%          iteration
+%**********************************************************
+
+%Load Parameters
+[param0,set] = paramsset;
+
+%Compute the first-order derivative numerically
+%%%%%
+% Need to figure out how to use this model thing properly.
+% Think I need to write model.m (or edit it, to be correct. model_IRmatching_spillover_news.m)
+% Then run model_func.m to generate model_prog.m
+% Then run model_prog.m
+%%%%%
+
+mod = model(param0,set);
+
+
+%Get dimensions of the model
+nx = length(mod.X);
+ny = length(mod.Y);
+neq = nx+ny;
+
+%Generate a matlab function that can compute the derivative matrices
+%quickly
+trans = zeros(1,neq);
+lb = -inf*trans;
+ub = +inf*trans;
+model_func(mod, trans, lb, ub);
+rehash;
+load sym_mod *idx
+
+%Convert param and set to a vector of values: these are our starting values
+%for the optimization.
+param0 = struct2array(param0);
+set = struct2array(set);
+
+%Test intial values
+[f fx fy fxp fyp G R set]=model_prog(param0,set);
+[gx,hx]=gx_hx_alt(fy,fx,fyp,fxp);
+mom_tab(gx,hx,G*G', [gamy_idx,rp_idx], {'DY','R'})
+
+return
 %% Input IRFs from VAR
 load('Workspace_Just_IT_SVAR_1LAG.mat') % --->>>>> this is specific to BriantiGati2017
 
@@ -40,9 +89,14 @@ nshocks_VAR = size(IRFs,3);
 IRF_IT = IRFs(:,:,pos_IT); % response of all vars to IT shock % --->>>>> this is specific to BriantiGati2017
 
 % Gather the VAR IRFs to all the relevant shocks
-IRFs_VAR = [IRF_IT]; % --->>>>> this is specific to BriantiGati2017
+IRFs_VAR = [IRF_IT']; % --->>>>> this is specific to BriantiGati2017
+psi_hat  = IRFs_VAR(:);
 
 %% Input gx hx from solved theoretical model and generate theoretical IRFs
+%%%%%
+% Cut out all of this part once the objective is correct.
+%%%%%
+
 load('gxhx.mat')
 load('indexes.mat')
 param = parameters;
@@ -58,7 +112,18 @@ eta(biggamitt_idx-ny,biggamitt_idx-ny) = param.sige; % --->>>>> this is specific
 shocks = zeros(nx,1);
 shocks(biggamitt_idx-ny) = 1; % the noise shock  % --->>>>> this is specific to BriantiGati2017
 
-%Impulse Responses Theory
+%Selector matrix to select the variables we're interested in
+% which are for this project [biggamc_idx rc_idx it_idx gamyc_idx gamc_idx gamp_idx]
+S = zeros(nvar_VAR,ny);
+S(1,gamki_idx) = 1;
+S(2,rc_idx)    = 1; 
+S(3,it_idx)    = 1;
+S(4,gamyc_idx) = 1;
+S(5,gamc_idx)  = 1;
+S(6,gamp_idx)  = 1;
+g = S*gx;
+
+%Impulse Responses Theoretical
 IRF_noise_Theory = ir(gx,hx,eta*shocks,T_VAR); %noise shock; % --->>>>> this is specific to BriantiGati2017
 
 % Choose the variables such that they correspond to those in the VAR:
@@ -67,16 +132,12 @@ IRF_noise_Theory = ir(gx,hx,eta*shocks,T_VAR); %noise shock; % --->>>>> this is 
 IRF_noise_Theory_subset = IRF_noise_Theory(:, [biggamc_idx rc_idx it_idx gamyc_idx gamc_idx gamp_idx]); % --->>>>> this is specific to BriantiGati2017
 
 % Gather the Theoretical IRFs to all the relevant shocks
-IRFs_Theory = [IRF_noise_Theory_subset']; % --->>>>> this is specific to BriantiGati2017
+IRFs_Theory = [IRF_noise_Theory_subset]; % --->>>>> this is specific to BriantiGati2017
+psi_T       = IRFs_Theory(:);
 
-%% Do GMM
-% What we wanna minimize here is some squared distance (IRFs_VAR - IRFs_Theory).
-% I.e. we want param = argmin [IRFs_VAR - IRFs_Theory(param)].
-% Thus for every new set of param values, fmincon also needs to resolve the
-% model to get a new gx, hx and new IRFs_Theory. That part will be done in
-% the objective function.
 
-% Compute weighting matrix W = V^(-1), where V=var[bootstrap_IRFs] from the
+
+%% Compute weighting matrix W = V^(-1), where V=var[bootstrap_IRFs] from the
 % VAR.
 
 % Get "bootstrapped IRFs" nsimul times
@@ -92,11 +153,61 @@ for i_simul=1:nsimul
     fake_impact_s = zeros(nvar,nvar);
     fake_impact_s(:,which_shock) = impact_s;
     [IRFs_s(:,:,:,i_simul), ~, ~, ~, ~] = genIRFs(fake_impact_s,0,...
-    B_s,0,T_VAR,sig1, sig2);
+        B_s,0,T_VAR,sig1, sig2);
 end
 IRFs_s_IT = squeeze(IRFs_s(:,:,pos_IT,:)); % --->>>>> this is specific to BriantiGati2017
-V = var(IRFs_s_IT,0,3); %The weighting matrix - not quite working yet, the wrong size.
-W = inv(V);
-W = W/norm(W);
+psi_boot = reshape(IRFs_s_IT,nvar_VAR*T_VAR,200);
+V = diag(var(psi_boot,0,2));
+
+% alternative way to create V  -- both yield the same result, but inv(V) is
+% singular, so something is not yet quite right. 
+V1 = var(IRFs_s_IT,0,3); % take variance over nsimul
+V2 = reshape(V1,size(V1,1)*size(V1,2),1);
+V_alt = diag(V2);
+if V~=V_alt
+    disp('The two methods of obtaining V don''t agree.')
+end
+
+if size(V) ~= [nvar_VAR*T_VAR*nshocks,nvar_VAR*T_VAR*nshocks]
+    disp('Size of bootstrap variances matrix is not correct.')
+end
+
+W = inv(V); %The weighting matrix
+W = W/norm(W); 
+
+%% Do GMM
+% What we wanna minimize here is some squared distance (IRFs_VAR - IRFs_Theory).
+% I.e. we want param = argmin [IRFs_VAR - IRFs_Theory(param)].
+% Thus for every new set of param values, fmincon also needs to resolve the
+% model to get a new gx, hx and new IRFs_Theory. That part will be done in
+% the objective function.
+
+%Optimization Parameters
+options = optimset('fmincon'); 
+options = optimset(options, 'TolFun', 1e-9, 'display', 'iter');
+
+%%%%%
+% Figure out what's going on with selecting states...?
+%%%%%
+
+%Selector matrix to select the variables we're interested in
+% which are for this project [biggamc_idx rc_idx it_idx gamyc_idx gamc_idx
+% gamp_idx] % --->>>>> this is specific to BriantiGati2017
+S = zeros(nvar_VAR,ny);
+S(1,biggamc_idx) = 1;
+S(2,rc_idx)      = 1; 
+S(3,it_idx)      = 1;
+S(4,gamyc_idx)   = 1;
+S(5,gamc_idx)    = 1;
+S(6,gamp_idx)    = 1;
+
+% One-time evaluation of the objective 
+wlf = objective_IRmatching(param,set,S,T_VAR,psi_hat,100000*W);
+
+%Objective with V weighting
+objj = @(param) objective_IRmatching(param,set,S,T_VAR,psi_hat,100000*W);
+[param_opt,obj_opt] = fmincon(objj, param0,[],[],[],[],[.01,.01,.0,1.01,.0001,.0001],[.99,100,.99,15,1,1],[],options);
+
+
 
 disp('Done.')
