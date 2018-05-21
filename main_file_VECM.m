@@ -26,6 +26,7 @@ if AIC >= 4
 else
     nlags = AIC;
 end
+nlags = 1;
 
 %Run reduced form VECM
 r = nvar-1; %number of cointegrating vectors
