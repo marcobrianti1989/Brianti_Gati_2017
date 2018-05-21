@@ -46,7 +46,7 @@ nshocks = 1; % to how many shocks do we wanna match IRFs (not sure if we can act
 
 %% taken from Ryan directly (PS3)
 %**********************************************************
-% STAGE 1: Prepare a function to solve the  model quickly
+% STAGE 1: Prepare a function to solve the model quickly
 %          i.e. without using the symbolic toolbox for each
 %          iteration
 %**********************************************************
@@ -88,8 +88,8 @@ set = struct2array(set);
 [gx,hx]=gx_hx_alt(fy,fx,fyp,fxp); % No eq. exists?? WTF???
 % mom_tab shows a little table of stddevs, autocorrs and corrs of the
 % specified variables after a specific shock (G = eta*shock vector)
-return
-mom_tab(gx,hx,G*G', [gamyc_idx,gamki_idx], {'YC','KI'})  %% here a dumb matrix size error 
+
+%mom_tab(gx,hx,G*G', [gamyc_idx,gamki_idx], {'YC','KI'})  %% here a dumb matrix size error 
 
 
 %%
@@ -152,6 +152,8 @@ end
 W = inv(V); %The weighting matrix
 W = W/norm(W); 
 
+disp 'done up to weighting matrix'
+return
 %% Input gx hx from solved theoretical model and generate theoretical IRFs
 %%%%%
 % Cut out all of this part once the objective is correct.
@@ -224,7 +226,7 @@ S(4,gamc_idx)  = 1;
 S(5,gamp_idx)  = 1;
 
 % One-time evaluation of the objective 
-wlf = objective_IRmatching(param,set,S,T_VAR,psi_hat,100000*W);
+wlf = objective_IRmatching(param0,set,S,T_VAR,psi_hat,100000*W);
 return
 %Objective with V weighting
 objj = @(param) objective_IRmatching(param,set,S,T_VAR,psi_hat,100000*W);
