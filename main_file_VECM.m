@@ -29,7 +29,7 @@ end
 nlags = 1;
 
 %Run reduced form VECM
-r = nvar-1; %number of cointegrating vectors
+r = 2; %number of cointegrating vectors
 %[alph_hat2, bet_hat2,Gam_hat2,sigma2] = RRR(data, nlags, r);
 [alph_hat,bet_hat,Pi,Gam_hat,res,sigma] = redu_VECM(data, nlags, r); %It seems to be correct...
 %compared to a different method.

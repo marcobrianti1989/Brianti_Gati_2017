@@ -62,7 +62,7 @@ end
 
 %Optimization Parameters
 options  = optimset('fmincon');
-options  = optimset(options, 'display', 'iter','TolFun', 1e-7);
+options  = optimset(options, 'display', 'iter','TolFun', 1e-19);
 %'TolFun', 1e-19, 'FinDiffRelStep', 1
 warning off
 %Minimization
@@ -74,9 +74,10 @@ if r > 1
       %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
 else
       B_opt = fmincon(obj, B_zero,[],[],[],[],[],[],@(B) constraint_long(B,Xi,r,nvar),options);
+      %B_opt = fmincon(obj, B_zero,[],[],[],[],[],[],[],options);
 end
 %Temporary tools to visualize the correctness of restrictions
-diff_BBp_sigma = B_opt'*B_opt - sigma
+diff_BBp_sigma = B_opt*B_opt' - sigma
 long_restr = Xi*B_opt
 B_opt
 warning on

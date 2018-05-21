@@ -61,7 +61,6 @@ H               = 100; %40; % horizon for generation of IRFs
 h               = 40; %40; % horizon for IRF plots
 which_variable  = which_shock; % select IT as the variable whose FEV we wanna max
 
-
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
 [AIC,BIC,HQ] = aic_bic_hq(data,max_lags);
 if AIC >= 4
@@ -90,7 +89,6 @@ end
 % Implement the "just IT" ID strategy in a VAR
 H_max = 40;
 [impact, impact_IT_opt, gam_opt]  = just_IT_ID(which_variable,which_shock,A);
-
 
 % Bootstrap
 which_ID = 'just_IT';
