@@ -41,11 +41,11 @@ return
 
 return
 
-H = 1000;
+H = 40;
 sig1 = 0;
 sig2 = 0;
 [IRFs, ub1, lb1, ub2, lb2] = genIRFs_VECM(B,0,A',0,H,sig1,sig2);
 print_figs = 'no';
-which_shock = [1,2,3];
+which_shock = [2];
 simple_plotIRFs(IRFs,ub1,lb1,H,which_shock, print_figs)
 
