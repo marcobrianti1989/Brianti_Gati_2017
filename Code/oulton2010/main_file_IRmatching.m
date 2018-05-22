@@ -58,8 +58,8 @@ nshocks = 1; % to how many shocks do we wanna match IRFs (not sure if we can act
 %%%%%
 % How to use this model numerical approach properly:
 % Write model.m (or edit it, to be correct, here: model_IRmatching_spillover_news.m)
-% Then run model_func.m to generate model_prog.m (I called it model_prog_IRmatching_spillover_news.m)
-% Then run model_prog.m (i.e. here run model_prog_IRmatching_spillover_news.m)
+% Then run model_func.m to generate model_prog.m (I called it model_prog_IRmatching_spillover_news.m but reverted to model_prog.m to avoid naming issues.)
+% Then run model_prog.m; this will do the analytical evaluations.
 %%%%%
 
 mod = model_IRmatching_spillover_news(param0,set);
@@ -84,13 +84,14 @@ param0 = struct2array(param0);
 set = struct2array(set);
 
 %Test intial values
-[f fx fy fxp fyp G R set]=model_prog_IRmatching_spillover_news(param0,set); % --->>>>> this is specific to BriantiGati2017
-[gx,hx]=gx_hx_alt(fy,fx,fyp,fxp); % No eq. exists?? WTF???
+% [f, fx, fy, fxp, fyp, G, R, set]=model_prog_IRmatching_spillover_news(param0,set); % --->>>>> this is specific to BriantiGati2017
+[f, fx, fy, fxp, fyp, G, R, set]=model_prog(param0,set); % --->>>>> this is specific to BriantiGati2017
+[gx,hx]=gx_hx_alt(fy,fx,fyp,fxp); % No eq. exists?? WTF??? Problem is we're getting only 13 (instead of 27) stable eigs. 
+
 % mom_tab shows a little table of stddevs, autocorrs and corrs of the
 % specified variables after a specific shock (G = eta*shock vector)
-
 %mom_tab(gx,hx,G*G', [gamyc_idx,gamki_idx], {'YC','KI'})  %% here a dumb matrix size error 
-
+return
 
 %%
 %**********************************************************

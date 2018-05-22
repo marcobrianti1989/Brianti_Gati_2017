@@ -9,7 +9,7 @@ set.biggamc  = 1.00328; %1.00328;    % growth rate of cons. productivity
 set.di       = 0.124; %0.124; % depreciation rate of IT capital (Some work suggests 0.1830)
 set.dc       = 0.056; %0.056 depreciation rate of standard capital
 set.chi      = 1; % preference parameter of preference for leisure. (From Ryan)
-param.gam      = 0.2; %0.2 spillover elasticity (only used in model_spillover.m and model_spillover_ss.m)
+param.gam    = 0.2; %0.2 spillover elasticity (only used in model_spillover.m and model_spillover_ss.m)
 set.siggami  = 1; % variance of BIGGAMI
 set.sige     = 2; % variance of signal on BIGGAMI
 

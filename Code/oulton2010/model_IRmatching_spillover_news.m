@@ -6,7 +6,9 @@ function [mod] = model_IRmatching_spillover_news(param,set)
 
 %Steady State Function Call
 mod.ss_call = 'model_ss_IRmatching_spillover_news.m'; %%%%%%%%%%%%% L added _IRmatching_spillover_news
-mod.fname = 'model_prog_IRmatching_spillover_news.m'; %%%%%%%%%%%%% L added _IRmatching_spillover_news
+% mod.fname = 'model_prog_IRmatching_spillover_news.m'; %%%%%%%%%%%%% L added _IRmatching_spillover_news
+mod.fname = 'model_prog.m'; %%%%%%%%%%%%% L: try it with the original name
+
 %Declare parameters symbols: parameters are values to be estimated
 param_list = fieldnames(param);
 syms(param_list{1:end});
