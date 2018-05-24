@@ -209,7 +209,10 @@ fprintf(f, '%s\n', str);
 str = '%Evaluate derivative expressions.';
 fprintf(f, '%s\n', str);
 model.fx = subs(model.fx, [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)],...
-    log([model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]));
+    [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]);
+% L: taking out the log for now and ask Ryan about this!
+% model.fx = subs(model.fx, [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)],...
+%     log([model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]));
 str = ['fx = ' symmat_print(model.fx) ';'];
 fprintf(f, '%s\n', str);
 
@@ -218,7 +221,10 @@ fprintf(f, '%s\n', str);
 %FY
 %***************************
 model.fy = subs(model.fy, [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)],...
-    log([model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]));
+    [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]);
+% L: taking out the log for now and ask Ryan about this!
+% model.fy = subs(model.fy, [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)],...
+%     log([model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]));
 str = ['fy = ' symmat_print(model.fy) ';'];
 fprintf(f, '%s\n', str);
 
@@ -226,7 +232,10 @@ fprintf(f, '%s\n', str);
 %FXP
 %***************************
 model.fxp = subs(model.fxp, [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)],...
-    log([model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]));
+    [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]);
+% L: taking out the log for now and ask Ryan about this!
+% model.fxp = subs(model.fxp, [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)],...
+%     log([model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]));
 str = ['fxp = ' symmat_print(model.fxp) ';'];
 fprintf(f, '%s\n', str);
 
@@ -235,7 +244,10 @@ fprintf(f, '%s\n', str);
 %FYP
 %***************************
 model.fyp = subs(model.fyp, [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)],...
-    log([model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]));
+    [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]);
+% L: taking out the log for now and ask Ryan about this!
+% model.fyp = subs(model.fyp, [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)],...
+%     log([model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]));
 str = ['fyp = ' symmat_print(model.fyp) ';'];
 fprintf(f, '%s\n', str);
 fprintf(f, '%s\n', '');

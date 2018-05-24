@@ -1,4 +1,4 @@
-function wlf = objective_IRmatching(param,set,S,H,psi_hat,W)
+function wlf = objective_IRmatching(param,set,Sy,Sx,H,psi_hat,W)
 
 %Step 1: compute the model solution
 [~, fx, fy, fxp, fyp, G, ~, ~]=model_prog_IRmatching_spillover_news(param,set); % --->>>>> this is specific to BriantiGati2017
@@ -6,13 +6,14 @@ function wlf = objective_IRmatching(param,set,S,H,psi_hat,W)
 
 
 %Step 2: compute the model impulse responses, put y-repsonse on levels
-g = S*gx;
+g = Sy*gx;
+h = Sx*hx;
 
 %%%%%
 % Need to edit the part below:
 %%%%%
-[~,ir_tfp] = ir(g,hx,G*[1,0]',H);  %TFP Shock
-[~,ir_mon] = ir(g,hx,G*[0,1]',H);  %Monetary Shochk
+[~,ir_tfp] = ir(g,h,G*[1,0]',H);  %TFP Shock
+[~,ir_mon] = ir(g,h,G*[0,1]',H);  %Monetary Shochk
 
 ir_tfp(:,1) = cumsum(ir_tfp(:,1));
 ir_mon(:,1) = cumsum(ir_mon(:,1));

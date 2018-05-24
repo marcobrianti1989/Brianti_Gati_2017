@@ -83,15 +83,15 @@ load sym_mod *idx
 param0 = struct2array(param0);
 set = struct2array(set);
 
+
 %Test intial values
-% [f, fx, fy, fxp, fyp, G, R, set]=model_prog_IRmatching_spillover_news(param0,set); % --->>>>> this is specific to BriantiGati2017
 [f, fx, fy, fxp, fyp, G, R, set]=model_prog(param0,set); % --->>>>> this is specific to BriantiGati2017
 [gx,hx]=gx_hx_alt(fy,fx,fyp,fxp); % No eq. exists?? WTF??? Problem is we're getting only 13 (instead of 27) stable eigs. 
 
 % mom_tab shows a little table of stddevs, autocorrs and corrs of the
 % specified variables after a specific shock (G = eta*shock vector)
-%mom_tab(gx,hx,G*G', [gamyc_idx,gamki_idx], {'YC','KI'})  %% here a dumb matrix size error 
-return
+mom_tab(gx,hx,G*G', [gamyc_idx,gamki_idx], {'YC','KI'})  %% here a dumb matrix size error 
+
 
 %%
 %**********************************************************
@@ -118,6 +118,9 @@ psi_hat  = IRFs_VAR(:);
 % Compute weighting matrix W = V^(-1), where V=var[bootstrap_IRFs] from the
 % VAR.
 
+do_we_need_V = 'no';
+switch do_we_need_V
+    case 'yes'
 % Get "bootstrapped IRFs" nsimul times
 % Here procedure differs from standard bootstrap because we want
 % bootstrapped IRFs, so to keep that clear I denote everything here by _s
@@ -152,8 +155,11 @@ end
 
 W = inv(V); %The weighting matrix
 W = W/norm(W); 
+    case 'no' 
+       disp 'We only have 1 single shock so we can quit V.'
+end
 
-disp 'done up to weighting matrix'
+disp 'Done up to weighting matrix.'
 return
 %% Input gx hx from solved theoretical model and generate theoretical IRFs
 %%%%%
@@ -218,16 +224,19 @@ options = optimset(options, 'TolFun', 1e-9, 'display', 'iter');
 % Figure out what's going on with selecting states...?
 %%%%%
 
-%Selector matrix to select the variables we're interested in % --->>>>> this is specific to BriantiGati2017
-S = zeros(nvar_VAR-1,ny);
-S(1,rc_idx)    = 1; 
-S(2,it_idx)    = 1;
-S(3,gamyc_idx) = 1;
-S(4,gamc_idx)  = 1;
-S(5,gamp_idx)  = 1;
+%Selector matrix to select the jumps we're interested in % --->>>>> this is specific to BriantiGati2017
+Sy = zeros(nvar_VAR-1,ny);
+Sy(1,rc_idx)    = 1; 
+Sy(2,it_idx)    = 1;
+Sy(3,gamyc_idx) = 1;
+Sy(4,gamc_idx)  = 1;
+Sy(5,gamp_idx)  = 1;
+
+%Selector matrix to select the states we're interested in 
+% Sx
 
 % One-time evaluation of the objective 
-wlf = objective_IRmatching(param0,set,S,T_VAR,psi_hat,100000*W);
+wlf = objective_IRmatching(param0,set,Sy,Sx,T_VAR,psi_hat,100000*W);
 return
 %Objective with V weighting
 objj = @(param) objective_IRmatching(param,set,S,T_VAR,psi_hat,100000*W);

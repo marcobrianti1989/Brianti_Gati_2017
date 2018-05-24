@@ -26,7 +26,7 @@ param = parameters;
 
 %Compute the first-order coefficiencients of the model
 [fyn, fxn, fypn, fxpn] = model_spillover_news(param);
-
+return
 %Compute the transition and policy functions, using code by
 %Stephanie Schmitt-Grohé and Martín Uribe (and available on their wedsite.)
 [gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
