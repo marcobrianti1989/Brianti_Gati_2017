@@ -1,4 +1,4 @@
-function [B_opt, Xi, A] = structural_VECM(alp,bet,Gam,res,sigma,nlags,r)
+function [B_opt, Xi, A, diff_BBp_sigma] = structural_VECM(alp,bet,Gam,res,sigma,nlags,r)
 
 % INPUTS:
 % res is (nvar,T) - residuals from the reduced form
@@ -62,7 +62,7 @@ end
 
 %Optimization Parameters
 options  = optimset('fmincon');
-options  = optimset(options, 'display', 'iter','TolFun', 1e-19);
+options  = optimset(options,'TolFun', 1e-19);
 %'TolFun', 1e-19, 'FinDiffRelStep', 1
 warning off
 %Minimization
@@ -77,9 +77,9 @@ else
       %B_opt = fmincon(obj, B_zero,[],[],[],[],[],[],[],options);
 end
 %Temporary tools to visualize the correctness of restrictions
-diff_BBp_sigma = B_opt*B_opt' - sigma
-long_restr = Xi*B_opt
-B_opt
+diff_BBp_sigma = sum(sum((B_opt*B_opt' - sigma).^2));
+long_restr = Xi*B_opt;
+B_opt;
 warning on
 
 %Setting the A matrix to obtain a SVAR functional form as follows
