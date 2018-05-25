@@ -133,13 +133,18 @@ kc2 = kc2(wstar); %small kc2 back to be original Kc2 - drop previous notation
 ki1 = ki1(wstar); %small ki1 back to be original Ki1 - drop previous notation
 ki2 = ki2(wstar); %small ki2 back to be original Ki2 - drop previous notation
 
+% Computation of NIPA-consistent GDP and TFP
+gamgdp = expgc + p*expgi;
+% gdp = yc + p*yi;
+tfp = gamgdp - 2*(1-a-b)*w -2*a*rc - 2*b*ri;
 
 %Put the ss values in a vector consistent with Y and X vectors in model.m
 xx  = [kc ki biggamc biggami ...
-    c biggamc biggami yc yi h p kc2 ki2 ki kc 0 0 0 0 0 0 0 0 0 1 ...
-    biggami biggami]; 
+    c biggamc biggami yc yi h p kc2 ki2 ki kc ri w 0 0 0 0 0 0 0 0 0 1 ...
+    biggami biggami ...
+    1]; 
 yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 p expgc expgi ...
-    expgc expgi expgc expgi 1 p expgc expgi];
+    expgc expgi expgc expgi 1 expgc/expgi expgc expgi expgc/expgi expgc gamgdp tfp];
 
 ss  = [yy xx];
 
