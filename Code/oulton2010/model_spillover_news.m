@@ -51,7 +51,7 @@ syms EXPGC EXPGC_p EXPGI EXPGI_p
 syms V0 V1 V2 V3 V4 V5 V6 V7 V8 V0_p V1_p V2_p V3_p V4_p V5_p V6_p V7_p V8_p
 syms SIT SIT_p RIS RIS_p
 syms N N_p BIGGAMITT S BIGGAMITT_p S_p
-syms GDP GDP_p TFP TFP_p ITLEV ITLEV_p GAMGDP GAMGDP_p
+syms GDP GDP_p GAMTFP GAMTFP_p ITLEV ITLEV_p GAMGDP GAMGDP_p
 syms GAMRI GAMRI_p RIL RIL_p GAMW GAMW_p WL WL_p
 
 % %Declare X and Y vectors
@@ -70,10 +70,10 @@ XP = [KC_p KI_p BIGGAMC_p BIGGAMI_p ...
 
 Y  = [YC YI C IC IT W RC RI H H1 H2 KC1 KC2 KI1 KI2 P EXPGC EXPGI ...
     GAMC GAMKI GAMYC GAMYI GAMH GAMP GAMKC2 GAMKI2 GAMRI GAMW...
-    GAMGDP TFP]; % vector of controls
+    GAMGDP GAMTFP GAMKC]; % vector of controls
 YP = [YC_p YI_p C_p IC_p IT_p W_p RC_p RI_p H_p H1_p H2_p KC1_p KC2_p KI1_p KI2_p P_p EXPGC_p EXPGI_p ...
     GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p GAMRI_p GAMW_p...
-    GAMGDP_p TFP_p] ;
+    GAMGDP_p GAMTFP_p GAMKC_p] ;
 
 %Make index variables for future use
 make_index([Y,X])
@@ -132,6 +132,7 @@ f(end+1) = GAMKC2 - KC2/KC2L*(BIGGAMCL^((1-b-gam)/(1-a-b-gam)) *BIGGAMIL^((b+gam
 f(end+1) = GAMKI2 - KI2/KI2L*(BIGGAMCL^((a)/(1-a-b-gam)) *BIGGAMIL^((1-a)/(1-a-b-gam)));
 f(end+1) = GAMRI - RI/RIL*BIGGAMCL/BIGGAMIL;
 f(end+1) = GAMW - W/WL*(BIGGAMCL^((1-b-gam)/(1-a-b-gam)) *BIGGAMIL^((b+gam)/(1-a-b-gam)));
+f(end+1) = GAMKC - KC/KCL*(BIGGAMCL^((1-b-gam)/(1-a-b-gam)) *BIGGAMIL^((b+gam)/(1-a-b-gam)));
 
 % Approach for news shocks:
 f(end+1) = V8_p;
@@ -149,9 +150,10 @@ f(end+1) = S_p - BIGGAMI_p;
 % Computation of NIPA-consistent GDP and TFP
 p = ss(p_idx); yc = ss(yc_idx); yi = ss(yi_idx);
 wi = p*yc/(yc+p*yi);
+% wi = P*YC/(YC+P*YI);
 f(end+1) = GAMGDP - (1-wi)*GAMYC - wi*GAMYI;
 % f(end+1) = GDP - GAMYC - P*GAMYI;
-f(end+1) = -TFP + GAMGDP -2*(1-a-b)*W - 2*a*RC - 2*b*RI; 
+f(end+1) = -GAMTFP + GAMGDP -(1-a-b)*GAMH - a*GAMKC - b*GAMKI; 
 % A stationary IT productivity level shock:
 f(end+1) = log(ITLEV_p) -0.8*log(ITLEV);
 

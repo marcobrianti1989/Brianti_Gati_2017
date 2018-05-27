@@ -77,7 +77,12 @@ shocknames(1, pos_ITLEV)   = {'IT productivity (level)'};
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
 varnames = {'C', 'KI', 'YC', 'YI', 'H', 'P', 'KC2', 'KI2', 'RI','W', 'GDP', 'TFP' };
 print_figs = 'no';
+return
 plot_single_simple_IRFs(IRFs,T,which_shock,shocknames, varnames, print_figs, base_path)
+
+% GDP and TFP IRFs
+IRFs_TFP_GDP = IRFs_all([gamgdp_idx, gamtfp_idx],:,:);
+plot_single_simple_IRFs(IRFs_TFP_GDP,T,which_shock,shocknames, {'GDP', 'TFP'}, print_figs, base_path)
 
 % Try to construct NIPA-consistent GDP and TFP here
 IRF_YC_level  = IRFs_all(gamyc_idx,:,:);

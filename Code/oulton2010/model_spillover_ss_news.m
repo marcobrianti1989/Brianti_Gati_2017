@@ -134,9 +134,11 @@ ki1 = ki1(wstar); %small ki1 back to be original Ki1 - drop previous notation
 ki2 = ki2(wstar); %small ki2 back to be original Ki2 - drop previous notation
 
 % Computation of NIPA-consistent GDP and TFP
-gamgdp = expgc + p*expgi;
-% gdp = yc + p*yi;
-tfp = gamgdp - 2*(1-a-b)*w -2*a*rc - 2*b*ri;
+wi = p*yc/(yc+p*yi);
+gamgdp = (1-wi)*expgc + wi*expgi;
+% gamtfp = gamgdp - (1-a-b)*0 - 2*a*expgc - 2*b*expgi; % p is also the growth rate of ri? % worse than the one below
+gamtfp = gamgdp - (1-a-b)*0 - (1-wi)*expgc - wi*expgi; % still not quite right
+
 
 %Put the ss values in a vector consistent with Y and X vectors in model.m
 xx  = [kc ki biggamc biggami ...
@@ -144,7 +146,7 @@ xx  = [kc ki biggamc biggami ...
     biggami biggami ...
     1]; 
 yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 p expgc expgi ...
-    expgc expgi expgc expgi 1 expgc/expgi expgc expgi expgc/expgi expgc gamgdp tfp];
+    expgc expgi expgc expgi 1 expgc/expgi expgc expgi expgc/expgi expgc gamgdp gamtfp expgc];
 
 ss  = [yy xx];
 
