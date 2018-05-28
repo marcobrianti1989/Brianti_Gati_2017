@@ -21,7 +21,11 @@ disp('Step 1a')
 % Generate bootstrapped data samples
 data_boot1 = data_boot(beta_hat, nburn, res, nsimul, which_correction, blocksize);
 [~, nvar, nsimul] = size(data_boot1);
-nlags = (size(beta_hat,1)-1)/nvar;
+if size(beta_hat,1)/size(beta_hat,2) == floor(size(beta_hat,1)/size(beta_hat,2))
+      nlags = (size(beta_hat,1))/nvar;
+else
+      nlags = (size(beta_hat,1)-1)/nvar;
+end
 
 beta_hat_star1 = zeros(nvar*nlags+1, nvar, nsimul);
 for i_simul = 1:nsimul

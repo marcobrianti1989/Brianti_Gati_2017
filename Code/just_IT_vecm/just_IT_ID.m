@@ -26,7 +26,7 @@ gam_opt = fmincon(obj, gam_zero,[],[],Aeq,Beq,[],[],@(gam) constraint_orthogonal
 impact_IT_opt = objective_just_IT(which_variable,A,gam_opt);
 impact_IT_opt     = - impact_IT_opt;
 
-if impact_IT_opt > 1 || (gam_opt'*gam_opt - 1)^2 > 10^(-10) || gam_opt(1)^2 > 10^(-12)
+if (gam_opt'*gam_opt - 1)^2 > 10^(-10) || gam_opt(1)^2 > 10^(-12)
     warning('The problem is not consistent with the constraints.')
 end
 

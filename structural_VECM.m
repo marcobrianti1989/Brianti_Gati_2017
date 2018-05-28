@@ -42,58 +42,76 @@ Xi = betT*(alpT'*G*betT)^(-1)*alpT'; %(nvar,nvar) % This line is based on Chiawa
 obj = @(B) LL_VECM(T,B,sigma);
 %sum(sum(T/2*log(B.^2) + T/2*trace((B')^(-1)*B^(-1)*sigma)));
 
-%Constraint that r(r-1)/2 elements of B must be zero.
-if r > 1
-      Me       = r*(r-1)/2; %  Me = no. of equality constraints. It must be r*(r - 1)/2 in a VECM
-      Beq      = zeros(Me,1); % Beq is (Me x 1) where
-      Aeq      = zeros(Me,nvar*nvar); % Aeq is (Me x (nvar*nvar)) - it is B vectorized
-      %element_restricted = 2; %Coordinate to set the element equal to zero. It should ...
-      % go from one to nvar*nvar since the contraint is a big vector.
-      Aeq(:,end-Me+1:end) = eye(Me); %zero-impact restriction(s)
-end
-% NOTICE. For some reasons which I am not fully understannding I can only
-% impose independent restrictions of the first column of B, i.e.
-% element_restricted can go from 1 to 3. If it is 4, 5, or 6 then the
-% second column of B is zero. If it is 7, 8, or 9 then the third column of B is
-% zero. My intuition is that it may be related to the long run
-% restrictions. The zeros in Xi*B may imply that setting a zero in a specific element of
-% some column of B implies that all the column will be zero for
-% cointegration. In any case, I need more thoughts on it.
-
-%Optimization Parameters
-options  = optimset('fmincon');
-options  = optimset(options,'TolFun', 1e-19);
-%'TolFun', 1e-19, 'FinDiffRelStep', 1
-warning off
-%Minimization
-B_zero = randn(nvar,nvar);
-if r > 1
-      %B_opt = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],[],options);
-      B_opt  = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],@(B) ...
-            constraint_long(B,Xi,r,nvar),options);
-      %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
-else
-      B_opt = fmincon(obj, B_zero,[],[],[],[],[],[],@(B) constraint_long(B,Xi,r,nvar),options);
-      %B_opt = fmincon(obj, B_zero,[],[],[],[],[],[],[],options);
-end
-%Temporary tools to visualize the correctness of restrictions
-diff_BBp_sigma = sum(sum((B_opt*B_opt' - sigma).^2));
-long_restr = Xi*B_opt;
-B_opt;
-warning on
-
-%Setting the A matrix to obtain a SVAR functional form as follows
-% y(t) = A1*y(t-1) + ... + Ap*y(t-p) + B*eps(t)
-% Again, I am followinf Lutkepohl (2005)
-A = zeros(nvar,nvar*(nlags+1));
-A(:,1:nvar) = alp*bet' + eye(nvar) + Gam(:,1:nvar);
-if nlags >= 2
-      for i_lags = 1:nlags-1
-            A(:,(i_lags*nvar)+1:(i_lags+1)*nvar) = ...
-                  Gam(:,(i_lags*nvar)+1:(i_lags+1)*nvar) ...
-                  - Gam(:,((i_lags-1)*nvar)+1:i_lags*nvar);
+%We need to add 1/2*nvar(nvar - 1) - r*(nvar - r) zero impact restrictions
+%In particular,
+%1. r*(r - 1)/2 must be add on temporary shocks
+%2. (nvar - r)*(nvar - r - 1)/2 must be add on permanent shocks
+%Me1: number of impact restrictions for temporary shocks
+%Me2: number of impact restrictions for permanent shocks
+if r > 1 && nvar > r + 1 %We need restrictions for both permanent and temporary
+      Me1                                    = r*(r-1)/2; %  Me = no. of equality constraints.
+      Me2                                    = (nvar-r)*(nvar-r-1)/2;
+      Me                                     = Me1 + Me2; %  Me = no. of equality constraints.
+      Beq                                    = zeros(Me,1); % Beq is (Me x 1)
+      Aeq                                    = zeros(Me,nvar*nvar); % Aeq is (Me x (nvar*nvar)) - it is B vectorized
+      Aeq(1:Me2,1:(nvar-r)*(nvar-r-1)/2)     = eye(Me2); %zero-impact restriction(s) permanent shocks
+      Aeq(Me2+1:Me,end-Me1+1:end)            = eye(Me1); %zero-impact restriction(s) temporary shocks
+elseif r > 1 && nvar <= r + 1 %We need restrictions only for temporary
+      Me1                                    = r*(r-1)/2; %  Me = no. of equality constraints.
+      Me2                                    = 0;
+      Me                                     = Me1 + Me2;
+      Beq                                    = zeros(Me,1); % Beq is (Me x 1)
+      Aeq                                    = zeros(Me,nvar*nvar); % Aeq is (Me x (nvar*nvar)) - it is B vectorized
+      Aeq(Me2+1:Me,end-Me1+1:end)            = eye(Me); %zero-impact restriction(s)
+elseif r == 1 && nvar > r + 1 %We need restrictions only for permanent
+      Me1                                    = 0;
+      Me2                                    = (nvar-r)*(nvar-r-1)/2;
+      Me                                     = Me1 + Me2; %  Me = no. of equality constraints.
+      Beq                                    = zeros(Me,1); % Beq is (Me x 1)
+      Aeq                                    = zeros(Me,nvar*nvar); % Aeq is (Me x (nvar*nvar)) - it is B vectorized
+      regular = 0;
+      if regular == 1
+            Aeq(1:Me2,1:(nvar-r)*(nvar-r-1)/2)     = eye(Me2); %zero-impact restriction(s) permanent shocks
+      else
+            disp('In the VECM you are doing something identification-specific')
+            Aeq(1,1) = 1;
+            Aeq(2,nvar+1) = 1;
+            Aeq(3,nvar*2+1) = 1;
       end
-end
-A(:,(nlags*nvar)+1:nvar*(nlags+1)) = - Gam(:,((nlags-1)*nvar)+1:nlags*nvar);
-
+      
+      %Optimization Parameters
+      options  = optimset('fmincon');
+      options  = optimset(options,'TolFun', 1e-19);
+      %'TolFun', 1e-19, 'FinDiffRelStep', 1
+      warning off
+      %Minimization
+      B_zero = randn(nvar,nvar);
+      if r == 1 && nvar <= r + 1 %We do not need impact restrictions
+            B_opt = fmincon(obj, B_zero,[],[],[],[],[],[],@(B) constraint_long(B,Xi,r,nvar),options);
+      else %We need some sort of impact restrictions
+            B_opt  = fmincon(obj, B_zero,[],[],Aeq,Beq,[],[],@(B) ...
+                  constraint_long(B,Xi,r,nvar),options);
+            %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
+      end
+      
+      %Temporary tools to visualize the correctness of restrictions
+      diff_BBp_sigma = sum(sum((B_opt*B_opt' - sigma).^2));
+      long_restr = Xi*B_opt;
+      B_opt;
+      warning on
+      
+      %Setting the A matrix to obtain a SVAR functional form as follows
+      % y(t) = A1*y(t-1) + ... + Ap*y(t-p) + B*eps(t)
+      % Again, I am followinf Lutkepohl (2005)
+      A = zeros(nvar,nvar*(nlags+1));
+      A(:,1:nvar) = alp*bet' + eye(nvar) + Gam(:,1:nvar);
+      if nlags >= 2
+            for i_lags = 1:nlags-1
+                  A(:,(i_lags*nvar)+1:(i_lags+1)*nvar) = ...
+                        Gam(:,(i_lags*nvar)+1:(i_lags+1)*nvar) ...
+                        - Gam(:,((i_lags-1)*nvar)+1:i_lags*nvar);
+            end
+      end
+      A(:,(nlags*nvar)+1:nvar*(nlags+1)) = - Gam(:,((nlags-1)*nvar)+1:nlags*nvar);
+      
 end

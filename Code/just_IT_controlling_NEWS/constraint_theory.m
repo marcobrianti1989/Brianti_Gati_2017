@@ -8,6 +8,6 @@
          if size(R_rel_prices,2) == 1
                R_rel_prices = R_rel_prices';
          end
-         ceq = [gam'*gam, (R_rel_prices*gam)'] - [1,zeros(1,size(R_rel_prices,1))];  
+         ceq = [gam'*gam, (R_rel_prices*gam)'] - [1, zeros(1,size(R_rel_prices,1))];  
          
    end

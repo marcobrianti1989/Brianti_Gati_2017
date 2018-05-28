@@ -5,6 +5,18 @@
 clear
 close all
 
+current_dir = pwd;
+cd ../.. % go up 2 levels
+base_path = pwd;
+cd(current_dir)
+addpath(base_path)
+
+if exist([base_path '\Data'], 'dir')
+      addpath([base_path '\Data']) %for Microsoft
+else
+      addpath([base_path '/Data']) %for Mac
+end
+
 %Data Reading and Transformation
 filename = 'dataset_main';
 sheet    = 'Data';
@@ -40,6 +52,11 @@ while diff_BBp_sigma >= 10^(-6)
     [B, Xi, A, diff_BBp_sigma] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
     diff_BBp_sigma
 end
+
+% Implement the "just IT" ID strategy in a VAR
+which_variable = 3;
+which_shock = 1;
+[impact, impact_IT_opt, gam_opt]  = just_IT_ID(which_variable,which_shock,B);
 
 return
 close all

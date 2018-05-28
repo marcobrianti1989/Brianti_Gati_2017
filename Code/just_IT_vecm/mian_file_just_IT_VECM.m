@@ -5,7 +5,7 @@
 % Code by Marco Brianti and Laura Gati, Boston College, 2018
 %**************************************************************
 
-clear 
+clear
 close all
 
 current_dir = pwd;
@@ -48,7 +48,7 @@ if find(strcmp('Relative Price', varnames)) > 0
 elseif find(strcmp('Relative price PCE', varnames))
       pos_rel_prices = find(strcmp('Relative price PCE', varnames));
 end
-which_shock = [pos_IT];
+
 
 %Technical Parameters
 max_lags        = 10;
@@ -61,24 +61,31 @@ H               = 100; %40; % horizon for generation of IRFs
 h               = H; %40; % horizon for IRF plots
 which_variable  = pos_IT; % select IT as the variable whose FEV we wanna max
 
-
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
 [AIC,BIC,HQ] = aic_bic_hq(data,max_lags);
 if AIC >= 4
-      nlags = 1; % 2;
+      nlags = 2; % 2;
       warning(['AIC > 4, setting nlags to ', num2str(nlags) ])
 else
       nlags = AIC;
 end
 
+[LR_MET LR_TT] = Johansen_Test(data, nlags);
+
 %Run reduced form VECM
-r = nvar-1; %number of cointegrating vectors. If there is just one trend then...
+r = 1; %number of cointegrating vectors. If there is just one trend then...
 %we have just one permanent shock and all the others shocks are temporary.
 %This is the reason why we have nvar-1 cointegrating relationships.
 [alph_hat,bet_hat,Pi,Gam_hat,res,sigma] = redu_VECM(data, nlags, r);
 
 %Run structural VECM
-[B, Xi, A] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
+diff_BBp_sigma = 1;
+j = 0;
+while diff_BBp_sigma >= 10^(-6)
+      j = j + 1
+      [B, Xi, A, check] = structural_VECM(alph_hat,bet_hat,Gam_hat,res,sigma,nlags,r);
+      diff_BBp_sigma
+end
 
 % Implement the "just IT" ID strategy in a VAR
 [impact, impact_IT_opt, gam_opt]  = just_IT_ID(which_variable,which_shock,B);
@@ -93,24 +100,24 @@ A  = [zeros(size(A,1),1) A];
       bootstrap_with_kilian_VECM(A', nburn, res', ...
       nsimul, which_correction, blocksize,r);
 
- 
+
 % Get "bootstrapped A" nsimul times
 for i_simul=1:nsimul
-    %Run reduced form VECM
+      %Run reduced form VECM
       [alph_hat_boot(:,:,i_simul),bet_hat_boot(:,:,i_simul),...
-          Pi_boot(:,:,i_simul),Gam_hat_boot(:,:,i_simul),...
-          res_boot(:,:,i_simul),sigma_boot(:,:,i_simul)] ...
-          = redu_VECM(data_boot2(:,:,i_simul), nlags, r);
+            Pi_boot(:,:,i_simul),Gam_hat_boot(:,:,i_simul),...
+            res_boot(:,:,i_simul),sigma_boot(:,:,i_simul)] ...
+            = redu_VECM(data_boot2(:,:,i_simul), nlags, r);
       %Run structural VECM
-[B_boot(:,:,i_simul), Xi_boot(:,:,i_simul), A_boot(:,:,i_simul)] ...
-    = structural_VECM(alph_hat_boot(:,:,i_simul),bet_hat_boot(:,:,i_simul),...
-    Gam_hat_boot(:,:,i_simul),res_boot(:,:,i_simul),sigma_boot(:,:,i_simul),...
-    nlags,r);
-
-% Implement the "just IT" ID strategy in a VAR
-      disp(['Iteration ' num2str(i_simul) ' out of ' num2str(nsimul)])   
-     [impact_boot(:,i_simul), ~, ~]  ...
-         = just_IT_ID(which_variable,which_shock,B_boot(:,:,i_simul));
+      [B_boot(:,:,i_simul), Xi_boot(:,:,i_simul), A_boot(:,:,i_simul)] ...
+            = structural_VECM(alph_hat_boot(:,:,i_simul),bet_hat_boot(:,:,i_simul),...
+            Gam_hat_boot(:,:,i_simul),res_boot(:,:,i_simul),sigma_boot(:,:,i_simul),...
+            nlags,r);
+      
+      % Implement the "just IT" ID strategy in a VAR
+      disp(['Iteration ' num2str(i_simul) ' out of ' num2str(nsimul)])
+      [impact_boot(:,i_simul), ~, ~]  ...
+            = just_IT_ID(which_variable,which_shock,B_boot(:,:,i_simul));
 end
 
 %Creating a fake matrix for the IRF of the point estimation
