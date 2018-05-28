@@ -34,6 +34,8 @@ elseif find(strcmp('Relative price PCE', varnames))
 end
 which_shocks = [pos_news pos_IT];
 
+return
+
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
