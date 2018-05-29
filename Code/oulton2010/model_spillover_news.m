@@ -164,11 +164,9 @@ f(end+1) = S_p - BIGGAMI_p;
 p = ss(p_idx); yc = ss(yc_idx); yi = ss(yi_idx); 
 wi = p*yc/(yc+p*yi);
 % wi = P*YC/(YC+P*YI);
-f(end+1) = GAMGDP - (1-wi)*GAMYC - wi*GAMYI;
-f(end+1) = -GAMTFP + gam*GAMKI + (1-wi)*BIGGAMC + wi*BIGGAMI; % A correct formulation for TFP growth
-% f(end+1) = -GAMTFP + GAMGDP ...
-%     - (1-wi)*((1-a-b)*GAMH1 + a*GAMKC1 + b*GAMKI1) ...
-%     -    wi *((1-a-b)*GAMH2 + a*GAMKC2 + b*GAMKI2); % An alternative formulation for TFP growth - should be equivalent but isn't?
+f(end+1) = GAMGDP - GAMYC^(1-wi) * GAMYI^wi; 
+% f(end+1) = -GAMTFP + GAMKI^gam * BIGGAMC^(1-wi) * BIGGAMI^wi; % One way to capture TFP
+f(end+1) = -GAMTFP + GAMGDP / ((GAMH1^(1-a-b)*GAMKC1^a*GAMKI1^b)^(1-wi)*(GAMH2^(1-a-b)*GAMKC2^a*GAMKI2^b)^wi); % alternative
 % A stationary IT productivity level shock:
 f(end+1) = log(ITLEV_p) -0.8*log(ITLEV);
 

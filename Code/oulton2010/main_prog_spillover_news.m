@@ -51,17 +51,21 @@ pos_news    = v8_idx - njumps;
 pos_N       = n_idx - njumps;
 pos_noise   = biggamitt_idx - njumps; %preliminary noise shock
 T = 40;
+eta = eye(nshocks);
+eta(pos_BIGGAMI,pos_BIGGAMI) = param.siggami;
+eta(pos_ITLEV,pos_ITLEV)     = param.sigitlev;
 IRFs_all = zeros(nvar, T, nshocks);
 for s=1:nshocks
     x0 = zeros(nshocks,1); % impulse vector
     x0(s) = 1;
-    [IR, iry, irx]=ir(gx,hx,x0,T);
+    [IR, iry, irx]=ir(gx,hx,eta*x0,T);
     % To get levels, we need to cumsum all except RC, H, H1, H2 
     IR(:,gamc_idx:njumps) = cumsum(IR(:,gamc_idx:njumps));
     IRFs_all(:,:,s) = IR'; 
 end
 % Gather IRFs of interest:
-IRFs = IRFs_all(gamc_idx:njumps,:,:);
+IRFs = IRFs_all(gamc_idx:gamtfp_idx,:,:);
+IRFs_TFP_GDP = IRFs_all([gamgdp_idx, gamtfp_idx],:,:);
 
 which_shock                = pos_ITLEV;
 shocknames                 = cell(1,size(hx,1));
@@ -74,26 +78,14 @@ shocknames(1, pos_N)       = {'Surprise common component'};
 shocknames(1, pos_noise)   = {'Noise'};
 shocknames(1, pos_ITLEV)   = {'IT productivity (level)'};
 
+print_figs = 'no';
+
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
 varnames = {'C', 'KI', 'YC', 'YI', 'H', 'P', 'KC2', 'KI2', 'RI','W', 'GDP', 'TFP' };
-print_figs = 'no';
 return
 plot_single_simple_IRFs(IRFs,T,which_shock,shocknames, varnames, print_figs, base_path)
 
-% GDP and TFP IRFs
-IRFs_TFP_GDP = IRFs_all([gamgdp_idx, gamtfp_idx],:,:);
+% GDP and TFP IRFs alone
 plot_single_simple_IRFs(IRFs_TFP_GDP,T,which_shock,shocknames, {'GDP', 'TFP'}, print_figs, base_path)
 
-% Try to construct NIPA-consistent GDP and TFP here
-IRF_YC_level  = IRFs_all(gamyc_idx,:,:);
-IRF_YI_level  = IRFs_all(gamyi_idx,:,:);
-IRF_P_level   = IRFs_all(gamp_idx,:,:);
-IRF_GDP_level       = IRF_YC_level + IRF_YI_level.*IRF_P_level;
-plot_single_simple_IRFs(IRF_GDP_level,T,which_shock,shocknames, {'GDP'}, print_figs, base_path)
 
-a = param.a; b = param.b;
-IRF_RC        = IRFs_all(rc_idx,:,:);
-IRF_RI_level  = IRFs_all(gamri_idx,:,:);
-IRF_W_level   = IRFs_all(gamw_idx,:,:);
-IRF_TFP_level = IRF_GDP_level - 2*(1-a-b)*IRF_W_level -2*a*IRF_RC -2*b*IRF_RI_level; 
-plot_single_simple_IRFs(IRF_TFP_level,T,which_shock,shocknames, {'TFP'}, print_figs, base_path)
