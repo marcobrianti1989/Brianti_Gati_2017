@@ -23,9 +23,9 @@ data_boot1 = data_boot(beta_hat, nburn, res, nsimul, which_correction, blocksize
 
 [~, nvar, nsimul] = size(data_boot1);
 if size(beta_hat,1)/size(beta_hat,2) == floor(size(beta_hat,1)/size(beta_hat,2))
-      nlags = (size(beta_hat,1))/nvar;
+      nlags = (size(beta_hat,1))/nvar - 1;
 else
-      nlags = (size(beta_hat,1)-1)/nvar;
+      nlags = (size(beta_hat,1)-1)/nvar - 1;
 end
 
 beta_hat_star1 = zeros(nvar*nlags+1, nvar, nsimul);
@@ -38,20 +38,21 @@ for i_simul = 1:nsimul
       % y(t) = A1*y(t-1) + ... + Ap*y(t-p) + B*eps(t)
       % Again, I am followinf Lutkepohl (2005)
       beta_hat_star1 = zeros(nvar,nvar*(nlags+1),nsimul);
-      beta_hat_star1(:,1:nvar) = ...
+      beta_hat_star1(:,1:nvar,i_simul) = ...
             alph_hat_star1(:,:,i_simul)*bet_hat_star1(:,:,i_simul)' ...
             + eye(nvar) + Gam_hat_star1(:,1:nvar,i_simul);
       if nlags >= 2
             for i_lags = 1:nlags-1
-                  beta_hat_star1(:,(i_lags*nvar)+1:(i_lags+1)*nvar) = ...
+                  beta_hat_star1(:,(i_lags*nvar)+1:(i_lags+1)*nvar,i_simul) = ...
                         Gam_hat_star1(:,(i_lags*nvar)+1:(i_lags+1)*nvar,i_simul) ...
                         - Gam_hat_star1(:,((i_lags-1)*nvar)+1:i_lags*nvar,i_simul);
             end
       end
-      beta_hat_star1(:,(nlags*nvar)+1:nvar*(nlags+1)) = ...
+      beta_hat_star1(:,(nlags*nvar)+1:nvar*(nlags+1),i_simul) = ...
             - Gam_hat_star1(:,((nlags-1)*nvar)+1:nlags*nvar,i_simul);
 end
 
+beta_hat_star1 = permute(beta_hat_star1,[2 1 3]);
 psi_hat1 = mean(beta_hat_star1,3) - beta_hat;
 
 % Step 1b
