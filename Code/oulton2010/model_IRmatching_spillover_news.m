@@ -135,7 +135,7 @@ f(end+1) = S_p - BIGGAMI_p;
 %Log-linear approx
 xlog = 1:length(X);
 ylog = 1:length(Y);
-% log_var = [X(xlog) Y(ylog) XP(xlog) YP(ylog)];
+%log_var = [X(xlog) Y(ylog) XP(xlog) YP(ylog)];
 log_var = [];
 
 disp(['neq: ' num2str(length(f))]);
