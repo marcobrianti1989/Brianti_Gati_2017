@@ -24,12 +24,14 @@ param = parameters;
 
 %Compute the first-order coefficiencients of the model
 [fyn, fxn, fypn, fxpn] = model_spillover_news(param);
+save checking_f.mat fxn  % save fxn so you can compare other fx's obtained by other codes.
 
 %Compute the transition and policy functions, using code by
 %Stephanie Schmitt-Grohé and Martín Uribe (and available on their wedsite.)
 [gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
 
 save('gxhx.mat', 'gx', 'hx')
+return
 save('indexes.mat', '*_idx')
 
 %Eigenvalues of hx
@@ -67,7 +69,7 @@ end
 IRFs = IRFs_all(gamc_idx:gamtfp_idx,:,:);
 IRFs_TFP_GDP = IRFs_all([gamgdp_idx, gamtfp_idx],:,:);
 
-which_shock                = pos_ITLEV;
+which_shock                = pos_BIGGAMI;
 shocknames                 = cell(1,size(hx,1));
 shocknames(1,pos_KC)       = {'KC'};
 shocknames(1,pos_KI)       = {'KI'};

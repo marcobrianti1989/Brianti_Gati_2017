@@ -198,7 +198,10 @@ str = '%Evaluate F.';
 fprintf(f, '%s\n', str);
 
 model.f = subs(model.f, [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)],...
-    log([model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]));
+    [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]);
+% L: taking out the log for now and ask Ryan about this!
+% model.f = subs(model.f, [model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)],...
+%     log([model.X(model.xlog), model.Y(model.ylog),model.XP(model.xlog), model.YP(model.ylog)]));
 
 str = ['f = ' symmat_print(model.f) ';'];
 fprintf(f, '%s\n', str);
