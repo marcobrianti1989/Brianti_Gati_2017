@@ -1,5 +1,56 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citeauthoryear{Anzoategui, Comin, Gertler, and
+  Martinez}{Anzoategui et~al.}{2016}]{anzoategui2016endogenous}
+Anzoategui, D., D.~Comin, M.~Gertler, and J.~Martinez (2016).
+\newblock Endogenous technology adoption and r\&d as sources of business cycle
+  persistence.
+\newblock Technical report, National Bureau of Economic Research.
+
+\bibitem[\protect\citeauthoryear{Bianchi, Kung, and Morales}{Bianchi
+  et~al.}{2014}]{bianchi2014growth}
+Bianchi, F., H.~Kung, and G.~Morales (2014).
+\newblock Growth, slowdowns, and recoveries.
+\newblock Technical report, National Bureau of Economic Research.
+
+\bibitem[\protect\citeauthoryear{Bloom, Jones, Van~Reenen, and Webb}{Bloom
+  et~al.}{2017}]{bloom2017ideas}
+Bloom, N., C.~I. Jones, J.~Van~Reenen, and M.~Webb (2017).
+\newblock Are ideas getting harder to find?
+\newblock Technical report, National Bureau of Economic Research.
+
+\bibitem[\protect\citeauthoryear{Byrne, Fernald, and Reinsdorf}{Byrne
+  et~al.}{2016}]{byrne2016does}
+Byrne, D.~M., J.~G. Fernald, and M.~B. Reinsdorf (2016).
+\newblock Does the united states have a productivity slowdown or a measurement
+  problem?
+\newblock {\em Brookings Papers on Economic Activity\/}~{\em 2016\/}(1),
+  109--182.
+
+\bibitem[\protect\citeauthoryear{Cette, Fernald, and Mojon}{Cette
+  et~al.}{2016}]{cette2016pre}
+Cette, G., J.~Fernald, and B.~Mojon (2016).
+\newblock The pre-great recession slowdown in productivity.
+\newblock {\em European Economic Review\/}~{\em 88}, 3--20.
+
+\bibitem[\protect\citeauthoryear{Comin and Gertler}{Comin and
+  Gertler}{2006}]{comin2006medium}
+Comin, D. and M.~Gertler (2006).
+\newblock Medium-term business cycles.
+\newblock {\em American Economic Review\/}~{\em 96\/}(3), 523--551.
+
+\bibitem[\protect\citeauthoryear{Grossman and Helpman}{Grossman and
+  Helpman}{1991}]{grossman1991quality}
+Grossman, G.~M. and E.~Helpman (1991).
+\newblock Quality ladders in the theory of growth.
+\newblock {\em The Review of Economic Studies\/}~{\em 58\/}(1), 43--61.
+
+\bibitem[\protect\citeauthoryear{Jones}{Jones}{2009}]{jones2009burden}
+Jones, B.~F. (2009).
+\newblock The burden of knowledge and the “death of the renaissance man”:
+  Is innovation getting harder?
+\newblock {\em The Review of Economic Studies\/}~{\em 76\/}(1), 283--317.
+
 \bibitem[\protect\citeauthoryear{Kydland and Prescott}{Kydland and
   Prescott}{1982}]{kydland1982time}
 Kydland, F.~E. and E.~C. Prescott (1982).
@@ -11,5 +62,17 @@ Kydland, F.~E. and E.~C. Prescott (1982).
 Long~Jr, J.~B. and C.~I. Plosser (1983).
 \newblock Real business cycles.
 \newblock {\em Journal of political Economy\/}~{\em 91\/}(1), 39--69.
+
+\bibitem[\protect\citeauthoryear{Moran and Queralto}{Moran and
+  Queralto}{2017}]{moran2017innovation}
+Moran, P. and A.~Queralto (2017).
+\newblock Innovation, productivity, and monetary policy.
+\newblock {\em Journal of Monetary Economics\/}.
+
+\bibitem[\protect\citeauthoryear{Romer}{Romer}{1990}]{romer1990endogenous}
+Romer, P.~M. (1990).
+\newblock Endogenous technological change.
+\newblock {\em Journal of political Economy\/}~{\em 98\/}(5, Part 2),
+  S71--S102.
 
 \end{thebibliography}
