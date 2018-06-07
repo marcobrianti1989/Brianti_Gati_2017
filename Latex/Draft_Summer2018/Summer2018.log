@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  7 JUN 2018 11:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  7 JUN 2018 17:43
 entering extended mode
 **./Summer2018.tex
 (Summer2018.tex
@@ -1169,11 +1169,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 104.
 Here is how much of TeX's memory you used:
  19122 strings out of 493323
  350478 string characters out of 3139072
- 425884 words of memory out of 3000000
+ 426884 words of memory out of 3000000
  22247 multiletter control sequences out of 15000+200000
  15881 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,54p,1318b,452s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,8n,54p,1327b,450s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
@@ -1183,7 +1183,7 @@ blic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 msy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb
 >
-Output written on Summer2018.pdf (5 pages, 142018 bytes).
+Output written on Summer2018.pdf (5 pages, 142097 bytes).
 PDF statistics:
  149 PDF objects out of 1000 (max. 8388607)
  29 named destinations out of 1000 (max. 500000)
