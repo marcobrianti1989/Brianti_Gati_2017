@@ -88,7 +88,7 @@ set = struct2array(set);
 
 %Test intial values
 [f, fx, fy, fxp, fyp, G, R, set]=model_prog(param0,set); % --->>>>> this is specific to BriantiGati2017
-[gx,hx]=gx_hx_alt(fy,fx,fyp,fxp); % No eq. exists?? WTF??? Problem is we're getting only 13 (instead of 27) stable eigs.
+[gx,hx]=gx_hx_alt(fy,fx,fyp,fxp); 
 
 %load checking_f % fx = fxn from the earlier solution of the model, cool
 
@@ -200,7 +200,7 @@ wlf = objective_IRmatching(param0,set,Sy,Sx,T_VAR,psi_hat,100000*W);
 
 disp 'Evaluated loss once.'
 
-dbstop in objective_IRmatching if error
+% dbstop in objective_IRmatching if error
 % dbstop in model_prog at 97 if isreal(objw(wx0)) == 0
 % dbstop in objective_IRmatching at 5
 
@@ -209,6 +209,9 @@ objj = @(param) objective_IRmatching(param,set,Sy,Sx,T_VAR,psi_hat,100000*W);
 %   [gam; sigma_IT; rho_IT]
 LB = [.05,   .01,   0.1];
 UB = [0.6,    100,   0.9];
+% %   [a;        b;    gam; sigma_IT; rho_IT]
+% LB = [0.01,  0.01,   .05,  .01,     0.1];
+% UB = [0.5,   0.5,   0.6,    100,    0.9];
 [param_opt,obj_opt] = fmincon(objj, param0,[],[],[],[],LB,UB,[],options);
 % X = fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
 toc
@@ -221,23 +224,33 @@ ir_IT(:,gamc_idx:ny) = cumsum(ir_IT(:,gamc_idx:ny));
 ir_matched = ir_IT(:,[gamtfp_idx gamyi_idx gamc_idx gamp_idx]);
 ir_matched = ir_matched';
 
+% Before printing the figs and so, re-add all the relevant paths because
+% loading workspaces screws them up
+current_dir = pwd;
+cd ../.. % go up 2 levels
+base_path = pwd;
+cd(current_dir)
+addpath(base_path)
+
+if exist([base_path '\Code'], 'dir')
+    addpath([base_path '\Code\just_IT_vecm']) %for Microsoft
+else
+    addpath([base_path '/Code/just_IT_vecm']) %for Mac
+end
 
 print_figs ='no'; % there's something weird going on with the base_path and print_figs, as well as with the printing, so need to fix that!
 plot_single_simple_IRFs(ir_matched,T_VAR,1,shocknames, {'TFP','IT inv', 'C', 'RP'}, print_figs, base_path, 'IRmatching')
 
 param_names = {'gam', 'sigitlev', 'rhoitlev'};
+% param_names = {'a', 'b', 'gam', 'sigitlev', 'rhoitlev'};
+todays_date = datestr(today);
 
 save_results = 'no';
 switch save_results
     case 'yes'
-        save IR_matching_results.mat param_names param_opt gx hx G ir_matched T_VAR base_path shocknames print_figs
+        save IR_matching_results.mat param_names param_opt gx hx G ir_matched T_VAR base_path shocknames print_figs todays_date
 end 
 
 
-
+cd(current_dir)
 disp('Done.')
-
-return
-clear
-load IR_matching_results
-plot_single_simple_IRFs(ir_matched,T_VAR,1,shocknames, {'TFP','IT inv', 'C', 'RP'}, 'no', base_path, 'IRmatching')
