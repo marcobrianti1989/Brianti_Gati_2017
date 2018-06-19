@@ -20,6 +20,11 @@ Basu, S. and J.~Fernald (2007).
   technology: Evidence from us industry data.
 \newblock {\em German Economic Review\/}~{\em 8\/}(2), 146--173.
 
+\bibitem[\protect\citeauthoryear{Basu, Fernald, Fisher, and Kimball}{Basu
+  et~al.}{2010}]{basu2010sector}
+Basu, S., J.~Fernald, J.~Fisher, and M.~Kimball (2010).
+\newblock Sector-specific technical change.
+
 \bibitem[\protect\citeauthoryear{Bianchi, Kung, and Morales}{Bianchi
   et~al.}{2014}]{bianchi2014growth}
 Bianchi, F., H.~Kung, and G.~Morales (2014).
@@ -31,6 +36,12 @@ Bianchi, F., H.~Kung, and G.~Morales (2014).
 Bloom, N., C.~I. Jones, J.~Van~Reenen, and M.~Webb (2017).
 \newblock Are ideas getting harder to find?
 \newblock Technical report, National Bureau of Economic Research.
+
+\bibitem[\protect\citeauthoryear{Bresnahan and Trajtenberg}{Bresnahan and
+  Trajtenberg}{1992}]{bresnahan1992general}
+Bresnahan, T. and M.~Trajtenberg (1992).
+\newblock General purpose technologies:―engines of growth?‖ national bureau
+  of economic research working paper no. 4148.
 
 \bibitem[\protect\citeauthoryear{Byrne, Fernald, and Reinsdorf}{Byrne
   et~al.}{2016}]{byrne2016does}
@@ -52,10 +63,11 @@ Comin, D. and M.~Gertler (2006).
 \newblock Medium-term business cycles.
 \newblock {\em American Economic Review\/}~{\em 96\/}(3), 523--551.
 
-\bibitem[\protect\citeauthoryear{Fernald, Fisher, and Kimball}{Fernald
-  et~al.}{2010}]{basu2010sector}
-Fernald, J., J.~Fisher, and M.~Kimball (2010).
-\newblock Sector-specific technical change.
+\bibitem[\protect\citeauthoryear{Fernald, Hall, Stock, and Watson}{Fernald
+  et~al.}{2017}]{fernald2017disappointing}
+Fernald, J.~G., R.~E. Hall, J.~H. Stock, and M.~W. Watson (2017).
+\newblock The disappointing recovery of output after 2009.
+\newblock Technical report, National Bureau of Economic Research.
 
 \bibitem[\protect\citeauthoryear{Fisher}{Fisher}{2006}]{fisher2006dynamic}
 Fisher, J.~D. (2006).
@@ -94,6 +106,18 @@ Jones, B.~F. (2009).
   Is innovation getting harder?
 \newblock {\em The Review of Economic Studies\/}~{\em 76\/}(1), 283--317.
 
+\bibitem[\protect\citeauthoryear{Jorgenson, Ho, and Stiroh}{Jorgenson
+  et~al.}{2008}]{jorgenson2008retrospective}
+Jorgenson, D.~W., M.~S. Ho, and K.~J. Stiroh (2008).
+\newblock A retrospective look at the us productivity growth resurgence.
+\newblock {\em Journal of Economic Perspectives\/}~{\em 22\/}(1), 3--24.
+
+\bibitem[\protect\citeauthoryear{Justiniano, Primiceri, and
+  Tambalotti}{Justiniano et~al.}{2011}]{justiniano2011investment}
+Justiniano, A., G.~E. Primiceri, and A.~Tambalotti (2011).
+\newblock Investment shocks and the relative price of investment.
+\newblock {\em Review of Economic Dynamics\/}~{\em 14\/}(1), 102--121.
+
 \bibitem[\protect\citeauthoryear{Kydland and Prescott}{Kydland and
   Prescott}{1982}]{kydland1982time}
 Kydland, F.~E. and E.~C. Prescott (1982).
@@ -111,6 +135,18 @@ Long~Jr, J.~B. and C.~I. Plosser (1983).
 Moran, P. and A.~Queralto (2017).
 \newblock Innovation, productivity, and monetary policy.
 \newblock {\em Journal of Monetary Economics\/}.
+
+\bibitem[\protect\citeauthoryear{Oliner, Sichel, and Stiroh}{Oliner
+  et~al.}{2007}]{oliner2007explaining}
+Oliner, S.~D., D.~E. Sichel, and K.~J. Stiroh (2007).
+\newblock Explaining a productive decade.
+\newblock {\em Brookings papers on economic activity\/}~{\em 2007\/}(1),
+  81--137.
+
+\bibitem[\protect\citeauthoryear{Oulton}{Oulton}{2007}]{oulton2007investment}
+Oulton, N. (2007).
+\newblock Investment-specific technological change and growth accounting.
+\newblock {\em Journal of Monetary Economics\/}~{\em 54\/}(4), 1290--1299.
 
 \bibitem[\protect\citeauthoryear{Romer}{Romer}{1990}]{romer1990endogenous}
 Romer, P.~M. (1990).
