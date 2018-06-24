@@ -28,11 +28,12 @@ clear
 close all
 disp('Running IR matching. Don''t forget to edit specific parts.')
 tic
-% Add all the relevant paths
+%% Add all the relevant paths
 current_dir = pwd;
 cd ../.. % go up 2 levels
 base_path = pwd;
 cd(current_dir)
+
 addpath(base_path)
 
 if exist([base_path '\Code'], 'dir')
@@ -238,8 +239,8 @@ else
     addpath([base_path '/Code/just_IT_vecm']) %for Mac
 end
 
-print_figs ='no'; % there's something weird going on with the base_path and print_figs, as well as with the printing, so need to fix that!
-plot_single_simple_IRFs(ir_matched,T_VAR,1,shocknames, {'TFP','IT inv', 'C', 'RP'}, print_figs, base_path, 'IRmatching')
+print_figs ='no'; 
+plot_matchedIRFs(IRF_IT,ir_matched,T_VAR,1,shocknames, {'TFP','IT inv', 'C', 'RP'}, print_figs, base_path, 'IRmatching_together')
 
 param_names = {'gam', 'sigitlev', 'rhoitlev'};
 % param_names = {'a', 'b', 'gam', 'sigitlev', 'rhoitlev'};
@@ -248,9 +249,16 @@ todays_date = datestr(today);
 save_results = 'no';
 switch save_results
     case 'yes'
-        save IR_matching_results.mat param_names param_opt gx hx G ir_matched T_VAR base_path shocknames print_figs todays_date
+        save IR_matching_results.mat param_names param_opt gx hx G ir_matched T_VAR IRF_IT base_path shocknames print_figs todays_date
 end 
 
 
 cd(current_dir)
 disp('Done.')
+return
+
+%% Optional part: Load in saved workspaces and generate figures of SVAR and matched responses together
+clear
+load IR_matching_results
+print_figs ='no'; 
+plot_matchedIRFs(IRF_IT,ir_matched,T_VAR,1,shocknames, {'TFP','IT inv', 'C', 'RP'}, print_figs, base_path, 'IRmatching_together')
