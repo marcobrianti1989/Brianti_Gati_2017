@@ -1,11 +1,11 @@
 %**************************************************************
-% MAIN_PROG_spillover_news - Solves the 2-sector model a la Oulton with spillover 
+% MAIN_PROG_spillover_news - Solves the 2-sector model a la Oulton with spillover
 % and news shocks
 %
 % Code by Marco Brianti and Laura Gati, Boston College, 2018
 %**************************************************************
 
-clear 
+clear
 close all
 
 current_dir = pwd;
@@ -24,14 +24,13 @@ param = parameters;
 
 %Compute the first-order coefficiencients of the model
 [fyn, fxn, fypn, fxpn] = model_spillover_news(param);
-save checking_f.mat fxn  % save fxn so you can compare other fx's obtained by other codes.
+% save checking_f.mat fxn  % save fxn so you can compare other fx's obtained by other codes.
 
 %Compute the transition and policy functions, using code by
 %Stephanie Schmitt-Grohé and Martín Uribe (and available on their wedsite.)
 [gx,hx]=gx_hx_alt(fyn,fxn,fypn,fxpn);
 
 save('gxhx.mat', 'gx', 'hx')
-return
 save('indexes.mat', '*_idx')
 
 %Eigenvalues of hx
@@ -52,7 +51,7 @@ pos_ITLEV   = itlev_idx-njumps; % IT productivity level shock, contemporaneous
 pos_news    = v8_idx - njumps;
 pos_N       = n_idx - njumps;
 pos_noise   = biggamitt_idx - njumps; %preliminary noise shock
-T = 40;
+T = 100;
 eta = eye(nshocks);
 eta(pos_BIGGAMI,pos_BIGGAMI) = param.siggami;
 eta(pos_ITLEV,pos_ITLEV)     = param.sigitlev;
@@ -61,15 +60,16 @@ for s=1:nshocks
     x0 = zeros(nshocks,1); % impulse vector
     x0(s) = 1;
     [IR, iry, irx]=ir(gx,hx,eta*x0,T);
-    % To get levels, we need to cumsum all except RC, H, H1, H2 
+    % To get levels, we need to cumsum all except RC, H, H1, H2
     IR(:,gamc_idx:njumps) = cumsum(IR(:,gamc_idx:njumps));
-    IRFs_all(:,:,s) = IR'; 
+    IRFs_all(:,:,s) = IR';
 end
 % Gather IRFs of interest:
 IRFs = IRFs_all(gamc_idx:gamtfp_idx,:,:);
 IRFs_TFP_GDP = IRFs_all([gamgdp_idx, gamtfp_idx],:,:);
+IRFs_VAR     = IRFs_all([gamtfp_idx, gamit_idx, gamc_idx, gamp_idx],:,:);
 
-which_shock                = pos_BIGGAMI;
+which_shock                = pos_ITLEV;
 shocknames                 = cell(1,size(hx,1));
 shocknames(1,pos_KC)       = {'KC'};
 shocknames(1,pos_KI)       = {'KI'};
@@ -84,10 +84,15 @@ print_figs = 'no';
 
 % GAMC_p GAMKI_p GAMYC_p GAMYI_p GAMH_p GAMP_p GAMKC2_p GAMKI2_p
 varnames = {'C', 'KI', 'YC', 'YI', 'H', 'P', 'KC2', 'KI2', 'RI','W', 'GDP', 'TFP' };
+varnames_matching = {'TFP','IT inv', 'C', 'RP'};
+disp('Done.')
 return
 plot_single_simple_IRFs(IRFs,T,which_shock,shocknames, varnames, print_figs, base_path)
 
 % GDP and TFP IRFs alone
 plot_single_simple_IRFs(IRFs_TFP_GDP,T,which_shock,shocknames, {'GDP', 'TFP'}, print_figs, base_path)
 
+% 'TFP','IT inv', 'C', 'RP' IRFs only
+plot_single_simple_IRFs(IRFs_VAR,T,which_shock,shocknames, varnames_matching, print_figs, base_path)
 
+save IRFs_gamma_opt.mat IRFs_VAR T which_shock shocknames varnames_matching print_figs base_path
