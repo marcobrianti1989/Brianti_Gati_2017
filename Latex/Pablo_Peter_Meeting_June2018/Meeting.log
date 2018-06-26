@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  26 JUN 2018 10:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  26 JUN 2018 12:55
 entering extended mode
 **./Meeting.tex
 (Meeting.tex
@@ -1095,78 +1095,133 @@ c file (type pdf)
 
 <use ../../Figures/fig_IT_productivity_(level)_on_TFP_Varying_gamma.pdf>
 Package pdftex.def Info: ../../Figures/fig_IT_productivity_(level)_on_TFP_Varyi
-ng_gamma.pdf used on input line 139.
+ng_gamma.pdf used on input line 138.
 (pdftex.def)             Requested size: 312.57016pt x 188.20457pt.
 
 [4
 
  <../../Figures/fig_IT_productivity_(level)_on_TFP_Varying_gamma.pdf>]
-<../../Figures/fig_IT_shock_on_TFP_empirical.pdf, id=152, 1173.38374pt x 689.09
+<../../Figures/fig_IT_Shock_on_TFP_IRmatching_together.pdf, id=152, 1044.90375p
+t x 628.3475pt>
+File: ../../Figures/fig_IT_Shock_on_TFP_IRmatching_together.pdf Graphic file (t
+ype pdf)
+
+<use ../../Figures/fig_IT_Shock_on_TFP_IRmatching_together.pdf>
+Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_TFP_IRmatching_together.
+pdf used on input line 164.
+(pdftex.def)             Requested size: 156.72879pt x 94.24805pt.
+
+Overfull \hbox (5.1338pt too wide) in paragraph at lines 164--164
+ [] 
+ []
+
+
+<../../Figures/fig_IT_Shock_on_C_IRmatching_together.pdf, id=153, 1077.02374pt 
+x 628.3475pt>
+File: ../../Figures/fig_IT_Shock_on_C_IRmatching_together.pdf Graphic file (typ
+e pdf)
+ <use ../../Figures/fig_IT_Shock_on_C_IRmatching_together.pdf>
+Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_C_IRmatching_together.pd
+f used on input line 164.
+(pdftex.def)             Requested size: 161.54659pt x 94.24805pt.
+
+Overfull \hbox (9.9516pt too wide) in paragraph at lines 164--164
+ [] 
+ []
+
+
+<../../Figures/fig_IT_Shock_on_IT_inv_IRmatching_together.pdf, id=154, 1085.053
+76pt x 628.3475pt>
+File: ../../Figures/fig_IT_Shock_on_IT_inv_IRmatching_together.pdf Graphic file
+ (type pdf)
+
+<use ../../Figures/fig_IT_Shock_on_IT_inv_IRmatching_together.pdf>
+Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_IT_inv_IRmatching_togeth
+er.pdf used on input line 164.
+(pdftex.def)             Requested size: 162.75104pt x 94.24805pt.
+
+Overfull \hbox (11.15605pt too wide) in paragraph at lines 164--164
+ [] 
+ []
+
+
+<../../Figures/fig_IT_Shock_on_RP_IRmatching_together.pdf, id=155, 1054.94125pt
+ x 628.3475pt>
+File: ../../Figures/fig_IT_Shock_on_RP_IRmatching_together.pdf Graphic file (ty
+pe pdf)
+ <use ../../Figures/fig_IT_Shock_on_RP_IRmatching_together.pdf>
+Package pdftex.def Info: ../../Figures/fig_IT_Shock_on_RP_IRmatching_together.p
+df used on input line 164.
+(pdftex.def)             Requested size: 158.23436pt x 94.24805pt.
+
+Overfull \hbox (6.63937pt too wide) in paragraph at lines 164--164
+ [] 
+ []
+
+[5
+
+ <../../Figures/fig_IT_Shock_on_TFP_IRmatching_together.pdf> <../../Figures/fig
+_IT_Shock_on_C_IRmatching_together.pdf> <../../Figures/fig_IT_Shock_on_IT_inv_I
+Rmatching_together.pdf> <../../Figures/fig_IT_Shock_on_RP_IRmatching_together.p
+df>]
+<../../Figures/fig_IT_shock_on_TFP_empirical.pdf, id=214, 1173.38374pt x 689.09
 447pt>
 File: ../../Figures/fig_IT_shock_on_TFP_empirical.pdf Graphic file (type pdf)
  <use ../../Figures/fig_IT_shock_on_TFP_empirical.pdf>
 Package pdftex.def Info: ../../Figures/fig_IT_shock_on_TFP_empirical.pdf used o
-n input line 153.
-(pdftex.def)             Requested size: 175.99995pt x 103.3597pt.
+n input line 186.
+(pdftex.def)             Requested size: 152.54524pt x 89.58542pt.
 
-<../../Figures/fig_IT_shock_on_Real_IT_Investment_empirical.pdf, id=153, 1214.0
-3563pt x 689.09447pt>
-File: ../../Figures/fig_IT_shock_on_Real_IT_Investment_empirical.pdf Graphic fi
-le (type pdf)
-
-<use ../../Figures/fig_IT_shock_on_Real_IT_Investment_empirical.pdf>
-Package pdftex.def Info: ../../Figures/fig_IT_shock_on_Real_IT_Investment_empir
-ical.pdf used on input line 153.
-(pdftex.def)             Requested size: 182.09749pt x 103.3597pt.
- [5
-
- <../../Figures/fig_IT_shock_on_TFP_empirical.pdf> <../../Figures/fig_IT_shock_
-on_Real_IT_Investment_empirical.pdf>]
-<../../Figures/fig_IT_shock_on_Real_GDP_empirical.pdf, id=335, 1160.58594pt x 6
-89.09447pt>
-File: ../../Figures/fig_IT_shock_on_Real_GDP_empirical.pdf Graphic file (type p
-df)
- <use ../../Figures/fig_IT_shock_on_Real_GDP_empirical.pdf>
-Package pdftex.def Info: ../../Figures/fig_IT_shock_on_Real_GDP_empirical.pdf u
-sed on input line 168.
-(pdftex.def)             Requested size: 174.08038pt x 103.3597pt.
-
-<../../Figures/fig_IT_shock_on_Real_Consumption_empirical.pdf, id=336, 1160.585
+<../../Figures/fig_IT_shock_on_Real_Consumption_empirical.pdf, id=215, 1160.585
 94pt x 689.09447pt>
 File: ../../Figures/fig_IT_shock_on_Real_Consumption_empirical.pdf Graphic file
  (type pdf)
 
 <use ../../Figures/fig_IT_shock_on_Real_Consumption_empirical.pdf>
 Package pdftex.def Info: ../../Figures/fig_IT_shock_on_Real_Consumption_empiric
-al.pdf used on input line 168.
-(pdftex.def)             Requested size: 174.08038pt x 103.3597pt.
- [6
+al.pdf used on input line 186.
+(pdftex.def)             Requested size: 150.88147pt x 89.58542pt.
 
- <../../Figures/fig_IT_shock_on_Real_GDP_empirical.pdf> <../../Figures/fig_IT_s
-hock_on_Real_Consumption_empirical.pdf>]
-<../../Figures/fig_IT_shock_on_Hours_per_Person_empirical.pdf, id=497, 1168.866
-88pt x 689.09447pt>
-File: ../../Figures/fig_IT_shock_on_Hours_per_Person_empirical.pdf Graphic file
- (type pdf)
+Overfull \hbox (0.95026pt too wide) in paragraph at lines 186--186
+ [] 
+ []
 
-<use ../../Figures/fig_IT_shock_on_Hours_per_Person_empirical.pdf>
-Package pdftex.def Info: ../../Figures/fig_IT_shock_on_Hours_per_Person_empiric
-al.pdf used on input line 181.
-(pdftex.def)             Requested size: 175.32246pt x 103.3597pt.
 
-<../../Figures/fig_IT_shock_on_Relative_Price_empirical.pdf, id=498, 1184.67593
+<../../Figures/fig_IT_shock_on_Real_IT_investment_empirical.pdf, id=216, 1214.0
+3563pt x 689.09447pt>
+File: ../../Figures/fig_IT_shock_on_Real_IT_investment_empirical.pdf Graphic fi
+le (type pdf)
+
+<use ../../Figures/fig_IT_shock_on_Real_IT_investment_empirical.pdf>
+Package pdftex.def Info: ../../Figures/fig_IT_shock_on_Real_IT_investment_empir
+ical.pdf used on input line 186.
+(pdftex.def)             Requested size: 157.83017pt x 89.58542pt.
+
+<../../Figures/fig_IT_shock_on_Relative_Price_empirical.pdf, id=217, 1184.67593
 pt x 689.09447pt>
 File: ../../Figures/fig_IT_shock_on_Relative_Price_empirical.pdf Graphic file (
 type pdf)
 
 <use ../../Figures/fig_IT_shock_on_Relative_Price_empirical.pdf>
 Package pdftex.def Info: ../../Figures/fig_IT_shock_on_Relative_Price_empirical
-.pdf used on input line 181.
-(pdftex.def)             Requested size: 177.69373pt x 103.3597pt.
- [7
+.pdf used on input line 186.
+(pdftex.def)             Requested size: 154.01328pt x 89.58542pt.
 
- <../../Figures/fig_IT_shock_on_Hours_per_Person_empirical.pdf> <../../Figures/
-fig_IT_shock_on_Relative_Price_empirical.pdf>]
+Overfull \hbox (6.23518pt too wide) in paragraph at lines 186--186
+ [] 
+ []
+
+
+Overfull \hbox (2.41829pt too wide) in paragraph at lines 186--186
+ [] 
+ []
+
+[6
+
+ <../../Figures/fig_IT_shock_on_TFP_empirical.pdf> <../../Figures/fig_IT_shock_
+on_Real_Consumption_empirical.pdf> <../../Figures/fig_IT_shock_on_Real_IT_inves
+tment_empirical.pdf> <../../Figures/fig_IT_shock_on_Relative_Price_empirical.pd
+f>]
 \tf@nav=\write6
 \openout6 = `Meeting.nav'.
 
@@ -1176,38 +1231,44 @@ fig_IT_shock_on_Relative_Price_empirical.pdf>]
 \tf@snm=\write8
 \openout8 = `Meeting.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 185.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 185.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
  (Meeting.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 185.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 185.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 191.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 191.
 Package rerunfilecheck Info: File `Meeting.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19636 strings out of 493323
- 371048 string characters out of 3139072
+ 19648 strings out of 493323
+ 371659 string characters out of 3139072
  463759 words of memory out of 3000000
- 22686 multiletter control sequences out of 15000+200000
+ 22696 multiletter control sequences out of 15000+200000
  13834 words of font info for 42 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,15n,55p,803b,556s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\th3\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ec
-ss0600.pk> <C:\Users\th3\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
-pi600\ecss0800.pk> <C:\Users\th3\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
-pen\ec\dpi600\ecss1095.pk> <C:\Users\th3\AppData\Local\MiKTeX\2.9\fonts\pk\ljfo
-ur\jknappen\ec\dpi600\ecss1440.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Meeting.pdf (7 pages, 3144232 bytes).
+pdfTeX warning (dest): name{Navigation7} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation8} has been referenced but does not exist
+, replaced by a fixed one
+
+ <C:\Users\th3\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss
+0600.pk> <C:\Users\th3\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
+600\ecss0800.pk> <C:\Users\th3\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
+n\ec\dpi600\ecss1095.pk> <C:\Users\th3\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecss1440.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on Meeting.pdf (6 pages, 2194519 bytes).
 PDF statistics:
- 810 PDF objects out of 1000 (max. 8388607)
+ 678 PDF objects out of 1000 (max. 8388607)
  15 named destinations out of 1000 (max. 500000)
- 108 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 
