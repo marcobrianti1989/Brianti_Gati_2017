@@ -53,7 +53,7 @@ which_shock = 2; %[pos_IT];
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 2000; %5000
+nsimul          = 1000; %5000
 nvar            = size(data,2);
 sig1            = 0.9; % significance level
 sig2            = 0.95; % a 2nd sig. level
@@ -64,7 +64,7 @@ which_variable  = which_shock; % select IT as the variable whose FEV we wanna ma
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
 [AIC,BIC,HQ] = aic_bic_hq(data,max_lags);
 if AIC >= 4
-      nlags = 2; % 2;
+      nlags = 1; % 2;
       warning(['AIC > 4, setting nlags to ', num2str(nlags) ])
 else
       nlags = AIC;
@@ -81,8 +81,8 @@ H_max = 40;
 
 % Bootstrap
 which_ID = 'just_IT';
-which_correction = 'blocks'; % [none, blocks] --> Choose whether to draws residuals in blocks or not.
-blocksize = 10; % size of block for drawing in blocks
+which_correction = 'none'; % [none, blocks] --> Choose whether to draws residuals in blocks or not.
+blocksize = 30; % size of block for drawing in blocks
 [beta_tilde, data_boot2, beta_tilde_star, nonstationarities] = ...
       bootstrap_with_kilian(B, nburn, res, ...
       nsimul, which_correction, blocksize);
@@ -108,7 +108,7 @@ end
 
 %Creating and Printing figures
 comment = [which_ID '_' char(varnames(pos_IT))];
-print_figs = 'yes';
+print_figs = 'no';
 
 [IRFs, ub1, lb1, ub2, lb2] = genIRFs(fake_impact,fake_impact_boot,...
       B,beta_tilde_star,H,sig1, sig2);

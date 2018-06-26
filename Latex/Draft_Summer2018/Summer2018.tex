@@ -89,6 +89,33 @@ The paper is structured as follows. We present empirical results and main robust
 %%%%%%%%%%%%%%%%%%%%%%            EMPIRICS                     %%%%%%%%%%%%%%%%%%%
 \section{Empirics}\label{section:empirics}
 
+In this section, we present our main empirical set of results. Our attempt is to properly identify technological shocks which are only specific to the ICT sector in a Structural VAR context and analyze their impact on key macroeconomic variables. At the best of our knowledge, there is only another paper that attempts a similar exercise: \cite{jafari2012impact}. Although also this paper identifies ICT shocks, the authors use Iranian data and both identification strategy and main results are qualitatively different.
+
+\section{Main Specification}
+
+In this section we present our main specification where we impose minimal discipline on the identification strategy. It turns out that those set of results presented here are consistent with different robustness checks. Our first-step specification is the following 6-variable VAR 
+\begin{equation}
+\begin{pmatrix}
+TFP_t \\ 
+IT_t \\
+GDP_t \\
+C_t \\
+H_t \\
+RP_t \\
+\end{pmatrix} = B(L) \begin{pmatrix}
+TFP_{t-1} \\ 
+IT_{t-1} \\
+GDP_{t-1+5|t-1} \\
+C_{t-1} \\
+H_{t-1} \\
+RP_{t-1} \\
+\end{pmatrix} + i_t
+\end{equation}
+where $TFP_t$ is the log-level of Fernald total factor productivity, $H_{t}$ is the level of total number of hours worked per person, $MI_{t+5|t}$ is the level of Michigan Index of business confidence over 5 years, $IT_t$ is the log-level of IT investment, $GDP_t$ is the log-level of real gross domestic product, and $C_t$ is the log-level of real consumption. All the variables refer to the U.S. economy. $B(L)$ is a ($6\times 6$) matrix of lag-operator functions of the same order. In our favorite specification the order of the lag operator functions is two which implies that we regress variables at time $t$ with their own lagged values at $t-1$ and $t-2$. Finally, $i_t$ is a ($6\times 1$) vector of correlated innovations where $\Omega = i'_t i_t$.
+
+In order to derive structural shocks $s_t$ from innovations $i_t$ we use a standard Cholesky identification strategy which imposes 15 zero-impact restrictions. Our identification strategy aims to identify a news shock and a IT productivity shock. In particular, we adhere to the following definitions of our shocks of interest. In line with the news shock literature, a news shock is defined as a signal regarding the future exogenous component of TFP.\footnote{In much of the news shock literature, this definition is not explicit in terms of \emph{exogenous} TFP, because in the absence of an endogenous TFP mechanism, exogenous TFP and total TFP are by definition the same object. Thus, defining a news shock as the shock that moves TFP over the long horizon implicitly amounts to saying that news move exogenous TFP.} The IT productivity shock (also IT shock) is by definition an increase in the sector-specific productivity that should lead to a natural increase in the IT level of investment. %Can we speak here about substitution effect?
+The reason why we seek to identify also this second shock is because we want to disentangle the rise in IT investment given by an increase in the sector-specific productivity to the rise in IT investment due to future signals on exogenous TFP. %In other words, in order to size the self-enforcement effect of a news shock we need to disentangle the endogenous component embodied by an IT productivity shock, and, on the other hand, to correctly size the pure effect of an IT productivity shock we need to disentangle from IT its expectational component. 
+
 
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
