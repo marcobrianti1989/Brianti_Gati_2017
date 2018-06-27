@@ -100,7 +100,7 @@ save IRFs_gamma_opt.mat IRFs_VAR T which_shock shocknames varnames_matching prin
 
 % Generate simulated data from model
 sim_shocks = zeros(1,nshocks);
-sim_shocks(pos_ITLEV) = 1;
+sim_shocks(pos_ITLEV) = eta(pos_ITLEV,pos_ITLEV);
 sim_data = simulate_model(gx,hx,sim_shocks,T);
 % the question is whether we need to cumsum here (I guess so!)
 sim_data(:,gamc_idx:njumps) = cumsum(sim_data(:,gamc_idx:njumps));
