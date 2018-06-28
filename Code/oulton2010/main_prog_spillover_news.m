@@ -21,6 +21,7 @@ disp('Doing Model with Spillover and News')
 
 %Load Parameters
 param = parameters;
+% param = parameters_opt;
 
 %Compute the first-order coefficiencients of the model
 [fyn, fxn, fypn, fxpn] = model_spillover_news(param);
@@ -96,3 +97,13 @@ plot_single_simple_IRFs(IRFs_TFP_GDP,T,which_shock,shocknames, {'GDP', 'TFP'}, p
 plot_single_simple_IRFs(IRFs_VAR,T,which_shock,shocknames, varnames_matching, print_figs, base_path)
 
 save IRFs_gamma_opt.mat IRFs_VAR T which_shock shocknames varnames_matching print_figs base_path
+
+% Generate simulated data from model
+sim_shocks = zeros(1,nshocks);
+sim_shocks(pos_ITLEV) = eta(pos_ITLEV,pos_ITLEV);
+sim_data = simulate_model(gx,hx,sim_shocks,T);
+% the question is whether we need to cumsum here (I guess so!)
+sim_data(:,gamc_idx:njumps) = cumsum(sim_data(:,gamc_idx:njumps));
+sim_data = sim_data';
+
+plot(sim_data(gamtfp_idx,:))
