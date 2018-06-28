@@ -17,10 +17,10 @@ if use_current_time==1
     ct1 = strrep(current_time,':','_'); % substitute : with _
     ct2 = strrep(ct1,' ','_'); % substitute spaces with _
     
-    final_name = ['fig_' figname '_' some_comment '_' ct2 '.pdf'];
+    final_name = ['fig_' figname '_' some_comment '_' ct2 '.png'];
     
 else
-    final_name = ['fig_' figname '_' some_comment '.pdf'];
+    final_name = ['fig_' figname '_' some_comment '.png'];
 end
 
 if nargin < 4

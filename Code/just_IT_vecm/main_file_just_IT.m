@@ -29,7 +29,7 @@ range    = 'B1:Z287';
 warning off
 [data, varnames] = read_data2(filename, sheet, range);
 warning on
-shocknames = {'IT Shock'};
+shocknames = {'ICT Shock'};
 varnames
 
 % Find positions of shocks and of relative prices in a correct way
@@ -42,7 +42,7 @@ elseif sum(strcmp('SP deflated', varnames))==1 % i.e. we use SP deflated by GDPD
 elseif sum(strcmp('SP deflated per capita', varnames))==1 % i.e. we use SP deflated by GDPDEF for news
       pos_news = find(strcmp('SP deflated per capita', varnames));
 end
-pos_IT = find(strcmp('Real IT Investment', varnames));
+pos_IT = find(strcmp('Real ICT Investment', varnames));
 if find(strcmp('Relative Price', varnames)) > 0
       pos_rel_prices = find(strcmp('Relative Price', varnames));
 elseif find(strcmp('Relative price PCE', varnames))
@@ -108,7 +108,7 @@ end
 
 %Creating and Printing figures
 comment = [which_ID '_' char(varnames(pos_IT))];
-print_figs = 'no';
+print_figs = 'yes';
 
 [IRFs, ub1, lb1, ub2, lb2] = genIRFs(fake_impact,fake_impact_boot,...
       B,beta_tilde_star,H,sig1, sig2);
@@ -124,11 +124,8 @@ print_figs = 'no';
 %       lb2(:,:,pos_IT)     = - lb2(:,:,pos_IT);
 % end
 
-%Printing/Showing IRFs
-% plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames,which_ID,print_figs)
-% plot_single_IRFs(IRFs,ub1,lb1,h,which_shocks,shocknames, varnames, which_ID, print_figs)
 use_current_time = 0; % don't save the time
-plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shock,shocknames, varnames, 'empirical', print_figs, use_current_time, base_path)
+plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shock,shocknames, varnames, 'empirical_noH', print_figs, use_current_time, base_path)
 
 %Forni&Gambetti Orthogonality Test
 do_FG_test = 'no';

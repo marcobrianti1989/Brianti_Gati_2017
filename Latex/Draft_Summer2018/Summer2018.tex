@@ -92,10 +92,10 @@ The paper is structured as follows. We present empirical results and main robust
 
 In this section we present our main empirical set of results. Our attempt is to properly identify technological shocks which are only specific to the ICT sector in a Structural VAR context and analyze their impact on key macroeconomic variables.
 
-\section{Main Specification}
+\subsection{Main Specification}
 
 In this section we present our main specification where we impose minimal discipline on the identification strategy. It turns out that the set of results presented here are consistent with different robustness checks. Our first-step specification is the following 5-variable VAR 
-\begin{equation}
+\begin{equation}\label{eq:mainSpecification}
 \begin{pmatrix}
 TFP_t \\ 
 ICT_t \\
@@ -110,18 +110,60 @@ C_{t-1} \\
 RP_{t-1} \\
 \end{pmatrix} + i_t
 \end{equation}
-where $TFP_t$ is the log-level of Fernald total factor productivity at time $t$, $ICT_{t}$ is the log-level of real information and communication technology investment at time $t$,\footnote{Notice that $ICTI_t$ is defined as the total expenditure at time $t$ in equipment and computer software meant to be used in production for more than an year.} $GDP_t$ is the log-level of real gross domestic product at time $t$, $C_t$ is the log-level of real consumption at time $t$, and $RP_t$ is the log-deviation of ratio between prices of ICT goods and services and the consumer price index (CPI). All the variables refer to the U.S. economy. $B(L)$ is a ($5\times 5$) matrix of lag-operator functions of the same order. Following the Bayesian Information Criterion (BIC), the lag operator functions is one which implies that we regress variables at time $t$ with their own lagged values at $t-1$.\footnote{The Hannan-Quinn Criterion (HQ) suggests to use two lags. Results remains consistent following this second criterion.} Finally, $i_t$ is a ($6\times 1$) vector of correlated innovations where $\Omega = i'_t i_t$.
+where $TFP_t$ is the log-level of Fernald total factor productivity at time $t$, $ICT_{t}$ is the log-level of real information and communication technology investment at time $t$,\footnote{Notice that $ICTI_t$ is defined as the total expenditure at time $t$ in equipment and computer software meant to be used in production for more than an year.} $GDP_t$ is the log-level of real gross domestic product at time $t$, $C_t$ is the log-level of real consumption at time $t$, and $RP_t$ is the log-deviation of ratio between prices of ICT goods and services and the consumer price index (CPI).\footnote{Except for $RP_t$ that is not cointegrated with the remaining variables, we opt for estimating the VAR in levels since it produces consistent estimates of the impulse responses and is robust to cointegration of unknown forms. In particular, as suggested by \cite{hamilton1994time} when there is uncertainty regarding the nature of common trends, estimating the system in levels is considered the conservative approach. In any case our results are very similar when estimating a vector error correction model (VECM).} All the variables have a quarterly frequency from 1989:Q1 to 2017:Q1 and refer to the U.S. economy. $B(L)$ is a ($5\times 5$) matrix of lag-operator functions of the same order. Following the Bayesian Information Criterion (BIC), the lag operator functions is one which implies that we regress variables at time $t$ with their own lagged values at $t-1$.\footnote{The Hannan-Quinn Criterion (HQ) suggests to use two lags. Results remains consistent following this second criterion.} Finally, $i_t$ is a ($6\times 1$) vector of correlated innovations where $\Sigma = i'_t i_t$.
 
-Using data released on April, 2018 by the Bureau of Economic Analysis (BEA) the real value added of the information sector on real GDP is slightly below $5$\% for the current quarter. Thus, since the share of this sector accounts for a negligible part in the whole economy, as an identification strategy, we assume that an ICT-investment technological change (hereafter ICT shock) is fully orthogonal to current TFP. In addition, in line with theoretical results firstly presented by \cite{greenwood1997long}, we expect that an ICT shock should incentivize sector-specific investment since ICT goods are now easier to produce and cheaper to buy. We transpose this theoretical argument in our empirical VAR by assuming that an ICT shock has a maximal impact effect on ICT investment. 
+\subsection{Empirical Strategy}
 
 
+Our simples identification strategy implies that an ICT-investment technological shock (hereafter ICT shock) has no impact effect on TFP and maximal impact effect on ICT investment. We justify these assumptions with both empirical and theoretical argument. First of all, using data released on April, 2018 by the Bureau of Economic Analysis (BEA) the real value added of the information sector on real GDP is slightly below $5$\% for the underlying quarter. Thus, since the share of this sector accounts for a negligible part in the whole economy, we assume that an ICT shock is orthogonal to current TFP. In addition, in line with theoretical results firstly presented by \cite{greenwood1997long}, we expect that an ICT shock should enhance sector-specific investment since ICT goods are now easier to produce and cheaper to buy. As a result, we expect an ICT shock to have a maximal impact effect on ICT investment. 
+
+Following a similar notation of \cite{barsky2011news}, we implement our identification strategy as follows. Let $y_t$ be the $(5 \times 1)$ vector of observables of length $T$. Once can form the reduced form moving average representation:
+$$
+y_t = \bar{B}(L)y_{t} + i_t \ \ \Rightarrow \ \ y_t = A(L)i_t
+$$
+where $A(L) = [I - \bar{B}(L)]^{-1}$ and $\bar{B}(L)$ has no constant terms. Assume now there exists a linear combination that maps innovations $i_t$ to structural shocks $s_t$:
+$$
+s_t = A_0 i_t
+$$
+This entails the structural moving average representation:
+$$
+y_t = C(L)i_t
+$$
+where $C(L) = A(L) A_0$ and $i_t = A_0^{-1} s_t$. The impact matrix $A_0$ must be such that $\Sigma = A_0 A_0'$. Notice that $A_0$ is not unique since for any $D$ such that $DD' = I$, $\tilde{A}_0 = A_0 D$ satisfies $\Sigma = \tilde{A}_0 \tilde{A}_0'$. 
+
+The matrix of impact responses to a all shocks is:
+$$
+\Omega = \tilde{A}_0 D
+$$
+and 
+$$
+\Omega_{i,j} = e_i' \tilde{A}_0 D e_j
+$$
+where $e_k$ is a selection column vector of the same dimension of $\tilde{A}_0$ with $1$ in the $k$th element and zero elsewhere. In particular, notice that $e_j$ is selecting a specific column of $D$, which will be denoted by $\gamma_j$. As a result, $\tilde{A}_0\gamma_j$ denotes the vector of impact responses of all the variable to shock $j$.
+
+Let observe from System \ref{eq:mainSpecification} that $TFP_t$ is ordered first and $ICT_t$ second. In order to implement our identification strategy, we need to mathematically solve the following problem:
+\begin{equation}\label{eq:mainObjective}
+\max_{\gamma_j} \Omega_{2,j} = e_2' \tilde{A}_0 \gamma_j
+\end{equation}
+subject to
+\begin{equation}\label{eq:mainZeroTFP}
+\Omega_{1,j} = e_1' \tilde{A}_0 \gamma_j = 0, \ \ \text{and}
+\end{equation}
+\begin{equation}\label{eq:mainOrtho}
+\gamma_j' \gamma_j = 1
+\end{equation}
+where $j$ represents the arbitrary position of the ICT shock. Then, in order to ensure that this identification belongs to the space of possible orthogonalizations of $\Sigma$, the problem is denoted in terms of choosing $\gamma_j$ conditional on any orthogonalization, $\tilde{A}_0$. Objective function \ref{eq:mainObjective} imposes that an ICT shock as a maximal impact effect on ICT investment. Constraint \ref{eq:mainZeroTFP} orthogonalizes current TFP to ICT shocks and Constraint \ref{eq:mainOrtho} satisfies the condition that $\gamma_j$ is derived from an orthogonal matrix $D$.  
+
+\subsection{Main Set of Results}
+
+Appendix \ref{section:mainSetResults} shows the estimated impulse responses of System \ref{eq:mainSpecification} to the identified ICT shock. The shaded gray areas are the $90$\% and $95$\% confidence bands from 2000 bias-corrected bootstrap procedure of \cite{kilian1998small}. 
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
 \section{Model}\label{section:theory}
 
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
-\section{Model}\label{section:experiments}
+\section{Experiments}\label{section:experiments}
 
 
 
@@ -133,10 +175,81 @@ hjklbhjkl
 \bibliographystyle{chicago}
 \bibliography{literature}
 
-
-
  %%%%%%%%%%%%%%%%%%           BIBLIOGRAPHY            %%%%%%%%%%%%%%%%%% 
 
+\newpage
+
+ %%%%%%%%%%%%%%%%%%           Appendices            %%%%%%%%%%%%%%%%%% 
+
+\appendix 
+
+\section{Main Set of Results}\label{section:mainSetResults}
+
+\
+
+\
+
+\
+
+\
+
+\
+
+\
+
+\
+
+\
+
+	\begin{figure}[h!]
+		\begin{center}
+\includegraphics[scale=0.35]{MainFigures/fig_ICT_Shock_on_TFP_empirical_noH}
+		\caption{Empirical impulse response of TFP to an ICT shock. The red solid lines are the estimated impulse responses to our ICT shock. The shaded dark gray area and the shaded light gray area are the $90$\% and $95$\% confidence intervals, respectively, from 2000 bias-corrected bootstrap replications of the reduced-form VAR. The horizontal axes refer to forecast horizon and the units of the vertical axes are percentage deviations.}
+		\label{fig:TFP_main}
+	\end{center}
+\end{figure}
+
+
+
+
+	\begin{figure}[h!]
+		\begin{center}
+		\includegraphics[scale=0.35]{MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH}
+		\caption{Empirical impulse response of real ICT investment to an ICT shock. The red solid lines are the estimated impulse responses to our ICT shock. The shaded dark gray area and the shaded light gray area are the $90$\% and $95$\% confidence intervals, respectively, from 2000 bias-corrected bootstrap replications of the reduced-form VAR. The horizontal axes refer to forecast horizon and the units of the vertical axes are percentage deviations.}
+		\label{fig:ICT_main}
+	\end{center} 
+	\end{figure}
+
+
+	\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.35]{MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH}
+		\caption{Empirical impulse response of real Gross Domestic Product to an ICT shock. The red solid lines are the estimated impulse responses to our ICT shock. The shaded dark gray area and the shaded light gray area are the $90$\% and $95$\% confidence intervals, respectively, from 2000 bias-corrected bootstrap replications of the reduced-form VAR. The horizontal axes refer to forecast horizon and the units of the vertical axes are percentage deviations.}
+		\label{fig:GDP_main}
+	\end{center} 
+\end{figure}
+
+
+	\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.35]{MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH}
+		\caption{Empirical impulse response of real consumption to an ICT shock. The red solid lines are the estimated impulse responses to our ICT shock. The shaded dark gray area and the shaded light gray area are the $90$\% and $95$\% confidence intervals, respectively, from 2000 bias-corrected bootstrap replications of the reduced-form VAR. The horizontal axes refer to forecast horizon and the units of the vertical axes are percentage deviations.}
+		\label{fig:C_main}
+	\end{center} 
+\end{figure}
+
+
+	\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.35]{MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH}
+		\caption{Empirical impulse response of relative price to an ICT shock. The red solid lines are the estimated impulse responses to our ICT shock. The shaded dark gray area and the shaded light gray area are the $90$\% and $95$\% confidence intervals, respectively, from 2000 bias-corrected bootstrap replications of the reduced-form VAR. The horizontal axes refer to forecast horizon and the units of the vertical axes are percentage deviations.}
+		\label{fig:RP_main}
+	\end{center} 
+\end{figure}
+
+ 
+ 
+ 
  
 \end{document}
 

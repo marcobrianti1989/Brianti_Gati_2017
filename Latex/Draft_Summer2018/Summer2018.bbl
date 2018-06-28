@@ -90,6 +90,11 @@ Grossman, G.~M. and E.~Helpman (1991).
 \newblock Quality ladders in the theory of growth.
 \newblock {\em The Review of Economic Studies\/}~{\em 58\/}(1), 43--61.
 
+\bibitem[\protect\citeauthoryear{Hamilton}{Hamilton}{1994}]{hamilton1994time}
+Hamilton, J.~D. (1994).
+\newblock {\em Time series analysis}, Volume~2.
+\newblock Princeton university press Princeton.
+
 \bibitem[\protect\citeauthoryear{Jafari~Samimi and Roshan}{Jafari~Samimi and
   Roshan}{2012}]{jafari2012impact}
 Jafari~Samimi, A. and Y.~E. Roshan (2012).
@@ -101,6 +106,11 @@ Jones, B.~F. (2009).
 \newblock The burden of knowledge and the ``death of the renaissance man'': Is
   innovation getting harder?
 \newblock {\em The Review of Economic Studies\/}~{\em 76\/}(1), 283--317.
+
+\bibitem[\protect\citeauthoryear{Kilian}{Kilian}{1998}]{kilian1998small}
+Kilian, L. (1998).
+\newblock Small-sample confidence intervals for impulse response functions.
+\newblock {\em Review of economics and statistics\/}~{\em 80\/}(2), 218--230.
 
 \bibitem[\protect\citeauthoryear{Kydland and Prescott}{Kydland and
   Prescott}{1982}]{kydland1982time}

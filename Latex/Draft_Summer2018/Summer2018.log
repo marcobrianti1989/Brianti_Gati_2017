@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  27 JUN 2018 14:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  28 JUN 2018 13:47
 entering extended mode
 **./Summer2018.tex
 (Summer2018.tex
@@ -1146,41 +1146,112 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] Excluding 'commen
 t' comment. [4]
-[5] (Summer2018.bbl [6] [7]) [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
+[5] [6] (Summer2018.bbl [7] [8]) [9]
+<MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png, id=222, 1172.12906pt x 688
+.07062pt>
+File: MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png Graphic file (type png
+)
+ <use MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png>
+Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png use
+d on input line 206.
+(pdftex.def)             Requested size: 410.25131pt x 240.82832pt.
+
+<MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png, id=223, 12
+24.07312pt x 688.07062pt>
+File: MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png Graphi
+c file (type png)
+
+<use MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png>
+Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empir
+ical_noH.png used on input line 217.
+(pdftex.def)             Requested size: 428.432pt x 240.82832pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png, id=224, 1159.33125pt 
+x 688.07062pt>
+File: MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png Graphic file (typ
+e png)
+ <use MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png>
+Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.pn
+g used on input line 226.
+(pdftex.def)             Requested size: 405.77202pt x 240.82832pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png, id=225, 1159.
+33125pt x 688.07062pt>
+File: MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png Graphic f
+ile (type png)
+
+<use MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png>
+Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_Consumption_empirica
+l_noH.png used on input line 235.
+(pdftex.def)             Requested size: 405.77202pt x 240.82832pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png, id=226, 1183.42
+125pt x 688.07062pt>
+File: MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png Graphic fil
+e (type png)
+
+<use MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png>
+Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_
+noH.png used on input line 244.
+(pdftex.def)             Requested size: 414.20364pt x 240.82832pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10 <./MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 254.
+ [11 <./MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png (PNG
+ copy)>]
+[12 <./MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png (PNG copy)>]
+[13 <./MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png (PNG cop
+y)>] [14 <./MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png (PNG 
+copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 254.
  (Summer2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 254.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 254.
 Package rerunfilecheck Info: File `Summer2018.out' has not changed.
-(rerunfilecheck)             Checksum: D913AEC4468B11ABEB8F7449BBF331F8;274.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
+(rerunfilecheck)             Checksum: 2718EDA70EAB80B87F6FB83600E6D268;487.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 254.
  ) 
 Here is how much of TeX's memory you used:
- 19140 strings out of 493323
- 349253 string characters out of 3139072
- 430248 words of memory out of 3000000
- 22252 multiletter control sequences out of 15000+200000
- 15883 words of font info for 62 fonts, out of 3000000 for 9000
+ 19213 strings out of 493323
+ 351485 string characters out of 3139072
+ 432876 words of memory out of 3000000
+ 22298 multiletter control sequences out of 15000+200000
+ 16498 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,54p,2181b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,8n,54p,2181b,470s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb>
-Output written on Summer2018.pdf (8 pages, 209630 bytes).
+onts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmti10.pfb>
+Output written on Summer2018.pdf (14 pages, 486549 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 48 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 320 PDF objects out of 1000 (max. 8388607)
+ 68 named destinations out of 1000 (max. 500000)
+ 110 words of extra memory for PDF output out of 10000 (max. 10000000)
 
