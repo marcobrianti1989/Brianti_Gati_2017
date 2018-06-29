@@ -107,3 +107,7 @@ sim_data(:,gamc_idx:njumps) = cumsum(sim_data(:,gamc_idx:njumps));
 sim_data = sim_data';
 
 plot(sim_data(gamtfp_idx,:))
+
+
+% param = parameters;
+% ss = oulton_spillover_stst(param);
