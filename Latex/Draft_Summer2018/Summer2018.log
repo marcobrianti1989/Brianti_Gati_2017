@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  28 JUN 2018 13:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  29 JUN 2018 16:10
 entering extended mode
 **./Summer2018.tex
 (Summer2018.tex
@@ -1147,7 +1147,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] Excluding 'commen
 t' comment. [4]
 [5] [6] (Summer2018.bbl [7] [8]) [9]
-<MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png, id=222, 1172.12906pt x 688
+<MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png, id=232, 1172.12906pt x 688
 .07062pt>
 File: MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png Graphic file (type png
 )
@@ -1156,7 +1156,7 @@ Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png use
 d on input line 206.
 (pdftex.def)             Requested size: 410.25131pt x 240.82832pt.
 
-<MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png, id=223, 12
+<MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png, id=233, 12
 24.07312pt x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png Graphi
 c file (type png)
@@ -1170,7 +1170,7 @@ ical_noH.png used on input line 217.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png, id=224, 1159.33125pt 
+<MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png, id=234, 1159.33125pt 
 x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png Graphic file (typ
 e png)
@@ -1183,7 +1183,7 @@ g used on input line 226.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png, id=225, 1159.
+<MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png, id=235, 1159.
 33125pt x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png Graphic f
 ile (type png)
@@ -1197,7 +1197,7 @@ l_noH.png used on input line 235.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png, id=226, 1183.42
+<MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png, id=236, 1183.42
 125pt x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png Graphic fil
 e (type png)
@@ -1233,7 +1233,7 @@ Here is how much of TeX's memory you used:
  22298 multiletter control sequences out of 15000+200000
  16498 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,54p,2181b,470s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,8n,54p,2181b,458s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
@@ -1249,9 +1249,9 @@ es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX
 s/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmti10.pfb>
-Output written on Summer2018.pdf (14 pages, 486549 bytes).
+Output written on Summer2018.pdf (14 pages, 488385 bytes).
 PDF statistics:
- 320 PDF objects out of 1000 (max. 8388607)
+ 325 PDF objects out of 1000 (max. 8388607)
  68 named destinations out of 1000 (max. 500000)
  110 words of extra memory for PDF output out of 10000 (max. 10000000)
 
