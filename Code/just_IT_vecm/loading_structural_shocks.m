@@ -18,4 +18,15 @@ load Workspace_Just_IT_controllingNEWS_zeroimpactIT_maxNEWS_maxIT_1LAG.mat
 sICT4      = s_shock_just_IT(:,2);
 sNEWS2     = s_shock_just_IT(:,1);
 
+load Workspace_Just_IT_SVAR_2Variables_1LAG.mat
+sICT5      = s_shock_just_IT;
+
+load Workspace_Just_IT_SVAR_3Variables_1LAG.mat
+sICT6      = s_shock_just_IT;
+
+corr(sICT1,sICT6)
+plot(sICT1)
+hold on
+plot(sICT6)
+
 

@@ -96,32 +96,36 @@ The paper is structured as follows. We present empirical results and main robust
 
 In this section we present our main empirical set of results. Our attempt is to properly identify technological shocks which are only specific to the ICT sector in a Structural VAR context and analyze their impact on key macroeconomic variables.
 
-\subsection{Main Specification}
+\subsection{Main Specification}\label{section:mainSpec}
 
-In this section we present our main specification where we impose minimal discipline on the identification strategy. It turns out that the set of results presented here are consistent with different robustness checks. Our first-step specification is the following 5-variable VAR 
+In this section we present our main specification where we impose minimal discipline on the identification strategy. It turns out that the set of results presented here are consistent with different robustness checks.
+
+\subsubsection{Data}
+
+Our first-step specification is the following 5-variable VAR 
 \begin{equation}\label{eq:mainSpecification}
 \begin{pmatrix}
 TFP_t \\ 
-ICT_t \\
+ICTI_t \\
 GDP_t \\
 C_t \\
 RP_t \\
 \end{pmatrix} = B(L) \begin{pmatrix}
 TFP_{t-1} \\ 
-ICT_{t-1} \\
+ICTI_{t-1} \\
 GDP_{t-1} \\
 C_{t-1} \\
 RP_{t-1} \\
 \end{pmatrix} + i_t
 \end{equation}
-where $TFP_t$ is the log-level of Fernald total factor productivity at time $t$, $ICT_{t}$ is the log-level of real information and communication technology investment at time $t$,\footnote{Notice that $ICTI_t$ is defined as the total expenditure at time $t$ in equipment and computer software meant to be used in production for more than an year.} $GDP_t$ is the log-level of real gross domestic product at time $t$, $C_t$ is the log-level of real consumption at time $t$, and $RP_t$ is the log-deviation of ratio between prices of ICT goods and services and the consumer price index (CPI).\footnote{Except for $RP_t$ that is not cointegrated with the remaining variables, we opt for estimating the VAR in levels since it produces consistent estimates of the impulse responses and is robust to cointegration of unknown forms. In particular, as suggested by \cite{hamilton1994time} when there is uncertainty regarding the nature of common trends, estimating the system in levels is considered the conservative approach. In any case our results are very similar when estimating a vector error correction model (VECM).} All the variables have a quarterly frequency from 1989:Q1 to 2017:Q1 and refer to the U.S. economy. $B(L)$ is a ($5\times 5$) matrix of lag-operator functions of the same order. Following the Bayesian Information Criterion (BIC), the lag operator functions is one which implies that we regress variables at time $t$ with their own lagged values at $t-1$.\footnote{The Hannan-Quinn Criterion (HQ) suggests to use two lags. Results remains consistent following this second criterion.} Finally, $i_t$ is a ($6\times 1$) vector of correlated innovations where $\Sigma = i'_t i_t$.
+where $TFP_t$ is the log-level of Fernald total factor productivity at time $t$, $ICTI_{t}$ is the log-level of real information and communication technology investment at time $t$,\footnote{Notice that $ICTI_t$ is defined as the total expenditure at time $t$ in equipment and computer software meant to be used in production for more than an year.} $GDP_t$ is the log-level of real gross domestic product at time $t$, $C_t$ is the log-level of real consumption at time $t$, and $RP_t$ is the log-deviation of ratio between prices of ICT goods and services and the consumer price index (CPI).\footnote{Except for $RP_t$ that is not cointegrated with the remaining variables, we opt for estimating the VAR in levels since it produces consistent estimates of the impulse responses and is robust to cointegration of unknown forms. In particular, as suggested by \cite{hamilton1994time} when there is uncertainty regarding the nature of common trends, estimating the system in levels is considered the conservative approach. In any case our results are very similar when estimating a vector error correction model (VECM).} All the variables have a quarterly frequency from 1989:Q1 to 2017:Q1 and refer to the U.S. economy. $B(L)$ is a ($5\times 5$) matrix of lag-operator functions of the same order. Following the Bayesian Information Criterion (BIC), the lag operator functions is one which implies that we regress variables at time $t$ with their own lagged values at $t-1$.\footnote{The Hannan-Quinn Criterion (HQ) suggests to use two lags. Results remains consistent following this second criterion.} Finally, $i_t$ is a ($5 \times 1$) vector of correlated innovations where $\Sigma = i'_t i_t$.
 
-\subsection{Empirical Strategy}
+\subsubsection{Empirical Strategy}
 
 
-Our simplest identification strategy implies that an ICT-investment technological shock (hereafter ICT shock) has no impact effect on TFP and maximal impact effect on ICT investment. We justify these assumptions with both empirical and theoretical argument. First of all, using data released on April, 2018 by the Bureau of Economic Analysis (BEA) the real value added of the information sector on real GDP is slightly below $5$\% for the underlying quarter. Thus, since the share of this sector accounts for a negligible part in the whole economy, we assume that an ICT shock is orthogonal to current TFP. In addition, in line with theoretical results firstly presented by \cite{greenwood1997long}, we expect that an ICT shock should enhance sector-specific investment since ICT goods are now easier to produce and cheaper to buy. As a result, we expect an ICT shock to have a maximal impact effect on ICT investment. 
+Our simplest identification strategy implies that an ICT-investment technological shock (hereafter ICT shock) has no impact effect on TFP and maximal impact effect on ICTI. We justify these assumptions with both empirical and theoretical argument. First of all, using data released on April, 2018 by the Bureau of Economic Analysis (BEA) the real value added of the information sector on real GDP is slightly below $5$\% for the underlying quarter. Thus, since the share of this sector accounts for a negligible part in the whole economy, we assume that an ICT shock is orthogonal to current TFP. In addition, in line with theoretical results firstly presented by \cite{greenwood1997long}, we expect that an ICT shock should enhance sector-specific investment since ICT goods are now easier to produce and cheaper to buy. As a result, we expect an ICT shock to have a maximal impact effect on ICTI. 
 
-Following a similar notation of \cite{barsky2011news}, we implement our identification strategy as follows. Let $y_t$ be the $(5 \times 1)$ vector of observables of length $T$. Once can form the reduced form moving average representation:
+Following a similar notation of \cite{barsky2011news}, we implement our identification strategy as follows. Let $y_t$ be the $(5 \times 1)$ vector of observables of length $T$ presented above. Once can form the reduced form moving average representation:
 $$
 y_t = \bar{B}(L)y_{t} + i_t \ \ \Rightarrow \ \ y_t = A(L)i_t
 $$
@@ -135,17 +139,17 @@ y_t = C(L)i_t
 $$
 where $C(L) = A(L) A_0$ and $i_t = A_0^{-1} s_t$. The impact matrix $A_0$ must be such that $\Sigma = A_0 A_0'$. Notice that $A_0$ is not unique since for any $D$ such that $DD' = I$, $\tilde{A}_0 = A_0 D$ satisfies $\Sigma = \tilde{A}_0 \tilde{A}_0'$. 
 
-The matrix of impact responses to a all shocks is:
+The matrix of impact responses to all shocks is:
 $$
 \Omega = \tilde{A}_0 D
 $$
-and 
+and is specifically formed by the following elements,
 $$
 \Omega_{i,j} = e_i' \tilde{A}_0 D e_j
 $$
 where $e_k$ is a selection column vector of the same dimension of $\tilde{A}_0$ with $1$ in the $k$th element and zero elsewhere. In particular, notice that $e_j$ is selecting a specific column of $D$, which will be denoted by $\gamma_j$. As a result, $\tilde{A}_0\gamma_j$ denotes the vector of impact responses of all the variable to shock $j$.
 
-Let observe from System \ref{eq:mainSpecification} that $TFP_t$ is ordered first and $ICT_t$ second. In order to implement our identification strategy, we need to mathematically solve the following problem:
+Let observe from System \ref{eq:mainSpecification} that $TFP_t$ is ordered first and $ICTI_t$ second. In order to implement our identification strategy, we need to mathematically solve the following problem:
 \begin{equation}\label{eq:mainObjective}
 \max_{\gamma_j} \Omega_{2,j} = e_2' \tilde{A}_0 \gamma_j
 \end{equation}
@@ -158,9 +162,25 @@ subject to
 \end{equation}
 where $j$ represents the arbitrary position of the ICT shock. Then, in order to ensure that this identification belongs to the space of possible orthogonalizations of $\Sigma$, the problem is denoted in terms of choosing $\gamma_j$ conditional on any orthogonalization, $\tilde{A}_0$. Objective function \ref{eq:mainObjective} imposes that an ICT shock as a maximal impact effect on ICT investment. Constraint \ref{eq:mainZeroTFP} orthogonalizes current TFP to ICT shocks and Constraint \ref{eq:mainOrtho} satisfies the condition that $\gamma_j$ is derived from an orthogonal matrix $D$.  
 
-\subsection{Main Set of Results}
+\subsubsection{Main Set of Results}
 
-Appendix \ref{section:mainSetResults} shows the estimated impulse responses of System \ref{eq:mainSpecification} to the identified ICT shock. The shaded gray areas are the $90$\% and $95$\% confidence bands from 2000 bias-corrected bootstrap procedure of \cite{kilian1998small}. In particular, Figure \ref{fig:TFP_main} shows impulse response of TFP to an ICT shock. TFP takes around $4$ quarters before displaying a positive and significant effect and reaches its peak of $1.2$\% after $24$ quarters. In Figure \ref{fig:ICT_main}, real ICT investment has a large and positive impact response of almost $2$\% that gets even larger after a quarter. Then, it slowly starts to decay remaining significant for more than $40$ quarters. In Figures \ref{fig:GDP_main} and \ref{fig:C_main}, we present responses of real GDP and real consumption, respectively. Real GDP has a significant impact response of $0.3$\%, starts to increase and finally reaches its peak of almost $0.5$\% approximately at the same time of TFP. Similarly, real consumption has an impact effect of $0.2$\% with a delayed peak of $0.5$\%. Finally, in Figure \ref{fig:RP_main}, relative prices has a significant and negative impact response of $0.4$\% and remain persistently below their own steady state value for almost $9$ years.
+Appendix \ref{section:mainSetResults} shows the estimated impulse responses of System \ref{eq:mainSpecification} to the identified ICT shock. The shaded gray areas are the $90$\% and $95$\% confidence bands from 2000 bias-corrected bootstrap procedure of \cite{kilian1998small}. In particular, Figure \ref{fig:TFP_main} shows impulse response of TFP to an ICT shock. TFP takes around $4$ quarters before displaying a positive and significant effect and reaches its peak of $1.2$\% after $24$ quarters. In Figure \ref{fig:ICT_main}, real ICT investment has a large and positive impact response of almost $2$\% that gets even larger after a quarter. Then, it slowly starts to decay remaining significant for more than $40$ quarters. In Figures \ref{fig:GDP_main} and \ref{fig:C_main}, we present responses of real GDP and real consumption, respectively. Real GDP has a significant impact response of $0.3$\% and reaches its peak of almost $0.5$\% approximately at the same time of TFP. Similarly, real consumption has an impact effect of $0.2$\% with a delayed peak of $0.5$\%. Finally, in Figure \ref{fig:RP_main}, relative prices has a significant and negative impact response of $0.4$\% and remain persistently below their own steady state value for almost $9$ years.
+
+In addition, Table \ref{table:vardec} in Appendix \ref{section:vardec} presents forecast error variance of each variable on impact, and after one-, two-, four-, six-, and ten-year horizon. In line with impulse responses, ICT shocks, which are orthogonal to current productivity, explain a third of TFP fluctuations over ten-year horizon. On the other hand, ICT shocks drive almost the whole variation in ICT investment on impact but this effect tends to decay over time getting below the $50$\% after 10 years. Interestingly, both output and consumption has a remarkable reaction on impact: $26$\% and $19$\%, respectively. Moreover, this effect tends to increase reaching $40$\% in both cases over the maximal horizon. Finally, ICT shocks do not have a remarkable effect on relative prices. The fraction of fluctuations explained on impact is only $6$\% with a peak of $14$\% between four and six years.
+
+\subsection{Controlling for News Shocks}
+
+In this section, we show a set of robustness checks aimed to show that our previous results are not driven by future signals regarding exogenous productivity. Although our results are robust when we purposely change the main specification presented in Subsection \ref{section:mainSpec}, an important critique to our empirical strategy is reverse causality coming from news on future TFP. As suggested by the news-shock literature, the positive reaction of ICTI on impact may be triggered by signals related future increases in productivity and not to a contemporaneous ICT shock. In other words, our identification strategy may confound our shock of interest with a news shock which contemporaneously enhances investment in ICT capital goods. We address this issue by providing two main alternative identification strategies which we show deliver the same time series of ICT shocks as our initial specification. Firstly, we test if our result is robust once removed all the forward looking variables which fluctuations may be unrelated to sector-specific technological changes: consumption and output. Technically speaking, consumption and output may granger-cause future TFP for reasons which are orthogonal to ICT shocks. For example, the forward-looking nature of consumption may provide to the VAR unnecessary information regarding future changes in TFP not related to an ICT shock which our identification strategy is not able to filter it out. Secondly, we apply a sequential identification where we firstly identify a news shock in the spirit of \cite{barsky2011news}, and subsequently we identify our sectoral ICT shock using the previous identification strategy. This second strategy has the specific purpose of filtering out all the current movements in forward-looking variables related to future fluctuations of TFP which are not related to current ICT shocks.
+
+Encouragingly, controlling for signals regarding future movements in productivity does not affect our identified ICT shocks suggesting a causal relation which goes from current ICT investment to future TFP.
+
+\subsubsection{Removing Forward-Looking Variables}
+
+Three-variables one lag, just show the structural shocks and their correlation. Responses very similar.
+
+\subsubsection{Sequential Identification Strategy}
+
+
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
 \section{Model}\label{section:theory}
@@ -189,22 +209,6 @@ hjklbhjkl
 
 \section{Main Set of Results}\label{section:mainSetResults}
 
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
 	\begin{figure}[h!]
 		\begin{center}
 \includegraphics[scale=0.35]{MainFigures/fig_ICT_Shock_on_TFP_empirical_noH}
@@ -212,6 +216,8 @@ hjklbhjkl
 		\label{fig:TFP_main}
 	\end{center}
 \end{figure}
+
+\newpage
 
 
 
@@ -224,6 +230,8 @@ hjklbhjkl
 	\end{center} 
 	\end{figure}
 
+\newpage
+
 
 	\begin{figure}[h!]
 	\begin{center}
@@ -232,6 +240,8 @@ hjklbhjkl
 		\label{fig:GDP_main}
 	\end{center} 
 \end{figure}
+
+\newpage
 
 
 	\begin{figure}[h!]
@@ -242,6 +252,8 @@ hjklbhjkl
 	\end{center} 
 \end{figure}
 
+\newpage
+
 
 	\begin{figure}[h!]
 	\begin{center}
@@ -251,9 +263,35 @@ hjklbhjkl
 	\end{center} 
 \end{figure}
 
+
+
+
+\newpage
+
  
  
+ \section{Variance Decomposition}\label{section:vardec}
+
  
+ 
+ 	\begin{table}[h!]
+ 		\begin{center}
+ \begin{tabular}{lcccccccccc}
+\hline
+ 	& $h = 1$ & $h = 4$ & $h = 8$ & $h = 16$ & $h = 24$ & $h = 40$ \\
+ 	\hline
+TFP &  0       &  0.0023  &  0.0194 &   0.1088 &   0.2273  &  0.3382 \\
+ICT Investment &  0.9997  &  0.9038  &  0.7964 &   0.6320 &   0.5310  &  0.4371 \\
+Real GDP &  0.2620  &  0.3061  &  0.3486 &   0.3936 &   0.4046  &  0.3881 \\
+Real Consumption &  0.1952  &  0.2638  &  0.3219 &   0.3931 &   0.4188  &  0.4064 \\
+Relative Prices &  0.0618  &  0.0967  &  0.1276 &   0.1511 &   0.1516  &  0.1467 \\	
+\hline
+ 	\end{tabular}
+  		\caption{The letter $h$ denotes the forecast horizon. The numbers refer to the fraction of the forecast error variance of each variable at various forecast horizons to the identified ICT shock}
+  \label{table:vardec}
+  \end{center}
+ \end{table}
+
  
 \end{document}
 

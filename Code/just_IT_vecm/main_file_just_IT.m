@@ -69,6 +69,7 @@ if AIC >= 4
 else
       nlags = AIC;
 end
+nlags = 1
 
 %Run VAR imposing Cholesky
 [A,B,res,sigma] = sr_var(data, nlags);
@@ -89,7 +90,7 @@ blocksize = 30; % size of block for drawing in blocks
 
 
 % Get "bootstrapped A" nsimul times
-for i_simul=1:nsimul      
+for i_simul=1:nsimul
       [A_boot, ~,~,~] = sr_var(data_boot2(:,:,i_simul), nlags);
       % Get bootstrapped confidence intervals nsimul times
       disp(['Iteration ' num2str(i_simul) ' out of ' num2str(nsimul)])
@@ -108,7 +109,7 @@ end
 
 %Creating and Printing figures
 comment = [which_ID '_' char(varnames(pos_IT))];
-print_figs = 'yes';
+print_figs = 'no';
 
 [IRFs, ub1, lb1, ub2, lb2] = genIRFs(fake_impact,fake_impact_boot,...
       B,beta_tilde_star,H,sig1, sig2);
@@ -150,6 +151,18 @@ impact_vardec = A*D_null; % where A is the chol.
 
 vardec = gen_vardecomp(IRF_vardec,h,h);
 shareIT_on_TFP = vardec(1,end); % "end" b/c we put gam_opt as last.
+h1     = 1;
+h4     = 4;
+h8     = 8;
+h16    = 16;
+h24    = 24;
+h40    = 40;
+h_vec  = [h1 h4 h8 h16 h24 h40];
+for ih = 1:length(h_vec)
+      vardec = gen_vardecomp(IRF_vardec,h_vec(ih),h);
+      table_vardec(:,ih) = vardec(:,end);
+end
+
 
 %Get Structural Shocks
 [s_shock_just_IT, ~] = ...
