@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  30 JUN 2018 10:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  30 JUN 2018 13:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1029,97 +1029,93 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
  [4]
 Excluding 'comment' comment. [5] [6] [7] (./Summer2018.bbl [8] [9]) [10]
-<MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png, id=239, 1172.12906pt x 688
+<MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png, id=242, 1172.12906pt x 688
 .07062pt>
 File: MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png Graphic file (type png
 )
  <use MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png use
-d on input line 208.
+d on input line 210.
 (pdftex.def)             Requested size: 410.25131pt x 240.82832pt.
 
-<MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png, id=240, 12
+<MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png, id=243, 12
 24.07312pt x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png Graphi
 c file (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empir
-ical_noH.png used on input line 219.
+ical_noH.png used on input line 221.
 (pdftex.def)             Requested size: 428.432pt x 240.82832pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png, id=241, 1159.33125pt 
+<MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png, id=244, 1159.33125pt 
 x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png Graphic file (typ
 e png)
  <use MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.pn
-g used on input line 228.
+g used on input line 230.
 (pdftex.def)             Requested size: 405.77202pt x 240.82832pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png, id=242, 1159.
+<MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png, id=245, 1159.
 33125pt x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png Graphic f
 ile (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_Consumption_empirica
-l_noH.png used on input line 237.
+l_noH.png used on input line 239.
 (pdftex.def)             Requested size: 405.77202pt x 240.82832pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png, id=243, 1183.42
+<MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png, id=246, 1183.42
 125pt x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png Graphic fil
 e (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_
-noH.png used on input line 246.
+noH.png used on input line 248.
 (pdftex.def)             Requested size: 414.20364pt x 240.82832pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [11 <./MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 256.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 258.
  [12 <./MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png (PNG
  copy)>]
 [13 <./MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png (PNG copy)>]
 [14 <./MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png (PNG cop
 y)>] [15 <./MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png (PNG 
 copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 256.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 258.
  (./Summer2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 256.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 256.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 258.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 258.
 Package rerunfilecheck Info: File `Summer2018.out' has not changed.
 (rerunfilecheck)             Checksum: 6575AA0201BD508CBEA1481FC58249B5;478.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 256.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 258.
  ) 
 Here is how much of TeX's memory you used:
- 18942 strings out of 493089
- 347236 string characters out of 6134842
+ 18943 strings out of 493089
+ 347248 string characters out of 6134842
  428419 words of memory out of 5000000
  21976 multiletter control sequences out of 15000+600000
  16498 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,54p,2501b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,8n,54p,2501b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -1136,10 +1132,10 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Summer2018.pdf (15 pages, 453050 bytes).
+Output written on Summer2018.pdf (15 pages, 453616 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 293 compressed objects within 3 object streams
- 70 named destinations out of 1000 (max. 500000)
+ 337 PDF objects out of 1000 (max. 8388607)
+ 296 compressed objects within 3 object streams
+ 71 named destinations out of 1000 (max. 500000)
  110 words of extra memory for PDF output out of 10000 (max. 10000000)
 
