@@ -109,5 +109,5 @@ sim_data = sim_data';
 plot(sim_data(gamtfp_idx,:))
 
 
-% param = parameters;
-% ss = oulton_spillover_stst(param);
+param = parameters;
+ss = oulton_spillover_stst(param);

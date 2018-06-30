@@ -57,11 +57,11 @@ OPTIONS.OptimalityTolerance = 1e-10;
 OPTIONS.StepTolerance = 1e-10;
 OPTIONS.FunctionTolerance = 1e-10;
 
-%        yc yi   h1 h2  h kc1 kc2 kc ki1 ki2 ki ic it c w 
-% x0 = [0.1,0.9,0.1,0.9,10];
+%        yc   yi   h1   h2   h    kc1  kc2  kc    ki1  ki2   ki   ic    it   c    w 
+x0 = [0.69, 0.1, 0.8, 0.1, 0.9, 0.7, 0.1, 0.79, 0.5, 0.1, 0.6, 0.06, 0.1, 0.6, 0.6];
 % lb = [0,0,0,0,0.00001];
 % ub = [1,1,1,1,1000000];
-x0 = ones(1,15);
+% x0 = ones(1,15);
 lb = zeros(1,15);
 ub = 2*ones(1,15);
 
