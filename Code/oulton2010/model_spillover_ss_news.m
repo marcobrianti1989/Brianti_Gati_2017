@@ -152,5 +152,5 @@ yy  = [yc yi c ic it w rc ri h h1 h2 kc1 kc2 ki1 ki2 p expgc expgi ...
 
 ss  = [yy xx];
 
-
+save ss_old.mat xx yy
 
