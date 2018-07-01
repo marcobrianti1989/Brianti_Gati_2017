@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  1 JUL 2018 12:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  1 JUL 2018 12:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1030,68 +1030,68 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
  [4]
 Excluding 'comment' comment. [5] [6] [7] [8] [9] (./Summer2018.bbl [10]
 [11]) [12]
-<MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png, id=282, 1172.12906pt x 688
+<MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png, id=283, 1172.12906pt x 688
 .07062pt>
 File: MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png Graphic file (type png
 )
  <use MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png use
-d on input line 216.
+d on input line 221.
 (pdftex.def)             Requested size: 410.25131pt x 240.82832pt.
  [13 <./MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png (PNG copy)>]
-<MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png, id=288, 12
+<MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png, id=289, 12
 24.07312pt x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png Graphi
 c file (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empir
-ical_noH.png used on input line 229.
+ical_noH.png used on input line 234.
 (pdftex.def)             Requested size: 428.432pt x 240.82832pt.
 
 [14 <./MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png (PNG 
 copy)>]
-<MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png, id=293, 1159.33125pt 
+<MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png, id=294, 1159.33125pt 
 x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png Graphic file (typ
 e png)
  <use MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.pn
-g used on input line 240.
+g used on input line 245.
 (pdftex.def)             Requested size: 405.77202pt x 240.82832pt.
 
 [15 <./MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png (PNG copy)>]
-<MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png, id=298, 1159.
+<MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png, id=299, 1159.
 33125pt x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png Graphic f
 ile (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_Consumption_empirica
-l_noH.png used on input line 251.
+l_noH.png used on input line 256.
 (pdftex.def)             Requested size: 405.77202pt x 240.82832pt.
  [16 <./MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png (PNG co
 py)>]
-<MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png, id=303, 1183.42
+<MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png, id=304, 1183.42
 125pt x 688.07062pt>
 File: MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png Graphic fil
 e (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_
-noH.png used on input line 262.
+noH.png used on input line 267.
 (pdftex.def)             Requested size: 414.20364pt x 240.82832pt.
  [17 <./MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png (PNG copy
 )>] [18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 298.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 298.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
 
 (./Summer2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 298.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 298.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 303.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
 Package rerunfilecheck Info: File `Summer2018.out' has not changed.
 (rerunfilecheck)             Checksum: 144D121AA4636483DCD57D7E991491F3;886.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 298.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 303.
  ) 
 Here is how much of TeX's memory you used:
  18964 strings out of 493089
@@ -1100,7 +1100,7 @@ Here is how much of TeX's memory you used:
  21986 multiletter control sequences out of 15000+600000
  16805 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,54p,1908b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,9n,54p,1866b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -1118,10 +1118,10 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
 15/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Summer2018.pdf (18 pages, 472832 bytes).
+Output written on Summer2018.pdf (18 pages, 473706 bytes).
 PDF statistics:
- 388 PDF objects out of 1000 (max. 8388607)
- 342 compressed objects within 4 object streams
+ 389 PDF objects out of 1000 (max. 8388607)
+ 343 compressed objects within 4 object streams
  82 named destinations out of 1000 (max. 500000)
  150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
