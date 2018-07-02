@@ -1,6 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: Summer2018.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Summer2018.aux
 The style file: chicago.bst
 Database file #1: literature.bib
 Warning--empty booktitle in basu2010sector
@@ -8,45 +6,4 @@ Warning--no number and no volume in greenwood1997long
 Warning--no number and no volume in kydland1982time
 Warning--no number and no volume in moran2017innovation
 Warning--page numbers missing in moran2017innovation
-You've used 24 entries,
-            2861 wiz_defined-function locations,
-            762 strings with 8525 characters,
-and the built_in function-call counts, 16711 in all, are:
-= -- 1422
-> -- 1241
-< -- 1
-+ -- 380
-- -- 426
-* -- 1529
-:= -- 3052
-add.period$ -- 71
-call.type$ -- 24
-change.case$ -- 177
-chr.to.int$ -- 24
-cite$ -- 29
-duplicate$ -- 424
-empty$ -- 987
-format.name$ -- 498
-if$ -- 3067
-int.to.chr$ -- 1
-int.to.str$ -- 0
-missing$ -- 22
-newline$ -- 122
-num.names$ -- 240
-pop$ -- 117
-preamble$ -- 1
-purify$ -- 319
-quote$ -- 0
-skip$ -- 457
-stack$ -- 0
-substring$ -- 917
-swap$ -- 131
-text.length$ -- 1
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 470
-warning$ -- 5
-while$ -- 240
-width$ -- 0
-write$ -- 316
 (There were 5 warnings)

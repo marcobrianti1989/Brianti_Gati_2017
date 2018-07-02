@@ -7,6 +7,12 @@ Anzoategui, D., D.~Comin, M.~Gertler, and J.~Martinez (2016).
   persistence.
 \newblock Technical report, National Bureau of Economic Research.
 
+\bibitem[\protect\citeauthoryear{Barsky, Basu, and Lee}{Barsky
+  et~al.}{2015}]{barsky2015whither}
+Barsky, R.~B., S.~Basu, and K.~Lee (2015).
+\newblock Whither news shocks?
+\newblock {\em NBER Macroeconomics Annual\/}~{\em 29\/}(1), 225--264.
+
 \bibitem[\protect\citeauthoryear{Barsky and Sims}{Barsky and
   Sims}{2011}]{barsky2011news}
 Barsky, R.~B. and E.~R. Sims (2011).
@@ -32,6 +38,12 @@ Basu, S., J.~G. Fernald, N.~Oulton, and S.~Srinivasan (2003).
   technology explain why productivity accelerated in the united states but not
   in the united kingdom?
 \newblock {\em NBER macroeconomics annual\/}~{\em 18}, 9--63.
+
+\bibitem[\protect\citeauthoryear{Beaudry and Portier}{Beaudry and
+  Portier}{2006}]{beaudry2006stock}
+Beaudry, P. and F.~Portier (2006).
+\newblock Stock prices, news, and economic fluctuations.
+\newblock {\em American Economic Review\/}~{\em 96\/}(4), 1293--1307.
 
 \bibitem[\protect\citeauthoryear{Bianchi, Kung, and Morales}{Bianchi
   et~al.}{2014}]{bianchi2014growth}
@@ -70,6 +82,12 @@ Fisher, J.~D. (2006).
 \newblock The dynamic effects of neutral and investment-specific technology
   shocks.
 \newblock {\em Journal of political Economy\/}~{\em 114\/}(3), 413--451.
+
+\bibitem[\protect\citeauthoryear{Forni and Gambetti}{Forni and
+  Gambetti}{2014}]{forni2014sufficient}
+Forni, M. and L.~Gambetti (2014).
+\newblock Sufficient information in structural vars.
+\newblock {\em Journal of Monetary Economics\/}~{\em 66}, 124--136.
 
 \bibitem[\protect\citeauthoryear{Greenwood, Hercowitz, and Krusell}{Greenwood
   et~al.}{1997}]{greenwood1997long}
@@ -142,6 +160,12 @@ Romer, P.~M. (1990).
 \newblock Endogenous technological change.
 \newblock {\em Journal of political Economy\/}~{\em 98\/}(5, Part 2),
   S71--S102.
+
+\bibitem[\protect\citeauthoryear{Sims}{Sims}{2012}]{sims2012news}
+Sims, E.~R. (2012).
+\newblock News, non-invertibility, and structural vars.
+\newblock In {\em DSGE Models in Macroeconomics: Estimation, Evaluation, and
+  New Developments}, pp.\  81--135. Emerald Group Publishing Limited.
 
 \bibitem[\protect\citeauthoryear{Stiroh}{Stiroh}{2002}]{stiroh2002information}
 Stiroh, K.~J. (2002).

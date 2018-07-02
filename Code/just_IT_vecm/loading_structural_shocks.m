@@ -24,9 +24,18 @@ sICT5      = s_shock_just_IT;
 load Workspace_Just_IT_SVAR_3Variables_1LAG.mat
 sICT6      = s_shock_just_IT;
 
+quarter = 1989.25:0.25:2017;
+quarter = quarter';
 corr(sICT1,sICT6)
-plot(sICT1)
+plot(quarter,sICT1,'linewidth',1.8)
 hold on
-plot(sICT6)
+plot(quarter,sICT6,'--','linewidth',2.3)
+set(gcf,'color','w');
+grid on
+LEG = legend('5-dimensional system','3-dimesional system');
+LEG.FontSize = 20;
+legend boxoff
+title('Series of ICT shocks for different specifications','fontsize',40)
+axis tight
 
 

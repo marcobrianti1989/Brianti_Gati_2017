@@ -120,9 +120,9 @@ C_{t-1} \\
 RP_{t-1} \\
 \end{pmatrix} + i_t
 \end{equation}
-where $TFP_t$ is the log-level of Fernald total factor productivity at time $t$, $ICTI_{t}$ is the log-level of real information and communication technology investment at time $t$,\footnote{$ICTI_t$ is defined as the total expenditure at time $t$ in equipment and computer software meant to be used in production for more than an year.} $GDP_t$ is the log-level of real gross domestic product at time $t$, $C_t$ is the log-level of real consumption at time $t$, and $RP_t$ is the log-deviation of the ratio between prices of ICT goods and services and the consumer price index (CPI).\footnote{Except for $RP_t$ that is not cointegrated with the remaining variables, we opt for estimating the VAR in levels since it produces consistent estimates of the impulse responses and is robust to cointegration of unknown forms. In particular, as suggested by \cite{hamilton1994time} when there is uncertainty regarding the nature of common trends, estimating the system in levels is considered the conservative approach. The alternative approach is to estimate the system as a vector error correction model (VECM); our results remain very similar also in this case.} Our dataset is quarterly and covers the U.S. economy from 1989:Q1 to 2017:Q1.\footnote{All data are from the BEA except for TFP, which is the series constructed by John Fernald, available on his website.} $B(L)$ is a ($5\times 5$) matrix of lag-operator functions of the same order. Following the Bayesian Information Criterion (BIC), we set choose one lag, which implies that we regress variables at time $t$ with their own lagged values at $t-1$.\footnote{The Hannan-Quinn Criterion (HQ) suggests to use two lags. Results remains consistent following this second criterion.} Finally, $i_t$ is a ($5 \times 1$) vector of correlated innovations where $\Sigma = i'_t i_t$.
+where $TFP_t$ is the log-level of Fernald total factor productivity at time $t$, $ICTI_{t}$ is the log-level of real information and communication technology investment at time $t$,\footnote{$ICTI_t$ is defined as the total expenditure at time $t$ in equipment and computer software meant to be used in production for more than an year.} $GDP_t$ is the log-level of real gross domestic product at time $t$, $C_t$ is the log-level of real consumption at time $t$, and $RP_t$ is the log-deviation of the ratio between prices of ICT goods and services and the consumer price index (CPI).\footnote{Except for $RP_t$ that is not cointegrated with the remaining variables, we opt for estimating the VAR in levels since it produces consistent estimates of the impulse responses and is robust to cointegration of unknown forms. In particular, as suggested by \cite{hamilton1994time} when there is uncertainty regarding the nature of common trends, estimating the system in levels is considered the conservative approach. The alternative approach is to estimate the system as a vector error correction model (VECM); our results remain very similar also in this case.} Our dataset is quarterly and covers the U.S. economy from 1989:Q1 to 2017:Q1.\footnote{All data are from the BEA except for TFP, which is the series constructed by John Fernald, available on his website.} $B(L)$ is a ($5\times 5$) matrix of lag-operator functions of the same order. Following the Bayesian Information Criterion (BIC), we choose one lag, which implies that we regress variables at time $t$ with their own lagged values at $t-1$.\footnote{The Hannan-Quinn Criterion (HQ) suggests to use two lags. Results remains consistent following this second criterion.} Finally, $i_t$ is a ($5 \times 1$) vector of correlated innovations where $\Sigma = i'_t i_t$.
 
-\subsubsection{Empirical Strategy}
+\subsubsection{Empirical Strategy}\label{section:empiricalstrategy_simple}
 
 
 Our simplest identification strategy assumes that an ICT-investment technological shock (hereafter ICT shock) has no impact effect on TFP and maximal impact effect on ICTI. We justify these assumptions with both empirical and theoretical arguments. First of all, using data released in April, 2018 by the Bureau of Economic Analysis (BEA) the real value added of the information sector on real GDP is slightly below $5$\% for the underlying quarter.\footnote{There are many ways to quantify the size of the ICT sector, both in terms of what share one considers and how one defines the ICT sector. The number presented in the text refers to the value added share of the ICT sector, defined as in Section \ref{eq:mainSpecification}. The statement that the ICT sector is tiny is however not sensitive to the definition of the sector or to the choice of share. Even with broader definitions, one obtains numbers in the range of 5\%.} Thus, since the share of this sector accounts for a negligible part in the whole economy, we think it safe to assume that an ICT shock is orthogonal to current TFP. In addition, the theory of multi-sector models, firstly presented by \cite{greenwood1997long}, predicts that a productivity increase in one sector should lead to sectoral output becoming cheaper. Thus, we expect that an ICT shock should enhance sector-specific investment since ICT goods are now easier to produce and cheaper to buy. As a result, we expect an ICT shock to have a maximal impact effect on ICTI. 
@@ -183,11 +183,36 @@ As is illustrated in the rest of this section, both our robustness checks recove
 
 \subsubsection{Removing Forward-Looking Variables}
 
-Three-variables one lag, just show the structural shocks and their correlation. Responses very similar.
+In this part of the paper, we employ a first-pass test where we attempt to show that our ICT shock is not confounded with future signals of TFP unrelated to the ICT sector. 
+
+As discussed by \cite{sims2012news}, \cite{forni2014sufficient}, and \cite{barsky2015whither} the presence of forward-looking variables in the VAR is a necessary condition to correctly identify a news shock. In particular, since the univariate TFP process cannot predict future TFP,\footnote{It is well-accepted that TFP growth can be approximated as a white noise.} a news shock can be identified if there are variables that granger-cause TFP inside the VAR. For example, \cite{beaudry2006stock} use current movements in stock prices to predict future productivity, but also contemporary fluctuations in consumption, hours, investment, may implicitly reflect information regarding future technical change.
+
+Thus, as a simple test we propose to redo the exercise described in Section \ref{section:mainSpec} without two forward-looking macroeconomic variables not directly related with the ICT sector: consumption and output.\footnote{Notice that output implicitly reflect the behavior of hours and investment once we control for consumption.} If we are actually confounding news shocks with our ICT shock series then we would expect to see some differences in this second estimate. In other words, once our VAR is deprived by a source of information useful to recover a news shock, then the confounded part should either decreases or cancels out. 
+
+As hinted above, in this section we estimate the following 3-dimensional system
+\begin{equation}\label{eq:noForVariables}
+\begin{pmatrix}
+TFP_t \\ 
+ICTI_t \\
+RP_t \\
+\end{pmatrix} = B(L) \begin{pmatrix}
+TFP_{t-1} \\ 
+ICTI_{t-1} \\
+RP_{t-1} \\
+\end{pmatrix} + i_t
+\end{equation}
+where  $TFP_t$, $ICTI_{t}$, and $RP_t$ have the same meaning and transformation as in System \ref{eq:mainSpecification}. As before, dataset is quarterly and covers the U.S. economy from 1989:Q1 to 2017:Q1. Finally, according to the Bayesian Information Criterion (BIC), we choose one lag.\footnote{The Hannan-Quinn Criterion (HQ) suggests to use two lags. Results remains consistent following this second criterion.} Using the same identification strategy presented in \ref{section:empiricalstrategy_simple}, we recover a series of ICT shocks which is correlated at $95$\% with the one estimated in 5-dimensional system. In particular, in Appendix \ref{section:removing_FL_Var}, Figure \ref{fig:shockSeries_removing} shows ICT shock series for both the 3-dimensional system and 5-dimensional one. In line with the correlation coefficient, the two series almost overlap each others suggesting that our initial result is not driven by the forward-looking power of consumption and output on TFP. 
+
+However, although this result is encouraging, this first-pass test has obviously a weak power because the jump of ICTI on impact may be triggered by future exogenous signal of TFP. In this case, ICTI would be itself the source to granger-cause TFP and our ICT shock would be upward biased by news. To amend this deeper concern, we then need to employ a more complicated strategy presented in the next section. 
+
 
 \subsubsection{Sequential Identification Strategy}
 
+In this part, we present an alternative procedure to rule out the presence of news from our empirical result. In this second test we run a VAR where we identify both ICT shocks and news shocks. We apply a sequential identification where we first identify a news shocks in the spirit of \cite{barsky2011news}, and subsequently we identify ICT shocks using our original identification strategy. Here we are seriously attempting to filter out future signals unrelated to current ICT shocks. Specifically, in the first step the news shock is identified as the shock orthogonal to current TFP that best explains its future movements. Then, as a second step, the ICT shock is identified as the shock orthogonal to current TFP that maximizes the impact effect on ICT investment. 
 
+However, we need to clarify that in order to correctly employ this procedure, we need to take care to a second issue. As mentioned by \cite{barsky2011news}, \textit{``A general objection to our emprical approach would be that a number of structural shocks, which are not really news in the sense defined in the literature, might affect a measure of TFP in the future without impacting it immediately. Among these shocks might be research and development shocks, investment specific shocks, and reallocative shocks. Our identification (and any other existing VAR identifications) would obviously confound any true news shock with these shocks.''} In other words, by naively employing the procedure presented above, any ICT shocks would be fully captured as a news shock since it is orthogonal to current TFP and explains its future movements. 
+
+Thus, in order to avoid the opposite mistake, namely confounding ICT shocks into news shocks, we need to augment the first step with a sort of control ad hoc for our case.  
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
 \section{Model}\label{section:theory}
@@ -298,6 +323,23 @@ Relative Prices &  0.0618  &  0.0967  &  0.1276 &   0.1511 &   0.1516  &  0.1467
   \label{table:vardec}
   \end{center}
  \end{table}
+
+\newpage
+
+ \section{Removing Forward-Looking Variables}\label{section:removing_FL_Var}
+ 
+ 
+ 	\begin{figure}[h!]
+ 	\begin{center}
+ 		\includegraphics[scale=0.35]{MainFigures/Removing_FLVariables}
+ 		\caption{ICT shock series using the empirical strategy presented in \ref{section:empiricalstrategy_simple}. Blue solid line represents shock series for the 5-dimension system \ref{eq:mainSpecification} presented in \ref{section:mainSpec}. Red dotted line represents shock series for the 3-dimensional system presented in \ref{section:removing_FL_Var}.}
+ 		\label{fig:shockSeries_removing}
+ 	\end{center} 
+ \end{figure}
+
+
+ 
+
 
  
 \end{document}
