@@ -100,13 +100,18 @@ save IRFs_gamma_opt.mat IRFs_VAR T which_shock shocknames varnames_matching prin
 
 % Generate simulated data from model
 sim_shocks = zeros(1,nshocks);
-sim_shocks(pos_ITLEV) = eta(pos_ITLEV,pos_ITLEV);
-sim_data = simulate_model(gx,hx,sim_shocks,T);
+sim_shocks(pos_ITLEV) = 1; % turn on IT level shock
+sim_shocks(pos_news)  = 1; % turn on news shock
+[sim_data, all_shock_series] = simulate_model(gx,hx,eta*sim_shocks',T);
+shocks_series = all_shock_series(:,[pos_news pos_ITLEV])';
 % the question is whether we need to cumsum here (I guess so!)
 sim_data(:,gamc_idx:njumps) = cumsum(sim_data(:,gamc_idx:njumps));
 sim_data = sim_data';
 
-plot(sim_data(gamtfp_idx,:))
+plot(sim_data(gamtfp_idx,:), 'k'); hold on;
+plot(shocks_series(1,:),'b')
+plot(shocks_series(2,:),'r')
+legend('sim. tfp', 'sim. news innovations', 'sim. IT innovations')
 
 
 param = parameters;
