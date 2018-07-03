@@ -127,19 +127,19 @@ where $TFP_t$ is the log-level of Fernald total factor productivity at time $t$,
 
 Our simplest identification strategy assumes that an ICT-investment technological shock (hereafter ICT shock) has no impact effect on TFP and maximal impact effect on ICTI. We justify these assumptions with both empirical and theoretical arguments. First of all, using data released in April, 2018 by the Bureau of Economic Analysis (BEA) the real value added of the information sector on real GDP is slightly below $5$\% for the underlying quarter.\footnote{There are many ways to quantify the size of the ICT sector, both in terms of what share one considers and how one defines the ICT sector. The number presented in the text refers to the value added share of the ICT sector, defined as in Section \ref{eq:mainSpecification}. The statement that the ICT sector is tiny is however not sensitive to the definition of the sector or to the choice of share. Even with broader definitions, one obtains numbers in the range of 5\%.} Thus, since the share of this sector accounts for a negligible part in the whole economy, we think it safe to assume that an ICT shock is orthogonal to current TFP. In addition, the theory of multi-sector models, firstly presented by \cite{greenwood1997long}, predicts that a productivity increase in one sector should lead to sectoral output becoming cheaper. Thus, we expect that an ICT shock should enhance sector-specific investment since ICT goods are now easier to produce and cheaper to buy. As a result, we expect an ICT shock to have a maximal impact effect on ICTI. 
 
-Using a notation similar to \cite{barsky2011news}, we implement our identification strategy as follows. Let $y_t$ be the $(5 \times 1)$ vector of observables of length $T$ presented above. One can form the reduced form moving average representation:
+Using a notation similar to \cite{barsky2011news}, we implement our identification strategy as follows. Let $y_t$ be the $(5 \times 1)$ vector of observables of length $T$ presented above. The reduced-form VAR takes the following form,
 $$
-y_t = \bar{B}(L)y_{t} + i_t \ \ \Rightarrow \ \ y_t = A(L)i_t
+y_t = B(L)y_{t-1} + i_t 
 $$
-where $A(L) = [I - \bar{B}(L)]^{-1}$ and $\bar{B}(L)$ has no constant terms. Assume now that there exists a linear combination that maps innovations $i_t$ to structural shocks $s_t$:
+Assume now that there exists a linear combination that maps innovations $i_t$ to structural shocks $s_t$,
 $$
-s_t = A_0 i_t
+A_0 s_t = i_t
 $$
-This entails the structural moving average representation:
+which implies the structural-form VAR
 $$
-y_t = C(L)i_t
+A_0^{-1}y_t = C(L) y_{t-1} + s_t
 $$
-where $C(L) = A(L) A_0$ and $i_t = A_0^{-1} s_t$. The impact matrix $A_0$ must be such that $\Sigma = A_0 A_0'$. Notice that $A_0$ is not unique since for any $D$ such that $DD' = I$, $\tilde{A}_0 = A_0 D$ satisfies $\Sigma = \tilde{A}_0 \tilde{A}_0'$. 
+where $C(L) = A_0^{-1} B(L)$ and $s_t = A_0^{-1} i_t$. The impact matrix $A_0$ must be such that $\Sigma = A_0 A_0'$. Notice that $A_0$ is not unique since for any $D$ such that $DD' = I$, $\tilde{A}_0 = A_0 D$ satisfies $\Sigma = \tilde{A}_0 \tilde{A}_0'$. 
 
 The matrix of impact responses to all shocks is: % TYPO HERE? either Atilde or A0 D. Checked Barsky, this seems correct but I'm confused. 
 $$
@@ -243,13 +243,13 @@ RP_{t-1} \\
 \end{equation}
 where $TFP_t$, $ICTI_t$, $GDP_t$, $C_t$, and $RP_t$ have the same meaning and transformation as in System \ref{eq:mainSpecification}. Moreover, $SP_t$ represents the log-transformation of Standard \& Poor's 500 stock prices added to provide an additional forward-looking variable to the system.\footnote{As mentioned before, following \cite{sims2012news}, \cite{forni2014sufficient}, and \cite{barsky2015whither} the presence of forward-looking variables in the VAR is a necessary condition to correctly identify a news shock.} As before, dataset is quarterly and covers the U.S. economy from 1989:Q1 to 2017:Q1 and following the BIC and HQ criteria we opt for one lag.
 
-Using the same notation in Section \ref{section:empiricalstrategy_simple}, our identification strategy can be presented as follows,\footnote{Also in this case we keep following the same notation of \cite{barsky2011news}.}
+Using a similar notation in Section \ref{section:empiricalstrategy_simple}, assume for simplicity  that $B(L)$ allows only of one lag
 
 \
 
 \textbf{Step 1 - Identification of $\gamma_{news}$}
 $$
-\max_{\gamma_{news}} \sum_{h = 0}^{H} \Sigma
+\max_{\gamma_{news}} \frac{\sum_{\tau = 0}^H B_{}}{}
 $$
 
 
