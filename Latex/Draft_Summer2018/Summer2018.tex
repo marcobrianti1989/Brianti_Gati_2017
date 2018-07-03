@@ -210,9 +210,48 @@ However, although this result is encouraging, this first-pass test has obviously
 
 In this part, we present an alternative procedure to rule out the presence of news from our empirical result. In this second test we run a VAR where we identify both ICT shocks and news shocks. We apply a sequential identification where we first identify a news shocks in the spirit of \cite{barsky2011news}, and subsequently we identify ICT shocks using our original identification strategy. Here we are seriously attempting to filter out future signals unrelated to current ICT shocks. Specifically, in the first step the news shock is identified as the shock orthogonal to current TFP that best explains its future movements. Then, as a second step, the ICT shock is identified as the shock orthogonal to current TFP that maximizes the impact effect on ICT investment. 
 
-However, we need to clarify that in order to correctly employ this procedure, we need to take care to a second issue. As mentioned by \cite{barsky2011news}, \textit{``A general objection to our emprical approach would be that a number of structural shocks, which are not really news in the sense defined in the literature, might affect a measure of TFP in the future without impacting it immediately. Among these shocks might be research and development shocks, investment specific shocks, and reallocative shocks. Our identification (and any other existing VAR identifications) would obviously confound any true news shock with these shocks.''} In other words, by naively employing the procedure presented above, any ICT shocks would be fully captured as a news shock since it is orthogonal to current TFP and explains its future movements. 
+However, we need to clarify that in order to correctly employ this procedure, we need to take care of a second issue. As correctly mentioned by \cite{barsky2011news}, \textit{``A general objection to our emprical approach would be that a number of structural shocks, which are not really news in the sense defined in the literature, might affect a measure of TFP in the future without impacting it immediately. Among these shocks might be research and development shocks, investment specific shocks, and reallocative shocks. Our identification (and any other existing VAR identifications) would obviously confound any true news shock with these shocks.''} In other words, by naively employing the procedure presented above, any ICT shocks would be fully captured as a news shock since it is orthogonal to current TFP and explains its future movements. 
 
-Thus, in order to avoid the opposite mistake, namely confounding ICT shocks into news shocks, we need to augment the first step with a sort of control ad hoc for our case.  
+Thus, in order to avoid the opposite mistake, namely confounding ICT shocks into news shocks, we need to augment the first step with a sort of control ad hoc for our case. To formally discipline this additional identification assumption we need to design a two-sector model in the spirit of \cite{greenwood1997long}.\footnote{In particular, the model presented in Section \ref{section:theory} is closely related to \cite{oulton2007investment}.} In particular, we will mostly rely on the effect of an sector-neutral technology shock on relative prices to constraint the first step in order to avoid to capture an ICT shock into a news shock.
+
+\begin{prop}\label{prop:priceRestriction}
+In a two-sector economy, if both production functions are identical then any economy-wide productivity shocks do not affect relative prices between the two sectors.
+\end{prop}
+\begin{proof}
+	See Appendix \ref{section:proofpriceRestriction}.
+\end{proof}
+
+Proposition \ref{prop:priceRestriction} implies that a future sector-neutral technological change (the so-called news shock) never affects relative prices between sectors. Obviously, this statement is correct under the extreme assumptions that (i) the shock is expected to have the same impact on the two sectors and (ii) production functions are identical to each others. If those assumptions hold in the data, then the correct additional restriction would be to shut down to zero the impulse response of relative prices to a news shock. However, this restriction would obviously penalize the identification of news shocks since it is unlikely that assumptions (i) and (ii) perfectly hold in the data. We then opt for a more moderate strategy where we basically impose that the response of relative prices to a news shock should be relatively much smaller than the response observed by an ICT shock. Practically speaking, we arbitrarily set the impulse response of relative prices to be zero on some specific horizon rather than always. In particular, although results are robust to different horizon restrictions, our favorite specification is the one which set relative prices to have zero effect in the first two periods. 
+
+In this case, our specification is the following 6-variable VAR,
+\begin{equation}\label{eq:newsSpecification}
+\begin{pmatrix}
+TFP_t \\ 
+SP_t \\
+ICTI_t \\
+GDP_t \\
+C_t \\
+RP_t \\
+\end{pmatrix} = B(L) \begin{pmatrix}
+TFP_{t-1} \\ 
+SP_{t-1} \\
+ICTI_{t-1} \\
+GDP_{t-1} \\
+C_{t-1} \\
+RP_{t-1} \\
+\end{pmatrix} + i_t
+\end{equation}
+where $TFP_t$, $ICTI_t$, $GDP_t$, $C_t$, and $RP_t$ have the same meaning and transformation as in System \ref{eq:mainSpecification}. Moreover, $SP_t$ represents the log-transformation of Standard \& Poor's 500 stock prices added to provide an additional forward-looking variable to the system.\footnote{As mentioned before, following \cite{sims2012news}, \cite{forni2014sufficient}, and \cite{barsky2015whither} the presence of forward-looking variables in the VAR is a necessary condition to correctly identify a news shock.} As before, dataset is quarterly and covers the U.S. economy from 1989:Q1 to 2017:Q1 and following the BIC and HQ criteria we opt for one lag.
+
+Using the same notation in Section \ref{section:empiricalstrategy_simple}, our identification strategy can be presented as follows,\footnote{Also in this case we keep following the same notation of \cite{barsky2011news}.}
+
+\
+
+\textbf{Step 1 - Identification of $\gamma_{news}$}
+$$
+\max_{\gamma_{news}} \sum_{h = 0}^{H} \Sigma
+$$
+
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
 \section{Model}\label{section:theory}
@@ -336,6 +375,12 @@ Relative Prices &  0.0618  &  0.0967  &  0.1276 &   0.1511 &   0.1516  &  0.1467
  		\label{fig:shockSeries_removing}
  	\end{center} 
  \end{figure}
+
+\newpage
+
+\section{Proof of Proposition \ref{prop:priceRestriction}}\label{section:proofpriceRestriction}
+
+Prova
 
 
  
