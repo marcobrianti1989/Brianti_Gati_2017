@@ -115,9 +115,11 @@ legend('sim. tfp', 'sim. news innovations', 'sim. IT innovations')
 
 
 param = parameters;
-ss = oulton_spillover_stst(param);
+% param.gam = 0.1;
+% ss = oulton_spillover_stst(param);
+ss = oulton_spillover_stst_alt2(param);
 % New st. st. values:
-global yc yi h1 h2 h kc1 kc2 kc ki1 ki2 ki ic it c w 
+global yc yi h1 h2 h kc1 kc2 kc ki1 ki2 ki ic it c w p
 
 load ss_old
 kc_old = xx(1); ki_old = xx(2);
