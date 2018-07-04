@@ -143,21 +143,21 @@ where $C(L) = A_0^{-1} B(L)$ and $s_t = A_0^{-1} i_t$. The impact matrix $A_0$ m
 
 The matrix of impact responses to all shocks is: % TYPO HERE? either Atilde or A0 D. Checked Barsky, this seems correct but I'm confused. 
 $$
-\Omega = \tilde{A}_0 D
+\Pi(0) = \tilde{A}_0 D
 $$
 and is specifically formed by the following elements, denoting the responses of variable $i$ to shock $j$, % same here
 $$
-\Omega_{i,j} = e_i' \tilde{A}_0 D e_j
+\Pi_{i,j}(0) = e_i' \tilde{A}_0 D e_j
 $$
 where $e_k$ is a selector column vector of the same dimension as $\tilde{A}_0$ with $1$ in the $k$th element and zero elsewhere. In particular, notice that $e_j$ is selecting a specific column of $D$. Let this column be denoted by $\gamma_j$. Using this notation, $\tilde{A}_0\gamma_j$ is the vector of impact responses of all the variable to shock $j$.
 
 Observe from System \ref{eq:mainSpecification} that $TFP_t$ is ordered first and $ICTI_t$ second. Our identification strategy is then the solution to the following problem:
 \begin{equation}\label{eq:mainObjective}
-\max_{\gamma_j} \Omega_{2,j} = e_2' \tilde{A}_0 \gamma_j
+\max_{\gamma_j} \Pi_{2,j}(0) = e_2' \tilde{A}_0 \gamma_j
 \end{equation}
 subject to
 \begin{equation}\label{eq:mainZeroTFP}
-\Omega_{1,j} = e_1' \tilde{A}_0 \gamma_j = 0, \ \ \text{and}
+\Pi_{1,j}(0) = e_1' \tilde{A}_0 \gamma_j = 0, \ \ \text{and}
 \end{equation}
 \begin{equation}\label{eq:mainOrtho}
 \gamma_j' \gamma_j = 1
@@ -243,13 +243,19 @@ RP_{t-1} \\
 \end{equation}
 where $TFP_t$, $ICTI_t$, $GDP_t$, $C_t$, and $RP_t$ have the same meaning and transformation as in System \ref{eq:mainSpecification}. Moreover, $SP_t$ represents the log-transformation of Standard \& Poor's 500 stock prices added to provide an additional forward-looking variable to the system.\footnote{As mentioned before, following \cite{sims2012news}, \cite{forni2014sufficient}, and \cite{barsky2015whither} the presence of forward-looking variables in the VAR is a necessary condition to correctly identify a news shock.} As before, dataset is quarterly and covers the U.S. economy from 1989:Q1 to 2017:Q1 and following the BIC and HQ criteria we opt for one lag.
 
-Using a similar notation in Section \ref{section:empiricalstrategy_simple}, assume for simplicity  that $B(L)$ allows only of one lag.
-
+Using a similar notation in Section \ref{section:empiricalstrategy_simple}, assume for notation simplicity that $B(L) = B$ allows only of one lag. Define the impulse response of variable $i$ to the identified shock $j$ at time $t$ as,\footnote{We also suppress the constant to simplify the notation. Identification strategy can obviously be applied for $B(L)$ allowing for more than one lag and with the constant.}
+$$
+\Pi_{i,j}(t) = e_i'B^t \tilde{A}_0 D e_j
+$$
+and its variance decomposition up to time $h$
+$$
+\Omega_{i,j}(h) = \frac{ \sum_{t=0}^h e_i'B^t \tilde{A}_0 D e_j e_j' D' \tilde{A}_0' B'^t e_i } { }
+$$
 \
 
 \textbf{Step 1 - Identification of $\gamma_{news}$}
 $$
-\max_{\gamma_{news}} \frac{\sum_{\tau = 0}^H B_{}}{}
+\max_{\gamma_{news}} \frac{\sum_{\tau = 0}^H B \tilde{A}_0 \tilde{A}_0 }{}
 $$
 
 
