@@ -38,7 +38,7 @@ elseif sum(strcmp('SP deflated', varnames))==1 % i.e. we use SP deflated by GDPD
 elseif sum(strcmp('SP deflated per capita', varnames))==1 % i.e. we use SP deflated by GDPDEF for news
       pos_news = find(strcmp('SP deflated per capita', varnames));
 end
-pos_IT = find(strcmp('Real IT Investment', varnames));
+pos_IT = find(strcmp('Real ICT Investment', varnames));
 if find(strcmp('Relative Price', varnames)) > 0
       pos_rel_prices = find(strcmp('Relative Price', varnames));
 elseif find(strcmp('Relative price PCE', varnames))
@@ -49,7 +49,7 @@ which_shocks = [pos_news pos_IT];
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 100; %5000
+nsimul          = 2000; %5000
 nvar            = size(data,2);
 sig1            = 0.9; % significance level
 sig2            = 0.95; % a 2nd sig. level

@@ -223,6 +223,8 @@ In a two-sector economy, if both production functions are identical then any eco
 
 Proposition \ref{prop:priceRestriction} implies that a future sector-neutral technological change (the so-called news shock) never affects relative prices between sectors. Obviously, this statement is correct under the extreme assumptions that (i) the shock is expected to have the same impact on the two sectors and (ii) production functions are identical to each others. If those assumptions hold in the data, then the correct additional restriction would be to shut down to zero the impulse response of relative prices to a news shock. However, this restriction would obviously penalize the identification of news shocks since it is unlikely that assumptions (i) and (ii) perfectly hold in the data. We then opt for a more moderate strategy where we basically impose that the response of relative prices to a news shock should be relatively much smaller than the response observed by an ICT shock. Practically speaking, we arbitrarily set the impulse response of relative prices to be zero on some specific horizon rather than always. In particular, although results are robust to different horizon restrictions, our favorite specification is the one which set relative prices to have zero effect in the first two periods. 
 
+\subsubsection*{Data}
+
 In this case, our specification is the following 6-variable VAR,
 \begin{equation}\label{eq:newsSpecification}
 \begin{pmatrix}
@@ -242,6 +244,8 @@ RP_{t-1} \\
 \end{pmatrix} + i_t
 \end{equation}
 where $TFP_t$, $ICTI_t$, $GDP_t$, $C_t$, and $RP_t$ have the same meaning and transformation as in System \ref{eq:mainSpecification}. Moreover, $SP_t$ represents the log-transformation of Standard \& Poor's 500 stock prices added to provide an additional forward-looking variable to the system.\footnote{As mentioned before, following \cite{sims2012news}, \cite{forni2014sufficient}, and \cite{barsky2015whither} the presence of forward-looking variables in the VAR is a necessary condition to correctly identify a news shock.} As before, dataset is quarterly and covers the U.S. economy from 1989:Q1 to 2017:Q1 and following the BIC and HQ criteria we opt for one lag.
+
+\subsubsection*{Empirical Strategy}
 
 Using a similar notation in Section \ref{section:empiricalstrategy_simple}, assume for notation simplicity that $B(L) = B$ allows only of one lag. Define the impulse response of variable $i$ to the identified shock $j$ at time $t$ as,\footnote{We also suppress the constant to simplify the notation. Identification strategy can obviously be applied for $B(L)$ allowing for more than one lag and with the constant.}
 $$
@@ -282,6 +286,8 @@ $$
 \gamma_{news} \gamma_{ICT}' = 0, \ \ \text{and} \ \ \gamma_{ICT} \gamma_{ICT}' = 1.
 $$
 where the first constraint represents the zero-impact restriction of news on TFP and the last constraint imposes that both $\gamma_{news}$ and $\gamma_{ICT}$ should be two different columns derived from the orthogonal matrix $D$.
+
+\subsubsection*{Results}
 
 
 
