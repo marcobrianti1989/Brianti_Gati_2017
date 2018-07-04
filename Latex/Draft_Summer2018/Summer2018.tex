@@ -245,18 +245,48 @@ where $TFP_t$, $ICTI_t$, $GDP_t$, $C_t$, and $RP_t$ have the same meaning and tr
 
 Using a similar notation in Section \ref{section:empiricalstrategy_simple}, assume for notation simplicity that $B(L) = B$ allows only of one lag. Define the impulse response of variable $i$ to the identified shock $j$ at time $t$ as,\footnote{We also suppress the constant to simplify the notation. Identification strategy can obviously be applied for $B(L)$ allowing for more than one lag and with the constant.}
 $$
-\Pi_{i,j}(t) = e_i'B^t \tilde{A}_0 D e_j
+\Pi_{i,j}(t) = e_i' B^t \tilde{A}_0 D e_j = e_i' B^t \tilde{A}_0 \gamma_j
 $$
 and its variance decomposition up to time $h$
 $$
-\Omega_{i,j}(h) = \frac{ \sum_{t=0}^h e_i' B^t \tilde{A}_0 D e_j e_j' D' \tilde{A}_0' B'^t e_i } {e_i'( \sum_{\tau = 0}^H B^t \Sigma B'^t )e_i}
+\Omega_{i,j}(h) = \frac{ \sum_{t=0}^h e_i' B^t \tilde{A}_0 D e_j e_j' D' \tilde{A}_0' B'^t e_i } {e_i'( \sum_{\tau = 0}^H B^t \Sigma B'^t )e_i} = \frac{ \sum_{t=0}^h e_i' B^t \tilde{A}_0 \gamma_j \gamma_j' \tilde{A}_0' B'^t e_i } {e_i'( \sum_{\tau = 0}^H B^t \Sigma B'^t )e_i}
 $$
-\
+Given the following notation and let notice that TFP is ordered first and ICTI second, the identification strategy can be summarized as follows,
 
-\textbf{Step 1 - Identification of $\gamma_{news}$}
+\subsubsection*{Step 1 - Identification of $\gamma_{news}$}
 $$
-\max_{\gamma_{news}} \frac{\sum_{\tau = 0}^H B \tilde{A}_0 \tilde{A}_0 }{\sum_{\tau = 0}^H }
+\max_{\gamma_{news}} \Omega_{1,news}(h) = \frac{ \sum_{t=0}^h e_1' B^t \tilde{A}_0 \gamma_{news} \gamma_{news}' \tilde{A}_0' B'^t e_1 } {e_1' ( \sum_{\tau = 0}^H B^t \Sigma B'^t )e_1}
 $$
+subject to
+$$
+\Pi_{1,news}(0) = 0,
+$$
+$$
+\Pi_{6,news}(0) = \Pi_{6,news}(1) = 0, \ \ \text{and}
+$$
+$$
+\gamma_{news} \gamma_{news}' = 1.
+$$
+where the first constraint represents the zero-impact restriction of news on TFP. Moreover, the second constraint represents the arbitrary restriction to have a response of relative prices to news relatively small.\footnote{Our identification strategy is robust over different restrictions to relative prices. Results hold even if we set the zero restriction on other horizons.} Finally, the last constraint imposes that $\gamma_{news}$ should be a column derived from the orthogonal matrix $D$. 
+
+
+\subsubsection*{Step 2 - Identification of $\gamma_{ICT}$}
+$$
+\max_{\gamma_{ICT}} \Pi_{2,ICT}(0) =  e_2' \tilde{A}_0 \gamma_{ICT} 
+$$
+subject to
+$$
+\Pi_{1,ICT}(0) = 0,
+$$
+$$
+\gamma_{news} \gamma_{ICT}' = 0, \ \ \text{and} \ \ \gamma_{ICT} \gamma_{ICT}' = 1.
+$$
+where the first constraint represents the zero-impact restriction of news on TFP and the last constraint imposes that both $\gamma_{news}$ and $\gamma_{ICT}$ should be two different columns derived from the orthogonal matrix $D$.
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
