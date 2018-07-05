@@ -24,18 +24,28 @@ sICT5      = s_shock_just_IT;
 load Workspace_Just_IT_SVAR_3Variables_1LAG.mat
 sICT6      = s_shock_just_IT;
 
+load mainControllingforNews_2000boot_RPzeros1to3_MaxTFP_MaxITimpact_1Lag_6variables
+sICT7      = s_shock_just_IT(:,2);
+sNEWS3     = s_shock_just_IT(:,1);
+
+corr(sICT7,sICT1)
+
+%corr(sICT1,sICT6)
+
+
+
 quarter = 1989.25:0.25:2017;
 quarter = quarter';
-corr(sICT1,sICT6)
+corr(sICT1,sICT7)
 plot(quarter,sICT1,'linewidth',1.8)
 hold on
-plot(quarter,sICT6,'--','linewidth',2.3)
+plot(quarter,sICT7,'--','linewidth',2.3)
 set(gcf,'color','w');
 grid on
-LEG = legend('5-dimensional system','3-dimesional system');
+LEG = legend('Main Specification','Controlling for News Shocks');
 LEG.FontSize = 20;
 legend boxoff
-title('Series of ICT shocks for different specifications','fontsize',40)
+title('Series of ICT shocks for different identification strategies','fontsize',40)
 axis tight
 
 

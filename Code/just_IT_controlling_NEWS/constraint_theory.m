@@ -1,4 +1,4 @@
-   function [c,ceq] = constraint_ryan(gam,R,q) 
+   function [c,ceq] = constraint_theory(gam,R,q) 
        % gam is for this exercise gam3, 6x1
        % R = PA, the LR effect before multiplying with gam3. (nvar x nshocks)
        % q = position of relative prices

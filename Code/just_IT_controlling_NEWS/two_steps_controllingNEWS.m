@@ -34,7 +34,7 @@ sig = 0.9; % not used, but we need to input something not to get error
 hor_IRF = 40;
 [IR, ~, ~, ~, ~] = genIRFs(A,0,vertcat(ones(1,size(B,2)), B),0,hor_IRF, sig, sig);
 relaxing_impact = 1;
-relaxing_longrun = 2;
+relaxing_longrun = 3;
 R = IR(:,relaxing_impact:relaxing_longrun,:);
 %R = squeeze(IR(:,LR_hor,:)); % comment this out if you wanna not impose the LR-restriction
 var_restricted = 6;
@@ -51,7 +51,7 @@ Aeq3(1,1) = 1; %zero-impact of news on TFP
 
 % Recover FEV from the step 1 minimization
 [FEV3_opt, ~, ~]     = objective_barskysims(which_variable,H,B,A,gam3_opt);
-FEV3_opt     = - FEV3_opt;
+FEV3_opt             = - FEV3_opt;
 
 if FEV3_opt > 1 || (gam3_opt'*gam3_opt - 1)^2 > 10^(-10) || gam3_opt(1)^2 > 10^(-12)
       warning('The problem is not consistent with the constraints.')
@@ -84,14 +84,15 @@ if max_again == 1
       if FEV_opt > 1 || (gam4_opt'*gam4_opt - 1)^2 > 10^(-10) || gam4_opt(1)^2 > 10^(-12)
             warning('The problem is not consistent with the constraints.')
       end
-      
-elseif max_again == 0
-      disp('In the second step we max impact effect on IT investment')
+end     
+if max_again == 0
+      disp('In the second step we max impact effect on ICT investment')
       D = eye(nvar);
       gam4_zero = D(:,which_shocks(2)); %IT shock impact vector (initial value)
       % Identifying gam4 - Max impact FEV_IT s.t. impact on TFP = 0
       %
       % Setting the objective function of Step2
+      which_variable = 3; %Position of ICT Investment! Be careful!
       obj2 = @(gam4) objective_just_IT(which_variable,A,gam4);
       %
       %Constraint that News and IT have no contemporaneous effect on TFP

@@ -25,7 +25,7 @@ filename = 'dataset_main';
 sheet    = 'Data';
 range    = 'B1:W287';
 [data, varnames] = read_data2(filename, sheet, range);
-shocknames = {'News Shock','IT Shock'};
+shocknames = {'News Shock','ICT Shock'};
 varnames
 
 % Find positions of shocks and of relative prices in a correct way
@@ -106,11 +106,9 @@ end
 
 %Creating and Printing figures
 comment = [which_ID '_' char(varnames(5)) '_LR_hor_' num2str(LR_hor)];
-print_figs = 'no';
-
+print_figs = 'yes';
 [IRFs, ub1, lb1, ub2, lb2] = genIRFs(fake_impact,fake_impact_boot,...
       B,beta_tilde_star,H,sig1, sig2);
-
 % % With Barsky & Sims-type ID, since you do a abs max, there are two
 % % solutions: gam and -gam. So choose the one that makes sense. I'm doing
 % % that so that news and IT have + effects on TFP.
@@ -123,18 +121,17 @@ if sum(IRFs(1,:,pos_IT)) < 0 % if the majority of TFP response is negative
 end
 if sum(IRFs(1,:,pos_news)) < 0 % if the majority of TFP response is negative
       IRFs(:,:,pos_news)   = -IRFs(:,:,pos_news);
-      ub1(:,:,pos_news)     = - ub1(:,:,pos_news);
+      ub1(:,:,pos_news)     = - ub1(:,:,pos_news);c
       lb1(:,:,pos_news)     = - lb1(:,:,pos_news);
       ub2(:,:,pos_news)     = - ub2(:,:,pos_news);
       lb2(:,:,pos_news)     = - lb2(:,:,pos_news);
 end
-
 %Printing/Showing IRFs
 h = 40;
 % plotIRFs(IRFs,ub,lb,40,which_shocks,shocknames,varnames,which_ID,print_figs)
 % plot_single_IRFs(IRFs,ub1,lb1,h,which_shocks,shocknames, varnames, which_ID, print_figs)
 use_current_time = 0; % don't save the time
-plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shocks,shocknames, varnames, '_', print_figs, use_current_time)
+plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shocks,shocknames, varnames, '_controllinNEWS_', print_figs, use_current_time,base_path)
 
 %Forni&Gambetti Orthogonality Test
 do_FG_test = 'no';

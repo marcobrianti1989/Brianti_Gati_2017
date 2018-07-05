@@ -6,6 +6,7 @@
 \usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm,bindingoffset=0mm]{geometry}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{comment}
@@ -206,7 +207,7 @@ where  $TFP_t$, $ICTI_{t}$, and $RP_t$ have the same meaning and transformation 
 However, although this result is encouraging, this first-pass test has obviously a weak power because the jump of ICTI on impact may be triggered by future exogenous signal of TFP. In this case, ICTI would be itself the source to granger-cause TFP and our ICT shock would be upward biased by news. To amend this deeper concern, we then need to employ a more complicated strategy presented in the next section. 
 
 
-\subsubsection{Sequential Identification Strategy}
+\subsubsection{Sequential Identification Strategy}\label{section:twosteps}
 
 In this part, we present an alternative procedure to rule out the presence of news from our empirical result. In this second test we run a VAR where we identify both ICT shocks and news shocks. We apply a sequential identification where we first identify a news shocks in the spirit of \cite{barsky2011news}, and subsequently we identify ICT shocks using our original identification strategy. Here we are seriously attempting to filter out future signals unrelated to current ICT shocks. Specifically, in the first step the news shock is identified as the shock orthogonal to current TFP that best explains its future movements. Then, as a second step, the ICT shock is identified as the shock orthogonal to current TFP that maximizes the impact effect on ICT investment. 
 
@@ -221,7 +222,7 @@ In a two-sector economy, if both production functions are identical then any eco
 	See Appendix \ref{section:proofpriceRestriction}.
 \end{proof}
 
-Proposition \ref{prop:priceRestriction} implies that a future sector-neutral technological change (the so-called news shock) never affects relative prices between sectors. Obviously, this statement is correct under the extreme assumptions that (i) the shock is expected to have the same impact on the two sectors and (ii) production functions are identical to each others. If those assumptions hold in the data, then the correct additional restriction would be to shut down to zero the impulse response of relative prices to a news shock. However, this restriction would obviously penalize the identification of news shocks since it is unlikely that assumptions (i) and (ii) perfectly hold in the data. We then opt for a more moderate strategy where we basically impose that the response of relative prices to a news shock should be relatively much smaller than the response observed by an ICT shock. Practically speaking, we arbitrarily set the impulse response of relative prices to be zero on some specific horizon rather than always. In particular, although results are robust to different horizon restrictions, our favorite specification is the one which set relative prices to have zero effect in the first two periods. 
+Proposition \ref{prop:priceRestriction} implies that a future sector-neutral technological change (the so-called news shock) never affects relative prices between sectors. Obviously, this statement is correct under the extreme assumptions that (i) the shock is expected to have the same impact on the two sectors and (ii) production functions are identical to each others. If those assumptions hold in the data, then the correct additional restriction would be to shut down to zero the impulse response of relative prices to a news shock. However, this restriction would obviously penalize the identification of news shocks since it is unlikely that assumptions (i) and (ii) perfectly hold in the data. We then opt for a more moderate strategy where we basically impose that the response of relative prices to a news shock should be relatively much smaller than the response observed by an ICT shock. Practically speaking, we arbitrarily set the impulse response of relative prices to be zero on some specific horizon rather than always. In particular, although results are robust to different horizon restrictions, our favorite specification is the one which set relative prices to have zero effect in the first three periods. 
 
 \subsubsection*{Data}
 
@@ -266,7 +267,7 @@ $$
 \Pi_{1,news}(0) = 0,
 $$
 $$
-\Pi_{6,news}(0) = \Pi_{6,news}(1) = 0, \ \ \text{and}
+\Pi_{6,news}(0) = \Pi_{6,news}(1) = \Pi_{6,news}(2) = 0, \ \ \text{and}
 $$
 $$
 \gamma_{news} \gamma_{news}' = 1.
@@ -425,6 +426,91 @@ Relative Prices &  0.0618  &  0.0967  &  0.1276 &   0.1511 &   0.1516  &  0.1467
 Prova
 
 
+\newpage
+
+\section{Controlling for News Shocks - Two-Step Identification Strategy}
+
+\subsection{Impulse Responses}\label{section:IRF_2step}
+
+\begin{figure}[h!]
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{MainFigures/fig_News_Shock_on_TFP__controllinNEWS_}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{MainFigures/fig_ICT_Shock_on_TFP__controllinNEWS_}
+	\end{subfigure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{MainFigures/fig_News_Shock_on_Real_SP__controllinNEWS_}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{MainFigures/fig_ICT_Shock_on_Real_SP__controllinNEWS_}
+\end{subfigure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{MainFigures/fig_News_Shock_on_Real_ICT_Investment__controllinNEWS_}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{MainFigures/fig_ICT_Shock_on_Real_ICT_Investment__controllinNEWS_}
+\end{subfigure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\caption{Empirical impulse responses of TFP, Real Stock Prices, and Real ICT Investment to a news shock and an ICT shock. The red solid lines are the estimated impulse responses to our ICT shock. The shaded dark gray area and the shaded light gray area are the $90$\% and $95$\% confidence intervals, respectively, from 2000 bias-corrected bootstrap replications of the reduced-form VAR. The horizontal axes refer to forecast horizon and the units of the vertical axes are percentage deviations.}
+	\label{fig:2stepIRF_first}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{MainFigures/fig_News_Shock_on_Real_GDP__controllinNEWS_}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{MainFigures/fig_ICT_Shock_on_Real_GDP__controllinNEWS_}
+\end{subfigure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{MainFigures/fig_News_Shock_on_Real_Consumption__controllinNEWS_}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{MainFigures/fig_ICT_Shock_on_Real_Consumption__controllinNEWS_}
+\end{subfigure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{MainFigures/fig_News_Shock_on_Relative_Price__controllinNEWS_}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{MainFigures/fig_ICT_Shock_on_Relative_Price__controllinNEWS_}
+\end{subfigure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\caption{Empirical impulse responses of Real GDP, Real Consumption, and Relative Prices to a news shock and an ICT shock. The red solid lines are the estimated impulse responses to our ICT shock. The shaded dark gray area and the shaded light gray area are the $90$\% and $95$\% confidence intervals, respectively, from 2000 bias-corrected bootstrap replications of the reduced-form VAR. The horizontal axes refer to forecast horizon and the units of the vertical axes are percentage deviations.}
+\label{fig:2stepIRF_second}
+\end{figure}
+
+
+\newpage
+
+
+\subsection{ICT Shock Series}\label{section:ICTshockseries_2step}
+
+ 	\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.35]{MainFigures/ICTshocksSeries_ControllingforNEWS}
+		\caption{ICT shock series using two different empirical strategy. Blue solid line represents shock series for the 5-dimension system \ref{eq:mainSpecification} presented in \ref{section:mainSpec}. Red dotted line represents shock series for the 6-dimensional system \ref{eq:newsSpecification} presented in \ref{section:twosteps} where we employ a 2-step identification strategy in order to control for news shocks.}
+		\label{fig:shockSeries_2steps}
+	\end{center} 
+\end{figure}
  
 
 
