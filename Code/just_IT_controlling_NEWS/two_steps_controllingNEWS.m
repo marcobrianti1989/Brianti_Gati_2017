@@ -1,5 +1,5 @@
 function [impact, gam] = ...
-      two_steps_controllingNEWS(which_variable,which_shocks,H,LR_hor,B,A,var_restricted,pos_IT)
+      two_steps_controllingNEWS(which_variable,which_shocks,H,LR_hor,B,A,q,pos_IT)
 %which_variable: variable we want to max the response for a specific shock (TFP)
 %which_shocks: the shock is maximizing the FEV of which_variable (--> news and IT shocks)
 %H: horizon of the maximization
@@ -34,10 +34,10 @@ sig = 0.9; % not used, but we need to input something not to get error
 hor_IRF = 40;
 [IR, ~, ~, ~, ~] = genIRFs(A,0,vertcat(ones(1,size(B,2)), B),0,hor_IRF, sig, sig);
 relaxing_impact = 1;
-relaxing_longrun = 2;
+relaxing_longrun = 1;
 R = IR(:,relaxing_impact:relaxing_longrun,:);
 %R = squeeze(IR(:,LR_hor,:)); % comment this out if you wanna not impose the LR-restriction
-var_restricted = 6;
+q = 3;
 %Constraint that News and IT have no contemporaneous effect on TFP
 Me3       = 1; %  Me = no. of equality constraints
 Beq3      = zeros(Me3,1); % Beq is (Me x 1) where
@@ -46,7 +46,7 @@ Aeq3(1,1) = 1; %zero-impact of news on TFP
 
 % dbstop constraint_ryan at 12
 % [gam3_opt] = fmincon(obj, gam3_zero,[],[],Aeq3,Beq3,[],[],@(gam3) constraint_barskysims11(gam3),options);
-[gam3_opt] = fmincon(obj, gam3_zero,[],[],Aeq3,Beq3,[],[],@(gam3) constraint_theory(gam3,R,var_restricted),options);
+[gam3_opt] = fmincon(obj, gam3_zero,[],[],Aeq3,Beq3,[],[],@(gam3) constraint_theory(gam3,R,q),options);
 %fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
 
 % Recover FEV from the step 1 minimization
