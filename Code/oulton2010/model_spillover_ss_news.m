@@ -32,13 +32,13 @@ ri       = (1/bet* expgi -(1-di))*p;
 
 %Step 1
 kc_bar          = @(wx) wx/rc*a/(1-a-b); %kc = kc1 = kc2 = Kc/h = Kc1/h1 = Kc2/h2
-ki_bar          = @(wx) wx/ri*b/(1-a-b); %ki = ki1 = ki2 = Ki/h = Ki1/h1 = Ki2/h2
+ki_bar          = @(wx) wx/ri*b/(1-a-b); %ki = ki1 = ki2 = Ki/h = Ki1/h1 = Ki2/h2 
 ki              = @(wx) (rc/(a*biggamc)*kc_bar(wx)^(1-a)*ki_bar(wx)^(-b))^(1/gam);
-Ki_check        = @(wx) (ri/(b*biggamc)*kc_bar(wx)^(-a)*ki_bar(wx)^(1-b))^(1/gam); %check 
-Ki_check2       = @(wx) (wx/((1-a-b)*biggamc)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b))^(1/gam); %check
+Ki_check        = @(wx)(ri/(b*biggamc)*kc_bar(wx)^(-a)*ki_bar(wx)^(1-b))^(1/gam); 
+Ki_check2       = @(wx) ( wx/((1-a-b)*biggamc)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b) )^(1/gam); %check
 check           = ((ki(15) - Ki_check(15)) + (ki(15) - Ki_check2(15)))^2;
 if check > 10^(-16)
-      error('Ki is wrong')
+      warning('Ki is wrong')
 end
 Ki_Kc = b/a*rc/ri; %Ki_Kc = Ki/Kc = Ki1/Kc1 = Ki2/Kc2 = ki/kc
 
@@ -60,7 +60,10 @@ h1 = @(wx) (gc/Ki_Kc*ki(wx) + biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)
     + sqrt(  (gc/Ki_Kc*ki(wx) + biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)*h2(wx))^2  ...
     + 4*biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b) *wx/chi)) ...
     / (2*biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)) -h2(wx);
-
+aa = biggamc * ki(wx)^gam * kc_bar(wx)^a * ki_bar(wx)^b; % my notes4, p. 54
+bb = biggamc * ki(wx)^gam * kc_bar(wx)^a * ki_bar(wx)^b * h2(wx) - Ki_Kc^(-1)*ki(wx)*gc;
+cc = -(wx/chi + Ki_Kc^(-1)*ki(wx)*gc * h2(wx));
+h1_check = @(wx) (-bb + sqrt(bb^2 -4*aa*cc))/(2*aa); % taking the positive root
 % check_h = (h1(150) - h1_check(150))^2;
 % if check_h > 10^(-16)
 %       error('h1 is wrong')
