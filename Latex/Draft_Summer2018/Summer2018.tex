@@ -292,7 +292,7 @@ where the first constraint represents the zero-impact restriction of news on TFP
 
 Figures \ref{fig:2stepIRF_first} and \ref{fig:2stepIRF_second} in Appendix \ref{section:IRF_2step} shows estimated impulse responses to both news and ICT shocks. In particular, Figure \ref{fig:2stepIRF_first} shows dynamic responses of TFP, stock prices, and ICT investment to both shocks and Figure \ref{fig:2stepIRF_second} shows dynamic responses of GDP, consumption and relative prices to both shocks as well. The shaded gray areas are the $90$\% and $95$\% confidence bands from a bias-corrected bootstrap procedure of \cite{kilian1998small} using 2000 simulations. 
 
-Dynamic responses to an ICT shock are almost identical to the ones presented in the main identification in Section \ref{section:mainSpec}. After few lags, TFP displays a positive and significant effect and reaches its peak of $1.2$\% after $6$ years. Interestingly, stock prices jump on impact and the effect remain significant over the medium run. Real ICT investment has a large and positive impact response and it slowly starts to decay remaining significant for a long period of time. Both real GDP and real consumption have a significant impact response and reaches its peak approximately after $6$ years. Finally, the response of relative prices is negative and persistent as we have previously discussed. 
+Dynamic responses to an ICT shock are almost identical to the ones presented in the main identification in Section \ref{section:mainSpec}. After few lags, TFP displays a positive and significant effect and reaches its peak of $1.2$\% after $6$ years. Interestingly, stock prices jump on impact and the effect remain significant over the medium run. Real ICT investment has a large and positive impact response and it slowly starts to decay remaining significant for a long period of time. Both real GDP and real consumption have a significant impact response and reaches its peak approximately after $6$ years. Thus, the response of relative prices is negative and persistent as we have previously discussed. Finally, even if to formally shown, ICT shocks explains $27$\% of TFP fluctuations over $10$-year horizon. Also this result, is completely in line with previous results presented in Table \ref{table:vardec} in Appendix \ref{section:vardec}.
 
 In addition, we show dynamic responses to a news shock to confirm the reliability of our identification strategy. Constraining fluctuations of relative prices to news does not qualitatively affect what has been already found in the literature. In line with \cite{barsky2011news}, it takes more that 2 years for TFP to display a positive, significant and strongly persistent effect. Stock prices have a strong forecasting power and show a $4$\% impact effect which is persistent and significant in the long run. Real ICT investment does not show a positive impact response but it slowly starts to increase getting significant after almost $2$ years. As found by \cite{barsky2011news} in their main specification, real GDP has a non-significant impact effect and it fast rises with all the variables of the system. Moreover, as expected by its forward looking nature, real consumption have a significant impact response and reaches its peak once TFP displays a significant effect. Finally, relative prices are initially constrained to have a zero response and then shows a small, negative and persistent deviation for at least five years which eventually dies out.
 
@@ -307,25 +307,77 @@ Finally, we recover a series of ICT shocks which is correlated at $94$\% with th
 
 In the previous section, we have documented results regarding the relation of current ICT investment and future productivity. Clearly, to rationalize empirical dynamic responses of aggregate macroeconomic variables to ICT shocks, we need a two-sector approach that distinguishes ICT goods from other output. In this section, we present a simple two-sector model that rationalizes our structural VAR estimates. The model presented has several common features with \cite{greenwood1997long} that design a two-sector economy where one sector displays a faster technology than the other. One different is that we focus specifically on ICT capital sector, rather than equipment, as the sector with faster technological improvements. This assumption will be necessary if we want to fit the fact that relative prices between the ICT investment and overall economy display a downward sloping trend.\footnote{In addition, we also rely on the results of \cite{whelan2003two} and \cite{oulton2007investment} to correctly define productivity and output share in our setting.}
 
-\subsubsection*{Household}
+\subsubsection{Household}
 
-Consider an economy inhabitated by a representative agent whi maximizes the expect values of his lifetime utility as given by
-$$
+Consider an economy inhabited by a representative agent which maximizes the expect values of his lifetime utility as given by
+\begin{eqnarray}\label{equation:utilFunc}
 \E \Bigg[  \sum_{t=0}^{\infty} \beta^t U(c_t,l_t)  \Bigg]
-$$
+\end{eqnarray}
 with 
-$$
+\begin{eqnarray*}
 U(c_t,l_t) = \log(c_t) - \frac{1}{1+\eta} l_t^{1+\eta}
-$$
-where $c_t$ and $l_t$ represent consumption and labor at time $t$.
+\end{eqnarray*}
+where $c_t$ and $l_t$ represent consumption and labor at time $t$. 
 
-\subsection*{Final-Good Sector}
+\subsection{Final-Good Sector}
 
-In each period, the production of final output $y^c_t$ requires the services of labor $l_{1,t}$, and two types of capital: hard capital, $k^c_{1,t}$ and ICT capital, $k^i_{1,t}$.\footnote{Notice that $x_{1,t}$ has to be interpret as the part of overall input $x_t$ which is allocated to the final-output sector, i.e. sector $1$.} In addition, production function is augmented with (i) sector-specific productivity, $\Gamma^c_t$ and (ii) a positive spillover effect related to the diffusion of ICT capital in the whole economy, $k^i_t$.\footnote{Notice that differently to $k^i_{1,t}$, $k^i_t$ represents the total amount of ICT capital in the whole economy at time $t$.} Production of final output is undertaken in accordance with
-$$
-y^c_t = A^c_t \ (k^c_{1,t})^a \ (k^i_{1,t})^b \ (l_{1,t})^{1-a-b}
-$$
-$\Gamma^c_t k^i_{t} $
+In each period, the production of final output $y^c_t$ requires the services of labor $l_{t}$, and two types of capital: hard capital, $k^c_{t}$ and ICT capital, $k^i_{t}$. In addition, production function is augmented with (i) neutral productivity common across sectors, (ii) sector-specific productivity, and (iii) a positive spillover effect related to the diffusion of ICT capital in the whole economy. Production of final output is undertaken in accordance with
+\begin{eqnarray}\label{equation:production_FINAL}
+y^c_t = A^c_t \ (k^c_{1,t})^a \ (k^i_{1,t})^b \ (l_{1,t})^{1-a-b}, \ \ 0 < a,b < 1
+\end{eqnarray}
+where total factor productivity is equal to $ A_t^c = \eta_t \ \theta^c_t \ (k^i_{t})^{\gamma} $. $\eta_t$ is the neutral technological component, $\theta^c_t$ is the sector-specific technological component, and $\gamma$ represents the parameter that governs the size of the spillover effect of ICT capital in the production function. Moreover, $k^c_{1,t}$ is the part of hard capital $k^c_t$ devoted to the final-good sector, i.e. sector 1. Similarly, $k^i_{1,t}$ and $l_{1,t}$ are the parts of ICT capital $k^i_t$ and labor $l_t$ devoted to the final-good sector, respectively. 
+
+Final output $y^c_t$ can be used for two purposes: consumption, $c_t$ and investment in hard capital, $i^c_t$,
+\begin{eqnarray}\label{equation:resourceFINAL}
+y^c_t = c_t + i^c_t
+\end{eqnarray}
+Notice that elements in the equation above are normalized such that both output and investment are measured in units of consumption. Moreover, hard structures can be produced from final output on a one-to-one basis. The stock of hard capital evolves according to
+\begin{eqnarray}\label{equation:LOM_Hard}
+k^c_{t+1} = (1 - \delta^c) k^c_t + i^c_t
+\end{eqnarray}
+where $0 < \delta^c < 1$ represents the period depreciation of hard capital.
+
+\subsection{ICT-Good Sector}
+
+
+Similar to final-output production function, the creation of ICT output $y^i_t$ requires the services of labor $l_{t}$, and two types of capital: hard capital, $k^c_{t}$ and ICT capital, $k^i_{t}$. In addition, production function is augmented with (i) neutral productivity common across sectors, (ii) sector-specific productivity, and (iii) a positive spillover effect related to the diffusion of ICT capital in the whole economy. Production of ICT output is undertaken in accordance with
+\begin{eqnarray}\label{equation:productionICT}
+y^i_t = A^i_t \ (k^c_{2,t})^a \ (k^i_{2,t})^b \ (l_{2,t})^{1-a-b} , \ \ 0 < a,b < 1
+\end{eqnarray}
+where total factor productivity is equal to $ A_t^i = \eta_t \ \theta^i_t \ (k^i_{t})^{\gamma} $. $\eta_t$ is the same neutral technological component, $\theta^i_t$ is the ICT-specific technological component, and $\gamma$ represents the same parameter that governs the size of the spillover effect of ICT capital also in this production function. Similarly, $k^c_{2,t}$ is the part of hard capital $k^c_t$ devoted to the ICT-good sector, i.e. sector 2 and $k^i_{2,t}$ and $l_{2,t}$ are the parts of ICT capital $k^c_t$ and labor $l_t$ devoted to the ICT-good sector, respectively. 
+
+ICT output $y^i_t$ can be only investment in ICT capital, $i^i_t$,
+\begin{eqnarray}\label{equation:resourceICT}
+y^i_t = i^i_t
+\end{eqnarray}
+Notice that elements in the equation above are normalized such that both output and investment are measured in the same units. Moreover, ICT goods can be produced from ICT output on a one-to-one basis. The stock of ICT capital evolves according to
+\begin{eqnarray}\label{equation:LOM_ICT}
+k^i_{t+1} = (1 - \delta^i) k^i_t + i^i_t
+\end{eqnarray}
+where $0 < \delta^i < 1$ represents the period depreciation of ICT capital.
+
+\subsection{Market Clearing across Sectors}
+
+Since we are assuming our economy to be closed, input demands must equal supplies,
+\begin{eqnarray}\label{equation:marketclearingHard}
+k^c_t = k^c_{1,t} + k^c_{2,t},
+\end{eqnarray}
+\begin{eqnarray}\label{equation:marketclearingICT}
+k^i_t = k^i_{1,t} + k^i_{2,t}, \ \ \text{and}
+\end{eqnarray}
+\begin{eqnarray}\label{equation:marketclearingLabor}
+l_t = l_{1,t} + l_{2,t}.
+\end{eqnarray}
+Taking as given Equations \ref{equation:production_FINAL}-\ref{equation:marketclearingLabor} and assuming that factor markets are perfective competitive, representative household maximizes intertemporal utility function under the following constraint,
+\begin{eqnarray}\label{equation:resourceHH}
+	c_t + k^c_{t+1} +p_t k^i_{t+1} = \bigg( 1 - \delta^c + r^c_t \bigg) k^c_t + \bigg( 1 - \delta^i + \frac{r^i_t}{p_t} \bigg) p_t k^i_t + w_t l_t	
+\end{eqnarray}
+where $p_t$ represents the price of ICT capital expressed in consumption units. Since price of consumption is normalized to be one then $p_t$ also represents the relative price between final output and ICT output.
+
+\subsection{Competitive Equilibrium}
+
+Competitive equilibrium is represented by (i) household's first order conditions with respect to consumption $c_t$, labor $l_t$, hard capital $k^c_t$, ICT capital $k^i_t$, (ii) final-good producers' first order conditions with respect to $k^c_{1,t}$, $k^i_{1,t}$, and $l_{1,t}$, (iii) ICT-good producers' first order conditions with respect to $k^c_{2,t}$, $k^i_{2,t}$, and $l_{2,t}$, (iv) definition of production functions \ref{equation:production_FINAL} and \ref{equation:productionICT}, (v) low of motion of hard and ICT capital \ref{equation:LOM_Hard} and \ref{equation:LOM_ICT}, (vi) sector-specific resource constraints \ref{equation:marketclearingHard} and \ref{equation:marketclearingICT}, and intrasectoral resource constraints \ref{equation:marketclearingHard}, \ref{equation:marketclearingICT}, and \ref{equation:marketclearingLabor}.
+
 
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 

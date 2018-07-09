@@ -8,12 +8,17 @@
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Removing Forward-Looking Variables}{subsection.2.2}% 8
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Sequential Identification Strategy}{subsection.2.2}% 9
 \BOOKMARK [1][-]{section.3}{Model}{}% 10
-\BOOKMARK [1][-]{section.4}{Experiments}{}% 11
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 12
-\BOOKMARK [1][-]{appendix.A}{Main Set of Results}{}% 13
-\BOOKMARK [1][-]{appendix.B}{Variance Decomposition}{}% 14
-\BOOKMARK [1][-]{appendix.C}{Removing Forward-Looking Variables}{}% 15
-\BOOKMARK [1][-]{appendix.D}{Proof of Proposition 1}{}% 16
-\BOOKMARK [1][-]{appendix.E}{Controlling for News Shocks - Two-Step Identification Strategy}{}% 17
-\BOOKMARK [2][-]{subsection.E.1}{Impulse Responses}{appendix.E}% 18
-\BOOKMARK [2][-]{subsection.E.2}{ICT Shock Series}{appendix.E}% 19
+\BOOKMARK [2][-]{subsubsection.3.0.1}{Household}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.1}{Final-Good Sector}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.2}{ICT-Good Sector}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.3}{Market Clearing across Sectors}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.4}{Competitive Equilibrium}{section.3}% 15
+\BOOKMARK [1][-]{section.4}{Experiments}{}% 16
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 17
+\BOOKMARK [1][-]{appendix.A}{Main Set of Results}{}% 18
+\BOOKMARK [1][-]{appendix.B}{Variance Decomposition}{}% 19
+\BOOKMARK [1][-]{appendix.C}{Removing Forward-Looking Variables}{}% 20
+\BOOKMARK [1][-]{appendix.D}{Proof of Proposition 1}{}% 21
+\BOOKMARK [1][-]{appendix.E}{Controlling for News Shocks - Two-Step Identification Strategy}{}% 22
+\BOOKMARK [2][-]{subsection.E.1}{Impulse Responses}{appendix.E}% 23
+\BOOKMARK [2][-]{subsection.E.2}{ICT Shock Series}{appendix.E}% 24
