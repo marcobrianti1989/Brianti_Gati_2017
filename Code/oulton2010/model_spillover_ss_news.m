@@ -49,8 +49,8 @@ kc2 = @(wx) kc_bar(wx)*h2(wx);
 
 %Step 3
 % Case of V(h) = -chi*H
-h1 = @(wx) (1/chi*wx/ki(wx) + gc/Ki_Kc)/biggamc*ki(wx)^(1-gam)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b);
-h1_check = @(wx) (wx/chi + gc/Ki_Kc*ki(wx))/biggamc*ki(wx)^(-gam)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b);
+% h1 = @(wx) (1/chi*wx/ki(wx) + gc/Ki_Kc)/biggamc*ki(wx)^(1-gam)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b);
+% h1_check = @(wx) (wx/chi + gc/Ki_Kc*ki(wx))/biggamc*ki(wx)^(-gam)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b);
 % % Case of V(h) = chi*log(1-h)
 % h1 = @(wx) (wx*h2(wx)/chi - wx/chi + gc/Ki_Kc*ki(wx)) / (biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b) -wx/chi);
 % h1_check = @(wx) (biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b) -wx/chi)^(-1) ...
@@ -60,14 +60,14 @@ h1 = @(wx) (gc/Ki_Kc*ki(wx) + biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)
     + sqrt(  (gc/Ki_Kc*ki(wx) + biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)*h2(wx))^2  ...
     + 4*biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b) *wx/chi)) ...
     / (2*biggamc*ki(wx)^(gam)*kc_bar(wx)^(a)*ki_bar(wx)^(b)) -h2(wx);
-aa = biggamc * ki(wx)^gam * kc_bar(wx)^a * ki_bar(wx)^b; % my notes4, p. 54
-bb = biggamc * ki(wx)^gam * kc_bar(wx)^a * ki_bar(wx)^b * h2(wx) - Ki_Kc^(-1)*ki(wx)*gc;
-cc = -(wx/chi + Ki_Kc^(-1)*ki(wx)*gc * h2(wx));
-h1_check = @(wx) (-bb + sqrt(bb^2 -4*aa*cc))/(2*aa); % taking the positive root
-% check_h = (h1(150) - h1_check(150))^2;
-% if check_h > 10^(-16)
-%       error('h1 is wrong')
-% end
+aa = @(wx) biggamc * ki(wx)^gam * kc_bar(wx)^a * ki_bar(wx)^b; % my notes4, p. 54
+bb = @(wx) biggamc * ki(wx)^gam * kc_bar(wx)^a * ki_bar(wx)^b * h2(wx) - Ki_Kc^(-1)*ki(wx)*gc;
+cc = @(wx) -(wx/chi + Ki_Kc^(-1)*ki(wx)*gc * h2(wx));
+h1_check = @(wx) (-bb(wx) + sqrt(bb(wx)^2 -4*aa(wx)*cc(wx)))/(2*aa(wx)); % taking the positive root
+check_h = (h1(150) - h1_check(150))^2;
+if check_h > 10^(-14)
+      warning('h1 is wrong')
+end
 ki1 = @(wx) ki_bar(wx)*h1(wx);
 kc1 = @(wx) kc_bar(wx)*h1(wx);
 

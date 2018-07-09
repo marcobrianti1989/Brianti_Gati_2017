@@ -1,4 +1,5 @@
 function ss = oulton_spillover_stst_alt2(param)
+% DOES A SMALLER EQ. SYSTEM THAT'S BEEN SIMPLIFIED SOMEWHAT
 % set global params
 global bet a b biggami biggamc di dc chi gam siggami sige sigitlev rhoitlev expgc expgi gc gi p
 % set global st.st. values

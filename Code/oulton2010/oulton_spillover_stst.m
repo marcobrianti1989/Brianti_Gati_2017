@@ -1,4 +1,6 @@
 function ss = oulton_spillover_stst(param)
+% SOLVES THE ENTIRE SS SYSTEM NUMERICALLY. IS RELATIVELY IMPRECISE; IT
+% MAKES SENSE TO REDUCE THE SYSTEM.
 % set global params
 global bet a b biggami biggamc di dc chi gam siggami sige sigitlev rhoitlev expgc expgi gc gi p
 % set global st.st. values
@@ -89,7 +91,7 @@ check6 = kc * gc - ic;
 check7 = ki * gi - it;
 check8 = yc - c -ic;
 check9 = yi -it;
-check10 = w/c -chi;
+check10 = w/c -chi*h;
 check13 =  w -(1-a-b)*biggamc * h1^(-a-b) * kc1^(a) * ki1^(b);
 check14  =  rc -(a)*biggamc * h1^(1-a-b) * kc1^(a-1) * ki1^(b);
 check15  = ri -(b)*biggamc * h1^(1-a-b) * kc1^(a) * ki1^(b-1);
