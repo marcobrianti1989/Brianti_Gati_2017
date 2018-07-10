@@ -319,15 +319,32 @@ U(c_t,l_t) = \log(c_t) - \frac{1}{1+\eta} l_t^{1+\eta}
 \end{eqnarray*}
 where $c_t$ and $l_t$ represent consumption and labor at time $t$. 
 
-\subsection{Final-Good Sector}
+\subsection{Final-Good Producers}
 
-In each period, the production of final output $y^c_t$ requires the services of labor $l_{t}$, and two types of capital: hard capital, $k^c_{t}$ and ICT capital, $k^i_{t}$. In addition, production function is augmented with (i) neutral productivity common across sectors, (ii) sector-specific productivity, and (iii) a positive spillover effect related to the diffusion of ICT capital in the whole economy. Production of final output is undertaken in accordance with
+Instead of working with the aggregate production function, assume that the production side of the final-good sector consist of a set $[0,1]$ of firms. In each period, final-good firm $j \in [0,1]$ produces $y^c_t(j)$ using the services of labor $l_{t}$, and two types of capital: hard capital, $k^c_{t}$ and ICT capital, $k^i_{t}$. In addition, production function is augmented with (i) neutral productivity common across sectors, (ii) sector-specific productivity, and (iii) a positive spillover effect related to the diffusion of ICT capital in the whole economy. Production of final output of firm $j$ is undertaken in accordance with
 \begin{eqnarray}\label{equation:production_FINAL}
-y^c_t = A^c_t \ (k^c_{1,t})^a \ (k^i_{1,t})^b \ (l_{1,t})^{1-a-b}, \ \ 0 < a,b < 1
+y^c_t(j) = A^c_t \ \big( k^c_{t}(j) \big)^a \ \big( k^i_{t}(j) \big)^b \ \big( l_{t}(j) \big)^{1-a-b}, \ \ 0 < a,b < 1
 \end{eqnarray}
-where total factor productivity is equal to $ A_t^c = \eta_t \ \theta^c_t \ (k^i_{t})^{\gamma} $. $\eta_t$ is the neutral technological component, $\theta^c_t$ is the sector-specific technological component, and $\gamma$ represents the parameter that governs the size of the spillover effect of ICT capital in the production function. Moreover, $k^c_{1,t}$ is the part of hard capital $k^c_t$ devoted to the final-good sector, i.e. sector 1. Similarly, $k^i_{1,t}$ and $l_{1,t}$ are the parts of ICT capital $k^i_t$ and labor $l_t$ devoted to the final-good sector, respectively. 
+where total factor productivity is equal to $ A_t^c = \eta_t \ \theta^c_t \ (k^i_{t})^{\gamma} $. $\eta_t$ is the neutral technological component, $\theta^c_t$ is the sector-specific technological component, and $\gamma$ represents the parameter that governs the size of the spillover effect of ICT capital in the production function. Moreover, $k^c_{t}(j)$ is the part of hard capital $k^c_t$ used by firm $j$ in oder to produce final-good output. Similarly, $k^i_{t}(j)$ and $l_{t}(j)$ are the parts of ICT capital $k^i_t$ and labor $l_t$ used by firm $j$ in oder to produce final-good output, respectively. 
 
-Final output $y^c_t$ can be used for two purposes: consumption, $c_t$ and investment in hard capital, $i^c_t$,
+Since all the final-good producers are identical ex ante and ex post, the following conditions hold,
+\begin{eqnarray}\label{equation:aggregation_hard_final}
+\int_0^1 k^c_{t}(j) dj = k^c_{1,t},
+\end{eqnarray}
+\begin{eqnarray}\label{equation:aggregation_ICT_final}
+\int_0^1 k^i_{t}(j) dj = k^i_{1,t}, 
+\end{eqnarray}
+\begin{eqnarray}\label{equation:aggregation_labor_final}
+\int_0^1 l_{t}(j) dj = l_{1,t},
+\end{eqnarray}
+where $k^c_{1,t}$ is the aggregate part of hard capital $k^c_t$ devoted to the final-sector, i.e. sector 1. Moreover, $k^i_{1,t}$ and $l_{1,t}$ are the aggregate parts of ICT capital $k^i_{t}$ and labor $l_{t}$ devoted to the final-good sector, respectively. 
+
+
+Aggregate final-good output is defined as
+\begin{eqnarray}\label{equation:production_FINAL_aggregate}
+y^c_t = A^c_t \ ( k^c_{1,t} )^a \ ( k^i_{1,t} )^b \ ( l_{1,t} )^{1-a-b}, \ \ 0 < a,b < 1
+\end{eqnarray}
+and it can be used for two purposes: consumption, $c_t$ and investment in hard capital, $i^c_t$,
 \begin{eqnarray}\label{equation:resourceFINAL}
 y^c_t = c_t + i^c_t
 \end{eqnarray}
@@ -339,14 +356,29 @@ where $0 < \delta^c < 1$ represents the period depreciation of hard capital.
 
 \subsection{ICT-Good Sector}
 
-
-Similar to final-output production function, the creation of ICT output $y^i_t$ requires the services of labor $l_{t}$, and two types of capital: hard capital, $k^c_{t}$ and ICT capital, $k^i_{t}$. In addition, production function is augmented with (i) neutral productivity common across sectors, (ii) sector-specific productivity, and (iii) a positive spillover effect related to the diffusion of ICT capital in the whole economy. Production of ICT output is undertaken in accordance with
+Instead of working with the aggregate production function, assume that the production side of the ICT-good sector consist of a set $[0,1]$ of firms. Similar to final-output production function, ICT-good firm $q \in [0,1]$ produces $y^c_t(q)$ using the services of labor $l_{t}$, and two types of capital: hard capital, $k^c_{t}$ and ICT capital, $k^i_{t}$. In addition, production function is augmented with (i) neutral productivity common across sectors, (ii) sector-specific productivity, and (iii) a positive spillover effect related to the diffusion of ICT capital in the whole economy. Production of ICT output of firm $q$ is undertaken in accordance with
 \begin{eqnarray}\label{equation:productionICT}
-y^i_t = A^i_t \ (k^c_{2,t})^a \ (k^i_{2,t})^b \ (l_{2,t})^{1-a-b} , \ \ 0 < a,b < 1
+y^c_t(q) = A^c_t \ \big( k^c_{t}(q) \big)^a \ \big( k^i_{t}(q) \big)^b \ \big( l_{t}(q) \big)^{1-a-b}, \ \ 0 < a,b < 1
 \end{eqnarray}
-where total factor productivity is equal to $ A_t^i = \eta_t \ \theta^i_t \ (k^i_{t})^{\gamma} $. $\eta_t$ is the same neutral technological component, $\theta^i_t$ is the ICT-specific technological component, and $\gamma$ represents the same parameter that governs the size of the spillover effect of ICT capital also in this production function. Similarly, $k^c_{2,t}$ is the part of hard capital $k^c_t$ devoted to the ICT-good sector, i.e. sector 2 and $k^i_{2,t}$ and $l_{2,t}$ are the parts of ICT capital $k^c_t$ and labor $l_t$ devoted to the ICT-good sector, respectively. 
+where total factor productivity is equal to $ A_t^c = \eta_t \ \theta^i_t \ (k^i_{t})^{\gamma} $. $\eta_t$ is the same neutral technological component, $\theta^i_t$ is the sector-specific technological component, and $\gamma$ represents the same parameter that governs the size of the spillover effect of ICT capital in the production function. Moreover, $k^c_{t}(q)$ is the part of hard capital $k^c_t$ used by firm $q$ in oder to produce ICT goods. Similarly, $k^i_{t}(q)$ and $l_{t}(q)$ are the parts of ICT capital $k^i_t$ and labor $l_t$ used by firm $q$ in oder to produce ICT goods, respectively. 
 
-ICT output $y^i_t$ can be only investment in ICT capital, $i^i_t$,
+Similarly, since all the final-good producers are identical ex ante and ex post, the following conditions hold,
+\begin{eqnarray}\label{equation:aggregation_hard_ICTsec}
+\int_0^1 k^c_{t}(q) dq = k^c_{2,t},
+\end{eqnarray}
+\begin{eqnarray}\label{equation:aggregation_ICT_ICTsec}
+\int_0^1 k^i_{t}(q) dq = k^i_{2,t}, 
+\end{eqnarray}
+\begin{eqnarray}\label{equation:aggregation_labor_ICTsec}
+\int_0^1 l_{t}(q) dq = l_{2,t},
+\end{eqnarray}
+where $k^c_{2,t}$ is the aggregate part of hard capital $k^c_t$ devoted to the ICT-sector, i.e. sector 2. Moreover, $k^i_{2,t}$ and $l_{2,t}$ are the aggregate parts of ICT capital $k^i_{t}$ and labor $l_{t}$ devoted to the ICT-good sector, respectively. 
+
+Aggregate ICT-good output is defined as
+\begin{eqnarray}\label{equation:production_ICT_aggregate}
+	y^i_t = A^c_t \ ( k^c_{2,t} )^a \ ( k^i_{2,t} )^b \ ( l_{2,t} )^{1-a-b}, \ \ 0 < a,b < 1
+\end{eqnarray}
+and it can be only investment in ICT capital, $i^i_t$,
 \begin{eqnarray}\label{equation:resourceICT}
 y^i_t = i^i_t
 \end{eqnarray}
@@ -363,7 +395,7 @@ Since we are assuming our economy to be closed, input demands must equal supplie
 k^c_t = k^c_{1,t} + k^c_{2,t},
 \end{eqnarray}
 \begin{eqnarray}\label{equation:marketclearingICT}
-k^i_t = k^i_{1,t} + k^i_{2,t}, \ \ \text{and}
+k^i_t = k^i_{1,t} + k^i_{2,t}, 
 \end{eqnarray}
 \begin{eqnarray}\label{equation:marketclearingLabor}
 l_t = l_{1,t} + l_{2,t}.
@@ -374,9 +406,9 @@ Taking as given Equations \ref{equation:production_FINAL}-\ref{equation:marketcl
 \end{eqnarray}
 where $p_t$ represents the price of ICT capital expressed in consumption units. Since price of consumption is normalized to be one then $p_t$ also represents the relative price between final output and ICT output.
 
-\subsection{Competitive Equilibrium}
+\subsection{Competitive Equilibrium and Solution Method}
 
-Competitive equilibrium is represented by (i) household's first order conditions with respect to consumption $c_t$, labor $l_t$, hard capital $k^c_t$, ICT capital $k^i_t$, (ii) final-good producers' first order conditions with respect to $k^c_{1,t}$, $k^i_{1,t}$, and $l_{1,t}$, (iii) ICT-good producers' first order conditions with respect to $k^c_{2,t}$, $k^i_{2,t}$, and $l_{2,t}$, (iv) definition of production functions \ref{equation:production_FINAL} and \ref{equation:productionICT}, (v) low of motion of hard and ICT capital \ref{equation:LOM_Hard} and \ref{equation:LOM_ICT}, (vi) sector-specific resource constraints \ref{equation:marketclearingHard} and \ref{equation:marketclearingICT}, and intrasectoral resource constraints \ref{equation:marketclearingHard}, \ref{equation:marketclearingICT}, and \ref{equation:marketclearingLabor}.
+Competitive equilibrium is represented by (i) Equations \ref{equation:utilFunc}-\ref{equation:marketclearingLabor}, (ii) household's first order conditions with respect to consumption $c_t$, labor $l_t$, hard capital $k^c_t$, ICT capital $k^i_t$, (iii) final-good producers' first order conditions with respect to $k^c_{1,t}$, $k^i_{1,t}$, and $l_{1,t}$, and (iv) ICT-good producers' first order conditions with respect to $k^c_{2,t}$, $k^i_{2,t}$, and $l_{2,t}$. 
 
 
 
