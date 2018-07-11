@@ -315,7 +315,7 @@ Consider an economy inhabited by a representative agent which maximizes the expe
 \end{eqnarray}
 with 
 \begin{eqnarray*}
-U(c_t,l_t) = \log(c_t) - \frac{1}{1+\eta} l_t^{1+\eta}
+U(c_t,l_t) = \log(c_t) - \frac{1}{1+\frac{1}{\chi}} l_t^{1+\frac{1}{\chi}}
 \end{eqnarray*}
 where $c_t$ and $l_t$ represent consumption and labor at time $t$. 
 
@@ -325,7 +325,18 @@ Instead of working with the aggregate production function, assume that the produ
 \begin{eqnarray}\label{equation:production_FINAL}
 y^c_t(j) = A^c_t \ \big( k^c_{t}(j) \big)^a \ \big( k^i_{t}(j) \big)^b \ \big( l_{t}(j) \big)^{1-a-b}, \ \ 0 < a,b < 1
 \end{eqnarray}
-where total factor productivity is equal to $ A_t^c = \eta_t \ \theta^c_t \ (k^i_{t})^{\gamma} $. $\eta_t$ is the neutral technological component, $\theta^c_t$ is the sector-specific technological component, and $\gamma$ represents the parameter that governs the size of the spillover effect of ICT capital in the production function. Moreover, $k^c_{t}(j)$ is the part of hard capital $k^c_t$ used by firm $j$ in oder to produce final-good output. Similarly, $k^i_{t}(j)$ and $l_{t}(j)$ are the parts of ICT capital $k^i_t$ and labor $l_t$ used by firm $j$ in oder to produce final-good output, respectively. 
+where total factor productivity is equal to $ A_t^c = \eta_t \ \theta^c_t \ (k^i_{t})^{\gamma} $. $\eta_t$ is the neutral technological component which moves along the following deterministic trend
+\begin{eqnarray}\label{equation:neutral_tech_process}
+\eta_t = (\Gamma^{\eta})^t e^{\varepsilon_t},  
+\end{eqnarray} 
+\begin{eqnarray}\label{equation:neutral_tech_shock}
+ \varepsilon_t = \rho_{\nu} \varepsilon_{t-1} + \nu_t
+\end{eqnarray} 
+where $\rho_{\nu} \in (0,1)$ and $\nu_t \sim N(0,\sigma_{\nu})$ represents a neutral technology shock. $\theta^c_t$ is the sector-specific technological component,  which moves along the following deterministic trend
+\begin{eqnarray}
+\theta_t^c = (\Gamma^{c})^t.
+\end{eqnarray} 
+Then, $\gamma$ represents the parameter that governs the size of the spillover effect of ICT capital in the production function. Moreover, $k^c_{t}(j)$ is the part of hard capital $k^c_t$ used by firm $j$ in oder to produce final-good output. Similarly, $k^i_{t}(j)$ and $l_{t}(j)$ are the parts of ICT capital $k^i_t$ and labor $l_t$ used by firm $j$ in oder to produce final-good output, respectively. 
 
 Since all the final-good producers are identical ex ante and ex post, the following conditions hold,
 \begin{eqnarray}\label{equation:aggregation_hard_final}
@@ -360,7 +371,15 @@ Instead of working with the aggregate production function, assume that the produ
 \begin{eqnarray}\label{equation:productionICT}
 y^c_t(q) = A^c_t \ \big( k^c_{t}(q) \big)^a \ \big( k^i_{t}(q) \big)^b \ \big( l_{t}(q) \big)^{1-a-b}, \ \ 0 < a,b < 1
 \end{eqnarray}
-where total factor productivity is equal to $ A_t^c = \eta_t \ \theta^i_t \ (k^i_{t})^{\gamma} $. $\eta_t$ is the same neutral technological component, $\theta^i_t$ is the sector-specific technological component, and $\gamma$ represents the same parameter that governs the size of the spillover effect of ICT capital in the production function. Moreover, $k^c_{t}(q)$ is the part of hard capital $k^c_t$ used by firm $q$ in oder to produce ICT goods. Similarly, $k^i_{t}(q)$ and $l_{t}(q)$ are the parts of ICT capital $k^i_t$ and labor $l_t$ used by firm $q$ in oder to produce ICT goods, respectively. 
+where total factor productivity is equal to $ A_t^c = \eta_t \ \theta^i_t \ (k^i_{t})^{\gamma} $. $\eta_t$ is the same neutral technological component which follows \ref{equation:neutral_tech_process} and \ref{equation:neutral_tech_shock}, $\theta^i_t$ is the sector-specific technological component which moves along the following deterministic trend
+\begin{eqnarray}\label{equation:ICT_tech_process}
+\theta^i_t = (\Gamma^{i})^t e^{\zeta_t},  
+\end{eqnarray} 
+\begin{eqnarray}\label{equation:ICT_tech_shock}
+\zeta_t = \rho_{\iota} \zeta_{t-1} + \iota_t
+\end{eqnarray} 
+where $\rho_{\iota} \in (0,1)$ and $\iota_t \sim N(0,\sigma_{\iota})$ represents an ICT technology shock.
+Then, $\gamma$ represents the same parameter that governs the size of the spillover effect of ICT capital in the production function. Moreover, $k^c_{t}(q)$ is the part of hard capital $k^c_t$ used by firm $q$ in oder to produce ICT goods. Similarly, $k^i_{t}(q)$ and $l_{t}(q)$ are the parts of ICT capital $k^i_t$ and labor $l_t$ used by firm $q$ in oder to produce ICT goods, respectively. 
 
 Similarly, since all the final-good producers are identical ex ante and ex post, the following conditions hold,
 \begin{eqnarray}\label{equation:aggregation_hard_ICTsec}
@@ -410,6 +429,37 @@ where $p_t$ represents the price of ICT capital expressed in consumption units. 
 
 Competitive equilibrium is represented by (i) Equations \ref{equation:utilFunc}-\ref{equation:marketclearingLabor}, (ii) household's first order conditions with respect to consumption $c_t$, labor $l_t$, hard capital $k^c_t$, ICT capital $k^i_t$, (iii) final-good producers' first order conditions with respect to $k^c_{t}(j)$, $k^i_{t}(j)$, and $l_{t}(j)$, and (iv) ICT-good producers' first order conditions with respect to $k^c_{t}(q)$, $k^i_{t}(q)$, and $l_{t}(q)$. 
 
+In order to simulate responses to (i) neutral technology shocks, $\nu_t$ and (ii) ICT shocks, $\iota_t$ we employ a standard first-order approximation of the log-transformation of the system around the detrended (stationarized) steady state. In order to stationarized the system we use results firstly presented by \cite{greenwood1997long} where they formally show the balance-growth path of the two sectors under the assumption that one sector is moving faster than the other. In our case, results are going to be slightly different since we need to take into account the additional effect provided by the spillover.\footnote{The stationarized version of the steady state is available on request.} Results are derived mostly using the code provide by Stephanie Schmitt-Grohe and Martin Uribe available on their websites.\footnote{Code to replicate our results is available on request.}
+
+\section{Model Assessment}
+
+In this section we describes the parameter values and test the empirical performance of the model. Following \cite{christiano2005nominal}, we partition those values into two groups. We calibrate parameters of the first group using steady-state relations or results from previous works. We estimate the second group of parameters by minimizing the distance between the model-implied impulse responses and the empirical results presented in \ref{section:mainSpec}. In particular, the second group focuses on parameters specifically related to the effect of ICT investment on future TFP: (i) the size of the spillover effect of ICT capital on productivity $\gamma$, (ii) the standard deviation $\sigma_{\iota}$ and (iii) persistence $\rho_{\iota}$ of ICT shocks. 
+
+\subsection{Parameterization}\label{section:parameterization}
+
+We calibrate the model at a quarterly frequency. We set the discount factor $\beta$ to $0.97^{\frac{1}{4}}$ to match the average yield of $3$\% of the 3-month Treasury bill using data from 1989:Q1 to 2017:Q1. Moreover, we set ICT share $b$ equal to $0.0310$ following \cite{oulton2012long} and hard capital share $a$ equal to $0.3$. Moreover, adapting \cite{oulton2012long} accordingly to our additional assumptions, we derive steady state growth rates of final-sector technology $\Gamma^c$ and ICT-sector technology $\Gamma^i$ solving the system,
+\begin{equation}\label{equation:system_param}
+\begin{cases}
+\E \big( \frac{p_t}{p_{t-1}} \big) = \frac{\Gamma^c}{\Gamma^i} \\
+\E \big( \frac{c_t}{c_{t-1}} \big) = (\Gamma^c)^{\frac{1-b-\gamma}{1-a-b-\gamma}}  (\Gamma^i)^{\frac{b+\gamma}{1-a-b-\gamma}}
+\end{cases}
+\end{equation}
+where $\E[p_t/p_{t-1}]$ and $\E[c_t/c_{t-1}]$ are derived from the simple mean of their empirical related values using quarterly data from 1989:Q1 to 2017:Q1. Estimation implies $\Gamma^c = 1.0034$ and $\Gamma^i = 1.0160$.\footnote{Notice that the value of $\gamma$ is unknown at this step since it is going to be evaluated using impulse-response matching. This implies that the solution for $\Gamma^c$, $\Gamma^i$, and $\gamma$ should be a fixed point where given $\gamma^*$ we obtain $(\Gamma^i)^*$ and $(\Gamma^c)^*$ solving \ref{equation:system_param}. Given $(\Gamma^i)^*$ and $(\Gamma^c)^*$ we obtain $\gamma^*$ by minimizing the impulse-response matching. At this step we are simply solving the system for $\gamma$ equal to zero but a more refine solution will be provided in future.} Finally, to avoid an over-identification problem we set the growth rate of sector-neutral technology $\Gamma^{\eta}$ equal to one.
+
+In addition, we set the frisch elasticity of labor supply $\chi$ to be equal to $1$. Moreover, following Bureau fo Economic Analysis (BEA) depreciation estimates, we set the quarterly depreciation rates for hard capital $\delta^c$ to be equal to $0.0206$ in order to match an annual depreciation rate of $0.08$. Similarly, according to BEA depreciation estimates (i) communication equipments and (ii) computer and electronic products depreciate at an annual rate of $0.15$ and $0.14$ respectively. Thus, we set the quarterly depreciation rates for ICT capital $\delta^i$ to be equal to $0.0398$ in order to match the highest of the two values.
+
+
+
+
+
+
+
+\subsection{Impulse-Response Matching}\label{section:IRmatching}
+
+\subsection{Interpretation of the Results}\label{section:Interpretation_theory}
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
@@ -420,7 +470,7 @@ Competitive equilibrium is represented by (i) Equations \ref{equation:utilFunc}-
 
 %%%%%%%%%%%%%%%%%%%%               CONCLUSION                 %%%%%%%%%%%%%%%%%% 
 \section{Conclusion}\label{section:conclusions}
-hjklbhjkl
+
 
 \bibliographystyle{chicago}
 \bibliography{literature}
