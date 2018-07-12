@@ -102,20 +102,22 @@ set = struct2array(set);
 %**********************************************************
 % STAGE 2. Input IRFs from VAR
 %**********************************************************
-load('Workspace_Just_IT_SVAR_1LAG.mat') % --->>>>> this is specific to BriantiGati2017
+% load('Workspace_Just_IT_SVAR_1LAG.mat') % --->>>>> this is specific to BriantiGati2017
+load('main_just_IT_noHOURS_1LAG') % --->>>>> this is specific to BriantiGati2017
 
 % Construct VAR IRFs to shocks of your choice
 % Size of imported VAR IRFs is (nvar, T, nshocks)
 nvar_VAR_orig = size(IRFs,1);
-T_VAR        = size(IRFs,2);
+% T_VAR        = size(IRFs,2);
+T_VAR        = 40;
 nshocks_VAR  = size(IRFs,3);
 % choose which variables responses to match from the VAR
-variables_from_VAR = [1 3 5 6];
+variables_from_VAR = [1 2 4 5];
 IRF_IT    = IRFs(variables_from_VAR,:,pos_IT); % response of all vars to IT shock % --->>>>> this is specific to BriantiGati2017
 nvar_VAR  = size(IRF_IT,1);
 
 % Gather the VAR IRFs to all the relevant shocks
-IRFs_VAR = IRF_IT'; % --->>>>> this is specific to BriantiGati2017
+IRFs_VAR = IRF_IT(:,1:T_VAR)'; % --->>>>> this is specific to BriantiGati2017
 psi_hat  = IRFs_VAR(:);
 
 
@@ -241,7 +243,7 @@ else
     addpath([base_path '/Code/just_IT_vecm']) %for Mac
 end
 
-print_figs ='yes'; 
+print_figs ='no'; 
 plot_matchedIRFs(IRF_IT,ir_matched,T_VAR,1,shocknames, {'TFP','IT inv', 'C', 'RP'}, print_figs, base_path, 'IRmatching_together')
 
 param_names = {'gam', 'sigitlev', 'rhoitlev'};
