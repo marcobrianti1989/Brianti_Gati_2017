@@ -213,8 +213,10 @@ UB = [0.6,    100,   0.9];
 % %   [a;        b;    gam; sigma_IT; rho_IT]
 % LB = [0.01,  0.01,   .05,  .01,     0.1];
 % UB = [0.5,   0.5,   0.6,    100,    0.9];
+warning off
 [param_opt,obj_opt] = fmincon(objj, param0,[],[],[],[],LB,UB,[],options);
 % X = fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
+warning on
 toc
 %% Generate IRFs with the optimal parameters
 [f, fx, fy, fxp, fyp, G, R, set]=model_prog(param_opt,set); % --->>>>> this is specific to BriantiGati2017
@@ -239,7 +241,7 @@ else
     addpath([base_path '/Code/just_IT_vecm']) %for Mac
 end
 
-print_figs ='no'; 
+print_figs ='yes'; 
 plot_matchedIRFs(IRF_IT,ir_matched,T_VAR,1,shocknames, {'TFP','IT inv', 'C', 'RP'}, print_figs, base_path, 'IRmatching_together')
 
 param_names = {'gam', 'sigitlev', 'rhoitlev'};

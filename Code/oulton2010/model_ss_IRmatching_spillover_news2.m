@@ -42,7 +42,7 @@ Ki_check        = @(wx) (ri/(b*biggamc)*kc_bar(wx)^(-a)*ki_bar(wx)^(1-b))^(1/gam
 Ki_check2       = @(wx) (wx/((1-a-b)*biggamc)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b))^(1/gam); %check
 check           = ((ki(15) - Ki_check(15)) + (ki(15) - Ki_check2(15)))^2;
 if check > 10^(-16)
-      error('Ki is wrong')
+      warning('Ki is wrong')
 end
 Ki_Kc = b/a*rc/ri; %Ki_Kc = Ki/Kc = Ki1/Kc1 = Ki2/Kc2 = ki/kc
 
