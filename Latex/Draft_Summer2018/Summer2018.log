@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 JUL 2018 16:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 JUL 2018 16:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1041,7 +1041,7 @@ ine 227.
 [15]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 319.
+(hyperref)                than one, level fixed on input line 323.
 
 [16] [17] [18] [19] [20] (./Summer2018.bbl [21] [22] [23]) [24]
 <MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png, id=539, 1172.12906pt x 688
@@ -1050,7 +1050,7 @@ File: MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png Graphic file (type png
 )
  <use MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png use
-d on input line 499.
+d on input line 503.
 (pdftex.def)             Requested size: 410.25131pt x 240.82832pt.
  [25 <./MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png (PNG copy)>]
 <MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png, id=545, 12
@@ -1060,7 +1060,7 @@ c file (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empir
-ical_noH.png used on input line 512.
+ical_noH.png used on input line 516.
 (pdftex.def)             Requested size: 428.432pt x 240.82832pt.
 
 [26 <./MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical_noH.png (PNG 
@@ -1071,7 +1071,7 @@ File: MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png Graphic file (typ
 e png)
  <use MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.pn
-g used on input line 523.
+g used on input line 527.
 (pdftex.def)             Requested size: 405.77202pt x 240.82832pt.
 
 [27 <./MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png (PNG copy)>]
@@ -1082,7 +1082,7 @@ ile (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_Consumption_empirica
-l_noH.png used on input line 534.
+l_noH.png used on input line 538.
 (pdftex.def)             Requested size: 405.77202pt x 240.82832pt.
  [28 <./MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_noH.png (PNG co
 py)>]
@@ -1093,7 +1093,7 @@ e (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_
-noH.png used on input line 545.
+noH.png used on input line 549.
 (pdftex.def)             Requested size: 414.20364pt x 240.82832pt.
  [29 <./MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.png (PNG copy
 )>] [30]
@@ -1102,7 +1102,7 @@ File: MainFigures/Removing_FLVariables.png Graphic file (type png)
 
 <use MainFigures/Removing_FLVariables.png>
 Package pdftex.def Info: MainFigures/Removing_FLVariables.png used on input lin
-e 587.
+e 591.
 (pdftex.def)             Requested size: 397.60388pt x 226.59995pt.
  [31 <./MainFigures/Removing_FLVariables.png (PNG copy)>] [32]
 <MainFigures/fig_News_Shock_on_TFP__controllinNEWS_.png, id=588, 1221.81468pt x
@@ -1111,7 +1111,7 @@ File: MainFigures/fig_News_Shock_on_TFP__controllinNEWS_.png Graphic file (type
  png)
  <use MainFigures/fig_News_Shock_on_TFP__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_News_Shock_on_TFP__controllinNEWS_.png
- used on input line 609.
+ used on input line 613.
 (pdftex.def)             Requested size: 221.78923pt x 124.89728pt.
 
 <MainFigures/fig_ICT_Shock_on_TFP__controllinNEWS_.png, id=589, 1221.81468pt x 
@@ -1120,7 +1120,7 @@ File: MainFigures/fig_ICT_Shock_on_TFP__controllinNEWS_.png Graphic file (type
 png)
  <use MainFigures/fig_ICT_Shock_on_TFP__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_TFP__controllinNEWS_.png 
-used on input line 613.
+used on input line 617.
 (pdftex.def)             Requested size: 221.78923pt x 124.89728pt.
 
 <MainFigures/fig_News_Shock_on_Real_SP__controllinNEWS_.png, id=590, 1206.75844
@@ -1130,7 +1130,7 @@ type png)
 
 <use MainFigures/fig_News_Shock_on_Real_SP__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_News_Shock_on_Real_SP__controllinNEWS_
-.png used on input line 618.
+.png used on input line 622.
 (pdftex.def)             Requested size: 221.78923pt x 126.45114pt.
 
 <MainFigures/fig_ICT_Shock_on_Real_SP__controllinNEWS_.png, id=591, 1206.75844p
@@ -1140,7 +1140,7 @@ ype png)
 
 <use MainFigures/fig_ICT_Shock_on_Real_SP__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_SP__controllinNEWS_.
-png used on input line 622.
+png used on input line 626.
 (pdftex.def)             Requested size: 221.78923pt x 126.45114pt.
 
 <MainFigures/fig_News_Shock_on_Real_ICT_Investment__controllinNEWS_.png, id=592
@@ -1150,7 +1150,7 @@ aphic file (type png)
 
 <use MainFigures/fig_News_Shock_on_Real_ICT_Investment__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_News_Shock_on_Real_ICT_Investment__con
-trollinNEWS_.png used on input line 627.
+trollinNEWS_.png used on input line 631.
 (pdftex.def)             Requested size: 221.78923pt x 121.67404pt.
 
 <MainFigures/fig_ICT_Shock_on_Real_ICT_Investment__controllinNEWS_.png, id=593,
@@ -1160,15 +1160,15 @@ phic file (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Real_ICT_Investment__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_ICT_Investment__cont
-rollinNEWS_.png used on input line 631.
+rollinNEWS_.png used on input line 635.
 (pdftex.def)             Requested size: 221.78923pt x 125.28574pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 607--634
+Underfull \hbox (badness 10000) in paragraph at lines 611--638
 []$[]$$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 607--634
+Underfull \hbox (badness 10000) in paragraph at lines 611--638
 []$$[]$
  []
 
@@ -1185,7 +1185,7 @@ File: MainFigures/fig_News_Shock_on_Real_GDP__controllinNEWS_.png Graphic file
 
 <use MainFigures/fig_News_Shock_on_Real_GDP__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_News_Shock_on_Real_GDP__controllinNEWS
-_.png used on input line 643.
+_.png used on input line 647.
 (pdftex.def)             Requested size: 221.78923pt x 124.89728pt.
 
 <MainFigures/fig_ICT_Shock_on_Real_GDP__controllinNEWS_.png, id=599, 1221.81468
@@ -1195,7 +1195,7 @@ type png)
 
 <use MainFigures/fig_ICT_Shock_on_Real_GDP__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_GDP__controllinNEWS_
-.png used on input line 647.
+.png used on input line 651.
 (pdftex.def)             Requested size: 221.78923pt x 124.89728pt.
 
 <MainFigures/fig_News_Shock_on_Real_Consumption__controllinNEWS_.png, id=600, 1
@@ -1205,7 +1205,7 @@ ic file (type png)
 
 <use MainFigures/fig_News_Shock_on_Real_Consumption__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_News_Shock_on_Real_Consumption__contro
-llinNEWS_.png used on input line 652.
+llinNEWS_.png used on input line 656.
 (pdftex.def)             Requested size: 221.78923pt x 123.15442pt.
 
 <MainFigures/fig_ICT_Shock_on_Real_Consumption__controllinNEWS_.png, id=601, 12
@@ -1215,7 +1215,7 @@ c file (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Real_Consumption__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Real_Consumption__control
-linNEWS_.png used on input line 656.
+linNEWS_.png used on input line 660.
 (pdftex.def)             Requested size: 221.78923pt x 124.89728pt.
 
 <MainFigures/fig_News_Shock_on_Relative_Price__controllinNEWS_.png, id=602, 116
@@ -1225,7 +1225,7 @@ File: MainFigures/fig_News_Shock_on_Relative_Price__controllinNEWS_.png Graphic
 
 <use MainFigures/fig_News_Shock_on_Relative_Price__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_News_Shock_on_Relative_Price__controll
-inNEWS_.png used on input line 661.
+inNEWS_.png used on input line 665.
 (pdftex.def)             Requested size: 221.78923pt x 130.69278pt.
 
 <MainFigures/fig_ICT_Shock_on_Relative_Price__controllinNEWS_.png, id=603, 1167
@@ -1235,15 +1235,15 @@ file (type png)
 
 <use MainFigures/fig_ICT_Shock_on_Relative_Price__controllinNEWS_.png>
 Package pdftex.def Info: MainFigures/fig_ICT_Shock_on_Relative_Price__controlli
-nNEWS_.png used on input line 665.
+nNEWS_.png used on input line 669.
 (pdftex.def)             Requested size: 221.78923pt x 130.69278pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 641--668
+Underfull \hbox (badness 10000) in paragraph at lines 645--672
 []$[]$$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 641--668
+Underfull \hbox (badness 10000) in paragraph at lines 645--672
 []$$[]$
  []
 
@@ -1260,21 +1260,17 @@ File: MainFigures/ICTshocksSeries_ControllingforNEWS.png Graphic file (type png
 )
  <use MainFigures/ICTshocksSeries_ControllingforNEWS.png>
 Package pdftex.def Info: MainFigures/ICTshocksSeries_ControllingforNEWS.png use
-d on input line 680.
+d on input line 684.
 (pdftex.def)             Requested size: 397.60388pt x 226.59995pt.
  [35 <./MainFigures/ICTshocksSeries_ControllingforNEWS.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 689.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 689.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 693.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 693.
  (./Summer2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 689.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 689.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 693.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 693.
 Package rerunfilecheck Info: File `Summer2018.out' has not changed.
 (rerunfilecheck)             Checksum: AA1DAC5EA078175AAABEE3AD90443B55;1894.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 689.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 693.
  ) 
 Here is how much of TeX's memory you used:
  19252 strings out of 493089
@@ -1304,7 +1300,7 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Summer2018.pdf (35 pages, 1337821 bytes).
+Output written on Summer2018.pdf (35 pages, 1337842 bytes).
 PDF statistics:
  723 PDF objects out of 1000 (max. 8388607)
  632 compressed objects within 7 object streams
