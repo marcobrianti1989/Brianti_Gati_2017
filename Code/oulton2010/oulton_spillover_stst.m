@@ -82,7 +82,7 @@ c   = x(14);
 w   = x(15); 
 
 
-check1 = yc - biggamc * h1^(1-a-b) * kc1^a * ki1^b;
+check1 = yc - biggamc * h1^(1-a-b) * kc1^a * ki1^b; %
 check2 = yi - biggami * h2^(1-a-b) * kc2^a * ki2^b;
 check3 = kc -kc1 -kc2;
 check4 = ki -ki1 -ki2;
@@ -91,11 +91,11 @@ check6 = kc * gc - ic;
 check7 = ki * gi - it;
 check8 = yc - c -ic;
 check9 = yi -it;
-check10 = w/c -chi*h;
-check13 =  w -(1-a-b)*biggamc * h1^(-a-b) * kc1^(a) * ki1^(b);
+check10 = w/c -chi*h; %%
+check13 =  w -(1-a-b)*biggamc * h1^(-a-b) * kc1^(a) * ki1^(b); %
 check14  =  rc -(a)*biggamc * h1^(1-a-b) * kc1^(a-1) * ki1^(b);
 check15  = ri -(b)*biggamc * h1^(1-a-b) * kc1^(a) * ki1^(b-1);
-check16  = w -(1-a-b)*biggami * h2^(-a-b) * kc2^(a) * ki2^(b);
+check16  = w -(1-a-b)*biggami * h2^(-a-b) * kc2^(a) * ki2^(b); %
 check17  = rc -(a)*biggami * h2^(1-a-b) * kc2^(a-1) * ki2^(b);
 check18  = ri -(b)*biggami * h2^(1-a-b) * kc2^(a) * ki2^(b-1);
 

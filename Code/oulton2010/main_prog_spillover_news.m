@@ -113,11 +113,14 @@ plot(shocks_series(1,:),'b')
 plot(shocks_series(2,:),'r')
 legend('sim. tfp', 'sim. news innovations', 'sim. IT innovations')
 
-
+% Check alternative steady states
 param = parameters;
+known_ss_values = get_ss_ratios_from_data
 % param.gam = 0.1;
-ss = oulton_spillover_stst(param);
+% ss = oulton_spillover_stst(param);
 % ss = oulton_spillover_stst_alt1(param);
+% ss = oulton_spillover_stst_alt2(param); % more unknowns than eqs.
+ss = oulton_spillover_stst_alt3(known_ss_values); % trying to get params instead as unknowns. Doesn't work.
 % New st. st. values:
 global yc yi h1 h2 h kc1 kc2 kc ki1 ki2 ki ic it c w p
 
