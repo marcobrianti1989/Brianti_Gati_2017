@@ -209,10 +209,10 @@ disp 'Evaluated loss once.'
 
 %Objective with V weighting
 objj = @(param) objective_IRmatching(param,set,Sy,Sx,T_VAR,psi_hat,100000*W);
-%   [gam; sigma_IT; rho_IT]
+%   [gam; sigma_IT; rho_IT] % DEFAULT
 LB = [.05,   .01,   0.1];
 UB = [0.6,    100,   0.9];
-% LB = [0,   .01,   0.1];
+LB = [0,   .01,   0.1];
 % UB = [1,    100,   0.9];
 % %   [a;        b;    gam; sigma_IT; rho_IT]
 % LB = [0.01,  0.01,   .05,  .01,     0.1];
@@ -223,6 +223,18 @@ UB = [0.6,    100,   0.9];
 % %   [b;   di;   gam; sigma_IT; rho_IT]
 % LB = [0.01,  0,    .05,  .01,     0.1];
 % UB = [0.5,   0.3,   0.6,    100,    0.9];
+% %   [chi;   gam; sigma_IT; rho_IT]
+% LB = [0.1,   .05,   .01,   0.1];
+% UB = [1,   0.6,    100,   0.9];
+% %   [di;  chi;  gam; sigma_IT; rho_IT]
+% LB = [0,  0.1,  .05,   .01,   0.1];
+% UB = [0.2 1.1,  0.6,   100,   0.9];
+% %    [b;   di;  chi;  gam; sigma_IT; rho_IT]
+% LB = [0.01, 0,  0.1,  .05,   .01,   0.1];
+% UB = [0.5,  0.2 1.1,  0.6,   100,   0.9];
+% %   [biggami; gam; sigma_IT; rho_IT] % 
+% LB = [1,      .05,   .01,   0.1];
+% UB = [1.02,    0.6,    100,   0.9];
 warning off
 [param_opt,obj_opt] = fmincon(objj, param0,[],[],[],[],LB,UB,[],options);
 % X = fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
