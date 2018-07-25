@@ -21,7 +21,8 @@
 function [fyn, fxn, fypn, fxpn] = model_spillover_news(param)
 
 %Steady State
-[ss, param] = model_spillover_ss_news(param);
+% [ss, param] = model_spillover_ss_news(param);
+[ss, param] = model_spillover_ss_news_noeq24(param);
 
 %Declare parameters
 bet      = param.bet;  %Never call anything beta...it's a matlab function

@@ -16,7 +16,7 @@ param.biggamc  = 1.00328; %1.00328;    % growth rate of cons. productivity
 param.di       = 0.124; %0.124; % depreciation rate of IT capital (Some work suggests 0.1830)
 param.dc       = 0.056; %0.056 depreciation rate of standard capital
 param.chi      = 1; % preference parameter of preference for leisure. (From Ryan)
-param.gam      = 0.14; %0.2 spillover elasticity (only used in model_spillover.m and model_spillover_ss.m) 0.5873 is the optimal value from IR-matching
+param.gam      = 0; %0.2 spillover elasticity (only used in model_spillover.m and model_spillover_ss.m) 0.5873 is the optimal value from IR-matching
 % the lowest we can go for gam is 0.14 b/c of the st.st.
 param.siggami  = 1; % variance of BIGGAMI
 param.sige     = 2; % variance of signal on BIGGAMI

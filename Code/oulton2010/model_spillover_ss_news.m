@@ -33,7 +33,7 @@ ri       = (1/bet* expgi -(1-di))*p;
 %Step 1
 kc_bar          = @(wx) wx/rc*a/(1-a-b); %kc = kc1 = kc2 = Kc/h = Kc1/h1 = Kc2/h2
 ki_bar          = @(wx) wx/ri*b/(1-a-b); %ki = ki1 = ki2 = Ki/h = Ki1/h1 = Ki2/h2 
-ki              = @(wx) (rc/(a*biggamc)*kc_bar(wx)^(1-a)*ki_bar(wx)^(-b))^(1/gam);
+ki              = @(wx) (rc/(a*biggamc)*kc_bar(wx)^(1-a)*ki_bar(wx)^(-b))^(1/gam); % THIS IS WHERE GAM=0 MAKES OBJECTIVE UNDEFINED.
 Ki_check        = @(wx)(ri/(b*biggamc)*kc_bar(wx)^(-a)*ki_bar(wx)^(1-b))^(1/gam); 
 Ki_check2       = @(wx) ( wx/((1-a-b)*biggamc)*kc_bar(wx)^(-a)*ki_bar(wx)^(-b) )^(1/gam); %check
 check           = ((ki(15) - Ki_check(15)) + (ki(15) - Ki_check2(15)))^2;
