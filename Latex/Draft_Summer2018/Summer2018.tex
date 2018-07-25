@@ -225,7 +225,7 @@ In other words, by naively employing the procedure presented above, any ICT shoc
 Thus, to avoid confounding ICT shocks with news shocks, we need to augment the first step with an extra restriction. The restriction we will use here is derived from a two-sector structural model in the tradition of \cite{greenwood1997long}.\footnote{While our model belongs to the class of models along the lines of \cite{greenwood1997long}, our exposition is closer to that of \cite{oulton2007investment}. We discuss this choice in detail in Section \ref{section:theory}.} Here, we refrain from presenting the model in its entirety; the reader is referred to Section \ref{section:theory}. Instead, Proposition \ref{prop:priceRestriction} presents the key property of the model that gives rise to our identification assumption. 
 
 \begin{prop}\label{prop:priceRestriction}
-In a two-sector economy, if both production functions are identical, then any economy-wide productivity shocks do not affect relative prices between the two sectors.
+In a two-sector economy, if both production functions display identical input shares, then any economy-wide productivity shocks do not affect relative prices between the two sectors.
 \end{prop}
 \begin{proof}
 	See Appendix \ref{section:proofpriceRestriction}.
@@ -320,7 +320,7 @@ In the previous section, we have documented results regarding the relation of cu
 
 The model presented has several common features with the two-sector environment of \cite{greenwood1997long} where one sector displays a faster technology than the other. Three main assumptions distinguish our model from the one by \cite{greenwood1997long}. Firs of all, we focus specifically on the ICT capital sector, rather than equipment, as the sector with faster technological improvement. This assumption will be necessary if we want to fit the fact that relative prices between ICT investment and the overall economy display a downward sloping trend.\footnote{In addition, we also rely on the results of \cite{whelan2003two} and \cite{oulton2007investment} to correctly define productivity and output share in our setting.} A second difference is that we consider two production functions - one for each sector. As \cite{oulton2007investment} shows, the two formulations are isomorphic, so our modeling choice has no implication for the resulting dynamics. The reason we choose this approach is because it allows for definitions of GDP and TFP in the model that are consistent with the way these variables are constructed in the national income accounts. Finally, we assume that the total ICT capital stock has a positive spillover effect on the production function of both sectors. The general-purpose nature of ICT capital works through its own diffusion because information sharing improves only when new communication technologies are widely spread over the population.
 
-\subsubsection{Household}
+\subsection{Household}
 
 Consider an economy inhabited by a representative agent who maximizes the expected values of his lifetime utility as given by
 \begin{eqnarray}\label{equation:utilFunc}
@@ -348,7 +348,7 @@ where productivity is equal to $ A_t^c = \eta_t \ \theta^c_t \ (k^i_{t})^{\gamma
 \begin{eqnarray}\label{equation:neutral_tech_shock}
  \varepsilon_t = \rho_{\nu} \varepsilon_{t-1} + \nu_t
 \end{eqnarray} 
-where $\rho_{\nu} \in (0,1)$ and $\nu_t \sim N(0,\sigma_{\nu})$ represents a neutral technology shock. $\theta^c_t$ is the sector-specific technological component,  which moves along the following deterministic trend
+where $\rho_{\nu} \in (0,1)$ and $\nu_t \sim N(0,\sigma_{\nu}^2)$ represents a neutral technology shock. $\theta^c_t$ is the sector-specific technological component,  which moves along the following deterministic trend
 \begin{eqnarray}
 \theta_t^c = (\Gamma^{c})^t.
 \end{eqnarray} 
@@ -394,7 +394,7 @@ where $\theta^i_t$ is the sector-specific technological component which moves al
 \begin{eqnarray}\label{equation:ICT_tech_shock}
 \zeta_t = \rho_{\iota} \zeta_{t-1} + \iota_t
 \end{eqnarray} 
-where $\rho_{\iota} \in (0,1)$ and $\iota_t \sim N(0,\sigma_{\iota})$ represents an ICT technology shock. In line with the first sector, $k^c_{t}(q)$ is the part of hard capital $k^c_t$ used by firm $q$ in oder to produce ICT goods. Similarly, $k^i_{t}(q)$ and $l_{t}(q)$ are the parts of ICT capital $k^i_t$ and labor $l_t$ used by firm $q$ in oder to produce ICT goods, respectively. 
+where $\rho_{\iota} \in (0,1)$ and $\iota_t \sim N(0,\sigma_{\iota}^2)$ represents an ICT technology shock. In line with the first sector, $k^c_{t}(q)$ is the part of hard capital $k^c_t$ used by firm $q$ in oder to produce ICT goods. Similarly, $k^i_{t}(q)$ and $l_{t}(q)$ are the parts of ICT capital $k^i_t$ and labor $l_t$ used by firm $q$ in oder to produce ICT goods, respectively. 
 
 Since we assume homogeneity across ICT producers, following conditions hold
 \begin{eqnarray}\label{equation:aggregation_hard_ICTsec}
@@ -448,28 +448,37 @@ Competitive equilibrium is represented by (i) Equations \ref{equation:utilFunc}-
 
 \section{Model Assessment}
 
-We now turn to describing the parameter values and testing the empirical performance of the model. Following \cite{christiano2005nominal}, we partition the model parameters into two groups. We calibrate parameters of the first group using steady-state relations or results from previous works. We estimate the second group by minimizing the distance between the model-implied impulse responses and the empirical results presented in Section \ref{section:mainSpec}. In particular, the second group focuses on parameters specifically related to the effect of ICT investment on future TFP: (i) the size of the spillover effect of ICT capital on productivity $\gamma$, (ii) the standard deviation $\sigma_{\iota}$ and (iii) persistence $\rho_{\iota}$ of ICT shocks. 
+We now turn to describing the parameter values and testing the empirical performance of the model. Following \cite{christiano2005nominal}, we partition the model parameters into two groups. We calibrate parameters of the first group using steady-state relations or results from previous works. We estimate the second group by minimizing the distance between the model-implied impulse responses and the empirical results presented in Section \ref{section:mainSpec}. In particular, the second group focuses on parameters specifically related to the effect of ICT investment on future TFP: (i) the standard deviation $\sigma_{\iota}$ of ICT shock $\zeta_t$, (ii) persistence $\rho_{\iota}$ of ICT shock $\zeta_t$ and (iii) the size of the spillover effect of ICT capital on productivity $\gamma$. 
 
 \subsection{Parameterization}\label{section:parameterization}
 
 We calibrate the model at a quarterly frequency. We set the discount factor $\beta$ to $0.97^{\frac{1}{4}}$ to match the average yield of $3$\% of the 3-month Treasury bill using data from 1989:Q1 to 2017:Q1. We set the ICT share $b$ equal to $0.0310$ following \cite{oulton2012long} and hard capital share $a$ equal to $0.3$. Moreover, adapting \cite{oulton2012long} accordingly to our additional assumptions, we derive steady state growth rates of final-sector technology $\Gamma^c$ and ICT-sector technology $\Gamma^i$ from solving the system,
 \begin{equation}\label{equation:system_param}
 \begin{cases}
-\E \big( \frac{p_t}{p_{t-1}} \big) = \frac{\Gamma^c}{\Gamma^i} \\
-\E \big( \frac{c_t}{c_{t-1}} \big) = (\Gamma^c)^{\frac{1-b-\gamma}{1-a-b-\gamma}}  (\Gamma^i)^{\frac{b+\gamma}{1-a-b-\gamma}}
+ \frac{p_t}{p_{t-1}}  = \frac{\Gamma^c}{\Gamma^i} \\
+ \frac{c_t}{c_{t-1}}  = (\Gamma^c)^{\frac{1-b-\gamma}{1-a-b-\gamma}}  (\Gamma^i)^{\frac{b+\gamma}{1-a-b-\gamma}}
 \end{cases}
 \end{equation}
-where $\E[p_t/p_{t-1}]$ and $\E[c_t/c_{t-1}]$ are derived from the simple mean of their empirical related values using quarterly data from 1989:Q1 to 2017:Q1. This implies $\Gamma^c = 1.0034$ and $\Gamma^i = 1.0160$.\footnote{Notice that the value of $\gamma$ is unknown at this step since it is going to be evaluated using impulse-response matching. This implies that the solution for $\Gamma^c$, $\Gamma^i$, and $\gamma$ should be a fixed point where given $\gamma^*$ we obtain $(\Gamma^i)^*$ and $(\Gamma^c)^*$ solving \ref{equation:system_param}. Given $(\Gamma^i)^*$ and $(\Gamma^c)^*$ we obtain $\gamma^*$ by minimizing the impulse-response matching. At this step we are simply solving the system for $\gamma$ equal to zero but a more refine solution will be provided in future.} Finally, to avoid an over-identification problem we set the growth rate of sector-neutral technology $\Gamma^{\eta}$ equal to one.
+where $p_t/p_{t-1}$ and $c_t/c_{t-1}$ are derived from the simple mean of their empirical related values using quarterly data from 1989:Q1 to 2017:Q1. This implies $\Gamma^c = 1.0034$ and $\Gamma^i = 1.0160$.\footnote{Notice that the value of $\gamma$ is unknown at this step since it is going to be evaluated using impulse-response matching. This implies that the solution for $\Gamma^c$, $\Gamma^i$, and $\gamma$ should be a fixed point where given $\gamma^*$ we obtain $(\Gamma^i)^*$ and $(\Gamma^c)^*$ solving \ref{equation:system_param}. Given $(\Gamma^i)^*$ and $(\Gamma^c)^*$ we obtain $\gamma^*$ by minimizing the impulse-response matching. At this step we are simply solving the system for $\gamma$ equal to zero but a more refine solution will be provided in future.} Finally, to avoid an over-identification problem we set the growth rate of sector-neutral technology $\Gamma^{\eta}$ equal to one.
 
 In addition, we set the Frisch elasticity of labor supply $\chi$ to be equal to $1$. Moreover, following Bureau fo Economic Analysis (BEA) depreciation estimates, we set the quarterly depreciation rates for hard capital $\delta^c$ to be equal to $0.0206$ in order to match an annual depreciation rate of $0.08$. Similarly, according to BEA depreciation estimates (i) communication equipments and (ii) computer and electronic products depreciate at an annual rate of $0.15$ and $0.14$ respectively. Thus, we set the quarterly depreciation rates for ICT capital $\delta^i$ to be equal to $0.0398$ in order to match the highest of the two values.
 
 
 
 
-
-
-
 \subsection{Impulse-Response Matching}\label{section:IRmatching}
+
+In this section, we estimate model’s key parameters governing the effect of ICT investment on future TFP by imposing theoretical impulse responses of an ICT shock to be as close as possible to the empirical ones. To enhance movement in ICT investment, we use a shock to the ICT-specific technological component $\zeta_t$. Using empirical impulse responses of TFP, ICT investment, consumption, and relative prices, we estimate four parameters: the variance of an ICT technology shock, $\sigma_{\iota}^2$, the persistence of the same shock, $\rho_{\iota}$, and the size of the spillover effect of ICT capital on TFP, $\gamma$. We estimate $\Omega = (\gamma, \ \sigma_{\iota}^2, \ \rho_{\iota})$ by minimizing,
+\begin{eqnarray}\label{equation:min_prob_IRmatching}
+\min_{\Omega} \big[  \hat{\Psi} - \Psi(\Omega)  \big]' \Lambda \big[  \hat{\Psi} - \Psi(\Omega)  \big]
+\end{eqnarray}
+where $\Psi(\Omega)$ denotes the mapping from $\Omega$ to the theoretical impulse responses, and $\hat{Psi}$ denotes the empirical impulse responses of an ICT shock to TFP, ICTI, consumption, and relative prices shown in Appendix \ref{section:mainSetResults}. Moreover, $\Lambda$ is a diagonal matrix which embodies variances of the empirical impulse responses. These elements serve as weights to impose relatively more precision on some estimates on the optimization problem. Finally, accordingly to what presented above, we use a horizon of $40$ periods for each response which sum up to a total of $160$ elements for three theoretical parameters only.
+
+Table \ref{table:estimated_parameters} shows results of Problem \ref{equation:min_prob_IRmatching}. The estimate of the spillover effect of ICT capital on TFP, $\gamma$, is $0.58$ indicating that empirical responses favor a causality relation from an ICT capital deepening to total factor productivity. Moreover, estimates of variance and persistence of an ICT-specific technological shock $\sigma^2_{\iota}$ and $\rho_{\iota}$ are $0.01^2$ and $0.9$, respectively. Results imply both a remarkable size and persistence of an ICT sector-specific technological shock $\zeta_t$ in the economy. 
+% does it make sense? I dont know what to say for sigmaiota and rhoiota...
+
+Using the estimated parameter values in Table \ref{table:estimated_parameters}, Figure \ref{fig:IR_matching} displays empirical impulse responses along with theoretical ones. Our simple model is able to mimic empirical movements in TFP, ICT investment, consumption, and relative prices. In both the model and the data, a sector-specific technological shock $\zeta_t$ has a delayed positive effect on TFP which tend to last over the medium and long run. Moreover, in both cases, ICT investment has a large initial peak and then tends to remain persistently positive over the $40$-quarter horizon. In the model and the data, consumption responds positively on impact, reaches its peak after $4$ years and persistently remains positive. Finally, model-generated and empirical impulse responses of relative prices have a large and negative impact response which dies out in about $6$ years. 
+
 
 \subsection{Interpretation of the Results}\label{section:Interpretation_theory}
 
@@ -479,7 +488,6 @@ In addition, we set the Frisch elasticity of labor supply $\chi$ to be equal to 
 
 %%%%%%%%%%%%%%%%%%%%               MODEL                 %%%%%%%%%%%%%%%%%% 
 \section{Experiments}\label{section:experiments}
-
 
 
 
@@ -600,8 +608,34 @@ Relative Prices &  0.0618  &  0.0967  &  0.1276 &   0.1511 &   0.1516  &  0.1467
 
 \section{Proof of Proposition \ref{prop:priceRestriction}}\label{section:proofpriceRestriction}
 
-Prova
+Notice that in this proof we use the same assumptions and the same notation in the 2-sector model presented in Section \ref{section:theory}.
 
+\
+
+First order condition with respect to labor input for firm $j$ is
+\begin{eqnarray}\label{equation:FOC_j_l}
+w_t =  (1 - a - b) p_t \eta_t \theta^c (k^i_t)^{\gamma} \bigg( \frac{k_t^c(j)}{l_t(j)} \bigg)^a \bigg( \frac{k_t^i(j)}{l_t(j)} \bigg)^b,
+\end{eqnarray}
+and first order condition with respect to labor input for firm $q$ is
+\begin{eqnarray}\label{equation:FOC_q_l}
+w_t = (1 - a - b) \eta_t \theta^c (k^i_t)^{\gamma} \bigg( \frac{k_t^c(q)}{l_t(q)} \bigg)^a \bigg( \frac{k_t^i(q)}{l_t(q)} \bigg)^b,
+\end{eqnarray}
+Since both production functions display identical input shares then in equilibrium input ratios must be the same over the two sectors, which is,
+\begin{eqnarray}\label{eq:shares_result1}
+\frac{k_t^c(j)}{l_t(j)} = \frac{k_t^c(q)}{l_t(q)},
+\end{eqnarray}
+\begin{eqnarray}\label{eq:shares_result2}
+\frac{k_t^i(j)}{l_t(j)} = \frac{k_t^i(q)}{l_t(q)},
+\end{eqnarray}
+\begin{eqnarray*}\label{eq:shares_result3}
+\frac{k_t^i(j)}{k^c_t(j)} = \frac{k_t^i(q)}{k^c_t(q)}.
+\end{eqnarray*}
+Now, dividing \ref{equation:FOC_j_l} over \ref{equation:FOC_q_l}, we can use \ref{eq:shares_result1} and \ref{eq:shares_result2} to obtain
+\begin{eqnarray}\label{eq:result_proof}
+1 = \frac{1}{p_t} \frac{\theta^c_t}{\theta^i_t} \ \ \Rightarrow \ \ p_t = \frac{\theta^c_t}{\theta^i_t}.
+\end{eqnarray}
+From Equation \ref{eq:result_proof}, it is clear that the equilibrium path of $p_t$ is fully independent on the past, current, and future values of neutral technology, $\eta_t$. 
+\qed
 
 \newpage
 
@@ -688,8 +722,54 @@ Prova
 		\label{fig:shockSeries_2steps}
 	\end{center} 
 \end{figure}
- 
 
+\newpage
+
+\section{Estimated Parameters via IR Matching}
+
+ 	\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{clc}
+			\hline
+			Symbol & Economic Interpretation & Estimated Value \\
+			\hline
+            $\sigma^2_{\iota}$ & Variance of ICT technological shock &   $0.01^2$  \\
+            $\rho_{\iota}$     & Persistence of ICT technological shock & $0.9$   \\
+            $\gamma$           & Size of spillover of ICT capital on TFP &  $0.5881$ \\
+			\hline
+		\end{tabular}
+		\caption{Estimation of key parameters by imposing model's impulse responses of an ICT shock to be as close as possible to the empirical ones. Theoretical estimates are impulse responses to an ICT-specific technological shock, $\zeta_t$ which are functions of key parameters: $\sigma_{\iota}^2$, $\rho_{\iota}$, and $\gamma$. Empirical impulse responses of an ICT shock to TFP, ICTI, consumption, and relative prices are derived from Specification \ref{eq:mainSpecification} using the empirical strategy presented in Section \ref{section:empiricalstrategy_simple}. According to what presented in Appendix \ref{section:mainSetResults}, we use a horizon of $40$ periods for each response.}
+		\label{table:estimated_parameters}
+	\end{center}
+\end{table}
+
+
+\newpage
+
+\section{Impulse-Response Matching}\label{section:appendix_IR_matching}
+ 
+\begin{figure}[h!]
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{MainFigures/fig_ICT_Shock_on_TFP_IRmatching_together}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{MainFigures/fig_ICT_Shock_on_ICTI_IRmatching_together}
+	\end{subfigure}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{MainFigures/fig_ICT_Shock_on_C_IRmatching_together}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{MainFigures/fig_ICT_Shock_on_RP_IRmatching_together}
+	\end{subfigure}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\caption{Empirical VAR versus model responses to an ICT shock. The black solid lines show the empirical responses to an identified ICT shock in Specification \ref{eq:mainSpecification}. The dotted red lines show the model’s responses to a shock to the ICT-specific technological component $\zeta_t$. The horizontal axes refer to forecast horizon and the units of the vertical axes are percentage deviations.}
+	\label{fig:IR_matching}
+\end{figure}
 
  
 \end{document}

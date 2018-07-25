@@ -31,9 +31,11 @@ for i_shock=1:nshocks
         name = shocknames{which_shock(i_shock)};
         hold on
         plot(periods,IRFs_VAR(i_var,1:h,which_shock(i_shock)),'linewidth',2,'Color','k')
-        plot(periods,IRFs_theory(i_var,1:h,which_shock(i_shock)),'linewidth',2,'Color','r')
+        plot(periods,IRFs_theory(i_var,1:h,which_shock(i_shock)),'--','linewidth',2,'Color','r')
         plot(zeros(1,h), 'Color','b')
-        legend('Empirical', 'Model')
+        LEG = legend('Empirical', 'Model');
+        LEG.FontSize = 24;
+        legend boxoff
         xt = get(gca, 'XTick');
         set(gca, 'FontSize', 22)
         title([name, ' on ' , varname],'fontsize',72)
