@@ -58,7 +58,7 @@ nshocks = 1; % to how many shocks do we wanna match IRFs (not sure if we can act
 %Compute the first-order derivative numerically
 %%%%%
 % How to use this model numerical approach properly:
-% Write model.m (or edit it, to be correct, here: model_IRmatching_spillover_news.m)
+% Write model.m (or edit it, to be correct, here: model_IRmatching_spillover_news2.m)
 % Then run model_func.m to generate model_prog.m (I called it model_prog_IRmatching_spillover_news.m but reverted to model_prog.m to avoid naming issues.)
 % Then run model_prog.m; this will do the analytical evaluations.
 %%%%%
@@ -212,6 +212,8 @@ objj = @(param) objective_IRmatching(param,set,Sy,Sx,T_VAR,psi_hat,100000*W);
 %   [gam; sigma_IT; rho_IT]
 LB = [.05,   .01,   0.1];
 UB = [0.6,    100,   0.9];
+% LB = [0,   .01,   0.1];
+% UB = [1,    100,   0.9];
 % %   [a;        b;    gam; sigma_IT; rho_IT]
 % LB = [0.01,  0.01,   .05,  .01,     0.1];
 % UB = [0.5,   0.5,   0.6,    100,    0.9];

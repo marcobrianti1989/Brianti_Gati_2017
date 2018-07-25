@@ -5,9 +5,10 @@
 function [mod] = model_IRmatching_spillover_news2(param,set)
 
 %Steady State Function Call
-mod.ss_call = 'model_ss_IRmatching_spillover_news2.m'; %%%%%%%%%%%%% L added _IRmatching_spillover_news
-% mod.fname = 'model_prog_IRmatching_spillover_news.m'; %%%%%%%%%%%%% L added _IRmatching_spillover_news
-mod.fname = 'model_prog.m'; %%%%%%%%%%%%% L: try it with the original name
+mod.ss_call = 'model_ss_IRmatching_spillover_news2.m'; %%%%%%%%%%%%% L added _IRmatching_spillover_news (use no. 2)  %%%%%%%%%%%%%%% DEFAULT
+% mod.ss_call = 'model_ss_IRmatching_spillover_news_other_ki.m'; %%%%%%%%%%%%% L: alternative to try to get gam = 0 to work too
+% EDIT SS_CALL TO X.AUX AT LINE 156 AS WELL TO GET SS OUTPUT SHARES.
+mod.fname = 'model_prog.m'; 
 
 %Declare parameters symbols: parameters are values to be estimated
 param_list = fieldnames(param);
@@ -153,7 +154,8 @@ f(end+1) = BIGGAMITT_p - siggami/(siggami+sige)*S_p - sige/(siggami+sige)*BIGGAM
 f(end+1) = S_p - BIGGAMI_p;
 % Computation of NIPA-consistent GDP and TFP
 % First resolve steady-state so you get the new st.st.-shares...
- [Xss,Yss] = model_ss_IRmatching_spillover_news_aux(param,set);
+ [Xss,Yss] = model_ss_IRmatching_spillover_news_aux(param,set); %%%%%%%%%%%%%%% DEFAULT
+%  [Xss,Yss] = model_ss_IRmatching_spillover_news_other_ki_aux(param,set);
 p = Yss(p_idx); yc = Yss(yc_idx); yi = Yss(yi_idx); 
 wi = p*yc/(yc+p*yi);
 % f(end+1) = WI - P*YC/(YC+P*YI);
