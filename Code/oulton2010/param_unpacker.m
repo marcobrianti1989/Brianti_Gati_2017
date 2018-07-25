@@ -13,6 +13,7 @@ di = set(6);
 dc = set(7);
 chi = set(8);
 siggami = set(9);
-sige = set(10);
-adiff = set(11);
+rhogami = set(10);
+sige = set(11);
+adiff = set(12);
 

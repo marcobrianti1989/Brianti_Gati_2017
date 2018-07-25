@@ -103,7 +103,7 @@ f(end+1) = -W + KI^gam* ITLEV* (1-a-b)*(BIGGAMITT)*H2^(-a-b)*KC2^(a)*KI2^(b)*P;
 f(end+1) = -RC + KI^gam* ITLEV* a*(BIGGAMITT)*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P;
 f(end+1) = -RI + KI^gam* ITLEV* b*(BIGGAMITT)*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P;
 f(end+1) = log(BIGGAMC_p/biggamc) - .8*log(BIGGAMC/biggamc); %taken directly from Ryan's example code.
-f(end+1) = log(BIGGAMI_p/biggami) - .8*log(BIGGAMI/biggami); %taken directly from Ryan's example code.
+f(end+1) = log(BIGGAMI_p/biggami) - rhogami*log(BIGGAMI/biggami); %taken directly from Ryan's example code.
 f(end+1) = log(N_p) - 0.8*log(N) - V0; % common component of technology on which there is a news shock
 % Approach for growth rates:
 f(end+1) = BIGGAMCL_p - BIGGAMC;
@@ -200,6 +200,7 @@ neps = 1; %%%%%%%%% L edited: 1 instead of two cause I'm only thinking of the IT
 mod.shck       = sym(zeros(length(X),neps));
 % mod.shck(1,1)  = sigz; %%%%%%%%% L edited: commented out.
 mod.shck(itlev_idx-length(Y),1) = sigitlev; %%%%%%%%% L edited: you need to put in the position of the shock
+% mod.shck(biggami_idx-length(Y),1) = siggami; %%%%%%%%% L edited: try growth rate shocks
 mod.adiff = 0;
 %Saving here to test subs command spped
 fx=mod.fx; fy=mod.fy; fxp=mod.fxp; fyp=mod.fyp;

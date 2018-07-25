@@ -190,7 +190,7 @@ options = optimset(options, 'TolFun', 1e-9, 'display', 'iter');
 
 %Selector matrix to select the jumps we're interested in % --->>>>> this is specific to BriantiGati2017
 Sy = zeros(nvar_VAR,ny);
-Sy(1,gamtfp_idx) = 1; % pretend like this is TFP for a sec
+Sy(1,gamtfp_idx) = 1; % TFP
 Sy(2,gamyi_idx) = 1; % IT investment
 Sy(3,gamc_idx)  = 1; % consumption
 Sy(4,gamp_idx)  = 1; % relative prices
@@ -217,6 +217,12 @@ UB = [0.6,    100,   0.9];
 % %   [a;        b;    gam; sigma_IT; rho_IT]
 % LB = [0.01,  0.01,   .05,  .01,     0.1];
 % UB = [0.5,   0.5,   0.6,    100,    0.9];
+% % %   [ di;    gam; sigma_IT; rho_IT]
+% LB = [ 0,     .05,  .01,       0.1];
+% % UB = [0.3,   0.6,    100,     0.9];
+% %   [b;   di;   gam; sigma_IT; rho_IT]
+% LB = [0.01,  0,    .05,  .01,     0.1];
+% UB = [0.5,   0.3,   0.6,    100,    0.9];
 warning off
 [param_opt,obj_opt] = fmincon(objj, param0,[],[],[],[],LB,UB,[],options);
 % X = fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)
