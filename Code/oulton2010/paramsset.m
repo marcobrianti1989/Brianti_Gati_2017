@@ -15,6 +15,8 @@ set.rhogami    = 0.8;
 set.sige       = 1; %2 variance of signal on BIGGAMI
 param.sigitlev = 1; % variance of the IT prod. shock (level)
 param.rhoitlev = 0.8; % persistence of the IT prod shock
+set.pa       = 1; % Peter's trick parameter to scale index variables arbitraily. Only used in Peter's model and SS.
+set.pb       = 1; % a second Peter's trick parameter. Initially I set the two equal so it's as if they were the same thing.
 
 
 %Always keep these two settings last

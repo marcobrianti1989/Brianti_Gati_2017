@@ -24,7 +24,8 @@ param = parameters;
 % param = parameters_opt;
 
 %Compute the first-order coefficiencients of the model
-[fyn, fxn, fypn, fxpn] = model_spillover_news(param);
+[fyn, fxn, fypn, fxpn] = model_spillover_news(param); % DEAFULT
+% [fyn, fxn, fypn, fxpn] = model_spillover_news_peter(param); % alternative where we use Peter's trick parameters.
 % save checking_f.mat fxn  % save fxn so you can compare other fx's obtained by other codes.
 
 %Compute the transition and policy functions, using code by

@@ -22,3 +22,5 @@ param.siggami  = 1; % variance of BIGGAMI
 param.sige     = 2; % variance of signal on BIGGAMI
 param.sigitlev = 0.01;  %1 variance of the IT productivity level shock. 0.01 is the optimal value for sigitlev from IR-matching
 param.rhoitlev = 0.7812; %0.8 persistence of the IT prod shock. 0.7812 is the optimal value from IR-matching
+param.pa       = 1; % Peter's trick parameter to scale index variables arbitraily. Only used in Peter's model and SS.
+param.pb       = 1; % a second Peter's trick parameter. Initially I set the two equal so it's as if they were the same thing.

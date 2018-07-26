@@ -18,7 +18,9 @@ chi = set(8);
 siggami = set(9);
 rhogami = set(10);
 sige = set(11);
-adiff = set(12);
+pa = set(12);
+pb = set(13);
+adiff = set(14);
 
 %BEGIN_EXTRACT_HERE
 
