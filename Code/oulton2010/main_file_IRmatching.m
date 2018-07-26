@@ -263,7 +263,7 @@ else
     addpath([base_path '/Code/just_IT_vecm']) %for Mac
 end
 
-print_figs = 'yes'; 
+print_figs = 'no'; 
 shocknames = {'ICT Shock'};
 plot_matchedIRFs(IRF_IT,ir_matched,T_VAR,1,shocknames, {'TFP','ICTI', 'C', 'RP'}, print_figs, base_path, 'IRmatching_together')
 
