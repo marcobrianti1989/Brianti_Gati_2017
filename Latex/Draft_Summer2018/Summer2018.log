@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  26 JUL 2018 16:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  27 JUL 2018 08:29
 entering extended mode
 **./Summer2018.tex
 (Summer2018.tex
@@ -1445,7 +1445,7 @@ Here is how much of TeX's memory you used:
  22524 multiletter control sequences out of 15000+200000
  16805 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,54p,1864b,478s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,11n,54p,1919b,480s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
@@ -1464,7 +1464,7 @@ fonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Summer2018.pdf (39 pages, 1611162 bytes).
+Output written on Summer2018.pdf (39 pages, 1611269 bytes).
 PDF statistics:
  774 PDF objects out of 1000 (max. 8388607)
  182 named destinations out of 1000 (max. 500000)
