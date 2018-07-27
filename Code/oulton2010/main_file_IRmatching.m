@@ -64,7 +64,9 @@ nshocks = 1; % to how many shocks do we wanna match IRFs (not sure if we can act
 %%%%%
 
 % mod = model_IRmatching_spillover_news(param0,set);
-mod = model_IRmatching_spillover_news2(param0,set); % a version that incorporates GDP and TFP
+% mod = model_IRmatching_spillover_news2(param0,set); % a version that incorporates GDP and TFP
+mod = model_IRmatching_spillover_news_peter(param0,set); % Peter's scaling parameter trick
+
 
 %Get dimensions of the model
 nx = length(mod.X);
@@ -212,7 +214,7 @@ objj = @(param) objective_IRmatching(param,set,Sy,Sx,T_VAR,psi_hat,100000*W);
 %   [gam; sigma_IT; rho_IT] % DEFAULT
 LB = [.05,   .01,   0.1];
 UB = [0.6,    100,   0.9];
-LB = [0,   .01,   0.1];
+% LB = [0,   .01,   0.1];
 % UB = [1,    100,   0.9];
 % %   [a;        b;    gam; sigma_IT; rho_IT]
 % LB = [0.01,  0.01,   .05,  .01,     0.1];
@@ -235,6 +237,18 @@ LB = [0,   .01,   0.1];
 % %   [biggami; gam; sigma_IT; rho_IT] % 
 % LB = [1,      .05,   .01,   0.1];
 % UB = [1.02,    0.6,    100,   0.9];
+% %   [gam; sigma_IT; rho_IT; pa;   pb;] 
+% LB = [.05,   .01,   0.1,    0.1, 0.1];
+% UB = [0.6,    100,   0.9,   100, 100];
+% %   [chi;      gam; sigma_IT; rho_IT; pa;   pb;] 
+% LB = [0.1,  .05,   .01,   0.1,    0.1, 0.1];
+% UB = [1,    0.6,  100,   0.9,   100, 100];
+% %   [gam; sigma_IT; rho_IT; pa] 
+% LB = [.05,   .01,   0.1,    0.1];
+% UB = [0.6,    100,   0.9,   100];
+% %   [chi;  gam; sigma_IT; rho_IT; pa] 
+% LB = [0.1, .05,   .01,   0.1,    0.1];
+% UB = [1.1, 0.6,    100,   0.9,   100];
 warning off
 [param_opt,obj_opt] = fmincon(objj, param0,[],[],[],[],LB,UB,[],options);
 % X = fmincon(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,OPTIONS)

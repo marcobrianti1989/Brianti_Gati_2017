@@ -153,6 +153,7 @@ f(end+1) = V7_p - V8;
 %LOM of beliefs
 f(end+1) = BIGGAMITT_p - siggami/(siggami+sige)*S_p - sige/(siggami+sige)*BIGGAMITT;
 f(end+1) = S_p - BIGGAMI_p;
+
 % Computation of NIPA-consistent GDP and TFP
 % First resolve steady-state so you get the new st.st.-shares...
  [Xss,Yss] = model_ss_IRmatching_spillover_news_aux(param,set); %%%%%%%%%%%%%%% DEFAULT

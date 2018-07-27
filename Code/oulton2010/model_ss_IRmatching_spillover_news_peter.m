@@ -5,7 +5,7 @@
 % [ss, parameters] =model_ss(param)
 
 
-function [Xss,Yss] = model_ss_IRmatching_spillover_news2(param,set)
+function [Xss,Yss] = model_ss_IRmatching_spillover_news_peter(param,set)
 
 nms = fieldnames(param);
 for j = 1:length(nms)
@@ -96,7 +96,7 @@ options.Display = 'none';
 objw = @(wx) (chi*h(wx) - wx/c(wx))^2; % case of  V(H) quadratic
 wx0 = 100;
 wstar = fmincon(objw,wx0,[],[],[],[],[],[],[],options);
-wstar
+wstar;
 % A check on how h(w) behaves
 wgrid = linspace(0.5,0.9,100);
 for j=1:length(wgrid)
@@ -121,7 +121,7 @@ end
 % Try to use also fzero
 % objw2 = @(wx)  wx - chi*c(wx);
 % wstar2 = fzero(objw2,wx0);
-res_obj_wstar = objw(wstar)
+res_obj_wstar = objw(wstar);
 
 %Step 5
 kc = kc(wstar); %small kc back to be original Kc - drop previous notation

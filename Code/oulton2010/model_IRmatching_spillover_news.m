@@ -1,6 +1,8 @@
 % MODEL_LINEAR - sets up the same model as model_spillover_news.m except
 % without using the symbolic toolbox so the IR-matching can be faster.
- 
+
+% DON'T USE THIS CODE / IT DOESN'T HAVE GDP AND TFP / IT WILL BE DELETED
+% SHORTLY. USE MODEL_IRMATCHING_SPILLOVER_NEWS2.M (27 JULY 2018)
 
 function [mod] = model_IRmatching_spillover_news(param,set)
 

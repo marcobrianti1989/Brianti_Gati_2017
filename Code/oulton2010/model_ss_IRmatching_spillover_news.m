@@ -4,6 +4,9 @@
 % 
 % [ss, parameters] =model_ss(param)
 
+% DON'T USE THIS CODE / IT DOESN'T HAVE GDP AND TFP / IT WILL BE DELETED
+% SHORTLY. USE MODEL_SS_IRMATCHING_SPILLOVER_NEWS2.M (27 JULY 2018)
+
 
 function [Xss,Yss] = model_ss_IRmatching_spillover_news(param,set)
 
