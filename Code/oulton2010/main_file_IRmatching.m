@@ -174,7 +174,7 @@ end
 
 disp 'Done up to weighting matrix.'
 
-
+return
 %%
 %**********************************************************
 % STAGE 4. Do fmincon

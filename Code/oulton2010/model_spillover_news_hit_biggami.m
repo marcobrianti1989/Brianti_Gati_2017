@@ -18,7 +18,7 @@
  
 % This is OULTON 2010 WITH GROWTH
 
-function [fyn, fxn, fypn, fxpn] = model_spillover_news(param)
+function [fyn, fxn, fypn, fxpn] = model_spillover_news_hit_biggami(param)
 
 %Steady State
 [ss, param] = model_spillover_ss_news(param); % DEFAULT
@@ -90,7 +90,7 @@ make_index([Y,X], 2)
 
 % Model Equations 
 f(1)     = -YC + KI^gam * N * (BIGGAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b); 
-f(end+1) = -YI + KI^gam * N * ITLEV* (BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b); 
+f(end+1) = -YI + KI^gam * N * (BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b); 
 f(end+1) = -KC + KC1 + KC2;
 f(end+1) = -KI + KI1 + KI2; 
 f(end+1) = -H + H1 + H2;
@@ -111,11 +111,11 @@ f(end+1) = -RI + KI^gam * b*(BIGGAMC)*H1^(1-a-b)*KC1^(a)*KI1^(b-1);
 % f(end+1) = -W + KI^gam*(1-a-b)*(BIGGAMI)*H2^(-a-b)*KC2^(a)*KI2^(b)*P;
 % f(end+1) = -RC + KI^gam*a*(BIGGAMI)*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P;
 % f(end+1) = -RI + KI^gam*b*(BIGGAMI)*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P;
-f(end+1) = -W + KI^gam* ITLEV* (1-a-b)*(BIGGAMITT)*H2^(-a-b)*KC2^(a)*KI2^(b)*P;
-f(end+1) = -RC + KI^gam* ITLEV* a*(BIGGAMITT)*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P;
-f(end+1) = -RI + KI^gam* ITLEV* b*(BIGGAMITT)*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P;
+f(end+1) = -W + KI^gam * (1-a-b)*(BIGGAMITT)*H2^(-a-b)*KC2^(a)*KI2^(b)*P;
+f(end+1) = -RC + KI^gam * a*(BIGGAMITT)*H2^(1-a-b)*KC2^(a-1)*KI2^(b)*P;
+f(end+1) = -RI + KI^gam * b*(BIGGAMITT)*H2^(1-a-b)*KC2^(a)*KI2^(b-1)*P;
 f(end+1) = log(BIGGAMC_p/biggamc) - .8*log(BIGGAMC/biggamc); %taken directly from Ryan's example code.
-f(end+1) = log(BIGGAMI_p/biggami) - .8*log(BIGGAMI/biggami); %taken directly from Ryan's example code.
+f(end+1) = log(BIGGAMI_p/biggami) - .8*log(BIGGAMI/biggami)-log(ITLEV); %taken directly from Ryan's example code.
 f(end+1) = log(N_p) - 0.8*log(N) - V0; % common component of technology on which there is a news shock
 % Approach for growth rates:
 f(end+1) = BIGGAMCL_p - BIGGAMC;

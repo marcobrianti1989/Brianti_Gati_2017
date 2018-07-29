@@ -25,6 +25,7 @@ param = parameters;
 
 %Compute the first-order coefficiencients of the model
 [fyn, fxn, fypn, fxpn] = model_spillover_news(param); % DEAFULT
+% [fyn, fxn, fypn, fxpn] = model_spillover_news_hit_biggami(param); % hit biggami with ITLEV shock
 % [fyn, fxn, fypn, fxpn] = model_spillover_news_peter(param); % alternative where we use Peter's trick parameters.
 % save checking_f.mat fxn  % save fxn so you can compare other fx's obtained by other codes.
 
