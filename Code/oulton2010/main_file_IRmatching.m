@@ -133,6 +133,7 @@ psi_hat  = IRFs_VAR(:);
 do_we_need_V = 'no';
 switch do_we_need_V
     case 'yes'
+        nsimul = 2; % for test purposes (otherwise loaded in from VAR workspace)
         % Get "bootstrapped IRFs" nsimul times
         % Here procedure differs from standard bootstrap because we want
         % bootstrapped IRFs, so to keep that clear I denote everything here by _s
@@ -141,7 +142,7 @@ switch do_we_need_V
             [A_s, B_s,~,~] = sr_var(data_boot2(:,:,i_simul), nlags);
             % Get bootstrapped confidence intervals nsimul times
             disp(['Iteration ' num2str(i_simul) ' out of ' num2str(nsimul)])
-            [impact_s, ~, ~]  = just_IT_ID(which_variable,which_shock,A_boot);  % --->>>>> this is specific to BriantiGati2017
+            [impact_s, ~, ~]  = just_IT_ID(which_variable,which_shock,A_s);  % --->>>>> this is specific to BriantiGati2017
             %Creating a fake matrix for the IRF due to partial ID
             fake_impact_s = zeros(nvar,nvar);
             fake_impact_s(:,which_shock) = impact_s;
@@ -150,31 +151,36 @@ switch do_we_need_V
         end
         IRFs_s_IT = squeeze(IRFs_s(variables_from_VAR,:,pos_IT,:)); % --->>>>> this is specific to BriantiGati2017
         psi_boot = reshape(IRFs_s_IT,nvar_VAR*T_VAR,nsimul);
-        V = diag(var(psi_boot,0,2));
+        V = diag(var(psi_boot,0,2)); % 0 here stands for the default normalization of 1/(N-1).
         
         % alternative way to create V  -- both yield the same result, but inv(V) is
         % singular, so something is not yet quite right.
         V1 = var(IRFs_s_IT,0,3); % take variance over nsimul
         V2 = reshape(V1,size(V1,1)*size(V1,2),1);
         V_alt = diag(V2);
-        if V~=V_alt
+        V_alt2 = diag(var(psi_boot'));
+        if V~=V_alt | V~=V_alt2
             disp('The two methods of obtaining V don''t agree.')
         end
         
         if size(V) ~= [nvar_VAR*T_VAR*nshocks,nvar_VAR*T_VAR *nshocks]
             disp('Size of bootstrap variances matrix is not correct.')
         end
-        
+        % I set V(1,1)=1. Why? Because otherwise it's 0, b/c since we set
+        % the impact restriction to be 0, all the responses are 0 and thus
+        % the variance is 0. If the variance is zero, inverting the matrix
+        % yields an all-infinite matric so the weighting matrix becomes all
+        % Nans.
+        V(1,1) = 0.0001;
         W = inv(V); %The weighting matrix
         W = W/norm(W);
     case 'no'
-        disp 'We only have 1 single shock so we can quit V.'
+        disp 'V is just identity.'
         W = eye(nvar_VAR*nshocks*T_VAR);
 end
 
 disp 'Done up to weighting matrix.'
 
-return
 %%
 %**********************************************************
 % STAGE 4. Do fmincon
@@ -211,6 +217,7 @@ disp 'Evaluated loss once.'
 
 %Objective with V weighting
 objj = @(param) objective_IRmatching(param,set,Sy,Sx,T_VAR,psi_hat,100000*W);
+% objj = @(param) objective_IRmatching(param,set,Sy,Sx,T_VAR,psi_hat,100*W);
 %   [gam; sigma_IT; rho_IT] % DEFAULT
 LB = [.05,   .01,   0.1];
 UB = [0.6,    100,   0.9];
