@@ -1,4 +1,6 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: Summer2018.aux
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Summer2018.aux
 The style file: chicago.bst
 Database file #1: literature.bib
 Repeated entry---line 273 of file literature.bib
@@ -11,4 +13,45 @@ Warning--no number and no volume in kydland1982time
 Warning--no number and no volume in moran2017innovation
 Warning--page numbers missing in moran2017innovation
 Warning--no number and no volume in whelan2003two
+You've used 32 entries,
+            2861 wiz_defined-function locations,
+            805 strings with 9622 characters,
+and the built_in function-call counts, 22153 in all, are:
+= -- 1909
+> -- 1571
+< -- 2
++ -- 474
+- -- 542
+* -- 2000
+:= -- 4021
+add.period$ -- 96
+call.type$ -- 32
+change.case$ -- 231
+chr.to.int$ -- 32
+cite$ -- 38
+duplicate$ -- 577
+empty$ -- 1351
+format.name$ -- 630
+if$ -- 4086
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 30
+newline$ -- 162
+num.names$ -- 320
+pop$ -- 151
+preamble$ -- 1
+purify$ -- 421
+quote$ -- 0
+skip$ -- 613
+stack$ -- 0
+substring$ -- 1290
+swap$ -- 183
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 630
+warning$ -- 6
+while$ -- 329
+width$ -- 0
+write$ -- 422
 (There was 1 error message)
