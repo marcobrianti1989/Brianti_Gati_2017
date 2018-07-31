@@ -57,6 +57,19 @@ Bloom, N., C.~I. Jones, J.~Van~Reenen, and M.~Webb (2017).
 \newblock Are ideas getting harder to find?
 \newblock Technical report, National Bureau of Economic Research.
 
+\bibitem[\protect\citeauthoryear{Bresnahan and Trajtenberg}{Bresnahan and
+  Trajtenberg}{1992}]{bresnahan1992general}
+Bresnahan, T. and M.~Trajtenberg (1992).
+\newblock General purpose technologies:―engines of growth? national bureau of
+  economic research working paper no. 4148.
+
+\bibitem[\protect\citeauthoryear{Bresnahan, Brynjolfsson, and Hitt}{Bresnahan
+  et~al.}{2002}]{bresnahan2002information}
+Bresnahan, T.~F., E.~Brynjolfsson, and L.~M. Hitt (2002).
+\newblock Information technology, workplace organization, and the demand for
+  skilled labor: Firm-level evidence.
+\newblock {\em The Quarterly Journal of Economics\/}~{\em 117\/}(1), 339--376.
+
 \bibitem[\protect\citeauthoryear{Byrne, Fernald, and Reinsdorf}{Byrne
   et~al.}{2016}]{byrne2016does}
 Byrne, D.~M., J.~G. Fernald, and M.~B. Reinsdorf (2016).
@@ -96,6 +109,12 @@ Forni, M. and L.~Gambetti (2014).
 \newblock Sufficient information in structural vars.
 \newblock {\em Journal of Monetary Economics\/}~{\em 66}, 124--136.
 
+\bibitem[\protect\citeauthoryear{Gordon}{Gordon}{2012}]{gordon2012us}
+Gordon, R.~J. (2012).
+\newblock Is us economic growth over? faltering innovation confronts the six
+  headwinds.
+\newblock Technical report, National Bureau of Economic Research.
+
 \bibitem[\protect\citeauthoryear{Greenwood, Hercowitz, and Krusell}{Greenwood
   et~al.}{1997}]{greenwood1997long}
 Greenwood, J., Z.~Hercowitz, and P.~Krusell (1997).
@@ -114,6 +133,13 @@ Greenwood, J., Z.~Hercowitz, and P.~Krusell (2000).
 Grossman, G.~M. and E.~Helpman (1991).
 \newblock Quality ladders in the theory of growth.
 \newblock {\em The Review of Economic Studies\/}~{\em 58\/}(1), 43--61.
+
+\bibitem[\protect\citeauthoryear{Guerron and Jinnai}{Guerron and
+  Jinnai}{2015}]{guerron2015financial}
+Guerron, P.~A. and Q.~R. Jinnai (2015).
+\newblock Financial frictions, trends, and the great recession.
+\newblock Technical report, Hitotsubashi Institute for Advanced Study,
+  Hitotsubashi University.
 
 \bibitem[\protect\citeauthoryear{Hamilton}{Hamilton}{1994}]{hamilton1994time}
 Hamilton, J.~D. (1994).
@@ -148,6 +174,11 @@ Kydland, F.~E. and E.~C. Prescott (1982).
 Long~Jr, J.~B. and C.~I. Plosser (1983).
 \newblock Real business cycles.
 \newblock {\em Journal of political Economy\/}~{\em 91\/}(1), 39--69.
+
+\bibitem[\protect\citeauthoryear{Mokyr}{Mokyr}{2014}]{mokyr2014secular}
+Mokyr, J. (2014).
+\newblock Secular stagnation? not in your life.
+\newblock {\em Secular Stagnation: Facts, Causes and Cures\/}~{\em 83}.
 
 \bibitem[\protect\citeauthoryear{Moran and Queralto}{Moran and
   Queralto}{2017}]{moran2017innovation}
