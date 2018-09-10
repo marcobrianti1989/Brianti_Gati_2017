@@ -1,13 +1,23 @@
 \begin{thebibliography}{1}
 
-\bibitem{Smith:2013jd}
-A.~B. Jones and J.~M. Smith.
-\newblock {A}rticle {T}itle.
-\newblock {\em Journal title}, 13(52):123--456, March 2013.
+\bibitem{barsky2011news}
+Robert~B Barsky and Eric~R Sims.
+\newblock News shocks and business cycles.
+\newblock {\em Journal of monetary Economics}, 58(3):273--289, 2011.
 
-\bibitem{Smith:2012qr}
-J.~M. Smith and A.~B. Jones.
-\newblock {\em {B}ook {T}itle}.
-\newblock Publisher, 7th edition, 2012.
+\bibitem{comin2006medium}
+Diego Comin and Mark Gertler.
+\newblock Medium-term business cycles.
+\newblock {\em American Economic Review}, 96(3):523--551, 2006.
+
+\bibitem{greenwood1997long}
+Jeremy Greenwood, Zvi Hercowitz, and Per Krusell.
+\newblock Long-run implications of investment-specific technological change.
+\newblock {\em The American Economic Review}, pages 342--362, 1997.
+
+\bibitem{romer1990endogenous}
+Paul~M Romer.
+\newblock Endogenous technological change.
+\newblock {\em Journal of political Economy}, 98(5, Part 2):S71--S102, 1990.
 
 \end{thebibliography}
