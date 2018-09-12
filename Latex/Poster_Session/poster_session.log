@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 SEP 2018 09:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 SEP 2018 12:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -421,7 +421,11 @@ Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
- (./poster_session.bbl) [1
+ (./poster_session.bbl)
+Overfull \vbox (61.24922pt too high) has occurred while \output is active []
+
+
+[1
 
 
 Non-PDF special ignored!{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/upd
@@ -430,10 +434,10 @@ atchingall.png>] [2
 
 ] (./poster_session.aux) ) 
 Here is how much of TeX's memory you used:
- 4539 strings out of 493089
- 68035 string characters out of 6134842
- 181462 words of memory out of 5000000
- 7937 multiletter control sequences out of 15000+600000
+ 4540 strings out of 493089
+ 68043 string characters out of 6134842
+ 181514 words of memory out of 5000000
+ 7938 multiletter control sequences out of 15000+600000
  36953 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,16n,38p,1219b,397s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -446,7 +450,7 @@ mi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/
 texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/20
 15/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on poster_session.pdf (2 pages, 800951 bytes).
+Output written on poster_session.pdf (2 pages, 801326 bytes).
 PDF statistics:
  49 PDF objects out of 1000 (max. 8388607)
  32 compressed objects within 1 object stream
