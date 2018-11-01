@@ -265,7 +265,7 @@ toc
 
 % Try a setting where for the same shock size, we shut gamma off.
 param_setgam0 = param_opt;
-param_setgam0(1) = 0.1; % set optimal gam0 = 0.
+param_setgam0(1) = 0.01; % set optimal gam0 = 0.
 
 [f, fx, fy, fxp, fyp, G, R, set]=model_prog(param_setgam0,set); % --->>>>> this is specific to BriantiGati2017
 [gx,hx]=gx_hx_alt(fy,fx,fyp,fxp);

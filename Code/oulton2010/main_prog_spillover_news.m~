@@ -20,9 +20,9 @@ addpath(base_path)
 disp('Doing Model with Spillover and News')
 
 %Load Parameters
-% param = parameters;
+param = parameters;
 % param.gam = .1
-param = parameters_opt;
+  param = parameters_opt;
 
 %Compute the first-order coefficiencients of the model
 [fyn, fxn, fypn, fxpn] = model_spillover_news(param); % DEAFULT
