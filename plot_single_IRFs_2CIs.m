@@ -41,7 +41,7 @@ for i_shock=1:nshocks
         xt = get(gca, 'XTick');
         set(gca, 'FontSize', 28)
         title([name, ' on ' , varname],'fontsize',72)
-        ylim([min_y_lim(i_var) max_y_lim(i_var)]);
+        %ylim([min_y_lim(i_var) max_y_lim(i_var)]);
         hold off
         grid on
         

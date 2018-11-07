@@ -126,7 +126,8 @@ print_figs = 'no';
 % end
 
 use_current_time = 0; % don't save the time
-plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shock,shocknames, varnames, 'empirical_noH', print_figs, use_current_time, base_path)
+plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shock,shocknames,...
+      varnames, 'empirical_noH', print_figs, use_current_time, base_path)
 
 %Forni&Gambetti Orthogonality Test
 do_FG_test = 'no';

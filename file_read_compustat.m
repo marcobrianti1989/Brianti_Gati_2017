@@ -84,12 +84,15 @@ time                = time(2:end); %this is just to show that now time is aligne
 [AggAssetsDt, ~]    = seven_term_henderson_filter(AggAssets);
 [AggRDDt, ~]        = seven_term_henderson_filter(AggRD);
 
-RD2Assets           = AggRDDt./AggAssetsDt;
-RD2Inv              = AggRDDt./AggInvestDt;
-RD2Equity           = AggRDDt./AggEquityDt;
-Soft2Assets         = AggSoftDt./AggAssetsDt;
-Soft2Inv            = AggSoftDt./AggInvestDt;
-Soft2Equity         = AggSoftDt./AggEquityDt;
+RD2Assets           = (AggRDDt./AggAssetsDt)';
+RD2Inv              = (AggRDDt./AggInvestDt)';
+RD2Equity           = (AggRDDt./AggEquityDt)';
+Soft2Assets         = (AggSoftDt./AggAssetsDt)';
+Soft2Inv            = (AggSoftDt./AggInvestDt)';
+Soft2Equity         = (AggSoftDt./AggEquityDt)';
+
+corr([RD2Assets(171:end) RD2Equity(171:end) RD2Inv(171:end)]);
+corr([Soft2Assets(171:end) Soft2Equity(171:end) Soft2Inv(171:end)]);
 
 figure(1)
 plot(time,RD2Assets,'linewidth',1.5)

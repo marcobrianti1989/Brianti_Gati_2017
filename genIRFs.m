@@ -5,15 +5,15 @@ function [IRFs, ub1, lb1, ub2, lb2] = genIRFs(A_IRF,A_boot,B,B_boot,H, sig1, sig
 % sig2 = a 2nd CI significance level (enter as 0.95 for example)
 % Can choose not to do bootstrapping by setting A_boot to 0.
 
-nvar = size(A_IRF,1);
-nlag = (size(B,1)-1)/nvar;
-nshocks = nvar;
-nsimul = size(A_boot,3);
-perc_up1 = ceil(nsimul*sig1); % the upper percentile of bootstrapped responses for CI
-perc_low1 = floor(nsimul*(1-sig1)); % the lower percentile of bootstrapped responses for CI
-perc_up2 = ceil(nsimul*sig2); % same for 2nd CI
-perc_low2 = floor(nsimul*(1-sig2)); % same for 2nd CI
-
+nvar          = size(A_IRF,1);
+nlag          = (size(B,1)-1)/nvar;
+nshocks       = nvar;
+nsimul        = size(A_boot,3);
+perc_up1      = ceil(nsimul*sig1); % the upper percentile of bootstrapped responses for CI
+perc_low1     = floor(nsimul*(1-sig1)); % the lower percentile of bootstrapped responses for CI
+perc_up2      = ceil(nsimul*sig2); % same for 2nd CI
+perc_low2     = floor(nsimul*(1-sig2)); % same for 2nd CI
+%A_IRF(2,2)    = 0.9*A_IRF(2,2);
 % Remove constant
 B = B(2:end,:);
 B_boot = B_boot(2:end,:,:);
