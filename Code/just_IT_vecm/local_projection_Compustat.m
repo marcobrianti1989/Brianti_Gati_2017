@@ -33,8 +33,8 @@ mpc                                        = 2;
 pckk                                       = PC(:,1:mpc);
 
 % Create Var List
-varlist          = {'RD2Assets', 'RD2Investment','Soft',...
-      'Soft2Assets','Soft2Investment','RDComp'};
+varlist          = {'Soft', 'RD2Investment','RD2Equity',...
+      'Soft2Assets','Soft2Investment','Soft2Equity'};
 numberRD2A        = strmatch('RD2Assets', varlist);
 numberRD2I        = strmatch('RD2Investment', varlist);
 numberRD2E        = strmatch('RD2Equity', varlist);
@@ -99,7 +99,7 @@ for i = 1:length(varlist)
 end
 
 % Set up the typology of transformation
-logdifferences = 0;
+logdifferences = 1;
 if logdifferences == 1
       dep_var = [nan(1,size(dep_var,2)); diff(dep_var)];
 end
@@ -123,7 +123,7 @@ for kk = 1:size(dep_var,2)
             VarExplained(kk,ih) = sum(IRF(kk,1:ih).^2)/VarYY;
       end
       % Initiate bootstrap
-      nsimul         = 2000;
+      nsimul         = 500;
       tuplekk        = tuple{kk};
       for hh = 1:H
             tuplekkhh = tuplekk{hh}; % Fix a specific horizon
@@ -201,7 +201,7 @@ if plot2 == 1
       export_fig2 = 0; % if export_fig1 = 1, figure will be saved
       export_fig_IRF_lp_unconditional(export_fig2)
 end
-asd
+
 %Show the variance Explained - Figure(3)
 plot3    = 1; % if plot2 = 1, figure will be displayed
 n_row    = 3; % how many row in the figure
