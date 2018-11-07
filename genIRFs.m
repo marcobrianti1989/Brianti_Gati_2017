@@ -13,7 +13,7 @@ perc_up1      = ceil(nsimul*sig1); % the upper percentile of bootstrapped respon
 perc_low1     = floor(nsimul*(1-sig1)); % the lower percentile of bootstrapped responses for CI
 perc_up2      = ceil(nsimul*sig2); % same for 2nd CI
 perc_low2     = floor(nsimul*(1-sig2)); % same for 2nd CI
-%A_IRF(2,2)    = 0.9*A_IRF(2,2);
+
 % Remove constant
 B = B(2:end,:);
 B_boot = B_boot(2:end,:,:);

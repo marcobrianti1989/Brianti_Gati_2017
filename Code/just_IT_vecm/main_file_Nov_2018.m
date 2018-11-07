@@ -57,7 +57,7 @@ which_shock = 2; %[pos_IT];
 %Technical Parameters
 max_lags        = 10;
 nburn           = 0; %with the Kilian correction better not burning!!!
-nsimul          = 50; %5000
+nsimul          = 2000; %5000
 nvar            = size(data,2);
 sig1            = 0.9; % significance level
 sig2            = 0.95; % a 2nd sig. level
@@ -74,7 +74,7 @@ end
 which_variable = find(strcmp('ICTInvestment', system_names));
 
 %%Checking the number of lags over BIC, AIC, and HQ (see 'Lecture2M' in our folder)
-nlags = 4;
+nlags = 2;
 
 %Run VAR imposing Cholesky
 [A,B,res,sigma] = sr_var(system, nlags);
@@ -86,8 +86,8 @@ corr(ss);
 ssICT       = ss(:,2);
 ssICT_time  = [Time(1+nlags:end) ssICT]; 
 save('ssICT_time','ssICT_time')
-plot(Time(1+nlags:end),ssICT)
-asdf
+%plot(Time(1+nlags:end),ssICT)
+
 % Implement the "just IT" ID strategy in a VAR
 H_max = 40;
 %[impact, impact_IT_opt, gam_opt]  = just_IT_ID(which_variable,which_shock,A);
@@ -121,15 +121,15 @@ end
 % end
 
 %Creating and Printing figures
-comment = [which_ID '_'];
-print_figs = 'no';
+comment = [which_ID '_2lags'];
+print_figs = 'yes';
 
 [IRFs, ub1, lb1, ub2, lb2] = genIRFs(A,A_boot,...
       B,B_boot,H,sig1, sig2);
 
 use_current_time = 0; % don't save the time
 plot_single_IRFs_2CIs(IRFs,ub1,lb1,ub2,lb2,h,which_shock,shocknames,...
-      system_names, 'empirical_noH', print_figs, use_current_time, base_path)
+      system_names, 'empirical_fullEconomy', print_figs, use_current_time, base_path)
 
 %Forni&Gambetti Orthogonality Test
 do_FG_test = 'no';

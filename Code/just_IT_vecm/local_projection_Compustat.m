@@ -10,7 +10,7 @@ close all
 %Data Reading and Transformation
 filename = 'Quarterly';
 sheet    = 'Quarterly Data';
-range    = 'B1:CJ275';
+range    = 'B1:CL275';
 warning off
 [data, varnames] = read_data2(filename, sheet, range);
 warning on
@@ -29,12 +29,12 @@ date_start_PC                              = dataset_PC(1,1);
 dataset_PC                                 = dataset_PC(:,2:end); %Removing time before PC analysis
 Zscore                                     = 1; %Standardize data before taking PC
 PC                                         = get_principal_components(dataset_PC);
-mpc                                        = 4;
+mpc                                        = 2;
 pckk                                       = PC(:,1:mpc);
 
 % Create Var List
-varlist          = {'RD2Assets', 'RD2Investment','RD2Equity',...
-      'Soft2Assets','Soft2Investment','Soft2Equity'};
+varlist          = {'RD2Assets', 'RD2Investment','Soft',...
+      'Soft2Assets','Soft2Investment','RDComp'};
 numberRD2A        = strmatch('RD2Assets', varlist);
 numberRD2I        = strmatch('RD2Investment', varlist);
 numberRD2E        = strmatch('RD2Equity', varlist);
