@@ -19,6 +19,7 @@
 \def \MainFigures{../Draft_Summer2018/MainFigures}
 \def \ourTablePath {../../Tables/} 
 \def\myFigWidth{2.0in}
+\def\myFigWidthAlt{1.5in}
 
 
 \setbeamersize{text margin left=5mm,text margin right=12mm} 
@@ -38,11 +39,20 @@
 \institute[Boston College]{Boston College}
 
 
-\title[ICT]{ICT and Future Productivity: Evidence and Theory of a GPT}
+\title[ICT \& medium-run TFP]{ICT and Future Productivity: Evidence and Theory of a GPT}
 
 \date{June 2018}
 
 \usetheme{Warsaw}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Roadmap}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
 
 
 \begin{document}
@@ -74,7 +84,7 @@
 		
 		\
 		
-		\item Key prediction: BC fluctuations of a particular kind of investment (research \& development (R\&D) $\rightarrow$ adoption) lead total factor productivity (TFP)
+		\item Key prediction: BC fluctuations of a particular kind of investment (research \& development (R\&D) $\rightarrow$ adoption) lead total factor productivity (TFP).
 		
 		\
 		
@@ -99,7 +109,7 @@
 		\includegraphics[scale=0.28]{\ourFigPath Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04}
 	\end{figure}
 	
-	Fernald et al. (2017): ``R\&D and adoption cannot be the whole story''.
+	Fernald et al. (2017): ``R\&D and adoption can't be the whole story''.
 
 \end{frame}
 %%%%%%%%%%%%%%%%%
@@ -117,7 +127,7 @@
 	
 	\begin{itemize}
 		
-		\item [$\rightarrow$] A variable with at least the right timing is investment in information and communication technologies (ICT)
+		\item [$\rightarrow$] A suspect is investment in information and communication technologies (ICT).
 	
 	
 	\end{itemize} 
@@ -142,7 +152,7 @@
 
 \
 	
-    \item Draw on the conclusions of the ICT literature (references!) to build a structural model to interpret the results. 
+    \item Draw on the conclusions of the ICT literature to build a structural model to interpret the results. 
     
     \
     
@@ -160,11 +170,6 @@
 %%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HERE HERE HERE
-% - complete ICT literature references 
-% - implement roadmap
-% - edit title
-
 %%%%%%% Slide %%%%%%
 \begin{frame}
 	\frametitle{Related literature}
@@ -180,7 +185,7 @@
 	
 	\item ICT and productivity 
 		\begin{itemize}
-		\item Oliner \& Stichel (2000), Stiroh(2002), 
+		\item Jorgenson \& Stiroh (1999), Oliner \& Stichel (2000),  Brynjolffson \& Lorin (2000), Stiroh (2002) %Brynjolffson \& Yang (1999) %use stock market valuations of firms to identify the value of IT assets
 		\end{itemize}
 	
 	\
@@ -202,26 +207,9 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-\frametitle{Roadmap}
-
-EDIT THIS LATER
-\begin{enumerate} 
-	\item SVAR analysis: identifying an ICT shock
-	
-	\
-	
-	\
-	
-	\item A two-sector endogenous growth model
-	 
-	\
-	
-\end{enumerate} 
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{SVAR Analysis}
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
@@ -295,7 +283,7 @@ where $j$ represents the arbitrary position of the ICT shock.
 	\frametitle{Why this identification?}
 	
 	\begin{itemize}
-	\item ICT value added is less than 5\% of GDP (BEA, April 2018) 
+	\item ICT value added is less than 5\% of GDP (BEA, April 2018). 
 	
 	$\rightarrow$ ICT-I increases shouldn't affect TFP on impact.
 	
@@ -303,7 +291,7 @@ where $j$ represents the arbitrary position of the ICT shock.
 	
 	\
 	
-	\item Prediction of multisector models (GHK): sectoral productivity increase leads to sectoral output becoming cheaper 
+	\item Prediction of multisector models (GHK): sectoral productivity increase leads to sectoral output becoming cheaper. 
 	
 	$\rightarrow$ ICT-I should rise after ICT productivity shock.
 	\end{itemize}
@@ -354,6 +342,7 @@ where $j$ represents the arbitrary position of the ICT shock.
 %%%%%%% Slide %%%%%%
 \begin{frame}
 	\frametitle{Results II}
+	\label{results2}
 
 \begin{figure}[h!]
 %\caption{Best Responses of $\sigma_1^2$} 
@@ -367,6 +356,8 @@ where $j$ represents the arbitrary position of the ICT shock.
 \subfigure{\includegraphics[width=   \myFigWidth]{\MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH}} 
 \end{figure}	
 
+
+\hyperlink{largeVAR}{\beamerbutton{Results for a larger-scale VAR}}	
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
@@ -408,7 +399,7 @@ Relative Prices &  0.0618  &  0.0967  &  0.1276 &   0.1511 &   0.1516  &  0.1467
 
 \
 
-\item[$\rightarrow$] Alternative specification filters out news to recover an alternative ICT shock series 
+\item[$\rightarrow$] Alternative specification filters out news to recover an alternative ICT shock series. 
 
 \hyperlink{controlling_news}{\beamerbutton{Alternative specification}}	
 \end{itemize}
@@ -455,35 +446,18 @@ Relative Prices &  0.0618  &  0.0967  &  0.1276 &   0.1511 &   0.1516  &  0.1467
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-\frametitle{Roadmap}
-
-EDIT THIS LATER
-\begin{enumerate} 
-	\item SVAR analysis: identifying an ICT shock
-	
-	\
-	
-	\
-	
-	\item A two-sector endogenous growth model
-	 
-	\
-	
-\end{enumerate} 
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Structural Model}
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
 	\frametitle{2. Model - in a nutshell}
 	
 	\begin{itemize}
-	\item Belongs to the class of (GHK) models 
+	\item Belongs to the class of Greenwood, Hercowitz \& Krusell (GHK) models. 
 	
-	(we use isomorphic formulation of Oulton)
+	(We use isomorphic formulation of Oulton (2007).)
 	
 	\
 	
@@ -787,6 +761,49 @@ $\rightarrow \tilde{A}_0\gamma_j =$the vector of impact responses of all variabl
 \
 
 \hyperlink{baseline_spec}{\beamerreturnbutton{Return}}	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{IRFs for a larger-scale VAR I (2 lags)}
+	\label{largeVAR}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.25]{\ourFigPath Figures/fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy}
+%\caption{Setting $\gamma =0.1$}
+\end{center}
+\end{figure}
+
+\
+
+\hyperlink{results2}{\beamerreturnbutton{Return}}	
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{IRFs for a larger-scale VAR II (2 lags)}
+	
+\begin{figure}[h!]
+%\caption{Best Responses of $\sigma_1^2$} 
+%\centering
+
+\subfigure{\includegraphics[width=  \myFigWidthAlt]{\ourFigPath Figures/fig_ICT_Shock_on_Consumption_empirical_fullEconomy}} \hspace{.2in%
+} 
+\subfigure{\includegraphics[width=   \myFigWidthAlt]{\ourFigPath Figures/fig_ICT_Shock_on_GDP_empirical_fullEconomy}} \hspace{.2in%
+} 
+\subfigure{\includegraphics[width=   \myFigWidthAlt]{\ourFigPath Figures/fig_ICT_Shock_on_Hours_empirical_fullEconomy}} \hspace{.2in%
+} 
+\subfigure{\includegraphics[width=   \myFigWidthAlt]{\ourFigPath Figures/fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy}} \hspace{.2in%
+} 
+\subfigure{\includegraphics[width=   \myFigWidthAlt]{\ourFigPath Figures/fig_ICT_Shock_on_Investment_empirical_fullEconomy}} \hspace{.2in%
+} 
+\subfigure{\includegraphics[width=   \myFigWidthAlt]{\ourFigPath Figures/fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy}} 
+\end{figure}
+
+
 \end{frame}
 %%%%%%%%%%%%%%%%%
 

@@ -3,6 +3,7 @@
 \beamer@slide {eq:mainZeroTFP}{9}
 \beamer@slide {eq:mainOrtho}{9}
 \beamer@slide {fig:TFP_main}{12}
+\beamer@slide {results2}{13}
 \beamer@slide {table:vardec}{14}
 \beamer@slide {robustness_checks}{15}
 \beamer@slide {equation:production_FINAL}{20}
@@ -11,4 +12,5 @@
 \beamer@slide {table:estimated_parameters}{24}
 \beamer@slide {fig:TFP_main}{26}
 \beamer@slide {VAR_notation}{29}
-\beamer@slide {controlling_news}{31}
+\beamer@slide {largeVAR}{31}
+\beamer@slide {controlling_news}{33}

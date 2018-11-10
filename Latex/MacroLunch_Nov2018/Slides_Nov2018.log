@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  9 NOV 2018 17:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  10 NOV 2018 18:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -979,20 +979,20 @@ LaTeX Warning: Label `fig:TFP_main' multiply defined.
 )
 \openout1 = `Slides_Nov2018.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1058,7 +1058,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box82
-Package hyperref Info: Link coloring OFF on input line 48.
+Package hyperref Info: Link coloring OFF on input line 58.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1068,71 +1068,71 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count190
 )
-LaTeX Info: Redefining \ref on input line 48.
-LaTeX Info: Redefining \pageref on input line 48.
-LaTeX Info: Redefining \nameref on input line 48.
+LaTeX Info: Redefining \ref on input line 58.
+LaTeX Info: Redefining \pageref on input line 58.
+LaTeX Info: Redefining \nameref on input line 58.
 
 (./Slides_Nov2018.out) (./Slides_Nov2018.out)
 \@outlinefile=\write5
 \openout5 = `Slides_Nov2018.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 48.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 58.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 48.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 58.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 48.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 48.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 58.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 48.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 48.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 48.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 58.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 48.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 48.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 48.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 58.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 48.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 48.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 48.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 58.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 48.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 48.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 58.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 48.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 58.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 48.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 48.
+(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 48.
+(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 48.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 48.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 48.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 48.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 58.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 58.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `normal' on input line 48
+(Font)              `pureletters' in the math version `normal' on input line 58
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 48
+(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 58
 .
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `bold' on input line 48.
+(Font)              `pureletters' in the math version `bold' on input line 58.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 4
+(Font)                  T1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 5
 8.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 48.
+ut line 58.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/beamer/translator/dicts/translato
 r-basic-dictionary/translator-basic-dictionary-English.dict
@@ -1158,7 +1158,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 r-theorem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 48.
+LaTeX Info: Redefining \includegraphics on input line 58.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: subfigure package is loaded.
@@ -1167,22 +1167,22 @@ Package caption Info: End \AtBeginDocument code.
 (./Slides_Nov2018.nav)
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 56.
+(Font)              size <5> substituted on input line 66.
 
 [1
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 88.
+LaTeX Font Info:    Try loading font information for U+msa on input line 98.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 88.
+LaTeX Font Info:    Try loading font information for U+msb on input line 98.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 88.
+line 98.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
@@ -1190,35 +1190,39 @@ thkerncmss.
 ) [2
 
 ]
-<../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04.pdf, id=86, 1209.51
-875pt x 633.3964pt>
+<../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04.pdf, id=103, 1209.5
+1875pt x 633.3964pt>
 File: ../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04.pdf Graphic fi
 le (type pdf)
 
 <use ../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04.pdf>
 Package pdftex.def Info: ../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_3
-1_04.pdf used on input line 104.
+1_04.pdf used on input line 114.
 (pdftex.def)             Requested size: 338.66295pt x 177.34978pt.
 
-Overfull \hbox (22.83725pt too wide) in paragraph at lines 104--104
+Overfull \hbox (22.83725pt too wide) in paragraph at lines 114--114
  [] 
  []
 
 [3
 
  <../../Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04.pdf>]
-<../../Figures/fig_IT_level_macrolunch_30-Nov-2017_11_37_26.pdf, id=118, 1163.5
+<../../Figures/fig_IT_level_macrolunch_30-Nov-2017_11_37_26.pdf, id=137, 1163.5
 9718pt x 633.3964pt>
 File: ../../Figures/fig_IT_level_macrolunch_30-Nov-2017_11_37_26.pdf Graphic fi
 le (type pdf)
 
 <use ../../Figures/fig_IT_level_macrolunch_30-Nov-2017_11_37_26.pdf>
 Package pdftex.def Info: ../../Figures/fig_IT_level_macrolunch_30-Nov-2017_11_3
-7_26.pdf used on input line 125.
+7_26.pdf used on input line 135.
 (pdftex.def)             Requested size: 337.43454pt x 183.68024pt.
 
-Overfull \hbox (21.60884pt too wide) in paragraph at lines 125--125
+Overfull \hbox (21.60884pt too wide) in paragraph at lines 135--135
  [] 
+ []
+
+
+Overfull \vbox (5.4209pt too high) detected at line 135
  []
 
 [4
@@ -1228,7 +1232,7 @@ Overfull \hbox (21.60884pt too wide) in paragraph at lines 125--125
 ]
 [6
 
-] [7
+] (./Slides_Nov2018.toc) [7
 
 ] [8
 
@@ -1239,14 +1243,14 @@ Overfull \hbox (21.60884pt too wide) in paragraph at lines 125--125
 ] [11
 
 ]
-<../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png, id=353
+<../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png, id=394
 , 1172.12906pt x 688.07062pt>
 File: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png Gr
 aphic file (type png)
 
 <use ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png>
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_e
-mpirical_noH.png used on input line 349.
+mpirical_noH.png used on input line 338.
 (pdftex.def)             Requested size: 293.03154pt x 172.01723pt.
 
 [12
@@ -1254,47 +1258,47 @@ mpirical_noH.png used on input line 349.
  <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_empirical_noH.png (PNG c
 opy)>]
 <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empirical
-_noH.png, id=382, 1224.07312pt x 688.07062pt>
+_noH.png, id=424, 1224.07312pt x 688.07062pt>
 File: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empi
 rical_noH.png Graphic file (type png)
 
 <use ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_ICT_Investment_empir
 ical_noH.png>
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_
-ICT_Investment_empirical_noH.png used on input line 369.
+ICT_Investment_empirical_noH.png used on input line 361.
 (pdftex.def)             Requested size: 144.54pt x 81.24202pt.
 
 <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.png, i
-d=383, 1159.33125pt x 688.07062pt>
+d=425, 1159.33125pt x 688.07062pt>
 File: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.p
 ng Graphic file (type png)
 
 <use ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_GDP_empirical_noH.pn
 g>
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_
-GDP_empirical_noH.png used on input line 369.
+GDP_empirical_noH.png used on input line 361.
 (pdftex.def)             Requested size: 144.54pt x 85.77763pt.
 
 <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_Consumption_empirical_no
-H.png, id=384, 1159.33125pt x 688.07062pt>
+H.png, id=426, 1159.33125pt x 688.07062pt>
 File: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_Consumption_empiric
 al_noH.png Graphic file (type png)
 
 <use ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_Consumption_empirica
 l_noH.png>
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_
-Consumption_empirical_noH.png used on input line 369.
+Consumption_empirical_noH.png used on input line 361.
 (pdftex.def)             Requested size: 144.54pt x 85.77763pt.
 
 <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_noH.
-png, id=385, 1183.42125pt x 688.07062pt>
+png, id=427, 1183.42125pt x 688.07062pt>
 File: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Relative_Price_empirical
 _noH.png Graphic file (type png)
 
 <use ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Relative_Price_empirical_
 noH.png>
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Relat
-ive_Price_empirical_noH.png used on input line 369.
+ive_Price_empirical_noH.png used on input line 361.
 (pdftex.def)             Requested size: 144.54pt x 84.03477pt.
  [13
 
@@ -1303,7 +1307,7 @@ l_noH.png (PNG copy)> <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_Real_GD
 P_empirical_noH.png (PNG copy)> <../Draft_Summer2018/MainFigures/fig_ICT_Shock_
 on_Real_Consumption_empirical_noH.png (PNG copy)> <../Draft_Summer2018/MainFigu
 res/fig_ICT_Shock_on_Relative_Price_empirical_noH.png (PNG copy)>]
-Overfull \hbox (19.46475pt too wide) in paragraph at lines 395--395
+Overfull \hbox (19.46475pt too wide) in paragraph at lines 387--387
  [] 
  []
 
@@ -1312,16 +1316,16 @@ Overfull \hbox (19.46475pt too wide) in paragraph at lines 395--395
 ] [15
 
 ]
-<../Draft_Summer2018/MainFigures/Removing_FLVariables.png, id=470, 1135.99406pt
+<../Draft_Summer2018/MainFigures/Removing_FLVariables.png, id=521, 1135.99406pt
  x 647.41875pt>
 File: ../Draft_Summer2018/MainFigures/Removing_FLVariables.png Graphic file (ty
 pe png)
  <use ../Draft_Summer2018/MainFigures/Removing_FLVariables.png>
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/Removing_FLVariables.p
-ng used on input line 426.
+ng used on input line 418.
 (pdftex.def)             Requested size: 328.82872pt x 187.40086pt.
 
-Overfull \hbox (13.00302pt too wide) in paragraph at lines 426--426
+Overfull \hbox (13.00302pt too wide) in paragraph at lines 418--418
  [] 
  []
 
@@ -1330,7 +1334,7 @@ Overfull \hbox (13.00302pt too wide) in paragraph at lines 426--426
  <../Draft_Summer2018/MainFigures/Removing_FLVariables.png (PNG copy)>]
 [17
 
-] [18
+] (./Slides_Nov2018.toc) [18
 
 ] [19
 
@@ -1343,7 +1347,7 @@ Overfull \hbox (13.00302pt too wide) in paragraph at lines 426--426
 ] [23
 
 ]
-Overfull \hbox (4.21384pt too wide) in paragraph at lines 648--648
+Overfull \hbox (4.21384pt too wide) in paragraph at lines 623--623
  [] 
  []
 
@@ -1351,47 +1355,47 @@ Overfull \hbox (4.21384pt too wide) in paragraph at lines 648--648
 
 ]
 <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_IRmatching_together.png, 
-id=715, 1162.3425pt x 681.29532pt>
+id=784, 1162.3425pt x 681.29532pt>
 File: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_IRmatching_together.
 png Graphic file (type png)
 
 <use ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_IRmatching_together.p
 ng>
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_I
-Rmatching_together.png used on input line 666.
+Rmatching_together.png used on input line 641.
 (pdftex.def)             Requested size: 144.54pt x 84.71468pt.
 
 <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_ICTI_IRmatching_together.png,
- id=716, 1181.91562pt x 681.29532pt>
+ id=785, 1181.91562pt x 681.29532pt>
 File: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_ICTI_IRmatching_together
 .png Graphic file (type png)
 
 <use ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_ICTI_IRmatching_together.
 png>
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_ICTI_
-IRmatching_together.png used on input line 666.
+IRmatching_together.png used on input line 641.
 (pdftex.def)             Requested size: 144.54pt x 83.31126pt.
 
 <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_C_IRmatching_together.png, id
-=717, 1193.96063pt x 681.29532pt>
+=786, 1193.96063pt x 681.29532pt>
 File: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_C_IRmatching_together.pn
 g Graphic file (type png)
 
 <use ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_C_IRmatching_together.png
 >
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_C_IRm
-atching_together.png used on input line 666.
+atching_together.png used on input line 641.
 (pdftex.def)             Requested size: 144.54pt x 82.46921pt.
 
 <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_RP_IRmatching_together.png, i
-d=718, 1171.37625pt x 681.29532pt>
+d=787, 1171.37625pt x 681.29532pt>
 File: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_RP_IRmatching_together.p
 ng Graphic file (type png)
 
 <use ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_RP_IRmatching_together.pn
 g>
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_RP_IR
-matching_together.png used on input line 666.
+matching_together.png used on input line 641.
 (pdftex.def)             Requested size: 144.54pt x 84.05975pt.
  [25
 
@@ -1401,17 +1405,17 @@ ogether.png (PNG copy)> <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_C_IRm
 atching_together.png (PNG copy)> <../Draft_Summer2018/MainFigures/fig_ICT_Shock
 _on_RP_IRmatching_together.png (PNG copy)>]
 <../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_IRmatching_together_gam_s
-et_to0point1.png, id=746, 2569.6pt x 1405.25pt>
+et_to0point1.png, id=818, 2569.6pt x 1405.25pt>
 File: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_IRmatching_together_
 gam_set_to0point1.png Graphic file (type png)
 
 <use ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_IRmatching_together_g
 am_set_to0point1.png>
 Package pdftex.def Info: ../Draft_Summer2018/MainFigures/fig_ICT_Shock_on_TFP_I
-Rmatching_together_gam_set_to0point1.png used on input line 681.
+Rmatching_together_gam_set_to0point1.png used on input line 656.
 (pdftex.def)             Requested size: 334.05972pt x 182.6889pt.
 
-Overfull \hbox (18.23402pt too wide) in paragraph at lines 681--681
+Overfull \hbox (18.23402pt too wide) in paragraph at lines 656--656
  [] 
  []
 
@@ -1419,9 +1423,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{fig:TFP_main}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.681 \end{frame}
+l.656 \end{frame}
                  
-Overfull \vbox (0.85454pt too high) detected at line 681
+Overfull \vbox (18.73227pt too high) detected at line 656
  []
 
 [26
@@ -1435,15 +1439,100 @@ set_to0point1.png (PNG copy)>] [27
 
 ] [30
 
-] [31
-
-] [32
-
 ]
-Overfull \vbox (4.1657pt too high) detected at line 901
+<../../Figures/fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy.png, id=961, 1172
+.12906pt x 688.07062pt>
+File: ../../Figures/fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy.png Graphic 
+file (type png)
+
+<use ../../Figures/fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy.png>
+Package pdftex.def Info: ../../Figures/fig_ICT_Shock_on_TFPUtil_empirical_fullE
+conomy.png used on input line 782.
+(pdftex.def)             Requested size: 293.03154pt x 172.01723pt.
+ [31
+
+ <../../Figures/fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy.png (PNG copy)>]
+
+<../../Figures/fig_ICT_Shock_on_Consumption_empirical_fullEconomy.png, id=992, 
+1172.12906pt x 688.07062pt>
+File: ../../Figures/fig_ICT_Shock_on_Consumption_empirical_fullEconomy.png Grap
+hic file (type png)
+
+<use ../../Figures/fig_ICT_Shock_on_Consumption_empirical_fullEconomy.png>
+Package pdftex.def Info: ../../Figures/fig_ICT_Shock_on_Consumption_empirical_f
+ullEconomy.png used on input line 807.
+(pdftex.def)             Requested size: 108.405pt x 63.63503pt.
+
+<../../Figures/fig_ICT_Shock_on_GDP_empirical_fullEconomy.png, id=993, 1167.612
+18pt x 688.07062pt>
+File: ../../Figures/fig_ICT_Shock_on_GDP_empirical_fullEconomy.png Graphic file
+ (type png)
+
+<use ../../Figures/fig_ICT_Shock_on_GDP_empirical_fullEconomy.png>
+Package pdftex.def Info: ../../Figures/fig_ICT_Shock_on_GDP_empirical_fullEcono
+my.png used on input line 807.
+(pdftex.def)             Requested size: 108.405pt x 63.87651pt.
+
+<../../Figures/fig_ICT_Shock_on_Hours_empirical_fullEconomy.png, id=994, 1167.6
+1218pt x 688.07062pt>
+File: ../../Figures/fig_ICT_Shock_on_Hours_empirical_fullEconomy.png Graphic fi
+le (type png)
+
+<use ../../Figures/fig_ICT_Shock_on_Hours_empirical_fullEconomy.png>
+Package pdftex.def Info: ../../Figures/fig_ICT_Shock_on_Hours_empirical_fullEco
+nomy.png used on input line 807.
+(pdftex.def)             Requested size: 108.405pt x 63.87651pt.
+
+<../../Figures/fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy.png, id=995
+, 1221.81468pt x 688.07062pt>
+File: ../../Figures/fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy.png Gr
+aphic file (type png)
+
+<use ../../Figures/fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy.png>
+Package pdftex.def Info: ../../Figures/fig_ICT_Shock_on_ICTInvestment_empirical
+_fullEconomy.png used on input line 807.
+(pdftex.def)             Requested size: 108.405pt x 61.04175pt.
+
+<../../Figures/fig_ICT_Shock_on_Investment_empirical_fullEconomy.png, id=996, 1
+221.81468pt x 688.07062pt>
+File: ../../Figures/fig_ICT_Shock_on_Investment_empirical_fullEconomy.png Graph
+ic file (type png)
+
+<use ../../Figures/fig_ICT_Shock_on_Investment_empirical_fullEconomy.png>
+Package pdftex.def Info: ../../Figures/fig_ICT_Shock_on_Investment_empirical_fu
+llEconomy.png used on input line 807.
+(pdftex.def)             Requested size: 108.405pt x 61.04175pt.
+
+<../../Figures/fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy.png, id=
+997, 1167.61218pt x 688.07062pt>
+File: ../../Figures/fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy.png
+ Graphic file (type png)
+
+<use ../../Figures/fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy.png>
+Package pdftex.def Info: ../../Figures/fig_ICT_Shock_on_RelativePriceICT_empiri
+cal_fullEconomy.png used on input line 807.
+(pdftex.def)             Requested size: 108.405pt x 63.87651pt.
+
+Overfull \vbox (9.8314pt too high) detected at line 807
  []
 
-[33
+[32
+
+ <../../Figures/fig_ICT_Shock_on_Consumption_empirical_fullEconomy.png (PNG cop
+y)> <../../Figures/fig_ICT_Shock_on_GDP_empirical_fullEconomy.png (PNG copy)> <
+../../Figures/fig_ICT_Shock_on_Hours_empirical_fullEconomy.png (PNG copy)> <../
+../Figures/fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy.png (PNG copy)>
+ <../../Figures/fig_ICT_Shock_on_Investment_empirical_fullEconomy.png (PNG copy
+)> <../../Figures/fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy.png (
+PNG copy)>] [33
+
+] [34
+
+]
+Overfull \vbox (22.04343pt too high) detected at line 919
+ []
+
+[35
 
 ]
 \tf@nav=\write6
@@ -1455,13 +1544,13 @@ Overfull \vbox (4.1657pt too high) detected at line 901
 \tf@snm=\write8
 \openout8 = `Slides_Nov2018.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 907.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 907.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 925.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 925.
  (./Slides_Nov2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 907.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 907.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 925.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 925.
 Package rerunfilecheck Info: File `Slides_Nov2018.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: F660ACB634DB764833C58B935455CD96;99.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1470,16 +1559,16 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 907.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 925.
  ) 
 Here is how much of TeX's memory you used:
- 20336 strings out of 493089
- 384408 string characters out of 6134842
- 473339 words of memory out of 5000000
- 23238 multiletter control sequences out of 15000+600000
+ 20452 strings out of 493089
+ 388771 string characters out of 6134842
+ 475676 words of memory out of 5000000
+ 23335 multiletter control sequences out of 15000+600000
  26505 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,16n,65p,946b,568s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,65p,946b,705s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
@@ -1499,10 +1588,10 @@ e/2015/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/
 15/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/cm-super/sfsx0800.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb>
-Output written on Slides_Nov2018.pdf (33 pages, 838181 bytes).
+Output written on Slides_Nov2018.pdf (35 pages, 1222043 bytes).
 PDF statistics:
- 1037 PDF objects out of 1200 (max. 8388607)
- 945 compressed objects within 10 object streams
- 80 named destinations out of 1000 (max. 500000)
- 150 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1191 PDF objects out of 1200 (max. 8388607)
+ 1085 compressed objects within 11 object streams
+ 88 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 
