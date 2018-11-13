@@ -1,4 +1,4 @@
 \beamer@endinputifotherversion {3.36pt}
 \select@language {english}
-\beamer@sectionintoc {1}{SVAR Analysis}{7}{0}{1}
-\beamer@sectionintoc {2}{Structural Model}{18}{0}{2}
+\beamer@sectionintoc {1}{SVAR Analysis}{5}{0}{1}
+\beamer@sectionintoc {2}{Structural Model}{15}{0}{2}

@@ -39,7 +39,8 @@
 \institute[Boston College]{Boston College}
 
 
-\title[ICT \& medium-run TFP]{ICT and Future Productivity: Evidence and Theory of a GPT}
+\title[ICT \& medium-run TFP]{ICT and Future Productivity \\
+Evidence and Theory of a GPT}
 
 \date{June 2018}
 
@@ -77,6 +78,7 @@
 %%%%%%% Slide %%%%%%
 \begin{frame}
 	\frametitle{Motivation}
+	\label{motivation}
 	
 	\begin{itemize}
 		
@@ -88,52 +90,20 @@
 		
 		\
 		
-	\item The Great Recession 2008 casts doubt on whether this is all of the story (Fernald et al. (2017)).
+	\item Fernald et al. (2017): the Great Recession 2008 casts doubt on whether this is all of the story.
 	
 	\
 	
 	
 	\end{itemize} 
+	
+		\
+	
+\hyperlink{wrong_timing}{\beamerbutton{Argument}}	
 
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Wrong timing}
-	
-		\vspace{-1cm}
-	\noindent
-	\begin{figure}
-		\centering
-		\includegraphics[scale=0.28]{\ourFigPath Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04}
-	\end{figure}
-	
-	Fernald et al. (2017): ``R\&D and adoption can't be the whole story''.
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
-
-
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{}
-	
-		\noindent
-	\begin{figure}
-		\centering
-		\includegraphics[scale=0.29]{\ourFigPath Figures/fig_IT_level_macrolunch_30-Nov-2017_11_37_26}
-	\end{figure}
-	
-	\begin{itemize}
-		
-		\item [$\rightarrow$] A suspect is investment in information and communication technologies (ICT).
-	
-	
-	\end{itemize} 
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
 
 
 %%%%%%% Slide %%%%%%
@@ -141,7 +111,7 @@
 	\frametitle{This paper}
 	
 	\begin{enumerate}
-	\item Stick ICT investment (ICT-I) in a VAR and explore how an identified shock to this affects TFP.
+	\item Stick aggregate ICT investment (ICT-I) in a VAR and explore how an identified shock to this affects TFP.
 	\item [] ICT shock = a shock to the productivity of the ICT sector today
 	
 	\
@@ -249,31 +219,23 @@
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
-	\frametitle{Baseline identification}
+	\frametitle{Baseline identification: Cholesky}
 	\label{baseline_spec}
 	
-\begin{equation}\label{eq:mainObjective}
-\max_{\gamma_j} \Pi_{2,j}(0) = e_2' \tilde{A}_0 \gamma_j
-\end{equation}
-subject to
-\begin{equation}\label{eq:mainZeroTFP}
-\Pi_{1,j}(0) = e_1' \tilde{A}_0 \gamma_j = 0, \ \ \text{and}
-\end{equation}
-\begin{equation}\label{eq:mainOrtho}
-\gamma_j' \gamma_j = 1
-\end{equation}
-where $j$ represents the arbitrary position of the ICT shock.
-
+	The ICT shock is assumed to have
+	
+	\
 	
 	\begin{itemize}
-	 \item[(2)] maximal impact effect on ICTI. 
-	 \item[(3)] no impact effect on TFP. 
-	 \item[(4)]$\gamma_j$ comes from an orthogonal matrix.
+	\item no impact effect on TFP;
 	
+	\
 	
+	\item maximal impact effect on ICT-I.
 	\end{itemize}
 
-\hyperlink{VAR_notation}{\beamerbutton{VAR}}	
+
+%\hyperlink{VAR_notation}{\beamerbutton{VAR}}	
 
 \end{frame}
 %%%%%%%%%%%%%%%%%
@@ -298,30 +260,7 @@ where $j$ represents the arbitrary position of the ICT shock.
 
 \end{frame}
 %%%%%%%%%%%%%%%%%
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{Our favorite specification}
-	
-	\begin{itemize}
-	\item Recall: dataset is quarterly and covers 1989:q1-2017-q2.
-	
-	\
-	
-	\item One lag (as suggested by BIC and HQ).
-	
-	\
-	
-	\item Horizon of FEV-maximization: 60 quarters.
-	
-	\
-	
-	%\item Restriction on relative prices after a news shock is imposed at 8 quarters.
-	
-	\end{itemize}
 
-	
-\end{frame}
-%%%%%%%%%%%%%%%%%
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
@@ -509,7 +448,8 @@ $A_t^i = \eta_t \ \theta^i_t \ \textcolor{red}{(k^i_{t})^{\gamma}} $
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
-	\frametitle{Uses of outputs and GDP}
+	\frametitle{Uses of outputs}
+	\label{uses}
 
 Consumption-good sector
 
@@ -526,55 +466,21 @@ $$
 
 \
 
-GDP is 
-$$
-GDP_t = (1 - w) y^c_t+ w y^i_t \ \ \ \text{where} \ \ \ w = \frac{p_t y^i_t }{y^c_t + p_t y^i_t }
-$$
 
+\
 
-with
-
-$$
-p_t = \frac{p_t^i}{p_t^c} \quad \text{where we normalize} \quad p_t^c = 1
-$$
-
+\hyperlink{tfp_in_model}{\beamerbutton{TFP in the model}}	
 
 
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{TFP in the model}
 
-Can be computed 2 ways:
-
-\begin{align*}
-&1) \;\; TFP_t = (1 - w) TFP_t^c + w TFP_t^i \\
-\\
-& 2) \;\; g_{TFP} = g_{GDP} - a g_{k^c} -b g_{l} - (1-a-b)g_{k^i}
-\end{align*}
-
-\
-
-where for a variable $X$, $g_x \coloneqq \text{ln}\left(\frac{X_t}{X_{t-1}}\right)$.
-
-\
-
-In the model, the latter is equivalent to
-
-\begin{equation}
-g_{TFP} = g_{\eta} + wg_{\theta^c} + (1-w)g_{\theta^i} +\textcolor{red}{\gamma}  g_{k^i}
-\end{equation}
-
-
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
 	\frametitle{Impulse-response matching - does data support $\gamma>0$?}
+	\label{IRmatching}
 	
 Estimate three parameters: $\Omega = (\gamma, \ \sigma_{\iota}^2, \ \rho_{\iota})$ with
 
@@ -583,6 +489,11 @@ Estimate three parameters: $\Omega = (\gamma, \ \sigma_{\iota}^2, \ \rho_{\iota}
 \item $\rho_{\iota}=$ the persistence of the same shock
 \item $\gamma=$  the size of the spillover effect of ICT capital on TFP
 \end{itemize}
+
+\
+
+and calibrate the rest.  \hyperlink{calibration}{\beamerbutton{Calibration}}	
+
 
 
 \
@@ -642,19 +553,6 @@ We estimate $\Omega$ as
 %%%%%%%%%%%%%%%%%
 
 
-%%%%%%% Slide %%%%%%
-\begin{frame}
-	\frametitle{The spillover drives the TFP-response}
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.13]{\MainFigures/fig_ICT_Shock_on_TFP_IRmatching_together_gam_set_to0point1}
-\caption{Setting $\gamma =0.1$}
-\label{fig:TFP_main}
-\end{center}
-\end{figure}	
-
-\end{frame}
-%%%%%%%%%%%%%%%%%
 
 
 %%%%%%% Slide %%%%%%
@@ -701,6 +599,42 @@ We estimate $\Omega$ as
 %%%%%%                     APPENDIX  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Wrong timing}
+	\label{wrong_timing}
+	
+		\vspace{-1cm}
+	\noindent
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.28]{\ourFigPath Figures/fig_RD_level_macrolunch_30-Nov-2017_11_31_04}
+	\end{figure}
+	
+	Fernald et al. (2017): ``R\&D and adoption can't be the whole story''.
+	
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{}
+	
+		\noindent
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.29]{\ourFigPath Figures/fig_IT_level_macrolunch_30-Nov-2017_11_37_26}
+	\end{figure}
+	
+
+\
+
+\hyperlink{motivation}{\beamerreturnbutton{Return}}	
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
 
 %%%%%%% Slide %%%%%%
 \begin{frame}
@@ -919,6 +853,111 @@ $$
 \end{frame}
 %%%%%%%%%%%%%%%%%
 
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{TFP in the model}
+	\label{tfp_in_model}
+
+Can be computed 2 ways:
+
+\begin{align*}
+&1) \;\; TFP_t = (1 - w) TFP_t^c + w TFP_t^i \\
+\\
+& 2) \;\; g_{TFP} = g_{GDP} - a g_{k^c} -b g_{l} - (1-a-b)g_{k^i}
+\end{align*}
+
+\
+
+where for a variable $X$, $g_x \coloneqq \text{ln}\left(\frac{X_t}{X_{t-1}}\right)$.
+
+\
+
+In the model, the latter is equivalent to
+
+\begin{equation}
+g_{TFP} = g_{\eta} + wg_{\theta^c} + (1-w)g_{\theta^i} +\textcolor{red}{\gamma}  g_{k^i}
+\end{equation}
+
+\
+
+\hyperlink{uses}{\beamerreturnbutton{Return}}	
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{GDP and relative prices in the model}
+	\label{tfp_in_model}
+
+
+
+\
+
+GDP is 
+$$
+GDP_t = (1 - w) y^c_t+ w y^i_t \ \ \ \text{where} \ \ \ w = \frac{p_t y^i_t }{y^c_t + p_t y^i_t }
+$$
+
+
+with
+
+$$
+p_t = \frac{p_t^i}{p_t^c} \quad \text{where we normalize} \quad p_t^c = 1
+$$
+
+\
+
+\hyperlink{uses}{\beamerreturnbutton{Return}}	
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
+
+%%%%%%% Slide %%%%%%
+\begin{frame}
+	\frametitle{Calibration}
+	\label{calibration}
+
+\begin{table}[h!]
+\footnotesize
+	\begin{center}
+		\begin{tabular}{clcl}
+			\hline
+			 & Economic Interpretation &  Value & Reference\\
+			\hline
+            $\beta$ & Discount factor of households &   $0.97^{\frac{1}{4}}$ & Match 3M-T-bill return \\
+            $\delta^c$     & Depreciation of hard capital & $0.0206$  & BEA\\
+            $\delta^i$           & Depreciation of ICT capital &  $0.0398$ & BEA \\
+            $a$           & Hard capital share & $0.3$  & Standard value\ \\
+            $b$           & ICT capital share &  $0.031$ & Oulton (2012) \\
+            $\Gamma^c$           & Steady state growth rate of hard capital &  $1.0034$ & See below   \\
+            $\Gamma^i$           & Steady state growth rate of ICT capital &  $1.0160$ & See below\\
+            $\chi$           & Frisch elasticity &  $1$ & Standard value \\ 
+			\hline
+		\end{tabular}
+		%\caption{$\beta$: Match average yield of 3month T-bill 1989:Q1-2017:Q1. $delta^i: match the higher of two BEA annual depreciation items that both correspond to ICT }
+		\label{table:estimated_parameters}
+	\end{center}
+\end{table}	
+
+
+Get $(\Gamma^c, \Gamma^i)$ by solving the following model-implied steady state system
+
+\begin{equation}\label{equation:system_param}
+\begin{cases}
+ \frac{p_t}{p_{t-1}}  = \frac{\Gamma^c}{\Gamma^i} \\
+ \frac{c_t}{c_{t-1}}  = (\Gamma^c)^{\frac{1-b-\gamma}{1-a-b-\gamma}}  (\Gamma^i)^{\frac{b+\gamma}{1-a-b-\gamma}}
+\end{cases}
+\end{equation}
+
+
+\hyperlink{IRmatching}{\beamerreturnbutton{Return}}	
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%
 
 
 
