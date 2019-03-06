@@ -1,7 +1,7 @@
 \documentclass[hyperref={pdfpagelabels=false}]{beamer}
 \setbeamercolor{background canvas}{bg=white}
 \usepackage{graphicx,lmodern,subfigure,ulem,color,graphicx,tikz,booktabs,natbib}
-\usepackage{subfig}
+%\usepackage{subfig}
 \usepackage{mathrsfs}
 \usepackage{subfigure}
 \usetheme{Warsaw}
@@ -55,8 +55,7 @@ outer/numbering=none
 
 In this paper we focus on the \textbf{slowdown in TFP},
 \begin{itemize}
-	\item[$\Rightarrow$] Which variable actually boost productivity? Why? 
-	\item[$\Rightarrow$] Can this variable explain the recent slowdown in TFP?
+	\item[$\Rightarrow$] Which variable actually boosted productivity in the last three decades? Why? 
 \end{itemize}
 
 
@@ -82,7 +81,7 @@ In this paper we focus on the \textbf{slowdown in TFP},
 	
 	We follow an alternative avenue and focus on the relation between \textbf{Information and Communication Technology Investment} (ICTI) and total factor productivity
 	\begin{itemize}
-			\item \textit{Expenditure in equipment and computer software meant to be used in production (as an input) for more than a year.}
+			\item \textit{Acquisition of equipment and computer software meant to be used in production for more than a year.}
 			\end{itemize}
 		
 
@@ -92,9 +91,9 @@ In this paper we focus on the \textbf{slowdown in TFP},
 \frame{\frametitle{Our Contribution}
 	
 	\begin{enumerate}
-		\item \textbf{Empirical evidence} that contemporaneous jumps in ICTI explain significant and persistent increases in future TFP
+		\item \textbf{Empirical Contribution} that contemporaneous jumps in ICTI explain significant and persistent increases in future TFP
 		\begin{itemize}
-			\item SVAR techniques on U.S. aggregates to identify supply shocks specific to the ICT sector
+			\item Structural VAR techniques on U.S. aggregates to identify ICT investment shocks
 		\end{itemize}
 	
 	\
@@ -117,7 +116,7 @@ In this paper we focus on the \textbf{slowdown in TFP},
 	\frame{\frametitle{Empirical Analysis}	
 		
 
-	We estimate a structural VAR using aggregate, quarterly US data from 1989Q1 to 2017Q2. 
+	We estimate a structural VAR using aggregate quarterly US data from 1989Q1 to 2017Q2. 
 
 \begin{equation}
 X_t = B(L)X_{t-1} + \underbrace{A \varepsilon_t}_{u_t}
@@ -165,49 +164,44 @@ Focus is on the second structural shock $\varepsilon_{2,t}$
 %	\subfigure{\includegraphics[width=   0.2]{fig_ICT_Shock_on_Investment_empirical_fullEconomy}} 
 %\end{figure}	
 
-\begin{figure}
-	\centering
-	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy}}\qquad
-	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy}}\qquad
-	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_GDP_empirical_fullEconomy}}\qquad
+
+%\begin{figure}
+%	\centering
+%	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy}}\qquad
+%	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy}}\qquad
+%	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_GDP_empirical_fullEconomy}}\qquad
 	
-		\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Investment_empirical_fullEconomy}}\qquad
-	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Consumption_empirical_fullEconomy}}\qquad
-	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Hours_empirical_fullEconomy}}\qquad
-\end{figure}
+%		\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Investment_empirical_fullEconomy}}\qquad
+%	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Consumption_empirical_fullEconomy}}\qquad
+%	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Hours_empirical_fullEconomy}}\qquad
+%\end{figure}
+
 
 
 }
 
 	
 
-\frame{\frametitle{Robustness Checks and Related Exercises}
+\frame{\frametitle{Variance Decomposition Analysis and Robustness Checks}
 	
 	\begin{itemize}
-		\item ICT shocks are \textbf{important driver} of business cycle fluctuations
+		\item ICT shocks are an \textbf{important driver} of economic fluctuations
 	\begin{itemize}
-		\item[-] Almost $100$\% of ICT investment on impact
 		\item[-] Around $30$\% of TFP fluctuations over 10-year horizon 
 		\item[-] Almost $40$\% of GDP fluctuations over BC frequencies
 	\end{itemize}
 
 \
 
-\item \textbf{Results are robust} to
+\
+
+\item \textbf{Results are robust} after
 \begin{itemize}
-	\item[-] Changing the available information in the system
-	\begin{itemize}
-	\item[$\rightarrow$] Estimated ICT shocks pass Forni-Gambetti test
-	\end{itemize}
-	\item[-] Not controlling for contemporaneous TFP
-	\item[-] Controlling for news shocks \`a la Barsky and Sims
-	\item[-] Controlling for other shocks
-	\begin{itemize}
-		\item[$\rightarrow$] Ramey Military News 
-		\item[$\rightarrow$]  Romer-Romer Monetary Policy 
-		\item[$\rightarrow$]  \dots
-	\end{itemize}
+	\item[-] controlling for news shocks \`a la Barsky and Sims
+	\item[-] controlling for other shocks estimated via narrative approach
+     \item[-] ordering TFP after ICT investment
 \end{itemize}
+
 \end{itemize}
 
 
