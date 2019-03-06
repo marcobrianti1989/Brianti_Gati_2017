@@ -1,7 +1,9 @@
 \documentclass[hyperref={pdfpagelabels=false}]{beamer}
 \setbeamercolor{background canvas}{bg=white}
 \usepackage{graphicx,lmodern,subfigure,ulem,color,graphicx,tikz,booktabs,natbib}
+\usepackage{subfig}
 \usepackage{mathrsfs}
+\usepackage{subfigure}
 \usetheme{Warsaw}
 %\definecolor{beamer@blendedblue}{rgb}{0.1,0.5,0.1}
 %\definecolor{ForestGreen}{RGB}{60, 140, 60}
@@ -38,7 +40,7 @@ outer/numbering=none
 	
 		\frame{\frametitle{Motivation}
 			
-	Why did U.S. output grow so slowly since the recession trough in 2009?	
+	\textbf{Empirical Fact.} U.S. output has expanded only slowly in the aftermath of the financial crisis
 	
 	\
 	
@@ -51,11 +53,11 @@ outer/numbering=none
 \
 
 
-In this paper we focus on the slowdown in TFP,
+In this paper we focus on the \textbf{slowdown in TFP},
 \begin{itemize}
-	\item[$\Rightarrow$] Which variable(s) actually boost productivity? Why? 
+	\item[$\Rightarrow$] Which variable actually boost productivity? Why? 
+	\item[$\Rightarrow$] Can this variable explain the recent slowdown in TFP?
 \end{itemize}
-
 
 
 	}
@@ -63,22 +65,22 @@ In this paper we focus on the slowdown in TFP,
 	\frame{\frametitle{An alternative to R\&D Investment}	
 		
 		
-		Following Romer (1990) and Coming and Gertler (2006), several papers endogenize TFP through \textbf{R\&D investment}
+		Several papers endogenize TFP through \textbf{R\&D investment}
 		\begin{itemize}
-			\item Financial crisis $\Rightarrow$ $\downarrow$ $Y^D$ $\Rightarrow$ $\downarrow$ R\&D $\Rightarrow$ $\downarrow$ TFP $\Rightarrow$ $\downarrow$ $Y^S$
+			\item Financial crisis $\Rightarrow$ $\downarrow$ $Y$ $\Rightarrow$ $\downarrow$ R\&D $\Rightarrow$ $\downarrow$ TFP 
 		\end{itemize}
 		
 		
 		\
 		
-		Unfortunately, as showed by Oliner et al. (2007) and Jorgerson et al. (2008), TFP have started slowing down \textbf{before} the crisis.
-		%\begin{itemize}
-		%	\item[$\Rightarrow$] Medium-run business cycle models cannot be the full story
-		%\end{itemize}
+		However, as showed by Oliner et al. (2007) and Jorgerson et al. (2008), TFP have started slowing down \textbf{before} the crisis.
+		\begin{itemize}
+			\item[$\Rightarrow$] R\&D cannot be the full story
+		\end{itemize}
 	
 	\
 	
-	We follow an alternative avenue and focus on the relation between \textbf{information and communication technology investment} (ICTI) and future total factor productivity
+	We follow an alternative avenue and focus on the relation between \textbf{Information and Communication Technology Investment} (ICTI) and total factor productivity
 	\begin{itemize}
 			\item \textit{Expenditure in equipment and computer software meant to be used in production (as an input) for more than a year.}
 			\end{itemize}
@@ -99,9 +101,9 @@ In this paper we focus on the slowdown in TFP,
 	
 	\
 		
-		\item We analyze a \textbf{GE model} to rationalize our empirical findings and draw conclusions concerning the nature of ICT 
+		\item We analyze a \textbf{theoretical model} to rationalize our empirical findings and draw conclusions concerning the nature of ICT 
 		\begin{itemize}
-		\item We extend the two-sector model of Greenwood et al. (1997) to accommodate for the role of ICT capital in production
+		\item We extend the 2-sector GE model of Greenwood et al. (1997) to accommodate for the role of ICT capital in production
 		\end{itemize}
 	\end{enumerate}
 
@@ -112,700 +114,129 @@ In this paper we focus on the slowdown in TFP,
 }
 	
 	
-	\frame{\frametitle{Information and Communication Technology}	
-		
-		ICT Investment is defined as \textit{total expenditure in equipment and computer software meant to be used in production (as an input) for more than a year.}
-		\begin{itemize}
-			\item $\uparrow$ ICT Investment  $\Rightarrow$ $\uparrow$ ICT capital stock in the economy
-		\end{itemize}
-		
-\
-
-
-
-
-
-
-
-\
-
-
+	\frame{\frametitle{Empirical Analysis}	
 		
 
-		
-	}
+	We estimate a structural VAR using aggregate, quarterly US data from 1989Q1 to 2017Q2. 
 
-	\frame{\frametitle{Motivation: Empirical Challenge in Structural VAR}	
-	
-	Empirically distinguishing between financial and uncertainty shocks is difficult
-	\begin{itemize}
-		\item[$\Rightarrow$] financial distress is empirically associated with larger volatility 
-	\end{itemize}
-
-\
+\begin{equation}
+X_t = B(L)X_{t-1} + \underbrace{A \varepsilon_t}_{u_t}
+\end{equation}
 
 
-Within a SVAR framework, this correlation significantly complicates identification of both shocks
-\begin{enumerate}
-	\item Implausible \textbf{zero-contemporaneous restrictions}
-	\begin{itemize}
-		\item[$\Rightarrow$] Both $F_t$ and $U_t$ are fast moving
-	\end{itemize}	
-	\item Unavailable instruments for \textbf{sign restrictions}	
-	\begin{itemize}
-		\item[$\Rightarrow$] Current theoretical models predict same qualitative effects on both prices and quantities
-	\end{itemize}
-\end{enumerate}
-	
-	
-}
-
-
-
-
-
-\frame{\frametitle{My contribution}
-	
-	I want to take a step back and show evidence and theory that financial and uncertainty shocks are \textbf{qualitative different}.
-	
-	
-	\
-		
-	
-	
-	
-	In particular, 
-	
-	
-	\begin{enumerate}
-		\item \textbf{Corporate cash holdings} respond differently to financial and uncertainty shocks. 
-		\begin{itemize}
-			\item[$\Rightarrow$] Identification assumption
-			\end{itemize}
-		
-		\	
-		
-		\item I provide a \textbf{new econometric tool} to simultaneously identify two structural shocks when an internal instrument is available.\begin{itemize}
-			\item[$\Rightarrow$] Generalized Penalty Function Approach  
-		\end{itemize}
-		
-	\end{enumerate}
-}
-
-\frame{\frametitle{Roadmap}
-	\Large{
-		$ \ \ \ \ \ $ 1. \textbf{Cash Holdings}
-		
-		$ \ \ \ \ \ $ 2. Model
-		
-		$ \ \ \ \ \ $ 3. Empirical Strategy
-		
-		$ \ \ \ \ \ $ 4. Results
-		
-		$ \ \ \ \ \ $ 5. Conclusions
-	}
-}
-	
-
-\frame{\frametitle{Corporate Cash Holdings}
-	
-	\
-	
-\textbf{Cash and Cash Equivalents} refer to assets a business holds as ready cash
 \begin{itemize}
-	\item Coffer as petty cash
-	\item Bank accounts
-	\item Certificates of deposits
+	\item $X_t = [ TFP_t   \ \ ICTI_t   \ \ 	RP_t \ \ Y_t ]$ where $RP_t = \pi^{IT}_t/\pi^{CPI}_t$
+	\item $Y_t$ represents the log transformations of endogenous variables
+	\item A is Cholesky decomposition of $\Sigma_u = u_t' u_t$
+\end{itemize}	
+
+\
+
+Focus is on the second structural shock $\varepsilon_{2,t}$ 
+\begin{itemize}
+	\item[$\Rightarrow$] $\varepsilon_{2,t}$ maximizes the impact effect on $ICTI_t$ and is orthogonal to contemporaneous innovations in TFP
 \end{itemize}
 
-\
-
-U.S. large firms have cash equal to about 15\% of total assets.
-
-\
-
-It is a \textbf{stock variable}, 
-$$
-Cash_t = Cash_{t-1} + NY_t + \delta K_t - I_t + B_t - D_t.
-$$
-
-
-
-}
-
-
-\frame{\frametitle{Cross-Sectional Evidence}
 	
-	\textbf{Cash} and \textbf{Financial Frictions}
-	\begin{itemize}
-		\item[$\Rightarrow$] Cash is a substitute for external finance 
-		\item[] \textit{Kaplan and Zingales (1997); Almeida, et al. (2004); Campello at al. (2010); Campello et al. (2011).}
-	\end{itemize}
+	}
 
-\
+	\frame{
+\frametitle{Impulse Response of TFP to $\varepsilon_{2,t}$}
 
-\textbf{Cash} and \textbf{Uncertainty}
-	\begin{itemize}
-	\item[$\Rightarrow$] Cash is positively associated with uncertainty shocks 
-	\item[] \textit{Han and Qiu (2007); Baum et al. (2008); Bloom et al. (2018); Alfaro et al. (2018).}
-\end{itemize}
-
-
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.25]{fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy}
+		\label{fig:TFP_main}
+	\end{center}
+\end{figure}
 }
-		
 
 
-\frame{\frametitle{Aggregate Evidence}
-
-Aggregate quarterly cash (CHEQ) and assets (ATQ) using \textbf{Compustat} from 1961 to 2018.
-
-\
-
-Remove seasonality using 7-term Henderson filter on aggregate cash and aggregate assets and obtain \textbf{Cash2Assets}.
-
-\
 
 
-	\begin{table}[h!]
+\frame{
+	\frametitle{Impulse Responses of $X_t$ to $\varepsilon_{2,t}$}
+
+
+%\begin{figure}[h!]
+%	\subfigure{\includegraphics[width=  0.2]{fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy}} \hspace{.2in} 
+%	\subfigure{\includegraphics[width=  0.2]{fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy}} \hspace{.2in} 
+%	\subfigure{\includegraphics[width=   0.2]{fig_ICT_Shock_on_GDP_empirical_fullEconomy}} \hspace{.2in} 
+%	\subfigure{\includegraphics[width=   0.2]{fig_ICT_Shock_on_Investment_empirical_fullEconomy}} 
+%\end{figure}	
+
+\begin{figure}
 	\centering
-	\begin{tabular}{llcc} \hline \hline
-		                         & $\Delta$GDP         & U                &                   F    \\ 
-		\hline
-		\textit{Correlations}    &                     &                  &                                            \\ 
-		U                        &      $-0.48^{***}$                &                  &                    \\
-		F                        &  $-0.36^{***}$   &     $0.22^{***}$       &                             \\ 
-		C2A                      &     $-0.06  $               &       $0.43^{***}$      &            $-0.37^{***}$           \\ 
-		\hline \hline
-	\end{tabular}
-\end{table}
-
+	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy}}\qquad
+	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy}}\qquad
+	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_GDP_empirical_fullEconomy}}\qquad
+	
+		\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Investment_empirical_fullEconomy}}\qquad
+	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Consumption_empirical_fullEconomy}}\qquad
+	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Hours_empirical_fullEconomy}}\qquad
+\end{figure}
 
 
 }
 
-\frame{\frametitle{Roadmap}
-	\Large{
-		$ \ \ \ \ \ $ 1. Cash Holdings
-		
-		$ \ \ \ \ \ $ 2. \textbf{Model}
-		
-		$ \ \ \ \ \ $ 3. Empirical Strategy
-		
-		$ \ \ \ \ \ $ 4. Results
-		
-		$ \ \ \ \ \ $ 5. Conclusions
-	}
-}
 	
+
+\frame{\frametitle{Robustness Checks and Related Exercises}
 	
-%\frame{\frametitle{Economic Intuition I}	
-		
-%To provide an economic intuition of the differential response of \textbf{cash holdings} to uncertainty and financial shocks, I present a properly augmented model in the spirit of 
-%\begin{itemize}
-	%\item Almeida, Campello, and Weisbach (2004)
-	%\item Han and Qiu (2007)
-%\end{itemize}
-
-%\
-
-%It is a simple representation of a dynamic setting where a credit-constrained profit-maximizing firm has a trade-off between present and future investment opportunities
-		
-%}
-
-\frame{\frametitle{Model - General Setup}
-
-\begin{itemize}
-
-\item \textbf{Three-period partial equilibrium} model
-
-\	
-
-\item Firm \textbf{maximizes} sum of \textbf{dividends} 
-\begin{itemize}
-\item Discount factor $\beta$ is one
-\end{itemize}
-
-\
-
-\item \textbf{Choice variables} are
-\begin{itemize}
-	\item \textbf{Investments} $i_0$ and $i_1$ in period 0 and 1
-	\item Amount to \textbf{borrow} $b_0$ and $b_1$ in period 0 and 1
-	\item \textbf{Cash} $c$ in period 0 to be carried in period 1
-\end{itemize}
-
-\
-
-
-\item Feature \textbf{financial frictions} in the form of risk premium
-
-\
-
-\item \textbf{Gross returns} $g(\cdot)$ happen in the last period for both investments
-\begin{itemize}
-	\item where $g'(\cdot) > 0$ and $g''(\cdot) < 0$.
-\end{itemize}
-	
+	\begin{itemize}
+		\item ICT shocks are \textbf{important driver} of business cycle fluctuations
+	\begin{itemize}
+		\item[-] Almost $100$\% of ICT investment on impact
+		\item[-] Around $30$\% of TFP fluctuations over 10-year horizon 
+		\item[-] Almost $40$\% of GDP fluctuations over BC frequencies
 	\end{itemize}
 
-
-
-
-
-}
-
-\frame{\frametitle{Model - Analytical Setup}
-	
-	
-
-\begin{itemize}
-	\item[]
-\begin{itemize}
-     \item[Period 0] $ \ \ \ d_0 = y_0 + b_0 - i_0 - c$
-	
-	\
-	
-	
-	\item[Period 1] $ \ \ \ d_1 = y_1 + b_1 - i_1 + c, \ \ \ $ where $ \ y_1 \sim F(y_0,\sigma^2)$
-	
-	\
-	
-	
-	\item[Period 2] $ \ \ \ d_2 = g(i_0) - b_0(1 + r_0) + g(i_1) - b_1(1 + r_1)$
-\end{itemize}
-\end{itemize}
-
-\begin{eqnarray*}
-	\begin{aligned}
-\max_{\{ b_t,i_t,c \}_{t=0,1}} \ \ &\E \Big[  d_0 + d_1 + d_2     \Big| F  \Big] \\
-\text{subject to} \ \ &r_0 = \frac{1}{2}\alpha_0 b_0 \ \ \text{and} \ \ r_1 = \frac{1}{2}\alpha_1 b_1 \\
-&d_t \geq 0, \ \ \ t = 0,1,2 \\
-\end{aligned}
-\end{eqnarray*}
-
 \
 
-\begin{center}
-Financial shock: $\uparrow \alpha_0$ $ \ \ \ \ $ vs $ \ \ \ \ $ Uncertainty shock: $\uparrow \sigma^2$
-\end{center}
-	
-}
-
-
-\frame{\frametitle{Solution}
-	
-	Assuming that firm needs external finance in equilibrium, model implies: 
+\item \textbf{Results are robust} to
 \begin{itemize}
-	\item $i_0 = y_0 + b_0 - c$,
-	\item $i_1 = y_1 + b_1 + c$,
-\end{itemize}
-and first order conditions are
-\begin{itemize}
-	\item[$b_0:$] $g'(y_0 + b_0^* - c^*) = \underbrace{1 + \alpha_0 b_0^*}_{\text{Marginal Cost of $i_0$}}$
-	
-	
-	\
-	
-	\item[$b_1:$] $\E \Big[ g'(y_1 + b_1^* + c^*) \Big] = \underbrace{1 + \alpha_1 b_1^*}_{\text{Marginal Cost of $i_1$}}$
-	
-	
-	\
-	
-	
-	\item[$c:$] $\underbrace{\E \Big[ g'(y_1 + b_1^* + c^*) \Big]}_{\text{Expected Marginal Return of $i_1$}} = \underbrace{g'(y_0 + b_0^* - c^*)}_{\text{Marginal Return of $i_0$}}$
-\end{itemize}
-
-}
-
-
-%$\E_0 \Big[ g(y_t) \Big] > 1$ for $t=0,1$
-%\begin{itemize}
-	%\item[$\Rightarrow$] $d_t = 0 \ \ $ for $ \ t=0,1$
-%\end{itemize}
-
-%Objective function is,
-%\begin{eqnarray*}
-	%\begin{aligned}
-	%	\max_{b_0,b_1,c} \ \ &g \big( i_0 \big) - b_0 - \frac{1}{2} \alpha_0 b_0^2 - y_0 + \E \bigg[  g \big( i_1 \big) - b_1 - \frac{1}{2} \alpha_1 b_1^2 - y_1   \bigg| F     \bigg]
-	%\end{aligned}
-%\end{eqnarray*}
-
-\frame{\frametitle{Comparative Statics}
-	
-\begin{itemize}
-	\item[$b_0:$] $g'(y_0 + b_0^* - c^*) = \underbrace{1 + \alpha_0 b_0^*}_{\text{Marginal Cost of $i_0$}}$
-	
-	
-	\
-	
-	\item[$b_1:$] $\E \Big[ g'(y_1 + b_1^* + c^*) \Big] = \underbrace{1 + \alpha_1 b_1^*}_{\text{Marginal Cost of $i_1$}}$
-	
-	
-	\
-	
-	
-	\item[$c:$] $\underbrace{\E \Big[ g'(y_1 + b_1^* + c^*) \Big]}_{\text{Expected Marginal Return of $i_1$}} = \underbrace{g'(y_0 + b_0^* - c^*)}_{\text{Marginal Return of $i_0$}}$
-\end{itemize}
-
-\
-	
-\textbf{Uncertainty shock}: $y_1 \sim Q$ which is mean-preserving spread in $F$
-	\begin{enumerate}
-	\item[$\Rightarrow$] $c^*(\alpha_0,Q) > c^*(\alpha_0,F)$ as long as $g'''(\cdot) > 0$
-\end{enumerate}
-
-\
-
-\textbf{Financial shock}: $\alpha_0^f > \alpha_0$ which is an exogenous increase in $r_0$
-	\begin{enumerate}
-	\item[$\Rightarrow$] $c^*(\alpha_0^f,F) < c^*(\alpha_0,F)$ 
-\end{enumerate}
-
-
-
-}
-
-
-
-\frame{\frametitle{Roadmap}
-	\Large{
-		$ \ \ \ \ \ $ 1. Cash Reserves
-		
-		$ \ \ \ \ \ $ 2. Model
-		
-		$ \ \ \ \ \ $ 3. \textbf{Empirical Strategy}
-		
-		$ \ \ \ \ \ $ 4. Results
-		
-		$ \ \ \ \ \ $ 5. Conclusions
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-\frame{\frametitle{Empirical Analysis}
-	
-	
-
-Given the reduced-form system $X_t = B(L) X_{t-1} + \iota_t$ where
-
-$$
-X_t = \begin{bmatrix}
-U_t \\
-F_t \\
-GDP_t \\
-C_t \\
-I_t \\
-H_t \\
-C2A_t \\
-GDPDef_t \\
-\end{bmatrix}
-$$ 
-
-\
-
-Dataset ranges from 1978q1 to 2015q3.
-
-
-	
-}
-
-\frame{\frametitle{Objective of the Empirical Strategy}
-
-Given the reduced-form system $X_t = B(L) X_{t-1} + \iota_t$, 
-
-$\Rightarrow$ find a rotation of $\Sigma_{\iota} = \iota_t' \iota_t$ such that
-
-\begin{enumerate}
-	\item it allows $F_t$ and $U_t$ to respond to both shocks on \textbf{impact}
-	\item it respects \textbf{sign-restriction} assumptions on cash
-	\item it is \textbf{unique}
-	\item it delivers shocks \textbf{orthogonal} to each other
-	\item it is unaffected by the \textbf{order} of the estimation
-\end{enumerate}
-
-
-}
-
-
-
-
-
-\frame{\frametitle{Sequential Penalty Function Approach ($\delta \geq 0$)} 
-	
-	\
-	
-	\textbf{1. Uncertainty Shock}
-	\begin{eqnarray*}
-		\begin{aligned}
-		\max_{\gamma_{U}} \ \ \ \ \ &  \ \underbrace{e_U A_0 \gamma_U}_{\text{Impact on U}} \ \ \  + \ \ \ \textcolor{red}{\delta} \underbrace{e_{C} A_0 \gamma_U}_{\text{Impact on Cash}} \\
-		\end{aligned}
-	\end{eqnarray*}
-
-\textbf{Intuition}. $\gamma_{U}$ increases both uncertainty and cash on impact.
-
-\
-
-	\textbf{2. Financial Shock}
-	\begin{eqnarray*}
-		\begin{aligned}
-		\max_{\gamma_{F}} \ \ \ \ \ & \  \underbrace{e_F A_0 \gamma_F}_{\text{Impact on F}} \ \ \  - \ \ \  \textcolor{red}{\delta} \underbrace{e_{C} A_0 \gamma_F}_{\text{Impact on Cash}} \ \ s.t. \ \ \underbrace{\textcolor{red}{\gamma_U \gamma_F' = 0}}_{\text{Orthogonality with U shock}} \\
-		\end{aligned}
-	\end{eqnarray*}
-
-\textbf{Intuition}. $\gamma_{F}$ increases uncertainty and decreases cash on impact.
-	
-}
-
-\frame{\frametitle{Sequential Penalty Function Approach ($\delta \geq 0$)} 
-	
-		\
-	
-	\textbf{1. Financial Shock}
-	\begin{eqnarray*}
-		\begin{aligned}
-			\max_{\gamma_{F}} \ \ \ \ \ & \  \underbrace{e_F A_0 \gamma_F}_{\text{Impact on F}} \ \ \  - \ \ \  \textcolor{red}{\delta} \underbrace{e_{C} A_0 \gamma_F}_{\text{Impact on Cash}}  \\
-		\end{aligned}
-	\end{eqnarray*}
-	
-	\textbf{Intuition}. $\gamma_{F}$ increases uncertainty and decreases cash on impact.
-	
-	\
-	
-	\textbf{2. Uncertainty Shock}
-	\begin{eqnarray*}
-		\begin{aligned}
-			\max_{\gamma_{U}} \ \ \ \ \ &  \ \underbrace{e_U A_0 \gamma_U}_{\text{Impact on U}} \ \ \  + \ \ \ \textcolor{red}{\delta} \underbrace{e_{C} A_0 \gamma_U}_{\text{Impact on Cash}} \ \ s.t. \ \ \underbrace{\textcolor{red}{\gamma_U \gamma_F' = 0}}_{\text{Orthogonality with F shock}} \\
-		\end{aligned}
-	\end{eqnarray*}
-	
-	\textbf{Intuition}. $\gamma_{U}$ increases both uncertainty and cash on impact.
-	
-}
-
-\frame{\frametitle{Generalized Penalty Function Approach} 
-
-	\
-	
-	\textbf{1. Financial Shock}
-	\begin{eqnarray*}
-		\begin{aligned}
-			\max_{\gamma_{F}} \ \ \ \ \ & \  \underbrace{e_F A_0 \gamma_F}_{\text{Impact on F}} \ \ \  - \ \ \  \textcolor{red}{\delta^*} \underbrace{e_{C} A_0 \gamma_F}_{\text{Impact on Cash}}  \\
-		\end{aligned}
-	\end{eqnarray*}
-	
-	
-	\textbf{2. Uncertainty Shock}
-	\begin{eqnarray*}
-		\begin{aligned}
-			\max_{\gamma_{U}} \ \ \ \ \ &  \ \underbrace{e_U A_0 \gamma_U}_{\text{Impact on U}} \ \ \  + \ \ \ \textcolor{red}{\delta^*} \underbrace{e_{C} A_0 \gamma_U}_{\text{Impact on Cash}}  \\
-		\end{aligned}
-	\end{eqnarray*}
-
-where $\textcolor{red}{\delta^*}$ is chosen such that $\textcolor{red}{\gamma_U \gamma_F' = 0}$.
-
-\	 
-
-\textbf{Economic Intuition.} Weight of sign restrictions should be large enough such that the two shocks are separated without any external constraint.
-
-}
-
-
-%	\text{subject to} \ \ \ \ \  & \ \delta \geq 0 \ \ \ \ \ \ \text{and} \ \ \ \ \ \  \underbrace{\gamma_U \gamma_U' = 1}_{\text{Normalization}}
-
-%		\text{subject to} \ \ \ \ \ \ & \ \delta \geq 0, \ \ \ \ \ \ \ \underbrace{\gamma_F \gamma_F' = 1}_{\text{Normalization}}, \ \ \ \ \ \ \text{and} 
-
-
-
-\frame{\frametitle{Roadmap}
-	\Large{
-		$ \ \ \ \ \ $ 1. Cash Reserves
-		
-		$ \ \ \ \ \ $ 2. Model
-		
-		$ \ \ \ \ \ $ 3. Empirical Strategy
-		
-		$ \ \ \ \ \ $ 4. \textbf{Results}
-		
-		$ \ \ \ \ \ $ 5. Conclusions
-	}
-}
-
-\frame{\frametitle{Uncertainty Shock}
-
-	
-
-	
-}
-
-\frame{\frametitle{Financial Shock}
-	
-
-		
-}
-
-
-
-\frame{\frametitle{Variance Explained}
-	
-
-	
-}
-
-\frame{\frametitle{Roadmap}
-	\Large{
-		$ \ \ \ \ \ $ 1. Cash Reserves
-		
-		$ \ \ \ \ \ $ 2. Model
-		
-		$ \ \ \ \ \ $ 3. Empirical Strategy
-		
-		$ \ \ \ \ \ $ 4. Results
-		
-		$ \ \ \ \ \ $ 5. \textbf{Conclusions}
-	}
-}
-
-\frame{\frametitle{Conclusions}
-	
-	
-
-	
-
-
-\begin{itemize}
-	
-	
-
-\item \textbf{Cash reserves} as an internal instrument to simultaneously identify financial and uncertainty shocks.
-
-\
-
-\item An \textbf{econometric tool} to overcome known SVAR shortcomings
-\begin{itemize}
-	\item[$\Rightarrow$] Tests using simulated data confirm the reliability of the procedure. See \textbf{Appendix A}.
-\end{itemize}
-
-\
-
-
-\item Empirical results confirm the \textbf{relevance} and \textbf{exogeneity} of both shocks.
-\begin{itemize}
-	\item[$\Rightarrow$] Correlations with external shocks is available in \textbf{Appendix B}.
-\end{itemize}
-
-\
-
-
-\item \textbf{Financial shocks} have larger effects in the \textbf{short run} while \textbf{uncertainty shocks} have a more \textbf{persistent} effect.
-
-\end{itemize}
-
-
-}
-
-\frame{\frametitle{Next Steps}
-	
-	\begin{enumerate}
-
-\item Empirical evidence in favor of my identification assumption
-
-\begin{itemize}
-	\item Using \textbf{Quarterly Financial Report} data to show that my results are mostly driven by small firms 
-	\item Merging \textbf{Compustat} and \textbf{TRACE} to show firm-level evidence of the differential response of cash
-	$$
-	\frac{Cash_{it}}{Assets_{it}} = \underbrace{\beta^U}_{(+)} U_{it} + \underbrace{\beta^F}_{(-)} F_{it} + \beta^X X_{it} + \delta_i + \lambda_t + \varepsilon_{it}
-	$$
-\end{itemize}
-
-
-\
-
-
-\item Design and analyze a \textbf{dynamic GE model} 
-\begin{itemize}
-	
-	\item to show my identification assumption survives to GE effects
-	
-	\item to test whether GPFA can recover both shocks
-	
-\end{itemize}
-
-
-\end{enumerate}
-
-}
-
-\frame{\frametitle{Appendix A - Simulated Data and Generalized PFA}
-	
-	Consider the following structural model,
-	
+	\item[-] Changing the available information in the system
 	\begin{itemize}
-		\item $U_t = B_{UU} U_{t-1} + B_{UF} F_{t-1}  + B_{UC} C_{t-1}  +  A_{UU}s_t^U  +  A_{UF}s_t^F$
-		\item $F_t = B_{FU} U_{t-1} + B_{FF} F_{t-1}  + B_{FC} C_{t-1}  +  A_{FU}s_t^U  +  A_{FF}s_t^F$
-		\item $C_t = B_{CU} U_{t-1} - B_{CF} F_{t-1}  + B_{CC} C_{t-1}  +  A_{CU}s_t^U  -  A_{CF}s_t^F$
-		\end{itemize}
-where $s_t^U \sim N(0, \sigma^2_U)$, $s_t^F \sim N(0, \sigma^2_F)$ and $s_t^U \perp s_t^F$.
-
-\
-	
-	Objective is to estimate structural parameters 
+	\item[$\rightarrow$] Estimated ICT shocks pass Forni-Gambetti test
+	\end{itemize}
+	\item[-] Not controlling for contemporaneous TFP
+	\item[-] Controlling for news shocks \`a la Barsky and Sims
+	\item[-] Controlling for other shocks
 	\begin{itemize}
-		\item using only $X_t = [U_t, \ F_t, \ C_t]$, and
-		\item only knowing that $A_{ji} \geq 0$ for $j,i = \{U, \ F, \ C \}$.
-	\end{itemize} 
-	$\Rightarrow$ apply GPFA to test reliability of the econometric tool
+		\item[$\rightarrow$] Ramey Military News 
+		\item[$\rightarrow$]  Romer-Romer Monetary Policy 
+		\item[$\rightarrow$]  \dots
+	\end{itemize}
+\end{itemize}
+\end{itemize}
+
+
+
 }
 
 
-\frame{\frametitle{Appendix A - Small Sample Performance (T = 100)}
+\frame{\frametitle{Takeaway}
 	
-
+	We identify a shock specific to the ICT sector where prices and quantities move in different directions
+	
+	\
+	
+	Altough TFP does not move on impact, it start rising significantly after a couple of years
+	\begin{itemize}
+		\item this effect is significant and economically meaningful
+	\end{itemize}
 
 	
+\begin{itemize}
+	\item Supply shocks specific to the ICT sector explain a large part of medium-run TFP fluctuations
+	\begin{itemize}
+		\item[-] ICT prices fall relatively to CPI
+	\end{itemize}
+	\item Shocks which explains large part of TFP fluctuations
+\end{itemize}
+
 }
-
-
-
-\frame{\frametitle{Appendix A - Large Sample Performance (T = 100000)}
-	
-	
-	
-}
-
-
-\frame{\frametitle{Appendix B - Correlations with Other External Shocks}
-	
-	
-	\begin{table}[h!]
-		\centering
-		\begin{tabular}{lrr} \hline \hline
-			                & \textbf{Uncertainty Shocks} & \textbf{Financial Shocks} \\ 
-			                \hline
-			\textit{External Shocks} &                    &                      \\ 
-			BZP Military News        & $-0.10$  $(0.24)$  &   $0.08$  $(0.31)$   \\ 
-			Ramey Military news      &  $0.07$  $(0.44)$  &   $0.02$  $(0.82)$   \\ 
-			LWY Exp. Tax             &  $0.03$  $(0.74)$  &   $0.15$  $(0.11)$   \\ 
-			RRMR Unexp. Tax          & $-0.13$  $(0.16)$  &   $0.05$  $(0.59)$   \\ 
-		    RRMR Exp. Tax            & $-0.08$  $(0.36)$  &   $0.03$  $(0.76)$   \\ 
-		    AdjTFP AR(1)             &  $0.08$  $(0.31)$  &  $-0.14$  $(0.11)$   \\ 
-		    RR Mon. Policy           & $-0.13$  $(0.18)$  &  $-0.04$  $(0.70)$   \\ 
-		    \hline \hline
-		\end{tabular}
-	\end{table}
 		
-	
-}
-
 
 
 

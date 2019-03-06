@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  5 MAR 2019 10:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.21)  6 MAR 2019 10:44
 entering extended mode
 **"./Brianti Gati March 2019.tex"
 ("Brianti Gati March 2019.tex"
@@ -851,6 +851,38 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count171
 )
+(C:\Users\th3\AppData\Roaming\MiKTeX\2.9\tex\latex\subfig\subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(C:\Users\th3\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(C:\Users\th3\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen275
+\captionmargin@=\dimen276
+\captionwidth=\dimen277
+\caption@tempdima=\dimen278
+\caption@indent=\dimen279
+\caption@parindent=\dimen280
+\caption@hangindent=\dimen281
+)
+\c@ContinuedFloat=\count172
+Package caption Info: beamer document class.
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+Package caption Info: subfigure package is loaded.
+)
+\c@KVtest=\count173
+\sf@farskip=\skip66
+\sf@captopadj=\dimen282
+\sf@capskip=\skip67
+\sf@nearskip=\skip68
+\sf@top=\skip69
+\sf@bottom=\skip70
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\mathrsfs.sty"
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
@@ -872,19 +904,19 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
 Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
-\col@sep=\dimen275
-\extrarowheight=\dimen276
+\col@sep=\dimen283
+\extrarowheight=\dimen284
 \NC@list=\toks46
-\extratabsurround=\skip66
-\backup@length=\skip67
+\extratabsurround=\skip71
+\backup@length=\skip72
 )
-\rotheadsize=\dimen277
-\c@nlinenum=\count172
+\rotheadsize=\dimen285
+\c@nlinenum=\count174
 \TeXr@lab=\toks47
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 23.
+(hyperref)                removing `\\' on input line 25.
 
 
 (C:\Users\th3\AppData\Roaming\MiKTeX\2.9\tex\latex\beamertheme-metropolis\beame
@@ -901,30 +933,30 @@ rinnerthememetropolis.sty
 Package: beamerinnerthememetropolis 2017/01/23 Metropolis inner theme
  ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count173
-\calc@Bcount=\count174
-\calc@Adimen=\dimen278
-\calc@Bdimen=\dimen279
-\calc@Askip=\skip68
-\calc@Bskip=\skip69
+\calc@Acount=\count175
+\calc@Bcount=\count176
+\calc@Adimen=\dimen286
+\calc@Bdimen=\dimen287
+\calc@Askip=\skip73
+\calc@Bskip=\skip74
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count175
-\calc@Cskip=\skip70
+\calc@Ccount=\count177
+\calc@Cskip=\skip75
 )
-\metropolis@titleseparator@linewidth=\skip71
-\metropolis@progressonsectionpage=\skip72
-\metropolis@progressonsectionpage@linewidth=\skip73
-\metropolis@blocksep=\skip74
-\metropolis@blockadjust=\skip75
-\metropolis@parskip=\skip76
+\metropolis@titleseparator@linewidth=\skip76
+\metropolis@progressonsectionpage=\skip77
+\metropolis@progressonsectionpage@linewidth=\skip78
+\metropolis@blocksep=\skip79
+\metropolis@blockadjust=\skip80
+\metropolis@parskip=\skip81
 )
 (C:\Users\th3\AppData\Roaming\MiKTeX\2.9\tex\latex\beamertheme-metropolis\beame
 routerthememetropolis.sty
 Package: beamerouterthememetropolis 2017/01/23 Metropolis outer theme
-\metropolis@frametitle@padding=\skip77
-\metropolis@progressinheadfoot=\skip78
-\metropolis@progressinheadfoot@linewidth=\skip79
+\metropolis@frametitle@padding=\skip82
+\metropolis@progressinheadfoot=\skip83
+\metropolis@progressinheadfoot@linewidth=\skip84
 )
 (C:\Users\th3\AppData\Roaming\MiKTeX\2.9\tex\latex\beamertheme-metropolis\beame
 rcolorthememetropolis.sty
@@ -941,21 +973,21 @@ aTeX to use the Fira fonts on input line 95.
 )) ("Brianti Gati March 2019.aux")
 \openout1 = `"Brianti Gati March 2019.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 35.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmss.fd"
@@ -997,16 +1029,16 @@ File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (C:\Users\th3\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count176
-\scratchdimen=\dimen280
+\scratchcounter=\count178
+\scratchdimen=\dimen288
 \scratchbox=\box61
-\nofMPsegments=\count177
-\nofMParguments=\count178
+\nofMPsegments=\count179
+\nofMParguments=\count180
 \everyMPshowfont=\toks50
-\MPscratchCnt=\count179
-\MPscratchDim=\dimen281
-\MPnumerator=\count180
-\makeMPintoPDFobject=\count181
+\MPscratchCnt=\count181
+\MPscratchDim=\dimen289
+\MPnumerator=\count182
+\makeMPintoPDFobject=\count183
 \everyMPtoPDFconversion=\toks51
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1023,7 +1055,7 @@ G,.JBIG2,.JB2,.eps]
 )
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring OFF on input line 33.
+Package hyperref Info: Link coloring OFF on input line 35.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1031,62 +1063,62 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count182
+\c@section@level=\count184
 )
-LaTeX Info: Redefining \ref on input line 33.
-LaTeX Info: Redefining \pageref on input line 33.
-LaTeX Info: Redefining \nameref on input line 33.
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \nameref on input line 35.
 
 ("Brianti Gati March 2019.out") ("Brianti Gati March 2019.out")
 \@outlinefile=\write5
 \openout5 = `"Brianti Gati March 2019.out"'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 33.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 35.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/bx/n on input line 33.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/bx/n on input line 35.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 33.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 35.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 33.
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 35.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> OT1/lmr/m/n on input line 33.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 33.
+(Font)                  OT1/lmss/m/n --> OT1/lmr/m/n on input line 35.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> OT1/lmss/bx/n on input line 33.
+(Font)                  OT1/lmr/bx/n --> OT1/lmss/bx/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/lmss/bx/n on input line 33.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 33.
+(Font)                  OT1/lmr/bx/n --> OT1/lmss/bx/n on input line 35.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/m/n on input line 33.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/m/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> OT1/lmss/m/n on input line 33.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 33.
+(Font)                  OT1/lmss/bx/n --> OT1/lmss/m/n on input line 35.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> OT1/lmss/m/it on input line 33.
+(Font)                  OT1/lmr/m/it --> OT1/lmss/m/it on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> OT1/lmss/m/it on input line 33.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 33.
+(Font)                  OT1/lmr/bx/it --> OT1/lmss/m/it on input line 35.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 33.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 33.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 35.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/bx/n on input line 33.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/bx/n on input line 35.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/lmss/m/it --> OT1/lmss/bx/it on input line 33.
+(Font)                  OT1/lmss/m/it --> OT1/lmss/bx/it on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/bx/n --> OT1/lmr/bx/n on input line 33.
+(Font)                  OT1/lmss/bx/n --> OT1/lmr/bx/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> OT1/lmss/bx/n on input line 33.
+(Font)                  OT1/lmss/bx/n --> OT1/lmss/bx/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/bx/n on input line 33.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/bx/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmss/m/it --> OT1/lmss/bx/it on input line 33.
+(Font)                  OT1/lmss/m/it --> OT1/lmss/bx/it on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/bx/n on input line 33.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/bx/n on input line 35.
 
 (C:\Users\th3\AppData\Roaming\MiKTeX\2.9\tex\latex\beamer\translator\dicts\tran
 slator-basic-dictionary\translator-basic-dictionary-English.dict
@@ -1112,192 +1144,282 @@ Dictionary: translator-numbers-dictionary, Language: English
 slator-theorem-dictionary\translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+! Undefined control sequence.
+<argument> \sf@counterlist 
+                           
+l.35 \begin{document}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 ("Brianti Gati March 2019.nav")
-Overfull \vbox (39.70624pt too high) detected at line 35
+Overfull \vbox (39.70624pt too high) detected at line 37
  []
 
 [1
 
 {C:/Users/th3/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 61.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 63.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 61.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 63.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 61.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 63.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 61.
+(Font)              <10.95> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 61.
+(Font)              <8> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 61.
-LaTeX Font Info:    Try loading font information for U+msa on input line 61.
+(Font)              <6> on input line 63.
+LaTeX Font Info:    Try loading font information for U+msa on input line 63.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 61.
+LaTeX Font Info:    Try loading font information for U+msb on input line 63.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 61.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 63.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 61.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 63.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 61.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 63.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 61.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 63.
  [2
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+lmss on input line 88.
+LaTeX Font Info:    Try loading font information for OMS+lmss on input line 90.
 
-LaTeX Font Info:    No file OMSlmss.fd. on input line 88.
+LaTeX Font Info:    No file OMSlmss.fd. on input line 90.
 
 
 LaTeX Font Warning: Font shape `OMS/lmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 88.
+(Font)              for symbol `textbullet' on input line 90.
 
 
-Overfull \vbox (7.67043pt too high) detected at line 88
+Overfull \vbox (14.14543pt too high) detected at line 90
  []
 
 [3
 
 ] [4
 
-] [5
+]
+Overfull \vbox (5.17883pt too high) detected at line 141
+ []
+
+[5
 
 ]
+<fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy.png, id=53, 1172.12906pt x 688.
+07062pt>
+File: fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy.png Graphic file (type png
+)
+ <use fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy.png>
+Package pdftex.def Info: fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy.png use
+d on input line 152.
+(pdftex.def)             Requested size: 293.03154pt x 172.01723pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 161.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 161.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 161.
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 161.
-
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <7> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 161.
-
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <5> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 161.
+(Font)              <12> on input line 152.
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <12> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 152.
 
  [6
 
-] [7
+ <./fig_ICT_Shock_on_TFPUtil_empirical_fullEconomy.png (PNG copy)>]
 
-]
+! LaTeX Error: No counter 'subfigure@save' defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+<fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy.png, id=61, 1221.81468pt 
+x 688.07062pt>
+File: fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy.png Graphic file (ty
+pe png)
+ <use fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy.png>
+Package pdftex.def Info: fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy.p
+ng used on input line 180.
+(pdftex.def)             Requested size: 85.34932pt x 85.35767pt.
+
+
+! LaTeX Error: No counter 'subfigure@save' defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+<fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy.png, id=62, 1167.61218
+pt x 688.07062pt>
+File: fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy.png Graphic file 
+(type png)
+
+<use fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy.png>
+Package pdftex.def Info: fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconom
+y.png used on input line 180.
+(pdftex.def)             Requested size: 85.35791pt x 85.35767pt.
+
+
+! LaTeX Error: No counter 'subfigure@save' defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+<fig_ICT_Shock_on_GDP_empirical_fullEconomy.png, id=63, 1167.61218pt x 688.0706
+2pt>
+File: fig_ICT_Shock_on_GDP_empirical_fullEconomy.png Graphic file (type png)
+ <use fig_ICT_Shock_on_GDP_empirical_fullEconomy.png>
+Package pdftex.def Info: fig_ICT_Shock_on_GDP_empirical_fullEconomy.png used on
+ input line 180.
+(pdftex.def)             Requested size: 85.35791pt x 85.35767pt.
+
+
+! LaTeX Error: No counter 'subfigure@save' defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+<fig_ICT_Shock_on_Investment_empirical_fullEconomy.png, id=64, 1221.81468pt x 6
+88.07062pt>
+File: fig_ICT_Shock_on_Investment_empirical_fullEconomy.png Graphic file (type 
+png)
+ <use fig_ICT_Shock_on_Investment_empirical_fullEconomy.png>
+Package pdftex.def Info: fig_ICT_Shock_on_Investment_empirical_fullEconomy.png 
+used on input line 180.
+(pdftex.def)             Requested size: 85.34932pt x 85.35767pt.
+
+
+! LaTeX Error: No counter 'subfigure@save' defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+<fig_ICT_Shock_on_Consumption_empirical_fullEconomy.png, id=65, 1172.12906pt x 
+688.07062pt>
+File: fig_ICT_Shock_on_Consumption_empirical_fullEconomy.png Graphic file (type
+ png)
+ <use fig_ICT_Shock_on_Consumption_empirical_fullEconomy.png>
+Package pdftex.def Info: fig_ICT_Shock_on_Consumption_empirical_fullEconomy.png
+ used on input line 180.
+(pdftex.def)             Requested size: 85.3483pt x 85.35767pt.
+
+
+! LaTeX Error: No counter 'subfigure@save' defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+<fig_ICT_Shock_on_Hours_empirical_fullEconomy.png, id=66, 1167.61218pt x 688.07
+062pt>
+File: fig_ICT_Shock_on_Hours_empirical_fullEconomy.png Graphic file (type png)
+ <use fig_ICT_Shock_on_Hours_empirical_fullEconomy.png>
+Package pdftex.def Info: fig_ICT_Shock_on_Hours_empirical_fullEconomy.png used 
+on input line 180.
+(pdftex.def)             Requested size: 85.35791pt x 85.35767pt.
+ [7
+
+ <./fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy.png (PNG copy)> <./fig
+_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy.png (PNG copy)> <./fig_ICT
+_Shock_on_GDP_empirical_fullEconomy.png (PNG copy)> <./fig_ICT_Shock_on_Investm
+ent_empirical_fullEconomy.png (PNG copy)> <./fig_ICT_Shock_on_Consumption_empir
+ical_fullEconomy.png (PNG copy)> <./fig_ICT_Shock_on_Hours_empirical_fullEconom
+y.png (PNG copy)>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 207.
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 207.
+(Font)              <10> on input line 215.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 215.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 215.
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 215.
+
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <7> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 215.
+
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <5> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 215.
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 215.
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <9> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 215.
 
  [8
 
-]
-Overfull \vbox (0.76888pt too high) detected at line 234
- []
-
-[9
-
-] [10
-
-] [11
-
-] [12
-
-]
-Overfull \vbox (7.9427pt too high) detected at line 355
- []
-
-[13
-
-] [14
-
-] [15
-
-]
-Overfull \vbox (16.71402pt too high) detected at line 466
- []
-
-[16
-
-] [17
-
-] [18
-
-] [19
-
-]
-Overfull \hbox (27.11952pt too wide) in alignment at lines 567--567
- [][][] []
- []
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 567.
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 567.
-
-[20
-
-]
-Overfull \hbox (27.11972pt too wide) in alignment at lines 593--593
- [][][] []
- []
-
-[21
-
-]
-Overfull \vbox (5.87921pt too high) detected at line 620
- []
-
-[22
-
-] [23
-
-] [24
-
-] [25
-
-] [26
-
-] [27
-
-] [28
-
-] [29
-
-] [30
-
-] [31
-
-] [32
-
-]
-Overfull \hbox (4.75812pt too wide) in paragraph at lines 807--807
- [] 
- []
-
-[33
+] [9
 
 ]
 \tf@nav=\write6
@@ -1309,11 +1431,11 @@ Overfull \hbox (4.75812pt too wide) in paragraph at lines 807--807
 \tf@snm=\write8
 \openout8 = `"Brianti Gati March 2019.snm"'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 821.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 821.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 252.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 252.
  ("Brianti Gati March 2019.aux")
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 821.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 821.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 252.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 252.
 Package rerunfilecheck Info: File `"Brianti Gati March 2019".out' has not chang
 ed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
@@ -1323,32 +1445,31 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 21378 strings out of 493323
- 425293 string characters out of 3139072
- 489930 words of memory out of 3000000
- 24312 multiletter control sequences out of 15000+200000
- 72149 words of font info for 80 fonts, out of 3000000 for 9000
+ 22477 strings out of 493323
+ 447829 string characters out of 3139072
+ 508878 words of memory out of 3000000
+ 25436 multiletter control sequences out of 15000+200000
+ 72158 words of font info for 80 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,21n,89p,1818b,789s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Fil
-es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Files/MiKTeX 2.9/fon
-ts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/l
-m-rm.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+ 56i,14n,98p,1818b,789s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/M
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ma
+thex.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm
-/lmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/lm/lmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/lm/lmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso8.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/lm/lmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Brianti Gati March 2019.pdf" (33 pages, 246262 bytes).
+/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmss10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/lm/lmss8.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/lm/lmss9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso1
+0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso12.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso8.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/lm/lmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy9.pfb>
+Output written on "Brianti Gati March 2019.pdf" (9 pages, 565881 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
- 67 named destinations out of 1000 (max. 500000)
- 55 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 143 PDF objects out of 1000 (max. 8388607)
+ 20 named destinations out of 1000 (max. 500000)
+ 90 words of extra memory for PDF output out of 10000 (max. 10000000)
 
