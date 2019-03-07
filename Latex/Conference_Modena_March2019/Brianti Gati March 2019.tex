@@ -20,11 +20,10 @@
 
 
 
-\title{ICT-Specific Investment Shocks and Economic Fluctuations}
-%\\ \bigskip \\ \normalsize{Evidence and Theory of a General-Purpose Technology}
+\title{ICT-Specific Investment Shocks and Economic Fluctuations \bigskip \\ \normalsize{Evidence and Theory of a General-Purpose Technology}}
 \author{Marco Brianti, Boston College\\Laura G\'ati, Boston College}
 \institute{Convegno RECent\\Modena}
-\date{March 2019}
+\date{\textit{March 2019}}
 
 \usetheme[
 outer/progressbar=foot,
@@ -39,6 +38,8 @@ outer/numbering=none
 
 	
 		\frame{\frametitle{Motivation}
+
+\bigskip
 			
 	\textbf{Empirical Fact.} U.S. output has expanded only slowly in the aftermath of the financial crisis
 	
@@ -88,21 +89,28 @@ In this paper we focus on the \textbf{slowdown in TFP},
 	
 }
 
-\frame{\frametitle{Our Contribution}
+\frame{\frametitle{This Paper}
+
+\bigskip
 	
 	\begin{enumerate}
-		\item \textbf{Empirical Contribution} that contemporaneous jumps in ICTI explain significant and persistent increases in future TFP
+		\item We identify ICT investment shocks using \textbf{SVAR} techniques
 		\begin{itemize}
-			\item Structural VAR techniques on U.S. aggregates to identify ICT investment shocks
+			\item A contemporaneous increase in ICT investment leads to delayed, persistent, and large rise in productivity
+             \item Historical decomposition confirms that the doc-com crash explains most of the slowdown in TFP since 2006 
 		\end{itemize}
 	
 	\
 	
 	\
 		
-		\item We analyze a \textbf{theoretical model} to rationalize our empirical findings and draw conclusions concerning the nature of ICT 
+		\item We analyze a \textbf{general equilibrium model} to rationalize our empirical findings 
 		\begin{itemize}
-		\item We extend the 2-sector GE model of Greenwood et al. (1997) to accommodate for the role of ICT capital in production
+		\item Our identified shocks can be interpreted as supply shocks specific to the ICT sector
+         \item ICT capital goods boosts productivity of ICT users thorugh a positive externality
+\begin{itemize}
+\item[$\Rightarrow$] The effectiveness of ICT depends on its own level of diffusion
+\end{itemize}
 		\end{itemize}
 	\end{enumerate}
 
@@ -156,25 +164,25 @@ Focus is on the second structural shock $\varepsilon_{2,t}$
 \frame{
 	\frametitle{Impulse Responses of $X_t$ to $\varepsilon_{2,t}$}
 
+\bigskip
 
-%\begin{figure}[h!]
-%	\subfigure{\includegraphics[width=  0.2]{fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy}} \hspace{.2in} 
-%	\subfigure{\includegraphics[width=  0.2]{fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy}} \hspace{.2in} 
-%	\subfigure{\includegraphics[width=   0.2]{fig_ICT_Shock_on_GDP_empirical_fullEconomy}} \hspace{.2in} 
-%	\subfigure{\includegraphics[width=   0.2]{fig_ICT_Shock_on_Investment_empirical_fullEconomy}} 
-%\end{figure}	
-
-
-%\begin{figure}
-%	\centering
-%	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy}}\qquad
-%	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy}}\qquad
-%	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_GDP_empirical_fullEconomy}}\qquad
-	
-%		\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Investment_empirical_fullEconomy}}\qquad
-%	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Consumption_empirical_fullEconomy}}\qquad
-%	\subfloat{\includegraphics[height=3cm,width=3cm]{fig_ICT_Shock_on_Hours_empirical_fullEconomy}}\qquad
-%\end{figure}
+\begin{columns}[t]
+\column{.3\textwidth}
+\centering
+\includegraphics[width=3.5cm,height=3.5cm]{fig_ICT_Shock_on_ICTInvestment_empirical_fullEconomy}\\
+\bigskip
+\includegraphics[width=3.5cm,height=3.5cm]{fig_ICT_Shock_on_Investment_empirical_fullEconomy} 
+\column{.3\textwidth}
+\centering
+\includegraphics[width=3.5cm,height=3.5cm]{fig_ICT_Shock_on_RelativePriceICT_empirical_fullEconomy}\\
+\bigskip
+\includegraphics[width=3.5cm,height=3.5cm]{fig_ICT_Shock_on_Consumption_empirical_fullEconomy}
+\column{.3\textwidth}
+\centering
+\includegraphics[width=3.5cm,height=3.5cm]{fig_ICT_Shock_on_GDP_empirical_fullEconomy}\\
+\bigskip
+\includegraphics[width=3.5cm,height=3.5cm]{fig_ICT_Shock_on_Hours_empirical_fullEconomy}
+\end{columns}
 
 
 
@@ -182,63 +190,140 @@ Focus is on the second structural shock $\varepsilon_{2,t}$
 
 	
 
-\frame{\frametitle{Variance Decomposition Analysis and Robustness Checks}
+\frame{\frametitle{Related Exercises and Robustness Checks}
+
+\bigskip
 	
 	\begin{itemize}
-		\item ICT shocks are an \textbf{important driver} of economic fluctuations
+		\item \textbf{Variance Decomposition Analysis}
 	\begin{itemize}
 		\item[-] Around $30$\% of TFP fluctuations over 10-year horizon 
 		\item[-] Almost $40$\% of GDP fluctuations over BC frequencies
 	\end{itemize}
+\item[$\Rightarrow$]  ICT shocks are an \textbf{important driver} of economic fluctuations
+
 
 \
 
-\
-
-\item \textbf{Results are robust} after
+\item \textbf{Historical Decomposition Analysis}
 \begin{itemize}
-	\item[-] controlling for news shocks \`a la Barsky and Sims
-	\item[-] controlling for other shocks estimated via narrative approach
-     \item[-] ordering TFP after ICT investment
+\item[-] Large negative shocks in 2000-2001 (dot-com crash) explain the slowdown in TFP since 2006
+\end{itemize}
+\item[$\Rightarrow$] ICT shocks \textbf{rationalize} the facts by Fernald et al. (2017)
+
+
+\
+
+\item \textbf{Resulness Checks} 
+\begin{itemize}
+	\item[-] Controlling for news shocks \`a la Barsky and Sims
+	\item[-] Controlling for other shocks estimated via narrative approach
+\end{itemize}
+\item[$\Rightarrow$]  ICT shocks are \textbf{not confounded} with other shocks
 \end{itemize}
 
+}
+
+
+
+
+\frame{\frametitle{Model}
+
+
+
+Main objectives of theoretical analysis
+\begin{itemize}
+\item[1.] Providing structural interpretation to the identified shocks
+\begin{itemize}
+\item[$\Rightarrow$] ICT shocks move price and quantities in different directions
+\end{itemize}
+\item[2.] Rationalize the relation between current ICT investment and future TFP
+\begin{itemize}
+\item[$\Rightarrow$] Why current ICT investment drives future TFP?
+\end{itemize}
+\end{itemize}
+
+\
+
+We extend and analyze a 2-sector GE model in the spirit of Greenwood et al. (2007). Two main assumptions are in place,
+\begin{itemize}
+\item[1.] Second sector specifically produce ICT durable goods to be used as inputs in both sectors' production function
+\item[2.] Agents fail to internalize that productivity of both sectors positively depends of the overall ICT diffusion in the economy
 \end{itemize}
 
 
 
 }
 
+\frame{\frametitle{Main Equations}
 
-\frame{\frametitle{Takeaway}
-	
-	We identify a shock specific to the ICT sector where prices and quantities move in different directions
-	
-	\
-	
-	Altough TFP does not move on impact, it start rising significantly after a couple of years
-	\begin{itemize}
-		\item this effect is significant and economically meaningful
-	\end{itemize}
 
-	
-\begin{itemize}
-	\item Supply shocks specific to the ICT sector explain a large part of medium-run TFP fluctuations
-	\begin{itemize}
-		\item[-] ICT prices fall relatively to CPI
-	\end{itemize}
-	\item Shocks which explains large part of TFP fluctuations
-\end{itemize}
+Consumption-good sector
+\begin{eqnarray}\label{equation:production_FINAL}
+y^c_t(j) = A^c_t \ \big( k^c_{t}(j) \big)^a \ \big( k^i_{t}(j) \big)^b \ \big( l_{t}(j) \big)^{1-a-b}
+\end{eqnarray}
+
+\
+
+ICT-good sector
+\begin{eqnarray}\label{equation:productionICT}
+y^i_t(q) = A_t^i \ \big( k^c_{t}(q) \big)^a \ \big( k^i_{t}(q) \big)^b \ \big( l_{t}(q) \big)^{1-a-b}
+\end{eqnarray}
+
+\
+
+where
+
+\centering
+$ A_t^c = \eta_t \ \theta^c_t \ \textcolor{red}{(k^i_{t})^{\gamma}} \ \ \ \text{and} \ \ \ A_t^i = \eta_t \ \theta^i_t \ \textcolor{red}{(k^i_{t})^{\gamma}} $	
+
+
+
+
 
 }
 		
 
 
+\frame{\frametitle{Conclusions}
+
+\begin{itemize}
+\item Structural VAR analysis unfolds a novel relation between current ICT investment and future TFP
+\begin{itemize}
+\item[-] Unexpected jumps of ICT investment leads to delayed and persistent rise in productivity
+\end{itemize}
+
+\
+
+\item Theoretical analysis suggests to interpret ICT capital as the general purpose technology of the last three decades
+\begin{itemize}
+\item[-] ICT diffusions increases the productivity of both ICT users and producers
+\end{itemize}
+
+\
+
+\item The fall in ICT investment during the doc-com crash has the right timing to rationalize the structural break in TFP
+\end{itemize}
+
+
+}
 
 
 
 
 
+\frame{\frametitle{Estimated Shocks}
 
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.25]{Removing_FLVariables}
+		\label{fig:TFP_main}
+	\end{center}
+\end{figure}
+
+
+}
 
 
 
